@@ -1,0 +1,65 @@
+
+2.20.0
+
+A manual page, info page, and Russian language translation were added.
+Build files were also updated.
+
+
+0.0.16
+
+A license menu has been added to the File Properties dialog. The quiz window now
+includes a text entry area. New options have been added to the Preferences
+dialog. New tagging and searching features have been added. CSV import and
+export have been improved.
+
+
+0.0.15
+
+A German language translation has been added, a bug affecting case-insensitive
+searching was fixed, and changes are now saved if the computer shuts down.
+
+Ignuit is now an official GNU package with a project page at Savannah :^)
+
+  http://savannah.gnu.org/projects/ignuit/
+  http://ftp.gnu.org/gnu/ignuit/
+
+
+0.0.14
+
+The package now uses the latest GNU build files, and LaTeX support has been
+improved. Several minor bugs have been fixed.
+
+
+0.0.13
+
+Several new audio and search features were added. Initial support for LaTeX was
+also added. File properties can now include an optional homepage address.
+jMemorize and Mnemosyne compatibility have been improved. Icons and buttons now
+follow GNOME theme guidelines. Many other small changes were made.
+
+
+0.0.12
+
+Several new tagging, search, and user interface features were implemented.
+
+
+0.0.11
+
+Images and audio files can now be embedded in cards. New formatting tags were
+added. A memory leak was fixed. 
+
+
+0.0.9
+
+Card expiry time is now based on the hour of testing. The card editor's undo
+and redo feature has been improved. Several bugs have been fixed.
+
+
+-----
+
+    Copyright (C) 2008, 2009 Timothy Richard Musson
+
+    Copying and distribution of this file, with or without modification,
+    are permitted provided the copyright notice and this notice are
+    preserved.
+

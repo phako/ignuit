@@ -1,0 +1,24 @@
+# List of source files containing translatable strings.
+# Please keep this file sorted alphabetically.
+[encoding: UTF-8]
+data/glade/editor.glade
+data/glade/find.glade
+data/glade/main.glade
+data/glade/preferences.glade
+data/glade/properties.glade
+data/glade/quiz.glade
+data/glade/tagger.glade
+data/ignuit.desktop.in.in
+data/ignuit.schemas.in
+src/app-window.c
+src/card.c
+src/dialog-about.c
+src/dialog-editor.c
+src/dialog-preferences.c
+src/dialog-properties.c
+src/dialog-quiz.c
+src/dialog-tagger.c
+src/file.c
+src/fileio.c
+src/main.c
+src/textview.c

@@ -1,0 +1,115 @@
+DESCRIPTION
+===========
+
+Ignuit is a memorization aid based on the Leitner flashcard system. It has a
+GNOME look and feel, a good selection of quiz options, and supports UTF-8. Cards
+can include embedded audio, images, and mathematical formulae (via LaTeX). It
+can import and export several file formats, including CSV. Ignuit can be used
+for both long-term learning and cramming.
+
+Ignuit is an official GNU package with a project page at Savannah:
+
+  http://savannah.gnu.org/projects/ignuit/
+
+The most recent version of ignuit is available here:
+
+  http://ftp.gnu.org/gnu/ignuit/
+
+Ignuit's homepage includes a few example flashcard files:
+
+  http://homepages.ihug.co.nz/~trmusson/programs.html#ignuit
+
+
+VERSION NUMBERING
+=================
+
+In ignuit-x.y.z, the 'x.y' part represents the GTK2 version that this
+ignuit package was developed with. The 'z' part represents ignuit
+releases since the last 'x.y' change.
+
+
+REQUIREMENTS
+============
+
+This version of ignuit was developed using Ubuntu 8.04. To compile it, you'll
+need the development files for:
+
+    libgnomeui-2.0 >= 2.24.3
+    libglade-2.0 >= 2.6.4
+    libxslt >= 1.1.26
+    gconf-2.0 >= 2.28.1
+    gstreamer >= 0.10.28
+
+    You'll also need:
+
+    gnome-common
+    gnome-core-devel
+    intltool (>= 0.40.1)    http://freshmeat.net/projects/intltool
+
+
+If you'd like LaTeX support, you'll also need dvipng and LaTeX (e.g. the texlive
+package if you're using Debian, Ubuntu, etc). If you're seeing messages like
+"[LaTeX render failed]" in Quiz windows, check that you have texlive and dvipng
+installed.
+
+
+INSTALLATION
+============
+
+Please see the file named INSTALL for details.
+
+Under GNU/Linux, compilation and installation go something like this:
+
+  $ cd ignuit-x.y.z
+  $ ./configure --prefix=/usr/local
+  $ make
+  $ sudo make install-strip
+  $ make clean
+
+If the installation step results in warnings about schemas, try adding the
+following arguments to ./configure:
+
+  --disable-schemas-install
+  --disable-scrollkeeper
+
+
+To uninstall it:
+
+  $ cd ignuit-x.y.z
+  $ sudo make uninstall
+
+
+USING IT
+========
+
+The user guide should open when you hit F1 or select "Help" from the "Help"
+menu. If that doesn't answer your question, please email me (address below).
+
+
+WHAT ELSE?
+==========
+
+See the TODO file. There are lots of ideas, lots of things I don't know how to
+do, lots of things I mightn't be able to do without help. If there's anything
+you're interested in, get in touch!
+
+Please send bugs, fixes and suggestions to:
+
+    Tim <trmusson@gmail.com>
+
+Or try ignuit's new bug tracker at Savannah:
+
+    http://savannah.gnu.org/projects/ignuit/
+
+
+Have fun! :^)
+
+
+-----
+
+    Copyright (C) 2008, 2009, 2012 Timothy Richard Musson
+
+    Copying and distribution of this file, with or without modification,
+    are permitted provided the copyright notice and this notice are
+    preserved.
+

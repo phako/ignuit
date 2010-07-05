@@ -1,0 +1,245 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<deck version='1' title='Countries and Capitals' author='' description='Countries and their capitals, derived from the Debian GNU/Linux 4.0 &quot;miscfiles&quot; package.' homepage='' license='' license-uri='' style='1'>
+<category title='Countries and Capitals'>
+<card grp='0' crt='733068'><front>Afghanistan</front><back>Kabul</back></card>
+<card grp='0' crt='733068'><front>Åland Islands</front><back>Mariehamn</back></card>
+<card grp='0' crt='733068'><front>Albania</front><back>Tirana</back></card>
+<card grp='0' crt='733068'><front>Algeria</front><back>Algiers</back></card>
+<card grp='0' crt='733068'><front>American Samoa</front><back>Pago Pago</back></card>
+<card grp='0' crt='733068'><front>Andorra</front><back>Andorra la Vella</back></card>
+<card grp='0' crt='733068'><front>Angola</front><back>Luanda</back></card>
+<card grp='0' crt='733068'><front>Anguilla</front><back>The Valley</back></card>
+<card grp='0' crt='733068'><front>Antigua and Barbuda</front><back>St. John&apos;s</back></card>
+<card grp='0' crt='733068'><front>Argentina</front><back>Buenos Aires</back></card>
+<card grp='0' crt='733068'><front>Armenia</front><back>Yerevan</back></card>
+<card grp='0' crt='733068'><front>Aruba</front><back>Oranjestad</back></card>
+<card grp='0' crt='733068'><front>Australia</front><back>Canberra</back></card>
+<card grp='0' crt='733068'><front>Austria</front><back>Vienna</back></card>
+<card grp='0' crt='733068'><front>Azerbaijan</front><back>Baku</back></card>
+<card grp='0' crt='733068'><front>Bahamas</front><back>Nassau</back></card>
+<card grp='0' crt='733068'><front>Bahrain</front><back>Manama</back></card>
+<card grp='0' crt='733068'><front>Bangladesh</front><back>Dhaka</back></card>
+<card grp='0' crt='733068'><front>Barbados</front><back>Bridgetown</back></card>
+<card grp='0' crt='733068'><front>Belarus</front><back>Minsk</back></card>
+<card grp='0' crt='733068'><front>Belgium</front><back>Brussels</back></card>
+<card grp='0' crt='733068'><front>Belize</front><back>Belmopan</back></card>
+<card grp='0' crt='733068'><front>Benin</front><back>Porto-Novo (official capital)
+Cotonou (seat of government)</back></card>
+<card grp='0' crt='733068'><front>Bermuda</front><back>Hamilton</back></card>
+<card grp='0' crt='733068'><front>Bhutan</front><back>Thimphu</back></card>
+<card grp='0' crt='733068'><front>Bolivia</front><back>La Paz (seat of government)
+Sucre (legal capital and seat of judiciary)</back></card>
+<card grp='0' crt='733068'><front>Bosnia and Herzegovina</front><back>Sarajevo</back></card>
+<card grp='0' crt='733068'><front>Botswana</front><back>Gaborone</back></card>
+<card grp='0' crt='733068'><front>Brazil</front><back>Brasilia</back></card>
+<card grp='0' crt='733068'><front>British Virgin Islands</front><back>Road Town</back></card>
+<card grp='0' crt='733068'><front>Brunei Darussalam</front><back>Bandar Seri Begawan</back></card>
+<card grp='0' crt='733068'><front>Bulgaria</front><back>Sofia</back></card>
+<card grp='0' crt='733068'><front>Burkina Faso</front><back>Ouagadougou</back></card>
+<card grp='0' crt='733068'><front>Burundi</front><back>Bujumbura</back></card>
+<card grp='0' crt='733068'><front>Cambodia</front><back>Phnom Penh</back></card>
+<card grp='0' crt='733068'><front>Cameroon</front><back>Yaoundé</back></card>
+<card grp='0' crt='733068'><front>Canada</front><back>Ottawa</back></card>
+<card grp='0' crt='733068'><front>Cape Verde</front><back>Praia</back></card>
+<card grp='0' crt='733068'><front>Cayman Islands</front><back>George Town</back></card>
+<card grp='0' crt='733068'><front>Central African Republic</front><back>Bangui</back></card>
+<card grp='0' crt='733068'><front>Chad</front><back>N&apos;Djamena</back></card>
+<card grp='0' crt='733068'><front>Chile</front><back>Santiago</back></card>
+<card grp='0' crt='733068'><front>China</front><back>Beijing</back></card>
+<card grp='0' crt='733068'><front>Colombia</front><back>Bogota</back></card>
+<card grp='0' crt='733068'><front>Comoros</front><back>Moroni</back></card>
+<card grp='0' crt='733068'><front>Congo</front><back>Brazzaville</back></card>
+<card grp='0' crt='733068'><front>Cook Islands</front><back>Avarua</back></card>
+<card grp='0' crt='733068'><front>Costa Rica</front><back>San José</back></card>
+<card grp='0' crt='733068'><front>Côte d&apos;Ivoire</front><back>Yamoussoukro (official capital)
+Abidjan (administrative center)</back></card>
+<card grp='0' crt='733068'><front>Croatia</front><back>Zagreb</back></card>
+<card grp='0' crt='733068'><front>Cuba</front><back>Havana</back></card>
+<card grp='0' crt='733068'><front>Cyprus</front><back>Nicosia</back></card>
+<card grp='0' crt='733068'><front>Czech Republic</front><back>Prague</back></card>
+<card grp='0' crt='733068'><front>Democratic People&apos;s Republic of Korea</front><back>Pyongyang</back></card>
+<card grp='0' crt='733068'><front>Democratic Republic of the Congo</front><back>Kinshasa</back></card>
+<card grp='0' crt='733068'><front>Denmark</front><back>Copenhagen</back></card>
+<card grp='0' crt='733068'><front>Djibouti</front><back>Djibouti</back></card>
+<card grp='0' crt='733068'><front>Dominica</front><back>Roseau</back></card>
+<card grp='0' crt='733068'><front>Dominican Republic</front><back>Santo Domingo</back></card>
+<card grp='0' crt='733068'><front>Ecuador</front><back>Quito</back></card>
+<card grp='0' crt='733068'><front>Egypt</front><back>Cairo</back></card>
+<card grp='0' crt='733068'><front>El Salvador</front><back>San Salvador</back></card>
+<card grp='0' crt='733068'><front>Equatorial Guinea</front><back>Malabo</back></card>
+<card grp='0' crt='733068'><front>Eritrea</front><back>Asmara</back></card>
+<card grp='0' crt='733068'><front>Estonia</front><back>Tallinn</back></card>
+<card grp='0' crt='733068'><front>Ethiopia</front><back>Addis Ababa</back></card>
+<card grp='0' crt='733068'><front>Faeroe Islands</front><back>Tórshavn</back></card>
+<card grp='0' crt='733068'><front>Falkland Islands (Malvinas)</front><back>Stanley</back></card>
+<card grp='0' crt='733068'><front>Federated States of Micronesia</front><back>Palikir</back></card>
+<card grp='0' crt='733068'><front>Fiji</front><back>Suva</back></card>
+<card grp='0' crt='733068'><front>Finland</front><back>Helsinki</back></card>
+<card grp='0' crt='733068'><front>France</front><back>Paris</back></card>
+<card grp='0' crt='733068'><front>French Guiana</front><back>Cayenne</back></card>
+<card grp='0' crt='733068'><front>French Polynesia</front><back>Papeete</back></card>
+<card grp='0' crt='733068'><front>Gabon</front><back>Libreville</back></card>
+<card grp='0' crt='733068'><front>Gambia</front><back>Banjul</back></card>
+<card grp='0' crt='733068'><front>Georgia</front><back>T&apos;bilisi</back></card>
+<card grp='0' crt='733068'><front>Germany</front><back>Berlin</back></card>
+<card grp='0' crt='733068'><front>Ghana</front><back>Accra</back></card>
+<card grp='0' crt='733068'><front>Gibraltar</front><back>Gibraltar</back></card>
+<card grp='0' crt='733068'><front>Greece</front><back>Athens</back></card>
+<card grp='0' crt='733068'><front>Greenland</front><back>Nuuk</back></card>
+<card grp='0' crt='733068'><front>Grenada</front><back>St. George&apos;s</back></card>
+<card grp='0' crt='733068'><front>Guadeloupe</front><back>Basse-Terre</back></card>
+<card grp='0' crt='733068'><front>Guam</front><back>Hagåtña</back></card>
+<card grp='0' crt='733068'><front>Guatemala</front><back>Guatemala</back></card>
+<card grp='0' crt='733068'><front>Guinea</front><back>Conakry</back></card>
+<card grp='0' crt='733068'><front>Guinea-Bissau</front><back>Bissau</back></card>
+<card grp='0' crt='733068'><front>Guyana</front><back>Georgetown</back></card>
+<card grp='0' crt='733068'><front>Haiti</front><back>Port-au-Prince</back></card>
+<card grp='0' crt='733068'><front>Holy See</front><back>Vatican City</back></card>
+<card grp='0' crt='733068'><front>Honduras</front><back>Tegucigalpa</back></card>
+<card grp='0' crt='733068'><front>Hungary</front><back>Budapest</back></card>
+<card grp='0' crt='733068'><front>Iceland</front><back>Reykjavik</back></card>
+<card grp='0' crt='733068'><front>India</front><back>New Delhi</back></card>
+<card grp='0' crt='733068'><front>Indonesia</front><back>Jakarta</back></card>
+<card grp='0' crt='733068'><front>Iran</front><back>Tehran</back></card>
+<card grp='0' crt='733068'><front>Iraq</front><back>Baghdad</back></card>
+<card grp='0' crt='733068'><front>Ireland</front><back>Dublin</back></card>
+<card grp='0' crt='733068'><front>Isle of Man</front><back>Douglas</back></card>
+<card grp='0' crt='733068'><front>Israel</front><back>Jerusalem</back></card>
+<card grp='0' crt='733068'><front>Italy</front><back>Rome</back></card>
+<card grp='0' crt='733068'><front>Jamaica</front><back>Kingston</back></card>
+<card grp='0' crt='733068'><front>Japan</front><back>Tokyo</back></card>
+<card grp='0' crt='733068'><front>Jordan</front><back>&apos;Amman</back></card>
+<card grp='0' crt='733068'><front>Kazakhstan</front><back>Astana</back></card>
+<card grp='0' crt='733068'><front>Kenya</front><back>Nairobi</back></card>
+<card grp='0' crt='733068'><front>Kiribati</front><back>Tarawa</back></card>
+<card grp='0' crt='733068'><front>Kuwait</front><back>Kuwait</back></card>
+<card grp='0' crt='733068'><front>Kyrgyzstan</front><back>Bishkek</back></card>
+<card grp='0' crt='733068'><front>Lao People&apos;s Democratic Republic</front><back>Vientiane</back></card>
+<card grp='0' crt='733068'><front>Latvia</front><back>Riga</back></card>
+<card grp='0' crt='733068'><front>Lebanon</front><back>Beirut</back></card>
+<card grp='0' crt='733068'><front>Lesotho</front><back>Maseru</back></card>
+<card grp='0' crt='733068'><front>Liberia</front><back>Monrovia</back></card>
+<card grp='0' crt='733068'><front>Libyan Arab Jamahiriya</front><back>Tripoli</back></card>
+<card grp='0' crt='733068'><front>Liechtenstein</front><back>Vaduz</back></card>
+<card grp='0' crt='733068'><front>Lithuania</front><back>Vilnius</back></card>
+<card grp='0' crt='733068'><front>Luxembourg</front><back>Luxembourg</back></card>
+<card grp='0' crt='733068'><front>Madagascar</front><back>Antananarivo</back></card>
+<card grp='0' crt='733068'><front>Malawi</front><back>Lilongwe</back></card>
+<card grp='0' crt='733068'><front>Malaysia</front><back>Kuala Lumpur (official)
+Putrajaya (administrative)</back></card>
+<card grp='0' crt='733068'><front>Maldives</front><back>Malé</back></card>
+<card grp='0' crt='733068'><front>Mali</front><back>Bamako</back></card>
+<card grp='0' crt='733068'><front>Malta</front><back>Valletta</back></card>
+<card grp='0' crt='733068'><front>Marshall Islands</front><back>Majuro</back></card>
+<card grp='0' crt='733068'><front>Martinique</front><back>Fort-de-France</back></card>
+<card grp='0' crt='733068'><front>Mauritania</front><back>Nouakchott</back></card>
+<card grp='0' crt='733068'><front>Mauritius</front><back>Port Louis</back></card>
+<card grp='0' crt='733068'><front>Mayotte</front><back>Mamoutzou</back></card>
+<card grp='0' crt='733068'><front>Mexico</front><back>Mexico</back></card>
+<card grp='0' crt='733068'><front>Monaco</front><back>Monaco</back></card>
+<card grp='0' crt='733068'><front>Mongolia</front><back>Ulaanbaatar</back></card>
+<card grp='0' crt='733068'><front>Montserrat</front><back>Plymouth (abandoned), Brades Estate (interim)</back></card>
+<card grp='0' crt='733068'><front>Morocco</front><back>Rabat</back></card>
+<card grp='0' crt='733068'><front>Mozambique</front><back>Maputo</back></card>
+<card grp='0' crt='733068'><front>Myanmar</front><back>Rangoon</back></card>
+<card grp='0' crt='733068'><front>Namibia</front><back>Windhoek</back></card>
+<card grp='0' crt='733068'><front>Nepal</front><back>Kathmandu</back></card>
+<card grp='0' crt='733068'><front>Netherlands</front><back>Amsterdam (official)
+The Hague (seat of government)</back></card>
+<card grp='0' crt='733068'><front>Netherlands Antilles</front><back>Willemstad</back></card>
+<card grp='0' crt='733068'><front>New Caledonia</front><back>Noumea</back></card>
+<card grp='0' crt='733068'><front>New Zealand</front><back>Wellington</back></card>
+<card grp='0' crt='733068'><front>Nicaragua</front><back>Managua</back></card>
+<card grp='0' crt='733068'><front>Niger</front><back>Niamey</back></card>
+<card grp='0' crt='733068'><front>Nigeria</front><back>Abuja</back></card>
+<card grp='0' crt='733068'><front>Niue</front><back>Alofi</back></card>
+<card grp='0' crt='733068'><front>Norfolk Island</front><back>Kingston</back></card>
+<card grp='0' crt='733068'><front>Northern Mariana Islands</front><back>Saipan</back></card>
+<card grp='0' crt='733068'><front>Norway</front><back>Oslo</back></card>
+<card grp='0' crt='733068'><front>Oman</front><back>Muscat</back></card>
+<card grp='0' crt='733068'><front>Pakistan</front><back>Islamabad</back></card>
+<card grp='0' crt='733068'><front>Palau</front><back>Koror</back></card>
+<card grp='0' crt='733068'><front>Panama</front><back>Panama</back></card>
+<card grp='0' crt='733068'><front>Papua New Guinea</front><back>Port Moresby</back></card>
+<card grp='0' crt='733068'><front>Paraguay</front><back>Asunción</back></card>
+<card grp='0' crt='733068'><front>Peru</front><back>Lima</back></card>
+<card grp='0' crt='733068'><front>Philippines</front><back>Manila</back></card>
+<card grp='0' crt='733068'><front>Pitcairn</front><back>Adamstown</back></card>
+<card grp='0' crt='733068'><front>Poland</front><back>Warsaw</back></card>
+<card grp='0' crt='733068'><front>Portugal</front><back>Lisbon</back></card>
+<card grp='0' crt='733068'><front>Puerto Rico</front><back>San Juan</back></card>
+<card grp='0' crt='733068'><front>Qatar</front><back>Doha</back></card>
+<card grp='0' crt='733068'><front>Republic of Korea</front><back>Seoul</back></card>
+<card grp='0' crt='733068'><front>Republic of Moldova</front><back>Chişinău</back></card>
+<card grp='0' crt='733068'><front>Réunion</front><back>Saint-Denis</back></card>
+<card grp='0' crt='733068'><front>Romania</front><back>Bucharest</back></card>
+<card grp='0' crt='733068'><front>Russian Federation</front><back>Moscow</back></card>
+<card grp='0' crt='733068'><front>Rwanda</front><back>Kigali</back></card>
+<card grp='0' crt='733068'><front>Saint Helena</front><back>Jamestown</back></card>
+<card grp='0' crt='733068'><front>Saint Kitts and Nevis</front><back>Basseterre</back></card>
+<card grp='0' crt='733068'><front>Saint Lucia</front><back>Castries</back></card>
+<card grp='0' crt='733068'><front>Saint Pierre and Miquelon</front><back>Saint-Pierre</back></card>
+<card grp='0' crt='733068'><front>Saint Vincent and the Grenadines</front><back>Kingstown</back></card>
+<card grp='0' crt='733068'><front>Samoa</front><back>Apia</back></card>
+<card grp='0' crt='733068'><front>San Marino</front><back>San Marino</back></card>
+<card grp='0' crt='733068'><front>São Tomé and Príncipe</front><back>São Tomé</back></card>
+<card grp='0' crt='733068'><front>Saudi Arabia</front><back>Riyadh</back></card>
+<card grp='0' crt='733068'><front>Senegal</front><back>Dakar</back></card>
+<card grp='0' crt='733068'><front>Serbia and Montenegro</front><back>Belgrade</back></card>
+<card grp='0' crt='733068'><front>Seychelles</front><back>Victoria</back></card>
+<card grp='0' crt='733068'><front>Sierra Leone</front><back>Freetown</back></card>
+<card grp='0' crt='733068'><front>Singapore</front><back>Singapore</back></card>
+<card grp='0' crt='733068'><front>Slovakia</front><back>Bratislava</back></card>
+<card grp='0' crt='733068'><front>Slovenia</front><back>Ljubljana</back></card>
+<card grp='0' crt='733068'><front>Solomon Islands</front><back>Honiara</back></card>
+<card grp='0' crt='733068'><front>Somalia</front><back>Mogadishu</back></card>
+<card grp='0' crt='733068'><front>South Africa</front><back>Pretoria (official)
+Cape Town (legislative)
+Bloemfontein (judicial)</back></card>
+<card grp='0' crt='733068'><front>Spain</front><back>Madrid</back></card>
+<card grp='0' crt='733068'><front>Sri Lanka</front><back>Colombo (official)
+Sri Jayewardenepura Kotte (legislative)</back></card>
+<card grp='0' crt='733068'><front>Sudan</front><back>Khartoum</back></card>
+<card grp='0' crt='733068'><front>Suriname</front><back>Paramaribo</back></card>
+<card grp='0' crt='733068'><front>Svalbard and Jan Mayen Islands</front><back>Longyearbyen</back></card>
+<card grp='0' crt='733068'><front>Swaziland</front><back>Mbabane (official)
+Lobamba (royal and legislative)</back></card>
+<card grp='0' crt='733068'><front>Sweden</front><back>Stockholm</back></card>
+<card grp='0' crt='733068'><front>Switzerland</front><back>Bern</back></card>
+<card grp='0' crt='733068'><front>Syrian Arab Republic</front><back>Damascus</back></card>
+<card grp='0' crt='733068'><front>Tajikistan</front><back>Dushanbe</back></card>
+<card grp='0' crt='733068'><front>Thailand</front><back>Bangkok</back></card>
+<card grp='0' crt='733068'><front>The former Yugoslav Republic of Macedonia</front><back>Skopje</back></card>
+<card grp='0' crt='733068'><front>Timor-Leste</front><back>Dili</back></card>
+<card grp='0' crt='733068'><front>Togo</front><back>Lome</back></card>
+<card grp='0' crt='733068'><front>Tonga</front><back>Nuku&apos;alofa</back></card>
+<card grp='0' crt='733068'><front>Trinidad and Tobago</front><back>Port-of-Spain</back></card>
+<card grp='0' crt='733068'><front>Tunisia</front><back>Tunis</back></card>
+<card grp='0' crt='733068'><front>Turkey</front><back>Ankara</back></card>
+<card grp='0' crt='733068'><front>Turkmenistan</front><back>Ashgabat</back></card>
+<card grp='0' crt='733068'><front>Turks and Caicos Islands</front><back>Cockburn Town</back></card>
+<card grp='0' crt='733068'><front>Tuvalu</front><back>Funafuti (offcial)
+Vaiaku Village (administrative)</back></card>
+<card grp='0' crt='733068'><front>Uganda</front><back>Kampala</back></card>
+<card grp='0' crt='733068'><front>Ukraine</front><back>Kiev</back></card>
+<card grp='0' crt='733068'><front>United Arab Emirates</front><back>Abu Dhabi</back></card>
+<card grp='0' crt='733068'><front>United Kingdom of Great Britain and Northern Ireland</front><back>London</back></card>
+<card grp='0' crt='733068'><front>United Republic of Tanzania</front><back>Dodoma</back></card>
+<card grp='0' crt='733068'><front>United States of America</front><back>Washington, DC</back></card>
+<card grp='0' crt='733068'><front>United States Virgin Islands</front><back>Charlotte Amalie</back></card>
+<card grp='0' crt='733068'><front>Uruguay</front><back>Montevideo</back></card>
+<card grp='0' crt='733068'><front>Uzbekistan</front><back>Tashkent</back></card>
+<card grp='0' crt='733068'><front>Vanuatu</front><back>Port Vila</back></card>
+<card grp='0' crt='733068'><front>Venezuela</front><back>Caracas</back></card>
+<card grp='0' crt='733068'><front>Viet Nam</front><back>Hanoi</back></card>
+<card grp='0' crt='733068'><front>Wallis and Futuna Islands</front><back>Mata-Utu</back></card>
+<card grp='0' crt='733068'><front>Western Sahara</front><back>Laâyoune</back></card>
+<card grp='0' crt='733068'><front>Yemen</front><back>Sanaa</back></card>
+<card grp='0' crt='733068'><front>Zambia</front><back>Lusaka</back></card>
+<card grp='0' crt='733068'><front>Zimbabwe</front><back>Harare</back></card>
+<card grp='0' crt='733068'><front>British Indian Ocean Territory</front><back>Diego Garcia</back></card>
+<card grp='0' crt='733068'><front>Christmas Island</front><back>The Settlement</back></card>
+<card grp='0' crt='733068'><front>Cocos (Keeling) Islands</front><back>West Island</back></card>
+<card grp='0' crt='733068'><front>Taiwan, Province of China</front><back>Taipei</back></card>
+</category>
+</deck>

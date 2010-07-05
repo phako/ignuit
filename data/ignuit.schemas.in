@@ -1,0 +1,343 @@
+<gconfschemafile>
+
+  <schemalist>
+
+    <schema>
+      <key>/schemas/apps/ignuit/app_width</key>
+      <applyto>/apps/ignuit/app_width</applyto>
+      <owner>ignuit</owner>
+      <type>int</type>
+      <default>600</default>
+      <locale name="C">
+        <short>Main window width</short>
+        <long></long>
+      </locale>
+    </schema>
+
+    <schema>
+      <key>/schemas/apps/ignuit/app_height</key>
+      <applyto>/apps/ignuit/app_height</applyto>
+      <owner>ignuit</owner>
+      <type>int</type>
+      <default>300</default>
+      <locale name="C">
+        <short>Main window height</short>
+        <long></long>
+      </locale>
+    </schema>
+
+    <schema>
+      <key>/schemas/apps/ignuit/quiz_width</key>
+      <applyto>/apps/ignuit/quiz_width</applyto>
+      <owner>ignuit</owner>
+      <type>int</type>
+      <default>450</default>
+      <locale name="C">
+        <short>Quiz and editor window width</short>
+        <long></long>
+      </locale>
+    </schema>
+
+    <schema>
+      <key>/schemas/apps/ignuit/quiz_height</key>
+      <applyto>/apps/ignuit/quiz_height</applyto>
+      <owner>ignuit</owner>
+      <type>int</type>
+      <default>250</default>
+      <locale name="C">
+        <short>Quiz and editor window height</short>
+        <long></long>
+      </locale>
+    </schema>
+
+    <schema>
+      <key>/schemas/apps/ignuit/tagger_width</key>
+      <applyto>/apps/ignuit/tagger_width</applyto>
+      <owner>ignuit</owner>
+      <type>int</type>
+      <default>350</default>
+      <locale name="C">
+        <short>Tag manager window width</short>
+        <long></long>
+      </locale>
+    </schema>
+
+    <schema>
+      <key>/schemas/apps/ignuit/tagger_height</key>
+      <applyto>/apps/ignuit/tagger_height</applyto>
+      <owner>ignuit</owner>
+      <type>int</type>
+      <default>300</default>
+      <locale name="C">
+        <short>Tag manager window height</short>
+        <long></long>
+      </locale>
+    </schema>
+
+    <schema>
+      <key>/schemas/apps/ignuit/category_pane_width</key>
+      <applyto>/apps/ignuit/category_pane_width</applyto>
+      <owner>ignuit</owner>
+      <type>int</type>
+      <default>225</default>
+      <locale name="C">
+        <short>Category pane width</short>
+        <long></long>
+      </locale>
+    </schema>
+
+    <schema>
+      <key>/schemas/apps/ignuit/category_column_title_width</key>
+      <applyto>/apps/ignuit/category_column_title_width</applyto>
+      <owner>ignuit</owner>
+      <type>int</type>
+      <default>200</default>
+      <locale name="C">
+        <short>Width of category title column</short>
+        <long></long>
+      </locale>
+    </schema>
+
+    <schema>
+      <key>/schemas/apps/ignuit/card_column_front_width</key>
+      <applyto>/apps/ignuit/card_column_front_width</applyto>
+      <owner>ignuit</owner>
+      <type>int</type>
+      <default>200</default>
+      <locale name="C">
+        <short>Width of the "Card Front" column</short>
+        <long></long>
+      </locale>
+    </schema>
+
+    <schema>
+      <key>/schemas/apps/ignuit/card_column_back_width</key>
+      <applyto>/apps/ignuit/card_column_back_width</applyto>
+      <owner>ignuit</owner>
+      <type>int</type>
+      <default>200</default>
+      <locale name="C">
+        <short>Width of the "Card Back" column</short>
+        <long></long>
+      </locale>
+    </schema>
+
+    <schema>
+      <key>/schemas/apps/ignuit/card_column_category_width</key>
+      <applyto>/apps/ignuit/card_column_category_width</applyto>
+      <owner>ignuit</owner>
+      <type>int</type>
+      <default>150</default>
+      <locale name="C">
+        <short>Width of the "Card Category" column</short>
+        <long></long>
+      </locale>
+    </schema>
+
+    <schema>
+      <key>/schemas/apps/ignuit/card_column_visible</key>
+      <applyto>/apps/ignuit/card_column_visible</applyto>
+      <owner>ignuit</owner>
+      <type>string</type>
+      <default>front,group,tested,expired,expiry,flagged</default>
+      <locale name="C">
+        <short>Card pane column visibility</short>
+        <long>A comma separated list of column names. Accepted names are: front, back, category, group, tested, expired, expiry, time, flagged.</long>
+      </locale>
+    </schema>
+
+    <schema>
+      <key>/schemas/apps/ignuit/sticky_flips</key>
+      <applyto>/apps/ignuit/sticky_flips</applyto>
+      <owner>ignuit</owner>
+      <type>bool</type>
+      <default>0</default>
+      <locale name="C">
+        <short>Flip button behaviour in editor window</short>
+        <long></long>
+      </locale>
+    </schema>
+
+    <schema>
+      <key>/schemas/apps/ignuit/auto_listen</key>
+      <applyto>/apps/ignuit/auto_listen</applyto>
+      <owner>ignuit</owner>
+      <type>int</type>
+      <default>2</default>
+      <locale name="C">
+        <short>Controls the behaviour of audio files in quiz mode</short>
+        <long>A value of 0 disables automatic playing. A value of 1 plays fronts automatically. A value of 2 plays backs automatically. A value of 3 plays both fronts and backs automatically.</long>
+      </locale>
+    </schema>
+
+    <schema>
+      <key>/schemas/apps/ignuit/card_font</key>
+      <applyto>/apps/ignuit/card_font</applyto>
+      <owner>ignuit</owner>
+      <type>string</type>
+      <default>Sans 11</default>
+      <locale name="C">
+        <short>Font for cards</short>
+        <long></long>
+      </locale>
+    </schema>
+
+    <schema>
+      <key>/schemas/apps/ignuit/card_colors</key>
+      <applyto>/apps/ignuit/card_colors</applyto>
+      <owner>ignuit</owner>
+      <type>string</type>
+      <default>#000000,#FFFFFF,#C5D2C8,#E0B6AF,#DBD0A7,#E36540</default>
+      <locale name="C">
+        <short>Card colours</short>
+        <long></long>
+      </locale>
+    </schema>
+
+    <schema>
+      <key>/schemas/apps/ignuit/schedules</key>
+      <applyto>/apps/ignuit/schedules</applyto>
+      <owner>ignuit</owner>
+      <type>string</type>
+      <default>1,3,7,20,55,145,400,1000,1000</default>
+      <locale name="C">
+        <short>Card expiry times</short>
+        <long>Nine comma-separated integers of increasing value, representing days between tests.</long>
+      </locale>
+    </schema>
+
+    <schema>
+      <key>/schemas/apps/ignuit/workdir</key>
+      <applyto>/apps/ignuit/workdir</applyto>
+      <owner>ignuit</owner>
+      <type>string</type>
+      <default></default>
+      <locale name="C">
+        <short>Most recent working directory</short>
+        <long></long>
+      </locale>
+    </schema>
+
+    <schema>
+      <key>/schemas/apps/ignuit/find_with_regex</key>
+      <applyto>/apps/ignuit/find_with_regex</applyto>
+      <owner>ignuit</owner>
+      <type>bool</type>
+      <default>0</default>
+      <locale name="C">
+        <short>Use regular expressions when searching</short>
+        <long>If true, the Find Dialog will search using regular expression matching.</long>
+      </locale>
+    </schema>
+
+    <schema>
+      <key>/schemas/apps/ignuit/confirm_empty_trash</key>
+      <applyto>/apps/ignuit/confirm_empty_trash</applyto>
+      <owner>ignuit</owner>
+      <type>bool</type>
+      <default>1</default>
+      <locale name="C">
+        <short>Confirm deletion of trash folder contents when closing.</short>
+        <long></long>
+      </locale>
+    </schema>
+
+    <schema>
+      <key>/schemas/apps/ignuit/main_toolbar_visible</key>
+      <applyto>/apps/ignuit/main_toolbar_visible</applyto>
+      <owner>ignuit</owner>
+      <type>bool</type>
+      <default>1</default>
+      <locale name="C">
+        <short></short>
+        <long></long>
+      </locale>
+    </schema>
+
+    <schema>
+      <key>/schemas/apps/ignuit/category_pane_visible</key>
+      <applyto>/apps/ignuit/category_pane_visible</applyto>
+      <owner>ignuit</owner>
+      <type>bool</type>
+      <default>1</default>
+      <locale name="C">
+        <short></short>
+        <long></long>
+      </locale>
+    </schema>
+
+    <schema>
+      <key>/schemas/apps/ignuit/bottom_toolbar_visible</key>
+      <applyto>/apps/ignuit/bottom_toolbar_visible</applyto>
+      <owner>ignuit</owner>
+      <type>bool</type>
+      <default>1</default>
+      <locale name="C">
+        <short></short>
+        <long></long>
+      </locale>
+    </schema>
+
+    <schema>
+      <key>/schemas/apps/ignuit/statusbar_visible</key>
+      <applyto>/apps/ignuit/statusbar_visible</applyto>
+      <owner>ignuit</owner>
+      <type>bool</type>
+      <default>1</default>
+      <locale name="C">
+        <short></short>
+        <long></long>
+      </locale>
+    </schema>
+
+    <schema>
+      <key>/schemas/apps/ignuit/quiz_answerbar_visible</key>
+      <applyto>/apps/ignuit/quiz_answerbar_visible</applyto>
+      <owner>ignuit</owner>
+      <type>bool</type>
+      <default>1</default>
+      <locale name="C">
+        <short></short>
+        <long></long>
+      </locale>
+    </schema>
+
+    <schema>
+      <key>/schemas/apps/ignuit/editor_tagbar_visible</key>
+      <applyto>/apps/ignuit/editor_tagbar_visible</applyto>
+      <owner>ignuit</owner>
+      <type>bool</type>
+      <default>1</default>
+      <locale name="C">
+        <short></short>
+        <long></long>
+      </locale>
+    </schema>
+
+    <schema>
+      <key>/schemas/apps/ignuit/backup</key>
+      <applyto>/apps/ignuit/backup</applyto>
+      <owner>ignuit</owner>
+      <type>bool</type>
+      <default>1</default>
+      <locale name="C">
+        <short>Backup the current file before saving</short>
+        <long></long>
+      </locale>
+    </schema>
+
+    <schema>
+      <key>/schemas/apps/ignuit/latex_dpi</key>
+      <applyto>/apps/ignuit/latex_dpi</applyto>
+      <owner>ignuit</owner>
+      <type>int</type>
+      <default>150</default>
+      <locale name="C">
+        <short>Size of images produced with LaTeX</short>
+        <long></long>
+      </locale>
+    </schema>
+
+  </schemalist>
+
+</gconfschemafile>

@@ -1,0 +1,1176 @@
+# Russian translation of ignuit
+#
+# Copyright (C) 2011 Kirill Kirillov <kirill.kirillov@gmail.com>
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+msgid ""
+msgstr "Project-Id-Version: ignuit 0.0.16\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-01 17:44+0400\n"
+"PO-Revision-Date: 2011-09-03 01:40+0400\n"
+"Last-Translator: Kirill Kirillov <kirill.kirillov@gmail.com>\n"
+"Language-Team: Kirill Kirillov <kirill.kirillov@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#: ../data/glade/editor.glade.h:1 ../data/glade/main.glade.h:1
+msgid "Add Card"
+msgstr "Добавить карточку"
+
+#: ../data/glade/editor.glade.h:2
+msgid "Add card"
+msgstr "Добавить карточку"
+
+#: ../data/glade/editor.glade.h:3 ../data/glade/quiz.glade.h:1
+#: ../src/app-window.c:3164
+msgid "Back"
+msgstr "Обратная"
+
+#: ../data/glade/editor.glade.h:4
+msgid "Card Editor"
+msgstr "Редактор карточек"
+
+#: ../data/glade/editor.glade.h:5
+msgid "Clear tags"
+msgstr "Очистить метки"
+
+#: ../data/glade/editor.glade.h:6
+msgid "Close the tag bar"
+msgstr "Закрыть панель меток"
+
+#: ../data/glade/editor.glade.h:7 ../data/glade/main.glade.h:24
+#: ../data/glade/quiz.glade.h:4 ../src/app-window.c:2348
+#: ../src/app-window.c:3171
+msgid "Flag"
+msgstr "Флаг"
+
+#: ../data/glade/editor.glade.h:8 ../data/glade/quiz.glade.h:5
+msgid "Flip"
+msgstr "Перевернуть"
+
+#: ../data/glade/editor.glade.h:9 ../data/glade/quiz.glade.h:6
+#: ../src/app-window.c:3163
+msgid "Front"
+msgstr "Лицевая"
+
+#: ../data/glade/editor.glade.h:10 ../data/glade/preferences.glade.h:17
+#: ../data/glade/quiz.glade.h:7
+msgid "Information"
+msgstr "Информация"
+
+#: ../data/glade/editor.glade.h:11
+msgid "Insert Image"
+msgstr "Вставить изображение"
+
+#: ../data/glade/editor.glade.h:12
+msgid "Insert Sound"
+msgstr "Вставить звук"
+
+#: ../data/glade/editor.glade.h:13 ../data/glade/quiz.glade.h:15
+msgid "Next"
+msgstr "Следующая"
+
+#: ../data/glade/editor.glade.h:14 ../data/glade/quiz.glade.h:16
+msgid "Next card"
+msgstr "Следующая карточка"
+
+#: ../data/glade/editor.glade.h:15 ../data/glade/quiz.glade.h:17
+msgid "Previous"
+msgstr "Предыдущая"
+
+#: ../data/glade/editor.glade.h:16 ../data/glade/quiz.glade.h:18
+msgid "Previous card"
+msgstr "Предыдущая карточка"
+
+#: ../data/glade/editor.glade.h:17 ../data/glade/main.glade.h:39
+msgid "Remove Card"
+msgstr "Удалить карточку"
+
+#: ../data/glade/editor.glade.h:18
+msgid "Remove card"
+msgstr "Удалить карточку"
+
+#: ../data/glade/editor.glade.h:19 ../data/glade/main.glade.h:42
+msgid "Reset Statistics"
+msgstr "Сбросить статистику"
+
+#: ../data/glade/editor.glade.h:20
+msgid "Show Tag Bar"
+msgstr "Показывать панель меток"
+
+#: ../data/glade/editor.glade.h:21
+msgid "Sticky Flips"
+msgstr "Запоминать сторону"
+
+#: ../data/glade/editor.glade.h:22 ../data/glade/main.glade.h:47
+msgid "Switch Sides"
+msgstr "Поменять стороны"
+
+#: ../data/glade/editor.glade.h:23 ../data/glade/find.glade.h:5
+msgid "Ta_gs"
+msgstr "_Метки"
+
+#: ../data/glade/editor.glade.h:24 ../data/glade/quiz.glade.h:23
+msgid "View card details"
+msgstr "Просмотреть информацию о карточке"
+
+#: ../data/glade/editor.glade.h:25 ../data/glade/quiz.glade.h:24
+msgid "View reverse side"
+msgstr "Просмотреть противоположную сторону"
+
+#: ../data/glade/editor.glade.h:26 ../data/glade/quiz.glade.h:26
+msgid "_Card"
+msgstr "_Карточка"
+
+#: ../data/glade/editor.glade.h:27 ../data/glade/main.glade.h:52
+#: ../data/glade/quiz.glade.h:27
+msgid "_Edit"
+msgstr "_Правка"
+
+#: ../data/glade/editor.glade.h:28 ../data/glade/quiz.glade.h:30
+msgid "gtk-close"
+msgstr ""
+
+#: ../data/glade/editor.glade.h:29 ../data/glade/main.glade.h:60
+msgid "gtk-copy"
+msgstr ""
+
+#: ../data/glade/editor.glade.h:30 ../data/glade/main.glade.h:61
+msgid "gtk-cut"
+msgstr ""
+
+#: ../data/glade/editor.glade.h:31
+msgid "gtk-delete"
+msgstr ""
+
+#: ../data/glade/editor.glade.h:32 ../data/glade/main.glade.h:65
+msgid "gtk-paste"
+msgstr ""
+
+#: ../data/glade/editor.glade.h:33
+msgid "gtk-redo"
+msgstr ""
+
+#: ../data/glade/editor.glade.h:34
+msgid "gtk-undo"
+msgstr ""
+
+#: ../data/glade/find.glade.h:1
+msgid "B_oth"
+msgstr "О_бе"
+
+#: ../data/glade/find.glade.h:2
+msgid "F_ronts"
+msgstr "_Лицевые"
+
+#: ../data/glade/find.glade.h:3
+msgid "Find"
+msgstr "Найти"
+
+#: ../data/glade/find.glade.h:4
+msgid "Include m_arkup in search"
+msgstr "_Включать разметку в поиск"
+
+#: ../data/glade/find.glade.h:6
+msgid "Use regular _expressions"
+msgstr "_Использовать регулярный выражения"
+
+#: ../data/glade/find.glade.h:7
+msgid "_Backs"
+msgstr "_Обратные"
+
+#: ../data/glade/find.glade.h:8
+msgid "_Match case"
+msgstr "_Учитывать регистр"
+
+#: ../data/glade/find.glade.h:9
+msgid "_Search for:"
+msgstr "Искать"
+
+#: ../data/glade/main.glade.h:2
+msgid "Add Category"
+msgstr "Добавить категорию"
+
+#: ../data/glade/main.glade.h:3
+msgid "All Cards"
+msgstr "Все карточки"
+
+#: ../data/glade/main.glade.h:4
+msgid "All Categories"
+msgstr "Все категории"
+
+#: ../data/glade/main.glade.h:5
+msgid "Back Text"
+msgstr "Текст обратной стороны"
+
+#: ../data/glade/main.glade.h:6
+msgid "Backs Only"
+msgstr "Всегда обратная сторона"
+
+#: ../data/glade/main.glade.h:7
+msgid "Begin Quiz"
+msgstr "Начать тест"
+
+#: ../data/glade/main.glade.h:8
+msgid "Box Number"
+msgstr "Номер ящика"
+
+#: ../data/glade/main.glade.h:9
+msgid "C_ard"
+msgstr "К_арточка"
+
+#: ../data/glade/main.glade.h:10 ../src/app-window.c:2995
+#: ../src/app-window.c:3165
+msgid "Category"
+msgstr "Категория"
+
+#: ../data/glade/main.glade.h:11
+msgid "Copy"
+msgstr "Копировать"
+
+#: ../data/glade/main.glade.h:12
+msgid "Cut"
+msgstr "Вырезать"
+
+#: ../data/glade/main.glade.h:13
+msgid "Edit Card"
+msgstr "Изменить карточку"
+
+#: ../data/glade/main.glade.h:14
+msgid "Edit Card..."
+msgstr "Изменить карточку..."
+
+#: ../data/glade/main.glade.h:15
+msgid "Edit Tags..."
+msgstr "Изменить метки..."
+
+#: ../data/glade/main.glade.h:16
+msgid "Expired Cards"
+msgstr "Просроченные карточки"
+
+#: ../data/glade/main.glade.h:17
+msgid "Expiry Date"
+msgstr "Дата истечения срока"
+
+#: ../data/glade/main.glade.h:18
+msgid "Expiry Flag"
+msgstr "Флаг истечения срока"
+
+#: ../data/glade/main.glade.h:19
+msgid "Expiry Time"
+msgstr "Время истечения срока"
+
+#: ../data/glade/main.glade.h:20
+msgid "Export..."
+msgstr "Экспортировать..."
+
+#: ../data/glade/main.glade.h:21
+msgid "Find All Cards"
+msgstr "Найти все карточки"
+
+#: ../data/glade/main.glade.h:22
+msgid "Find Card"
+msgstr "Найти карточку"
+
+#: ../data/glade/main.glade.h:23
+msgid "Find Flagged Cards"
+msgstr "Найти карточки с флагами"
+
+#: ../data/glade/main.glade.h:25
+msgid "Flagged Cards"
+msgstr "Карточки с флагами"
+
+#: ../data/glade/main.glade.h:26
+msgid "Front Text"
+msgstr "Текст лицевой стороны"
+
+#: ../data/glade/main.glade.h:27
+msgid "Fronts Only"
+msgstr "Всегда лицевая сторона"
+
+#: ../data/glade/main.glade.h:28
+msgid "Fronts and Backs at Random"
+msgstr "Случайный выбор стороны"
+
+#: ../data/glade/main.glade.h:29
+msgid "Help"
+msgstr "Справка"
+
+#: ../data/glade/main.glade.h:30
+msgid "Import..."
+msgstr "Импортировать..."
+
+#: ../data/glade/main.glade.h:31
+msgid "Last Test Date"
+msgstr "Дата последнего теста"
+
+#: ../data/glade/main.glade.h:32
+msgid "New Cards"
+msgstr "Новые карточки"
+
+#: ../data/glade/main.glade.h:33 ../src/file.c:74
+msgid "New File"
+msgstr "Новый файл"
+
+#: ../data/glade/main.glade.h:34
+msgid "New and Expired Cards"
+msgstr "Новые и просроченные карточки"
+
+#: ../data/glade/main.glade.h:35
+msgid "Open File"
+msgstr "Открыть файл"
+
+#: ../data/glade/main.glade.h:36
+msgid "Paste"
+msgstr "Вставить"
+
+#: ../data/glade/main.glade.h:37 ../data/glade/quiz.glade.h:19
+msgid "Quiz"
+msgstr "Тест"
+
+#: ../data/glade/main.glade.h:38
+msgid "Recently Removed Cards"
+msgstr "Недавно удалённые карточки"
+
+#: ../data/glade/main.glade.h:40
+msgid "Remove Category"
+msgstr "Удалить категорию"
+
+#: ../data/glade/main.glade.h:41
+msgid "Rename"
+msgstr "Переименовать"
+
+#: ../data/glade/main.glade.h:43
+msgid "Save File"
+msgstr "Сохранить файл"
+
+#: ../data/glade/main.glade.h:44
+msgid "Select All"
+msgstr "Выделить все"
+
+#: ../data/glade/main.glade.h:45
+msgid "Selected Cards"
+msgstr "Выделенные карточки"
+
+#: ../data/glade/main.glade.h:46
+msgid "Selected Category"
+msgstr "Выделенные категории"
+
+#: ../data/glade/main.glade.h:48
+msgid "Toggle Flags"
+msgstr "Переключить флаги"
+
+#: ../data/glade/main.glade.h:49
+msgid "_Bottom Toolbar"
+msgstr "_Нижняя панель инструментов"
+
+#: ../data/glade/main.glade.h:50
+msgid "_Category"
+msgstr "_Категория"
+
+#: ../data/glade/main.glade.h:51
+msgid "_Category Pane"
+msgstr "_Панель категорий"
+
+#: ../data/glade/main.glade.h:53
+msgid "_File"
+msgstr "_Файл"
+
+#: ../data/glade/main.glade.h:54
+msgid "_Help"
+msgstr "_Справка"
+
+#: ../data/glade/main.glade.h:55
+msgid "_Main Toolbar"
+msgstr "_Главная панель инструментов"
+
+#: ../data/glade/main.glade.h:56
+msgid "_Quiz"
+msgstr "_Тест"
+
+#: ../data/glade/main.glade.h:57
+msgid "_Statusbar"
+msgstr "_Строка состояния"
+
+#: ../data/glade/main.glade.h:58
+msgid "_View"
+msgstr "_Вид"
+
+#: ../data/glade/main.glade.h:59
+msgid "gtk-about"
+msgstr ""
+
+#: ../data/glade/main.glade.h:62
+msgid "gtk-find"
+msgstr ""
+
+#: ../data/glade/main.glade.h:63
+msgid "gtk-new"
+msgstr ""
+
+#: ../data/glade/main.glade.h:64
+msgid "gtk-open"
+msgstr ""
+
+#: ../data/glade/main.glade.h:66
+msgid "gtk-preferences"
+msgstr ""
+
+#: ../data/glade/main.glade.h:67
+msgid "gtk-properties"
+msgstr ""
+
+#: ../data/glade/main.glade.h:68
+msgid "gtk-quit"
+msgstr ""
+
+#: ../data/glade/main.glade.h:69
+msgid "gtk-save"
+msgstr ""
+
+#: ../data/glade/main.glade.h:70
+msgid "gtk-save-as"
+msgstr ""
+
+#: ../data/glade/main.glade.h:71
+msgid "gtk-select-all"
+msgstr ""
+
+#: ../data/glade/main.glade.h:72 ../src/dialog-about.c:50
+#: ../src/dialog-about.c:52
+msgid "i GNU it"
+msgstr "i GNU it"
+
+#: ../data/glade/preferences.glade.h:1
+msgid "<b>Background Colours</b>"
+msgstr "<b>Цвет фона карточек</b>"
+
+#: ../data/glade/preferences.glade.h:2
+msgid "<b>Card Font</b>"
+msgstr "<b>Шрифт карточек</b>"
+
+#: ../data/glade/preferences.glade.h:3
+msgid "<b>Days Between Testing</b>"
+msgstr "<b>Количество дней между тестами</b>"
+
+#: ../data/glade/preferences.glade.h:4
+msgid "<b>File Saving</b>"
+msgstr "<b>Сохранение файлов</b>"
+
+#: ../data/glade/preferences.glade.h:5
+msgid "<b>LaTex Rendering</b>"
+msgstr "<b>Отрисовка LaTeX</b>"
+
+#: ../data/glade/preferences.glade.h:6
+msgid "<b>Text Colours</b>"
+msgstr "<b>Цвет текста</b>"
+
+#: ../data/glade/preferences.glade.h:7
+msgid "Box _1"
+msgstr "Ящик _1"
+
+#: ../data/glade/preferences.glade.h:8
+msgid "Box _2"
+msgstr "Ящик _2"
+
+#: ../data/glade/preferences.glade.h:9
+msgid "Box _3"
+msgstr "Ящик _3"
+
+#: ../data/glade/preferences.glade.h:10
+msgid "Box _4"
+msgstr "Ящик _4"
+
+#: ../data/glade/preferences.glade.h:11
+msgid "Box _5"
+msgstr "Ящик _5"
+
+#: ../data/glade/preferences.glade.h:12
+msgid "Box _6"
+msgstr "Ящик _6"
+
+#: ../data/glade/preferences.glade.h:13
+msgid "Box _7"
+msgstr "Ящик _7"
+
+#: ../data/glade/preferences.glade.h:14
+msgid "Box _8"
+msgstr "Ящик _8"
+
+#: ../data/glade/preferences.glade.h:15
+msgid "Create a _backup copy of files before saving"
+msgstr "_Создавать резервную копию файлов перед сохранением"
+
+#: ../data/glade/preferences.glade.h:16
+msgid "Expired"
+msgstr "Просроченный"
+
+#: ../data/glade/preferences.glade.h:18 ../data/glade/quiz.glade.h:8
+msgid "Known"
+msgstr "Известный"
+
+#: ../data/glade/preferences.glade.h:19
+msgid "Plain"
+msgstr "Обычный"
+
+#: ../data/glade/preferences.glade.h:20
+msgid "Preferences"
+msgstr "Параметры"
+
+#: ../data/glade/preferences.glade.h:21
+msgid "Sche_dules"
+msgstr "_Расписание"
+
+#: ../data/glade/preferences.glade.h:22
+msgid "Text _size (DPI)"
+msgstr "_Размер текста (DPI)"
+
+#: ../data/glade/preferences.glade.h:23 ../data/glade/quiz.glade.h:22
+msgid "Unknown"
+msgstr "Неизвестный"
+
+#: ../data/glade/preferences.glade.h:24
+msgid "_Appearance"
+msgstr "_Внешний вид"
+
+#: ../data/glade/preferences.glade.h:25
+msgid "_New Cards"
+msgstr "_Новые карточки"
+
+#: ../data/glade/preferences.glade.h:26
+msgid "_Other Options"
+msgstr "_Другие параметры"
+
+#: ../data/glade/preferences.glade.h:27
+msgid "_Reset to Default Colours"
+msgstr "_Сбросить цвета на стандартные"
+
+#: ../data/glade/preferences.glade.h:28
+msgid "_Reset to Default Schedules"
+msgstr "_Сбросить расписание на стандартное"
+
+#: ../data/glade/properties.glade.h:1
+msgid "<b>File Properties</b>"
+msgstr "Свойства файла"
+
+#: ../data/glade/properties.glade.h:2
+msgid "Card _Style"
+msgstr "_Формат карточек"
+
+#: ../data/glade/properties.glade.h:3
+msgid "Properties"
+msgstr "Свойства"
+
+#: ../data/glade/properties.glade.h:4
+msgid "_Author"
+msgstr "_Автор"
+
+#: ../data/glade/properties.glade.h:5
+msgid "_Description"
+msgstr "_Описание"
+
+#: ../data/glade/properties.glade.h:6
+msgid "_Homepage"
+msgstr "_Домашняя страница"
+
+#: ../data/glade/properties.glade.h:7
+msgid "_License"
+msgstr "_Лицензия"
+
+#: ../data/glade/properties.glade.h:8
+msgid "_Title"
+msgstr "_Заголовок"
+
+#: ../data/glade/properties.glade.h:9
+msgid "_URI"
+msgstr "_URI"
+
+#: ../data/glade/properties.glade.h:10
+msgid "gtk-revert-to-saved"
+msgstr ""
+
+#: ../data/glade/quiz.glade.h:2
+msgid "Clear the answer"
+msgstr "Очистить панель ответов"
+
+#: ../data/glade/quiz.glade.h:3
+msgid "Close the answer bar"
+msgstr "Закрыть панель ответов"
+
+#: ../data/glade/quiz.glade.h:9
+msgid "Listen to Back"
+msgstr "Прослушать обратная сторону"
+
+#: ../data/glade/quiz.glade.h:10
+msgid "Listen to Back Automatically"
+msgstr "Прослушивать обратную сторону автоматически"
+
+#: ../data/glade/quiz.glade.h:11
+msgid "Listen to Front"
+msgstr "Прослушать лицевую сторону"
+
+#: ../data/glade/quiz.glade.h:12
+msgid "Listen to Front Automatically"
+msgstr "Прослушивать лицевую сторону автоматически"
+
+#: ../data/glade/quiz.glade.h:13
+msgid "Mark as known"
+msgstr "Пометить как известную"
+
+#: ../data/glade/quiz.glade.h:14
+msgid "Mark as unknown"
+msgstr "Пометить как неизвестную"
+
+#: ../data/glade/quiz.glade.h:20
+msgid "Record statistics when the Quiz window closes"
+msgstr "Записывать статистику при закрытии окна тестирования"
+
+#: ../data/glade/quiz.glade.h:21
+msgid "Show Answer Bar"
+msgstr "Показывать панель ответов"
+
+#: ../data/glade/quiz.glade.h:25
+msgid "_Answer"
+msgstr "_Ответ"
+
+#: ../data/glade/quiz.glade.h:28
+msgid "_Media"
+msgstr "_Медиа"
+
+#: ../data/glade/quiz.glade.h:29
+msgid "_Record"
+msgstr "_Записывать"
+
+#: ../data/glade/tagger.glade.h:1
+msgid ""
+"<b>Current _tags</b>\n"
+"Edit names by double-clicking"
+msgstr "<b>_Текущие метки</b>\n"
+"Двойное нажатие — редактировать имя метки"
+
+#: ../data/glade/tagger.glade.h:3
+msgid "<b>_New tags</b>"
+msgstr "<b>_Новые метки</b>"
+
+#: ../data/glade/tagger.glade.h:4
+msgid "Tag Manager"
+msgstr "Редактор меток"
+
+#: ../data/glade/tagger.glade.h:5
+msgid "gtk-add"
+msgstr ""
+
+#: ../data/glade/tagger.glade.h:6
+msgid "gtk-remove"
+msgstr ""
+
+#: ../data/ignuit.desktop.in.in.h:1
+msgid "Learn using electronic flashcards"
+msgstr "Помощник для запоминания различных данных на основе карточек Лейтнера"
+
+#: ../data/ignuit.desktop.in.in.h:2
+msgid "i GNU it Flashcard Trainer"
+msgstr "Тренировка памяти"
+
+#: ../data/ignuit.schemas.in.h:1
+msgid ""
+"A comma separated list of column names. Accepted names are: front, back, "
+"category, group, tested, expired, expiry, time, flagged."
+msgstr "Список имён столбцов, разделённых запятыми. Поддерживаемые имена: front, back, category, group, tested, expired, expiry, time, flagged."
+
+#: ../data/ignuit.schemas.in.h:2
+msgid ""
+"A value of 0 disables automatic playing. A value of 1 plays fronts "
+"automatically. A value of 2 plays backs automatically. A value of 3 plays "
+"both fronts and backs automatically."
+msgstr "Значение 0 отключает автоматическое проигрывание. Значение 1 автоматически проигрывает лицевую сторону. Значение 2 автоматически проигрывает обратную сторону. Значение 3 автоматически проигрывает обе стороны."
+
+#: ../data/ignuit.schemas.in.h:3
+msgid "Backup the current file before saving"
+msgstr "Создавать резервную копию файлов перед сохранением"
+
+#: ../data/ignuit.schemas.in.h:4
+msgid "Card colours"
+msgstr "Цвет карточек"
+
+#: ../data/ignuit.schemas.in.h:5
+msgid "Card expiry times"
+msgstr "Времена истечения сроков"
+
+#: ../data/ignuit.schemas.in.h:6
+msgid "Card pane column visibility"
+msgstr "Видимость столбцов на панели карточек"
+
+#: ../data/ignuit.schemas.in.h:7
+msgid "Category pane width"
+msgstr "Ширина панели категорий"
+
+#: ../data/ignuit.schemas.in.h:8
+msgid "Confirm deletion of trash folder contents when closing."
+msgstr "Подтверждать очистку корзины при выходе."
+
+#: ../data/ignuit.schemas.in.h:9
+msgid "Controls the behaviour of audio files in quiz mode"
+msgstr "Управление поведением звуковых файлов в режиме тестирования"
+
+#: ../data/ignuit.schemas.in.h:10
+msgid "Flip button behaviour in editor window"
+msgstr "Поведение кнопки переворачивания стороны в окне редактора"
+
+#: ../data/ignuit.schemas.in.h:11
+msgid "Font for cards"
+msgstr "Шрифт карточек"
+
+#: ../data/ignuit.schemas.in.h:12
+msgid "If true, the Find Dialog will search using regular expression matching."
+msgstr "Если true, то в поиске будут использоваться регулярные выражения."
+
+#: ../data/ignuit.schemas.in.h:13
+msgid "Main window height"
+msgstr "Высота главного окна"
+
+#: ../data/ignuit.schemas.in.h:14
+msgid "Main window width"
+msgstr "Ширина главного окна"
+
+#: ../data/ignuit.schemas.in.h:15
+msgid "Most recent working directory"
+msgstr "Последний рабочий каталог"
+
+#: ../data/ignuit.schemas.in.h:16
+msgid ""
+"Nine comma-separated integers of increasing value, representing days between "
+"tests."
+msgstr "Девять целых чисел, разделённых запятыми, обозначающих количество дней между тестами."
+
+#: ../data/ignuit.schemas.in.h:17
+msgid "Quiz and editor window height"
+msgstr "Высота окон тестирования и редактирования"
+
+#: ../data/ignuit.schemas.in.h:18
+msgid "Quiz and editor window width"
+msgstr "Ширина окон тестирования и редактирования"
+
+#: ../data/ignuit.schemas.in.h:19
+msgid "Size of images produced with LaTeX"
+msgstr "Разрешение рисунков для LaTeX формул, формируемых программой dvipng"
+
+#: ../data/ignuit.schemas.in.h:20
+msgid "Tag manager window height"
+msgstr "Высота окна редактора меток"
+
+#: ../data/ignuit.schemas.in.h:21
+msgid "Tag manager window width"
+msgstr "Ширина окна редактора меток"
+
+#: ../data/ignuit.schemas.in.h:22
+msgid "Use regular expressions when searching"
+msgstr "Использовать регулярные выражения при поиске"
+
+#: ../data/ignuit.schemas.in.h:23
+msgid "Width of category title column"
+msgstr "Ширина столбца «Категория» в панели категорий"
+
+#: ../data/ignuit.schemas.in.h:24
+msgid "Width of the \"Card Back\" column"
+msgstr "Ширина столбца «Обратная» в панели карточек"
+
+#: ../data/ignuit.schemas.in.h:25
+msgid "Width of the \"Card Category\" column"
+msgstr "Ширина столбца «Категория» в панели карточек"
+
+#: ../data/ignuit.schemas.in.h:26
+msgid "Width of the \"Card Front\" column"
+msgstr "Ширина столбца «Лицевая» в панели карточек"
+
+#: ../src/app-window.c:328
+#, c-format
+msgid "File contains %d cards"
+msgstr "Файл содержит карточек: %d"
+
+#: ../src/app-window.c:331
+#, c-format
+msgid "Trash contains %d cards"
+msgstr "Корзина содержит карточек: %d"
+
+#: ../src/app-window.c:335
+#, c-format
+msgid "Found %d cards"
+msgstr "Найдено карточек: %d"
+
+#: ../src/app-window.c:340
+#, c-format
+msgid "Category contains %d of %d cards"
+msgstr "Карточек в категории: %d из %d "
+
+#: ../src/app-window.c:344
+#, c-format
+msgid " (%d expired, %d untested, %d selected)"
+msgstr " (просроченных: %d; непротестированных: %d; выделенных: %d)"
+
+#: ../src/app-window.c:1124
+msgid "Save As"
+msgstr "Сохранить как"
+
+#: ../src/app-window.c:1148
+msgid ""
+"<b>A file with the same name already exists</b>\n"
+"\n"
+"Do you want to replace it?"
+msgstr "<b>Файл с таким именем уже существует</b>\n"
+"\n"
+"Заменить его?"
+
+#: ../src/app-window.c:1179
+msgid ""
+"<b>The current file has not been saved</b>\n"
+"\n"
+"Changes since last save will be lost."
+msgstr "<b>Не удалось сохранить текущий файл</b>\n"
+"\n"
+"Изменения после последнего сохранения будут потеряны."
+
+#: ../src/app-window.c:1182
+msgid "Close _without Saving"
+msgstr "_Закрыть без сохранения"
+
+#: ../src/app-window.c:1222
+msgid "<b>Unable to save file</b>"
+msgstr "<b>Не удалось сохранить файл</b>"
+
+#: ../src/app-window.c:1243
+msgid ""
+"<b>Empty the Trash?</b>\n"
+"\n"
+"Recently removed cards will be permanently deleted."
+msgstr "<b>Очистить корзину?</b>\n"
+"\n"
+"Карточки из корзины будут удалены навсегда."
+
+#: ../src/app-window.c:1336 ../src/dialog-editor.c:143
+msgid "Open"
+msgstr "Открыть"
+
+#: ../src/app-window.c:1396
+msgid "<b>Trouble loading file</b>"
+msgstr "<b>Проблема при загрузке файла</b>"
+
+#: ../src/app-window.c:1404
+msgid "<b>Unable to load file</b>"
+msgstr "<b>Не удалось загрузить файл</b>"
+
+#: ../src/app-window.c:1478
+msgid "CSV"
+msgstr "CSV"
+
+#: ../src/app-window.c:1479
+msgid "TSV"
+msgstr "TSV"
+
+#. Import a non-native file, adding it as a new category to the
+#. * currently open file.
+#: ../src/app-window.c:1539
+msgid "Import"
+msgstr "Импортировать"
+
+#: ../src/app-window.c:1560
+msgid "Import _Filter:"
+msgstr "_Формат файла импорта"
+
+#: ../src/app-window.c:1649
+msgid "<b>Unable to import file</b>"
+msgstr "<b>Не удалось импортировать файл</b>"
+
+#: ../src/app-window.c:1680
+msgid "Export"
+msgstr "Экспортировать"
+
+#: ../src/app-window.c:1701
+msgid "Export _Filter:"
+msgstr "_Формат файла экспорта"
+
+#: ../src/app-window.c:1742
+msgid "<b>Unable to export file</b>"
+msgstr "<b>Не удалось экспортировать файл</b>"
+
+#: ../src/app-window.c:1993
+msgid ""
+"<b>Delete this non-empty category?</b>\n"
+"\n"
+"The category and its contents will be permanently deleted."
+msgstr "<b>Удалить непустую категория?</b>\n"
+"\n"
+"Данная категория со всем её содержимым будет удалена навсегда."
+
+#: ../src/app-window.c:2067
+msgid ""
+"<b>Expiry dates will be reset</b>\n"
+"\n"
+"Recorded dates and statistics for the selected cards will be lost. Continue "
+"anyway?"
+msgstr "<b>Даты истечения сроков будут сброшены</b>\n"
+"\n"
+"Все данные статистики (включая даты) для выделенных карточек будут потеряны. Продолжить?"
+
+#: ../src/app-window.c:2166
+msgid "Couldn't display user guide"
+msgstr "Не удалось показать руководство пользователя"
+
+#: ../src/app-window.c:3166
+msgid "B"
+msgstr "Ящик"
+
+#. Box
+#: ../src/app-window.c:3167
+msgid "Tested"
+msgstr "Последний тест"
+
+#: ../src/app-window.c:3169
+msgid "Expiry"
+msgstr "Истечение срока"
+
+#: ../src/app-window.c:3170
+msgid "Time"
+msgstr "Время"
+
+#: ../src/card.c:596
+msgid "New Category"
+msgstr "Новая категория"
+
+#: ../src/card.c:777
+msgid "<big>Card Details</big>\n"
+msgstr "<big>Информация о карточке</big>\n"
+
+#: ../src/card.c:779
+#, c-format
+msgid "<b>Category:</b> %s\n"
+msgstr "<b>Категория:</b> %s\n"
+
+#: ../src/card.c:781
+#, c-format
+msgid "<b>Success rate:</b> %.0f%% (%d/%d)\n"
+msgstr "<b>Правильных ответов:</b> %.0f%% (%d/%d)\n"
+
+#: ../src/card.c:783
+#, c-format
+msgid "<b>Current box:</b> %d\n"
+msgstr "<b>Текущий ящик:</b> %d\n"
+
+#: ../src/card.c:785
+#, c-format
+msgid "<b>Date created:</b> %s\n"
+msgstr "<b>Дата создания:</b> %s\n"
+
+#: ../src/card.c:786
+#, c-format
+msgid "<b>Date last tested:</b> %s\n"
+msgstr "<b>Дата последнего тестирования:</b> %s\n"
+
+#: ../src/card.c:787
+#, c-format
+msgid "<b>Date of expiry:</b> %s"
+msgstr "<b>Дата истечения срока:</b> %s"
+
+#: ../src/dialog-about.c:44
+msgid "translator-credits"
+msgstr "Kirill Kirillov <kirill.kirillov@gmail.com>"
+
+#: ../src/dialog-about.c:56
+msgid ""
+"Educational software for GNOME, following the Leitner flash card system."
+msgstr "Образовательная программа для GNOME, использующая систему карточек Лейтнера для запоминания различных данных"
+
+#: ../src/dialog-editor.c:555
+#, c-format
+msgid "Card Editor %s"
+msgstr "Редактор карточек %s"
+
+#: ../src/dialog-editor.c:581
+msgid "No category selected"
+msgstr "Нет выделенной категории"
+
+#: ../src/dialog-editor.c:585
+msgid "No cards in Trash"
+msgstr "Нет карточек в корзине"
+
+#: ../src/dialog-editor.c:588
+msgid "No cards"
+msgstr "Нет карточек"
+
+#: ../src/dialog-editor.c:593
+#, c-format
+msgid "Box %d, Success %.0f%%. Category: %s"
+msgstr "Ящик: %d. Правильных ответов: %.0f%%. Категория: %s"
+
+#: ../src/dialog-editor.c:600
+#, c-format
+msgid "Never tested. Category: %s"
+msgstr "Никогда не тестировалась. Категория: %s"
+
+#: ../src/dialog-editor.c:1052
+msgid ""
+"<b>All dates and statistics for this card will be lost</b>\n"
+"\n"
+"Continue anyway?"
+msgstr "<b>Все данные статистики (включая даты) для данной карточки будут потеряны</b>\n"
+"\n"
+"Продолжить?"
+
+#: ../src/dialog-properties.c:287
+msgid "Centered keywords and text"
+msgstr "Ключевые слова и текст по центру"
+
+#: ../src/dialog-properties.c:289
+msgid "Non-centered keywords and text"
+msgstr "Ключевые слова и текст по левому краю"
+
+#: ../src/dialog-properties.c:291
+msgid "Non-centered text only"
+msgstr "Только текст по левому краю"
+
+#: ../src/dialog-quiz.c:354
+#, c-format
+msgid "Card %d of %d. Category: %s"
+msgstr "Карточка %d из %d. Категория: %s"
+
+#: ../src/dialog-quiz.c:961
+#, c-format
+msgid "Quiz %s"
+msgstr "Тест %s"
+
+#: ../src/dialog-quiz.c:1030
+msgid ""
+"No cards\n"
+"\n"
+"There are no new cards to test.\n"
+"See the <i>Quiz</i> menu for options."
+msgstr "Нет карточек\n"
+"\n"
+"Нет новых карточек для тестирования.\n"
+"Смотрите меню <i>Тест</i> для настройки."
+
+#: ../src/dialog-quiz.c:1034
+msgid ""
+"No cards\n"
+"\n"
+"There are no expired cards to test.\n"
+"See the <i>Quiz</i> menu for options."
+msgstr "Нет карточек\n"
+"\n"
+"Нет просроченных карточек для тестирования.\n"
+"Смотрите меню <i>Тест</i> для настройки."
+
+#: ../src/dialog-quiz.c:1038
+msgid ""
+"No cards\n"
+"\n"
+"There are no new or expired cards to test.\n"
+"See the <i>Quiz</i> menu for options."
+msgstr "Нет карточек\n"
+"\n"
+"Нет новых или просроченных карточек для тестирования.\n"
+"Смотрите меню <i>Тест</i> для настройки."
+
+#: ../src/dialog-quiz.c:1042
+msgid ""
+"No cards\n"
+"\n"
+"There are no cards flagged.\n"
+"See the <i>Quiz</i> menu for options."
+msgstr "Нет карточек\n"
+"\n"
+"Нет карточек с флагами.\n"
+"Смотрите меню <i>Тест</i> для настройки."
+
+#: ../src/dialog-quiz.c:1046
+msgid ""
+"No cards\n"
+"\n"
+"There are no cards selected.\n"
+"See the <i>Quiz</i> menu for options."
+msgstr "Нет карточек\n"
+"\n"
+"Нет выделенных карточек.\n"
+"Смотрите меню <i>Тест</i> для настройки."
+
+#: ../src/dialog-quiz.c:1056
+msgid ""
+"End of quiz\n"
+"\n"
+"Use the buttons below to review your choices. Only cards marked as <i>Known</"
+"i> or <i>Unknown</i> are recorded. Nothing is recorded until the quiz window "
+"closes."
+msgstr "Конец тестирования\n"
+"\n"
+"Используйте кнопки ниже для просмотра вариантов ответов. Записываются только карточки, помеченные как известные, либо как неизвестные. Ничего не записывается, пока не закроется окно тестирования."
+
+#: ../src/dialog-tagger.c:268
+msgid ""
+"<b>Tag name not available</b>\n"
+"\n"
+"Sorry, that name is already used by another tag."
+msgstr "<b>Недопустимое имя метки</b>\n"
+"\n"
+"Данное имя уже используется другой меткой."
+
+#: ../src/file.c:540
+msgid "Trash"
+msgstr "Корзина"
+
+#: ../src/fileio.c:395 ../src/fileio.c:681
+#, c-format
+msgid "The file is not valid UTF-8."
+msgstr "Файл не является правильным UTF-8."
+
+#: ../src/fileio.c:417
+#, c-format
+msgid "Please check that this is an ignuit flashcard file."
+msgstr "Проверьте, что данный файл является карточками Ignuit"
+
+#: ../src/fileio.c:421
+#, c-format
+msgid "The file contains unknown elements."
+msgstr "Файл содержит неизвестные элементы."
+
+#. Don't use the GError set by g_markup_parse_context_parse, because
+#. * it likely contains markup that we don't want to feed into an error
+#. * dialog.
+#: ../src/fileio.c:435
+#, c-format
+msgid "Error while parsing '%s'"
+msgstr "Ошибка при синтаксическом разборе «%s»"
+
+#: ../src/fileio.c:701
+#, c-format
+msgid "Error while parsing file."
+msgstr "Ошибка при синтаксическом разборе файла."
+
+#: ../src/fileio.c:707 ../src/fileio.c:778
+#, c-format
+msgid "No cards were found in the imported file."
+msgstr "Карточки не были найдены в импортированном файле."
+
+#: ../src/fileio.c:774
+#, c-format
+msgid ""
+"Please check that imported file is not compressed, and that the correct "
+"filter is selected."
+msgstr "Проверьте, что импортированный файл не сжат, и выбран правильный формат."
+
+#: ../src/textview.c:815
+msgid "_Listen"
+msgstr "_Слушать"

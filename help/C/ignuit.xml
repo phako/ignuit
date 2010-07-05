@@ -1,0 +1,1018 @@
+<?xml version="1.0"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+"http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+  <!ENTITY legal SYSTEM "legal.xml">
+  <!ENTITY appversion "0.0.16">
+  <!ENTITY manrevision "1.9">
+  <!ENTITY date "November 5th, 2009">
+  <!ENTITY app "Ignuit">
+  <!-- Information about the entities
+       The legal.xml file contains legal information.
+       Use the appversion entity to specify the version of the application.
+       Use the manrevision entity to specify the revision number of this manual.
+       Use the date entity to specify the release date of this manual.
+       Use the app entity to specify the name of the application. -->
+]>
+
+<!-- =============Document Header ============================= -->
+<article id="index" lang="en">
+<!-- please do not change the id; for translations, change lang to -->
+<!-- appropriate code -->
+
+  <articleinfo> 
+
+    <title>&app; Manual</title>       
+
+    <abstract role="description">
+      <para>Study using electronic flashcards.</para>
+    </abstract>
+
+    <copyright>
+      <year>2009</year>
+      <holder>Timothy Musson</holder>
+    </copyright>
+
+<!-- translators: uncomment this:
+    <copyright>
+      <year>2002</year>
+      <holder>ME-THE-TRANSLATOR (Latin translation)</holder>
+    </copyright>
+-->
+
+    <publisher role="maintainer">
+      <publishername> Timothy Musson </publishername>
+    </publisher>
+
+    &legal;
+    <!-- This file  contains link to license for the documentation
+         (GNU FDL), and other legal stuff such as "NO WARRANTY"
+         statement. Please do not change any of this. -->
+
+    <authorgroup>
+
+      <author> 
+        <firstname>Timothy</firstname>
+        <surname>Musson</surname>
+        <affiliation>
+          <address>
+            <email>trmusson@gmail.com</email>
+          </address>
+        </affiliation>
+      </author>
+      
+<!-- This is appropriate place for other contributors: translators,
+     maintainers,  etc. Commented out by default.
+
+      <othercredit role="translator">
+        <firstname>Latin</firstname>
+        <surname>Translator 1</surname>
+        <affiliation>
+          <orgname>Latin Translation Team</orgname>
+          <address> <email>translator@gnome.org</email> </address>
+        </affiliation>
+        <contrib>Latin translation</contrib>
+      </othercredit>
+-->
+
+    </authorgroup>
+
+    <revhistory>
+
+      <revision> 
+        <revnumber>&app; Manual V&manrevision;</revnumber> 
+        <date>&date;</date> 
+        <revdescription> 
+          <para role="author">
+            Timothy Musson
+            <email>trmusson@gmail.com</email>
+          </para>
+          <para role="publisher">Timothy Musson</para>
+        </revdescription>
+      </revision>
+
+    </revhistory>
+
+    <releaseinfo>
+      This manual describes version &appversion; of &app;.
+    </releaseinfo>
+
+    <legalnotice>
+
+      <title>Feedback</title> 
+      <para>
+        To report a bug or make a suggestion regarding the &app;
+        application or this manual, please send email to
+        Tim Musson <email>trmusson@gmail.com</email>.
+      </para>
+
+<!-- Translators may also add here feedback address for translations -->
+
+    </legalnotice>
+
+  </articleinfo>
+
+  <indexterm zone="index">
+    <primary>Ignuit</primary>
+  </indexterm>
+
+
+<!-- ============= Document Body ============================= -->
+
+
+<!-- ============= Introduction ============================== -->
+
+  <sect1 id="ignuit-introduction">
+
+    <title>Introduction</title>
+
+    <para>The <application>&app;</application> application is a memorization aid following the Leitner flashcard system. You can use <application>&app;</application> for both long-term and short-term learning.</para>
+
+    <sect2 id="ignuit-introduction-flashcard">
+
+      <title>What is a Flashcard?</title>
+
+      <para>A physical flashcard is a small card with a word or question written on one side and the translation or answer written on the other. Repeatedly picking up flashcards and trying to remember what's written on the reverse side is a good way to memorize things.</para>
+
+    </sect2>
+
+    <sect2 id="ignuit-introduction-leitner">
+
+      <title>What is the Leitner Flashcard System?</title>
+
+      <para>The Leitner flashcard system, invented by Sebastian Leitner, is an efficient way to manage time spent learning with flashcards.</para>
+
+      <para>In this system, you have a series of boxes numbered from one up to, let's say, eight. You begin by placing all of your flashcards in box number one. Test yourself with box one's cards daily. If you can't remember what's written on the reverse of a card, return it to box number one. If you can remember what's written on the reverse, drop the card into box number two. The cards in box two are tested every three days. Any of those that you remember can be moved to box number three, which you'll only look at every seven days. And so on, up to box eight, with increasing time intervals per box. Whenever you can't remember what's written on the back of a card, that card returns to box number one, regardless of which box it was last in.</para>
+
+      <para>As a result, your time is spent with the cards that need it the most.</para>
+
+      <para>Electronic flashcard programs such as <application>&app;</application> automate this system.</para>
+
+    </sect2>
+
+  </sect1>
+
+
+<!-- ============= Getting Started =========================== -->
+
+  <sect1 id="ignuit-getting-started">
+
+    <title>Getting Started</title>
+
+    <para>You can start <application>&app;</application> in the following ways:</para>
+
+    <variablelist>
+
+      <varlistentry>
+        <term><guimenu>Applications</guimenu> menu</term>
+        <listitem>
+          <para>Choose <menuchoice><guimenu>Education</guimenu> <guimenuitem>i GNU it Flashcard Trainer</guimenuitem></menuchoice>.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>Command line</term>
+        <listitem>
+          <para>Execute the following command: <command>ignuit [FILENAME]</command></para>
+        </listitem>
+      </varlistentry>
+
+    </variablelist>
+
+  </sect1>
+
+
+<!-- ============= Using Ignuit =========================== -->
+
+  <sect1 id="ignuit-usage">
+
+    <title>Using &app;</title>
+
+    <sect2 id="ignuit-usage-cards">
+
+      <title>Your Flashcard Collection</title>
+
+      <para>To use <application>&app;</application>, you'll need some flashcards. Here are your options:</para>
+
+      <orderedlist>
+        <listitem>
+          <para>Use the built-in card editor to create your own flashcards.</para>
+        </listitem>
+        <listitem>
+          <para>Check the <application>&app;</application> homepage for flashcard files submitted by users.</para>
+        </listitem>
+        <listitem>
+          <para>Import flashcards from another program.</para>
+        </listitem>
+      </orderedlist>
+
+      <para>The first option is often the best: the cards will fit your needs, not somebody else's.</para>
+
+    </sect2>
+
+    <sect2 id="ignuit-usage-longterm">
+
+      <title>Long Term Memorization</title>
+
+      <para>For the long term memorization of your flashcards, you should aim to quiz yourself once a day with the Quiz menu's <guilabel>Expired Cards</guilabel> or <guilabel>New and Expired Cards</guilabel> option selected.</para>
+
+      <para>When the quiz window opens, check that its <guilabel>Record</guilabel> option is enabled. That way the program will keep track of which cards you know and which cards you have trouble with, and quiz you accordingly over time.</para>
+
+    </sect2>
+
+    <sect2 id="ignuit-usage-cramming">
+
+      <title>Cramming or Drilling</title>
+
+      <para>If you'd like to drill yourself, or if you want to memorize information quickly for an upcoming test or exam, use the Quiz menu to select cards for testing. You'll probably be more interested in the <guilabel>All Cards</guilabel>, <guilabel>New Cards</guilabel>, or <guilabel>Selected Cards</guilabel> options than either of the <guilabel>Expired Cards</guilabel> options.</para>
+
+      <para>When the quiz window opens, make sure its <guilabel>Record</guilabel> option is disabled. Now quiz yourself repeatedly with those settings.</para>
+
+      <para>So long as the <guilabel>Record</guilabel> option is disabled, the repeated quizzing won't affect the box numbers or expiry dates of the quizzed cards. Only the order of the cards in the card pane will be affected, with the difficult ones rising to the top.</para>
+
+    </sect2>
+
+    <sect2 id="ignuit-usage-tips">
+
+      <title>Tips</title>
+
+      <tip><para>After adding a group of new cards to a file, it can be helpful to drill yourself a few times with the quiz window's <guilabel>Record</guilabel> option disabled.</para></tip>
+
+      <tip><para>For cards that are really hard to remember, nothing beats repeatedly writing things down on scrap paper.</para></tip>
+
+    </sect2>
+
+  </sect1>
+
+
+<!-- ============= Main Window =========================== -->
+
+  <sect1 id="inguit-main-window">
+
+    <title>The Main Window</title>
+
+    <para>When you start <application>&app;</application>, the following window is displayed:</para>
+
+    <figure id="FIG-main-window">
+      <title>&app; Main Window</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/main-window.png" format="PNG"/>
+          </imageobject>
+          <textobject><phrase>Shows the &app; main window.</phrase>
+          </textobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+
+    <para>The main window is divided into two panes.</para>
+
+    <variablelist>
+
+      <varlistentry>
+        <term><guilabel>Category Pane</guilabel></term>
+        <listitem>
+          <para>The category pane displays a list of all categories in the file. Below the category pane are controls for adding and removing categories.</para>
+          <para>You can rename a category by double-clicking its title, or by pressing ENTER on a selected category.</para>
+          <para>You can search the category pane by selecting it and typing in your query.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><guilabel>Card Pane</guilabel></term>
+        <listitem>
+          <para>The card pane displays a list of all cards in the selected category. The card pane is also where search results are listed. Below the card pane are controls for editing, adding and removing cards.</para>
+          <para>You can search the card pane's "Front" column by selecting it and then typing in your query. More detailed searches can be made by selecting <guilabel>Find...</guilabel> from the <guilabel>Edit</guilabel> menu.</para>
+        </listitem>
+      </varlistentry>
+
+    </variablelist>
+
+    <sect2 id="ignuit-main-window-tips">
+
+      <title>Main Window Tips</title>
+
+      <tip><para>If you accidentally remove a card, you can retrieve it via the <guilabel>Edit</guilabel> menu's <guilabel>Recently Removed Cards</guilabel> option. The removed card can then be dragged to the category of your choice.</para></tip>
+      <tip><para>You can specify which columns are shown in the card pane by right-clicking on the column titles.</para></tip>
+
+    </sect2>
+
+  </sect1>
+
+
+<!-- ============= File Properties =========================== -->
+
+  <sect1 id="ignuit-file-properties">
+
+    <title>The File Properties Dialog</title>
+
+    <para>To add or edit information about a file, or to choose a card style, select <guilabel>Properties</guilabel> from the <guilabel>File</guilabel> menu.</para>
+
+    <figure id="FIG-properties-dialog">
+      <title>&app; <guilabel>File Properties</guilabel> dialog</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/properties-dialog.png" format="PNG"/>
+          </imageobject>
+          <textobject><phrase>Shows the &app; File Properties dialog.</phrase>
+          </textobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+
+    <para>The available card styles are:</para>
+
+    <variablelist>
+
+      <varlistentry>
+        <term><guilabel>Centered keywords and text</guilabel></term>
+        <listitem>
+          <para>All text is centre justified. A large font is used for keywords and a small font for subsequent lines. This is the default setting for new files.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><guilabel>Non-centered keywords and text</guilabel></term>
+        <listitem>
+          <para>All text is left or right justified, depending on the language. Keywords use a large font, subsequent lines use a small font.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><guilabel>Non-centered text only</guilabel></term>
+        <listitem>
+          <para>All text is left or right justified, depending on the language, and displayed using a small font.</para>
+        </listitem>
+      </varlistentry>
+
+    </variablelist>
+
+  </sect1>
+
+
+<!-- ============= Card Editor =========================== -->
+
+  <sect1 id="ignuit-card-editor">
+
+    <title>The Card Editor Window</title>
+
+    <para>To add a card to a selected category, either select <guilabel>Add Card</guilabel> from the <guilabel>Card</guilabel> menu, or press the <guilabel>Add Card</guilabel> button located below the card pane. The <guilabel>Card Editor</guilabel> window will appear.</para>
+
+    <figure id="FIG-card-editor">
+      <title>&app; <guilabel>Card Editor</guilabel> window</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/editor-dialog.png" format="PNG"/>
+          </imageobject>
+          <textobject><phrase>Shows the &app; Card Editor window.</phrase>
+          </textobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+
+    <para>The card editor contains the following elements:</para>
+
+    <variablelist>
+
+      <varlistentry>
+        <term><guilabel>Text editor</guilabel></term>
+        <listitem>
+          <para>Like a physical flashcard, each card in <application>&app;</application> has two sides that need filling in. The side displayed by the text editor depends on the state of the <guilabel>Flip Card</guilabel> toggle.</para>
+          <para>The first line of text on each side of a card is treated as the "keyword". Subsequent lines are treated as descriptive or example text. There's no visible difference in the card editor window, but in the quiz window keywords and example text are usually displayed using different fonts.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><guilabel>Tag bar</guilabel></term>
+        <listitem>
+          <para>To help organise your cards, they can optionally be marked with the tags of your choice. Tags are separated by spaces. The tag bar can be switched on and off via the <guilabel>Card</guilabel> menu. If you want to modify the tags of several cards at a time, use the <guilabel>Tag Manager</guilabel>. It's available via the <guilabel>Card</guilabel> menu of <application>&app;</application>'s main window.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><guilabel>Information</guilabel> toggle</term>
+        <listitem>
+          <para>This button toggles the display of statistics for the current card.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><guilabel>Add Card</guilabel> button</term>
+        <listitem>
+          <para>This button adds a new card to the current category.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><guilabel>Remove Card</guilabel> button</term>
+        <listitem>
+          <para>This button moves the current card to the trash. The trash is emptied when the program closes. Until then, you can retrieve accidentally removed cards via the <guilabel>Recently Removed Cards</guilabel> option in the main window's <guilabel>Edit</guilabel> menu.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><guilabel>Previous Card</guilabel> button</term>
+        <listitem>
+          <para>This button takes you to the previous card. If the editor reaches the start of the list, it wraps to the last card.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><guilabel>Flip Card</guilabel> toggle</term>
+        <listitem>
+          <para>This toggle button switches the text entry box between front and back views of the current card.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><guilabel>Next Card</guilabel> button</term>
+        <listitem>
+          <para>This button takes you to the next card. If the editor reaches the end of the list, it wraps to the first card.</para>
+        </listitem>
+      </varlistentry>
+
+     </variablelist>
+
+
+    <sect2 id="ignuit-editor-window-markup">
+
+      <title>Card Editor Markup</title>
+
+      <figure id="FIG-card-editor-2">
+        <title>Editing a card with markup.</title>
+        <screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="figures/editor-dialog2.png" format="PNG"/>
+            </imageobject>
+            <textobject><phrase>Example of markup used in the &app; Card Editor window.</phrase>
+            </textobject>
+          </mediaobject>
+        </screenshot>
+      </figure>
+
+      <para>In case you'd like to tweak things a little, <application>&app;</application> recognizes the following simple HTML-like tags:</para>
+
+      <table frame="topbot" id="editor-markup">
+        <title>Editor markup</title>
+        <tgroup cols="2" colsep="0" rowsep="0">
+          <colspec colname="COLSPEC0" colwidth="40*"/>
+          <colspec colname="COLSPEC1" colwidth="60*"/>
+          <thead>
+            <row>
+              <entry>Tag</entry>
+              <entry>Effect</entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>&lt;b&gt; ... &lt;/b&gt;</entry>
+              <entry><para>Bold text.</para></entry>
+            </row>
+            <row>
+              <entry>&lt;big&gt; ... &lt;/big&gt;</entry>
+              <entry><para>Large text.</para></entry>
+            </row>
+            <row>
+              <entry>&lt;br/&gt;</entry>
+              <entry><para>This self-closing tag inserts a line break. It could be used to split a keyword over multiple lines, for example.</para></entry>
+            </row>
+            <row>
+              <entry>&lt;center&gt; ... &lt;/center&gt;</entry>
+              <entry><para>Center justified text.</para></entry>
+            </row>
+            <row>
+              <entry>&lt;embed type="..." src="..." alt="..."/&gt;</entry>
+              <entry><para>This self-closing tag is used to attach a picture or an audio file. The "type" attribute can be either "image" or "sound". The "src" attribute specifies a filename, either as an absolute path, or relative to the directory containing the flashcard file. The optional "alt" attribute provides some text to display in the card pane. Please note that it's generally best to use relative filenames in your cards. For example, use <filename>sounds/hello.ogg</filename> rather than <filename>/home/user/flashcards/sounds/hello.ogg</filename>.</para></entry>
+            </row>
+            <row>
+              <entry>&lt;i&gt; ... &lt;/i&gt;</entry>
+              <entry><para>Italic text.</para></entry>
+            </row>
+            <row>
+              <entry>&lt;key&gt; ... &lt;/key&gt;</entry>
+              <entry><para>This is the style used for the keyword of each card. Since <application>&app;</application> handles keywords automatically, you will probably not need this tag.</para></entry>
+            </row>
+            <row>
+              <entry>&lt;left&gt; ... &lt;/left&gt;</entry>
+              <entry><para>Left justified text.</para></entry>
+            </row>
+            <row>
+              <entry>&lt;right&gt; ... &lt;/right&gt;</entry>
+              <entry><para>Right justified text.</para></entry>
+            </row>
+            <row>
+              <entry>&lt;s&gt; ... &lt;/s&gt;</entry>
+              <entry><para>Strikethough.</para></entry>
+            </row>
+            <row>
+              <entry>&lt;small&gt; ... &lt;/small&gt;</entry>
+              <entry><para>Small text.</para></entry>
+            </row>
+            <row>
+              <entry>&lt;span&gt; ... &lt;/span&gt;</entry>
+              <entry><para>This element has no effect unless used with attributes. Available attributes are fg="..." and bg="...", which control foreground and background colour respectively.</para></entry>
+            </row>
+            <row>
+              <entry>&lt;sub&gt; ... &lt;/sub&gt;</entry>
+              <entry><para>Subscript.</para></entry>
+            </row>
+            <row>
+              <entry>&lt;sup&gt; ... &lt;/sup&gt;</entry>
+              <entry><para>Superscript.</para></entry>
+            </row>
+            <row>
+              <entry>&lt;tt&gt; ... &lt;/tt&gt;</entry>
+              <entry><para>Teletype (monospaced) text.</para></entry>
+            </row>
+            <row>
+              <entry>&lt;u&gt; ... &lt;/u&gt;</entry>
+              <entry><para>Underlined text.</para></entry>
+            </row>
+            <row>
+              <entry>&lt;verbatim&gt; ... &lt;/verbatim&gt;</entry>
+              <entry><para>Any markup placed between these tags will be displayed as plain text.</para></entry>
+            </row>
+            <row>
+              <entry>&lt;$&gt; ... &lt;/$&gt;</entry>
+              <entry><para>This element uses LaTeX to display a mathematical formula inline. See the section on Ignuit and LaTeX for details.</para></entry>
+            </row>
+            <row>
+              <entry>&lt;latex&gt; ... &lt;/latex&gt;</entry>
+              <entry><para>This element uses LaTeX to process whatever text you specify. See the section on Ignuit and LaTeX for details.</para></entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+
+      <para>Apart from the two LaTex-specific elements, all of the elements above accept fg="..." and bg="..." attributes. These attributes control foreground and background colour respectively. For example, &lt;b fg="red" bg="yellow"&gt;this would produce bold red text on a yellow background&lt;/b&gt;.</para>
+
+    </sect2>
+
+    <sect2 id="ignuit-editor-window-tips">
+
+      <title>Card Editor Tips</title>
+
+      <tip><para>If you'd like the <guilabel>Flip Card</guilabel> toggle to retain its state when you switch to the next or previous card, activate the <guilabel>Sticky Flips</guilabel> option in the editor window's <guilabel>Card</guilabel> menu.</para></tip>
+
+      <tip><para>If you find you've made a card with the faces accidentally reversed, select <guilabel>Switch Sides</guilabel> from the editor window's <guilabel>Edit</guilabel> menu.</para></tip>
+
+      <tip><para>If you accidentally remove a card, select <guilabel>Recently Removed Cards</guilabel> from the main window's <guilabel>Edit</guilabel> menu, then drag the card back to its original category.</para></tip>
+
+    </sect2>
+
+  </sect1>
+
+
+<!-- ============= Quiz Menu =========================== -->
+
+  <sect1 id="ignuit-quiz-menu">
+
+    <title>Quiz Menu Options</title>
+
+    <para>The <guilabel>Quiz</guilabel> menu lets you choose between various options before opening the quiz window.</para>
+
+    <figure id="FIG-quiz-menu">
+      <title>&app; <application>Quiz</application> menu</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/quiz-menu.png" format="PNG"/>
+          </imageobject>
+          <textobject><phrase>Shows the &app; Quiz menu.</phrase>
+          </textobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+
+    <para>The quiz menu contains the following items:</para>
+
+    <variablelist>
+
+      <varlistentry>
+        <term><guilabel>Begin Quiz</guilabel></term>
+        <listitem>
+          <para>This item opens the quiz window and begins a quiz. This is the same as the <guilabel>Quiz</guilabel> button on the main window toolbar.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><guilabel>All Categories</guilabel></term>
+        <listitem>
+          <para>This option causes cards from all categories to be included in the quiz.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><guilabel>Selected Category</guilabel></term>
+        <listitem>
+          <para>This option limits the quiz to cards in the currently selected category.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><guilabel>All Cards</guilabel></term>
+        <listitem>
+          <para>This option causes every card in the file or current category (depending on the previous two options) to be included in the quiz.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><guilabel>New Cards</guilabel></term>
+        <listitem>
+          <para>This option limits the quiz to cards that have not been quizzed in the past.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><guilabel>Expired Cards</guilabel></term>
+        <listitem>
+          <para>This option limits the quiz to cards whose expiry dates have been reached or passed. These are the cards <application>&app;</application> thinks you should be quizzed on.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><guilabel>New and Expired Cards</guilabel></term>
+        <listitem>
+          <para>This option limits the quiz to untested cards and cards whose expiry dates have been reached or passed. This is the default setting.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><guilabel>Flagged Cards</guilabel></term>
+        <listitem>
+          <para>This option limits the quiz to user-flagged cards.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><guilabel>Selected Cards</guilabel></term>
+        <listitem>
+          <para>This option limits the quiz to cards currently selected in the main window's card pane.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><guilabel>Fronts Only</guilabel></term>
+        <listitem>
+          <para>This option tests you using the front side of each card.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><guilabel>Backs Only</guilabel></term>
+        <listitem>
+          <para>This option tests you using the back side of each card.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><guilabel>Fronts and Backs at Random</guilabel></term>
+        <listitem>
+          <para>This option tests you using either the front or the back of each card.</para>
+        </listitem>
+      </varlistentry>
+
+    </variablelist>
+
+  </sect1>
+
+
+<!-- ============= Quiz Window =========================== -->
+
+  <sect1 id="ignuit-quiz-window">
+
+    <title>The Quiz Window</title>
+
+    <para>After selecting <guilabel>Begin Quiz</guilabel> from the main window's toolbar or <guilabel>Quiz</guilabel> menu, the <guilabel>Quiz</guilabel> window opens.</para>
+
+    <figure id="FIG-quiz-dialog">
+      <title>&app; <guilabel>Quiz</guilabel> window</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/quiz-dialog.png" format="PNG"/>
+          </imageobject>
+          <textobject><phrase>Shows the &app; Quiz dialog.</phrase>
+          </textobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+
+    <para>The quiz window contains the following elements:</para>
+
+    <variablelist>
+
+      <varlistentry>
+        <term><guilabel>Card text box</guilabel></term>
+        <listitem>
+          <para>This area displays the front of the card by default. Try to remember what's on the back, then check by using the <guilabel>Flip Card</guilabel> toggle. If you're correct, mark the card as Known. Otherwise, mark it as Unknown.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><guilabel>Answer bar</guilabel></term>
+        <listitem>
+          <para>This is an optional text entry area where you can type in your answer before flipping the card to check it. The answer bar can be switched on and off via the <guilabel>Card</guilabel> menu.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><guilabel>Information</guilabel> toggle</term>
+        <listitem>
+          <para>This button toggles the display of statistics for the current card.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><guilabel>Record</guilabel> check-box</term>
+        <listitem>
+          <para>This check-box tells <application>&app;</application> whether or not the results of the current quiz should be used to calculate new expiry dates for the cards involved. For normal use (long term learning), this option should be enabled. For repeated drilling, it should be disabled.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><guilabel>Previous Card</guilabel> button</term>
+        <listitem>
+          <para>This button takes you to the previous card. You're free to move through the cards and make changes as you wish.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><guilabel>Next Card</guilabel> button</term>
+        <listitem>
+          <para>This button takes you to the next card. You're free to move through the cards and make changes as you wish.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><guilabel>Mark as Unknown</guilabel> button</term>
+        <listitem>
+          <para>This button tells <application>&app;</application> that you have trouble with the current card.</para>
+          <para>If the card is already marked as Unknown, pressing this button again returns the card to its unmarked state. For convenience, marking an unmarked card immediately moves you to the next card.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><guilabel>Flip Card</guilabel> toggle</term>
+        <listitem>
+          <para>Flips the card over so you can check your memory.</para>
+          <para>Since the Known and Unknown buttons automatically move you to the next card, use the <guilabel>Flip Card</guilabel> button before marking the card as Known or Unknown.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><guilabel>Mark as Known</guilabel> button</term>
+        <listitem>
+          <para>This button tells <application>&app;</application> that you know what's written on the back of the current card.</para>
+          <para>If the card is already marked as Known, pressing this button again returns the card to its unmarked state. For convenience, marking an unmarked card immediately moves you to the next card.</para>
+        </listitem>
+      </varlistentry>
+
+    </variablelist>
+
+    <sect2 id="ignuit-quiz-window-tips">
+
+      <title>Quiz Window Tips</title>
+
+      <tip><para>After a quiz, but before closing the quiz window, use the <guilabel>Previous Card</guilabel> and <guilabel>Next Card</guilabel> buttons to review your cards and choices. Reviewing quizzes this way really does help things stick.</para></tip>
+
+      <tip><para>It's fine to close the quiz window without getting to the end of the quiz. Only the cards that you actually mark are recorded.</para></tip>
+
+    </sect2>
+
+  </sect1>
+
+
+<!-- ============= Preferences =========================== -->
+
+  <sect1 id="ignuit-preferences">
+
+    <title>The Preferences Dialog</title>
+
+    <para>To configure <application>&app;</application>, choose <guilabel>Preferences</guilabel> from the <guilabel>Edit</guilabel> menu.</para>
+
+    <para>The <guilabel>Preferences</guilabel> dialog contains three tabs: the <guilabel>Appearance</guilabel> tab, the <guilabel>Schedules</guilabel> tab, and the <guilabel>Other Options</guilabel> tab.</para>
+
+    <sect2 id="ignuit-prefs-appearance">
+
+      <title>The Appearance Tab</title>
+
+      <figure id="FIG-preferences-appearance">
+        <title>The <guilabel>Appearance</guilabel> tab in the &app; <guilabel>Preferences</guilabel> dialog</title>
+        <screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="figures/preferences-appearance.png" format="PNG"/>
+            </imageobject>
+            <textobject><phrase>Shows the Appearance tab in the &app; Preferences dialog.</phrase>
+            </textobject>
+          </mediaobject>
+        </screenshot>
+      </figure>
+
+      <para>The <guilabel>Appearance</guilabel> tab lets you set the colours and font used to display cards in the card editor and quiz windows.</para>
+
+      <para>As well as a foreground colour shared by all cards, card background colours can be set for plain (unmarked) cards, cards marked as "known", and cards marked as "unknown". The background colour for special messages (e.g. "End of quiz" or "No cards are available") can also be set.</para>
+
+    </sect2>
+
+    <sect2 id="ignuit-prefs-schedules">
+
+      <title>The Schedules Tab</title>
+
+      <figure id="FIG-preferences-schedules">
+        <title>The <guilabel>Schedules</guilabel> tab in the &app; <guilabel>Preferences</guilabel> dialog</title>
+        <screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="figures/preferences-schedules.png" format="PNG"/>
+            </imageobject>
+            <textobject><phrase>Shows the Schedules tab in the &app; Preferences dialog.</phrase>
+            </textobject>
+          </mediaobject>
+        </screenshot>
+      </figure>
+
+      <para>The <guilabel>Schedules</guilabel> tab lets you specify how many days to wait between re-testing the cards belonging to each box. Please see the Introduction for a description of how boxes work.</para>
+
+    </sect2>
+
+    <sect2 id="ignuit-prefs-other">
+
+      <title>The Other Options Tab</title>
+
+      <figure id="FIG-preferences-other">
+        <title>The <guilabel>Other Options</guilabel> tab in the &app; <guilabel>Preferences</guilabel> dialog</title>
+        <screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="figures/preferences-other.png" format="PNG"/>
+            </imageobject>
+            <textobject><phrase>Shows the Other Options tab in the &app; Preferences dialog.</phrase>
+            </textobject>
+          </mediaobject>
+        </screenshot>
+      </figure>
+
+    </sect2>
+
+  </sect1>
+
+
+<!-- ============= Ignuit and LaTeX =========================== -->
+
+  <sect1 id="ignuit-and-latex">
+
+    <title>Ignuit and LaTeX</title>
+
+    <para>This section of the user guide is unfinished.</para>
+
+    <para>For this to work, you must have both <application>latex</application> and <application>dvipng</application> installed.</para>
+
+    <para>Example 1</para>
+
+    <programlisting>
+&lt;$&gt;A = 4 \pi r^2 = \pi d^2&lt;/$&gt;
+</programlisting>
+
+    <para>Example 2</para>
+
+    <programlisting>
+&lt;latex&gt;
+\begin{equation}
+  25 apples \times 42 oranges = lots of fruit
+\end{equation}
+&lt;/latex&gt;
+</programlisting>
+
+    <para>If files named <filename>latex-preamble</filename> and <filename>latex-postamble</filename> exist in the same directory as the current flashcard file, their contents will be used in place of <application>&app;</application>'s default LaTeX preamble and postamble text.</para>
+
+  </sect1>
+
+
+<!-- ============= Importing Files =========================== -->
+
+  <sect1 id="ignuit-importing-files">
+
+    <title>Notes on Importing Files</title>
+
+    <sect2 id="ignuit-import-how">
+      <title>Importing a file</title>
+      <para>To import cards from another program, select <guilabel>Import...</guilabel> from the <guilabel>File</guilabel> menu. In the <guilabel>Import</guilabel> dialog, select the appropriate <guilabel>Import Filter</guilabel>. By default, imported cards are added to the currently open file. If this isn't what you want, select <guilabel>New</guilabel> from the <guilabel>File</guilabel> menu before importing the cards.</para>
+    </sect2>
+
+    <sect2 id="ignuit-import-encoding">
+      <title>Encoding for imported files</title>
+      <para>All imported files should be uncompressed and in the UTF-8 (or plain ASCII) encoding. The <application>gunzip</application> and <application>file-roller</application> programs can uncompress files, and the <application>iconv</application> program can convert encodings.</para>
+    </sect2>
+
+    <sect2 id="ignuit-import-reverse">
+      <title>Reversing the faces of imported cards</title>
+      <para>You can reverse the faces (i.e. switch the fronts and backs) of imported cards by selecting them in the card pane and then choosing <guilabel>Switch Sides</guilabel> from the <guilabel>Card</guilabel> menu.</para>
+    </sect2>
+
+    <sect2 id="ignuit-import-csv">
+      <title>Comma Separated Value (CSV) and Tab Separated Value (TSV) files</title>
+      <para><application>&app;</application> can import (and export) CSV and TSV files. Each newline delimited row represents a single card. Each row consists of up to three fields: the card's front text, its back text, and (optionally) its category. These fields are separated by a comma (for a CSV file) or by a tab (for a TSV file). Here's an example CSV file:</para>
+      <programlisting>
+Front text for card one,Back text for card one,Example category
+Front text for card two,Back text for card two,Example category
+</programlisting>
+      <para>If a field's text includes a comma (for CSV) or a tab (for TSV), that field must be enclosed by double quotes.</para>
+      <programlisting>
+"Front text, card one","Back text, card one",Example category
+</programlisting>
+      <para>If a field includes a double quote character, that character must be escaped by preceding it with another double quote character.</para>
+      <programlisting>
+"This field includes some ""quoted"" text"
+</programlisting>
+      <para>If a field includes a newline character, that field must be enclosed by double quote characters.</para>
+      <programlisting>
+"This field
+spans multiple
+lines"
+</programlisting>
+    </sect2>
+
+    <sect2 id="ignuit-import-adding-support">
+      <title>Adding support for XML-based file formats</title>
+      <para>Additional XML-based file formats can be supported by adding XSLT files to <filename>$prefix/share/ignuit/import</filename>, where the program will automatically find and use them. The export filters work the same way. See the existing XSLT files for examples.</para>
+    </sect2>
+
+  </sect1>
+
+
+<!-- ============= Miscellaneous Tips =========================== -->
+
+  <sect1 id="ignuit-miscellaneous-tips">
+
+    <title>Miscellaneous Tips</title>
+
+    <sect2 id="ignuit-tips-keyboard">
+      <title>Keyboard navigation</title>
+      <para>Using the keyboard instead of the mouse can speed you up a lot, especially in the editor and quiz windows. Most functions have keyboard shortcuts listed in the menus. You can also use the Tab, Cursor, and Enter keys to navigate and select items.</para>
+    </sect2>
+
+    <sect2 id="ignuit-tips-searching">
+      <title>Search tips</title>
+      <para>In the Find dialog, searching without a query will find cards with blank sides (or with no tags, if the Tags option is selected). Regular expressions can be useful with tags. For example, the query "(apples|oranges)" will find cards tagged with either "apples" OR "oranges". To find cards with embedded images or audio, select the "Include markup in search" option, and use "&lt;embed" as the query text.</para>
+    </sect2>
+
+    <sect2 id="ignuit-tips-flags">
+      <title>Flagging cards</title>
+      <para>Cards can be flagged by pressing CTRL-8 in the card pane, the card editor, or the quiz window. Flagging is a way to mark cards for easy identification. You might flag a card if you notice a spelling mistake during a quiz, so that you can find and correct it later. Or you might flag cards that you'd like to have double-checked by somebody else. What you do with flagged cards is up to you. You can get a list of all flagged cards by selecting <guilabel>Find Flagged Cards</guilabel> from the <guilabel>Edit</guilabel> menu.</para>
+    </sect2>
+
+    <sect2 id="ignuit-tips-embedded-file-location">
+      <title>Absolute vs relative filenames</title>
+      <para>When using the <guilabel>&lt;embed type="..." src="..." alt="..."/&gt;</guilabel> element to attach images and sounds to cards, the filenames you give can be either absolute (e.g. <filename>/home/user/flashcards/sounds/hello.ogg</filename>) or relative (e.g. <filename>sounds/hello.ogg</filename>). Relative filenames are relative to the parent flashcard file. Using relative filenames rather than absolute filenames makes it much easier to move (or share) your flashcards without breakage. </para>
+    </sect2>
+
+    <sect2 id="ignuit-tips-troubleshooting">
+      <title>Troubleshooting</title>
+      <para>If <application>&app;</application> seems to be misbehaving, try running it from the command line and watching for error messages there.</para>
+    </sect2>
+
+  </sect1>
+
+
+<!-- ============= Bugs =========================== -->
+
+  <sect1 id="ignuit-bugs-and-plans">
+
+    <title>Bugs and Plans</title>
+
+    <para>If you find a bug, have a suggestion, or would like to help out in some way, please get in touch with Tim Musson <email>trmusson@gmail.com</email>.</para>
+
+    <sect2 id="ignuit-bugs">
+
+      <title>Known Bugs and Problems</title>
+
+      <itemizedlist>
+        <listitem><para>The import and export filters haven't been well tested.</para></listitem>
+      </itemizedlist>
+
+    </sect2>
+
+    <sect2 id="ignuit-plans">
+
+      <title>Future Plans</title>
+
+      <itemizedlist>
+        <listitem><para>Fit in with the GNOME Goals.</para></listitem>
+        <listitem><para>Easy access to recently used files.</para></listitem>
+        <listitem><para>Nested category tree.</para></listitem>
+        <listitem><para>Ability to select multiple categories.</para></listitem>
+        <listitem><para>Merged editor and quiz window.</para></listitem>
+        <listitem><para>WYSIWYG editing.</para></listitem>
+        <listitem><para>Dariusz Laska's alternative scheduling system as a preference option.</para></listitem>
+      </itemizedlist>
+
+    </sect2>
+
+  </sect1>
+
+</article>

@@ -1,0 +1,1085 @@
+# German translation of ignuit
+#
+# Copyright (C) 2009 Matthias Mailänder
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: ignuit\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-09-14 08:36+0200\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Matthias Mailänder <https://launchpad.net/~mailaender>\n"
+"Language-Team: Matthias Mailänder <https://launchpad.net/~mailaender>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: German\n"
+"X-Poedit-Country: GERMANY\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: ../data/glade/editor.glade.h:1
+#: ../data/glade/main.glade.h:1
+msgid "Add Card"
+msgstr "Karte hinzufügen"
+
+#: ../data/glade/editor.glade.h:2
+msgid "Add card"
+msgstr "Karte hinzufügen"
+
+#: ../data/glade/editor.glade.h:3
+#: ../data/glade/quiz.glade.h:1
+#: ../src/app-window.c:3402
+msgid "Back"
+msgstr "Hinten"
+
+#: ../data/glade/editor.glade.h:4
+msgid "Card Editor"
+msgstr "Karteneditor"
+
+#: ../data/glade/editor.glade.h:5
+#: ../data/glade/quiz.glade.h:2
+msgid "Flip"
+msgstr "umdrehen"
+
+#: ../data/glade/editor.glade.h:6
+#: ../data/glade/quiz.glade.h:3
+#: ../src/app-window.c:3401
+msgid "Front"
+msgstr "Vorne"
+
+#: ../data/glade/editor.glade.h:7
+#: ../data/glade/preferences.glade.h:14
+#: ../data/glade/quiz.glade.h:4
+msgid "Information"
+msgstr "Information"
+
+#: ../data/glade/editor.glade.h:8
+msgid "Insert Image"
+msgstr "Bild einfügen"
+
+#: ../data/glade/editor.glade.h:9
+msgid "Insert Sound"
+msgstr "Audio Einfügen"
+
+#: ../data/glade/editor.glade.h:10
+#: ../data/glade/quiz.glade.h:12
+msgid "Next"
+msgstr "Weiter"
+
+#: ../data/glade/editor.glade.h:11
+#: ../data/glade/quiz.glade.h:13
+msgid "Next card"
+msgstr "nächste Karte"
+
+#: ../data/glade/editor.glade.h:12
+#: ../data/glade/quiz.glade.h:14
+msgid "Previous"
+msgstr "Vorherige"
+
+#: ../data/glade/editor.glade.h:13
+#: ../data/glade/quiz.glade.h:15
+msgid "Previous card"
+msgstr "vorherige Karte"
+
+#: ../data/glade/editor.glade.h:14
+#: ../data/glade/main.glade.h:35
+msgid "Remove Card"
+msgstr "Karte entfernen"
+
+#: ../data/glade/editor.glade.h:15
+msgid "Remove card"
+msgstr "Karte entfernen"
+
+#: ../data/glade/editor.glade.h:16
+#: ../data/glade/main.glade.h:38
+msgid "Reset Statistics"
+msgstr "Statistik zurücksetzen"
+
+#: ../data/glade/editor.glade.h:17
+msgid "Sticky Flips"
+msgstr "eingerasteter Umdrehknopf"
+
+#: ../data/glade/editor.glade.h:18
+#: ../data/glade/main.glade.h:43
+msgid "Switch Sides"
+msgstr "Seiten wechseln"
+
+#: ../data/glade/editor.glade.h:19
+#: ../data/glade/main.glade.h:44
+#: ../data/glade/quiz.glade.h:18
+#: ../src/app-window.c:2567
+#: ../src/app-window.c:3409
+msgid "Tag"
+msgstr "Markierung"
+
+#: ../data/glade/editor.glade.h:20
+#: ../data/glade/quiz.glade.h:20
+msgid "View card details"
+msgstr "nähere Angaben über die Karte"
+
+#: ../data/glade/editor.glade.h:21
+#: ../data/glade/quiz.glade.h:21
+msgid "View reverse side"
+msgstr "Umgedrehte Seite anzeigen"
+
+#: ../data/glade/editor.glade.h:22
+#: ../data/glade/quiz.glade.h:22
+msgid "_Card"
+msgstr "_Karte"
+
+#: ../data/glade/editor.glade.h:23
+#: ../data/glade/main.glade.h:50
+#: ../data/glade/quiz.glade.h:23
+msgid "_Edit"
+msgstr "_Bearbeiten"
+
+#: ../data/glade/editor.glade.h:24
+#: ../data/glade/quiz.glade.h:26
+msgid "gtk-close"
+msgstr ""
+
+#: ../data/glade/editor.glade.h:25
+#: ../data/glade/main.glade.h:58
+msgid "gtk-copy"
+msgstr ""
+
+#: ../data/glade/editor.glade.h:26
+#: ../data/glade/main.glade.h:59
+msgid "gtk-cut"
+msgstr ""
+
+#: ../data/glade/editor.glade.h:27
+msgid "gtk-delete"
+msgstr ""
+
+#: ../data/glade/editor.glade.h:28
+#: ../data/glade/main.glade.h:63
+msgid "gtk-paste"
+msgstr ""
+
+#: ../data/glade/editor.glade.h:29
+msgid "gtk-redo"
+msgstr ""
+
+#: ../data/glade/editor.glade.h:30
+msgid "gtk-undo"
+msgstr ""
+
+#: ../data/glade/find.glade.h:1
+msgid "B_oth"
+msgstr "_Beide"
+
+#: ../data/glade/find.glade.h:2
+msgid "F_ronts"
+msgstr "_Vorne"
+
+#: ../data/glade/find.glade.h:3
+msgid "Find"
+msgstr "Suchen"
+
+#: ../data/glade/find.glade.h:4
+msgid "Include m_arkup in search"
+msgstr "_Auszeichnungselemente in der Suche mit einbeziehen"
+
+#: ../data/glade/find.glade.h:5
+msgid "Use regular _expressions"
+msgstr "Reguläre Ausdrücke _benutzen"
+
+#: ../data/glade/find.glade.h:6
+msgid "_Backs"
+msgstr "_Hinten"
+
+#: ../data/glade/find.glade.h:7
+msgid "_Match case"
+msgstr "_Groß-/Kleinschreibung berücksichtigen"
+
+#: ../data/glade/find.glade.h:8
+msgid "_Search for:"
+msgstr "Suche _nach: "
+
+#: ../data/glade/main.glade.h:2
+msgid "Add Category"
+msgstr "Kategorie hinzufügen"
+
+#: ../data/glade/main.glade.h:3
+msgid "All Cards"
+msgstr "Alle Karten"
+
+#: ../data/glade/main.glade.h:4
+msgid "All Categories"
+msgstr "Alle Kategorien"
+
+#: ../data/glade/main.glade.h:5
+msgid "Back Text"
+msgstr "Rückseitentext"
+
+#: ../data/glade/main.glade.h:6
+msgid "Backs Only"
+msgstr "nur Rückseite"
+
+#: ../data/glade/main.glade.h:7
+msgid "Begin Quiz"
+msgstr "Quiz starten"
+
+#: ../data/glade/main.glade.h:8
+msgid "Box Number"
+msgstr "Kistennummer"
+
+#: ../data/glade/main.glade.h:9
+msgid "C_ard"
+msgstr "_Karten"
+
+#: ../data/glade/main.glade.h:10
+#: ../src/app-window.c:3249
+#: ../src/app-window.c:3403
+msgid "Category"
+msgstr "Kategorie"
+
+#: ../data/glade/main.glade.h:11
+msgid "Copy"
+msgstr "Kopieren"
+
+#: ../data/glade/main.glade.h:12
+msgid "Cut"
+msgstr "Ausschneiden"
+
+#: ../data/glade/main.glade.h:13
+msgid "Edit Card"
+msgstr "Karte bearbeiten"
+
+#: ../data/glade/main.glade.h:14
+msgid "Expired Cards"
+msgstr "abgelaufene Karten"
+
+#: ../data/glade/main.glade.h:15
+msgid "Expiry Date"
+msgstr "Ablaufdatum"
+
+#: ../data/glade/main.glade.h:16
+msgid "Expiry Flag"
+msgstr "Ablaufmarkierung"
+
+#: ../data/glade/main.glade.h:17
+msgid "Expiry Time"
+msgstr "Ablaufzeit"
+
+#: ../data/glade/main.glade.h:18
+msgid "Export..."
+msgstr "Exportieren..."
+
+#: ../data/glade/main.glade.h:19
+msgid "Find All Cards"
+msgstr "Durchsuche alle Karten"
+
+#: ../data/glade/main.glade.h:20
+msgid "Find Card"
+msgstr "Durchsuche Karte"
+
+#: ../data/glade/main.glade.h:21
+msgid "Find Tagged Cards"
+msgstr "Durchsuche markierte Karten"
+
+#: ../data/glade/main.glade.h:22
+msgid "Front Text"
+msgstr "Vorderseitentext"
+
+#: ../data/glade/main.glade.h:23
+msgid "Fronts Only"
+msgstr "nur Vorderseite"
+
+#: ../data/glade/main.glade.h:24
+msgid "Fronts and Backs at Random"
+msgstr "zufällig Vorne und Hinten"
+
+#: ../data/glade/main.glade.h:25
+msgid "Help"
+msgstr "Hilfe"
+
+#: ../data/glade/main.glade.h:26
+msgid "Import..."
+msgstr "Importieren..."
+
+#: ../data/glade/main.glade.h:27
+msgid "Last Test Date"
+msgstr "Letztes Testdatum"
+
+#: ../data/glade/main.glade.h:28
+msgid "New Cards"
+msgstr "Neue Karten"
+
+#: ../data/glade/main.glade.h:29
+#: ../src/file.c:72
+msgid "New File"
+msgstr "Neue Datei"
+
+#: ../data/glade/main.glade.h:30
+msgid "New and Expired Cards"
+msgstr "Neue und abgelaufene Karten"
+
+#: ../data/glade/main.glade.h:31
+msgid "Open File"
+msgstr "Datei öffnen"
+
+#: ../data/glade/main.glade.h:32
+msgid "Paste"
+msgstr "Einfügen"
+
+#: ../data/glade/main.glade.h:33
+#: ../data/glade/quiz.glade.h:16
+msgid "Quiz"
+msgstr "Quiz"
+
+#: ../data/glade/main.glade.h:34
+msgid "Recently Removed Cards"
+msgstr "zuletzt entfernte Karten"
+
+#: ../data/glade/main.glade.h:36
+msgid "Remove Category"
+msgstr "Kategorie entfernen"
+
+#: ../data/glade/main.glade.h:37
+msgid "Rename"
+msgstr "Umbenennen"
+
+#: ../data/glade/main.glade.h:39
+msgid "Save File"
+msgstr "Datei speichern"
+
+#: ../data/glade/main.glade.h:40
+msgid "Select All"
+msgstr "Alles markieren"
+
+#: ../data/glade/main.glade.h:41
+msgid "Selected Cards"
+msgstr "Ausgewählte Karten"
+
+#: ../data/glade/main.glade.h:42
+msgid "Selected Category"
+msgstr "ausgewählte Kategorien"
+
+#: ../data/glade/main.glade.h:45
+msgid "Tagged Cards"
+msgstr "markierte Karten"
+
+#: ../data/glade/main.glade.h:46
+msgid "Toggle Tags"
+msgstr "Markierung setzen/entfernen"
+
+#: ../data/glade/main.glade.h:47
+msgid "_Bottom Toolbar"
+msgstr "_Untere Werkzeugleiste"
+
+#: ../data/glade/main.glade.h:48
+msgid "_Category"
+msgstr "_Kategorie"
+
+#: ../data/glade/main.glade.h:49
+msgid "_Category Pane"
+msgstr "_Kategorie Fenster"
+
+#: ../data/glade/main.glade.h:51
+msgid "_File"
+msgstr "_Datei"
+
+#: ../data/glade/main.glade.h:52
+msgid "_Help"
+msgstr "_Hilfe"
+
+#: ../data/glade/main.glade.h:53
+msgid "_Main Toolbar"
+msgstr "_Haupt-Werkzeugleiste"
+
+#: ../data/glade/main.glade.h:54
+msgid "_Quiz"
+msgstr "_Quiz"
+
+#: ../data/glade/main.glade.h:55
+msgid "_Statusbar"
+msgstr "_Statusleiste"
+
+#: ../data/glade/main.glade.h:56
+msgid "_View"
+msgstr "_Ansicht"
+
+#: ../data/glade/main.glade.h:57
+msgid "gtk-about"
+msgstr ""
+
+#: ../data/glade/main.glade.h:60
+msgid "gtk-find"
+msgstr ""
+
+#: ../data/glade/main.glade.h:61
+msgid "gtk-new"
+msgstr ""
+
+#: ../data/glade/main.glade.h:62
+msgid "gtk-open"
+msgstr ""
+
+#: ../data/glade/main.glade.h:64
+msgid "gtk-preferences"
+msgstr ""
+
+#: ../data/glade/main.glade.h:65
+msgid "gtk-properties"
+msgstr ""
+
+#: ../data/glade/main.glade.h:66
+msgid "gtk-quit"
+msgstr ""
+
+#: ../data/glade/main.glade.h:67
+msgid "gtk-save"
+msgstr ""
+
+#: ../data/glade/main.glade.h:68
+msgid "gtk-save-as"
+msgstr ""
+
+#: ../data/glade/main.glade.h:69
+msgid "gtk-select-all"
+msgstr ""
+
+#: ../data/glade/main.glade.h:70
+#: ../src/dialog-about.c:50
+#: ../src/dialog-about.c:52
+msgid "i GNU it"
+msgstr "i GNU it"
+
+#: ../data/glade/preferences.glade.h:1
+msgid "<b>Background Colours</b>"
+msgstr "<b>Hintergrundfarben</b>"
+
+#: ../data/glade/preferences.glade.h:2
+msgid "<b>Card Font</b>"
+msgstr "<b>Schriftart der Karten</b>"
+
+#: ../data/glade/preferences.glade.h:3
+msgid "<b>Days Between Testing</b>"
+msgstr "<b>Tage zwischen dem Testen</b>"
+
+#: ../data/glade/preferences.glade.h:4
+msgid "<b>Text Colours</b>"
+msgstr "<b>Text Farben</b>"
+
+#: ../data/glade/preferences.glade.h:5
+msgid "Box _1"
+msgstr "Fach _1"
+
+#: ../data/glade/preferences.glade.h:6
+msgid "Box _2"
+msgstr "Fach _2"
+
+#: ../data/glade/preferences.glade.h:7
+msgid "Box _3"
+msgstr "Fach _3"
+
+#: ../data/glade/preferences.glade.h:8
+msgid "Box _4"
+msgstr "Fach _4"
+
+#: ../data/glade/preferences.glade.h:9
+msgid "Box _5"
+msgstr "Fach _5"
+
+#: ../data/glade/preferences.glade.h:10
+msgid "Box _6"
+msgstr "Fach _6"
+
+#: ../data/glade/preferences.glade.h:11
+msgid "Box _7"
+msgstr "Fach _7"
+
+#: ../data/glade/preferences.glade.h:12
+msgid "Box _8"
+msgstr "Fach _8"
+
+#: ../data/glade/preferences.glade.h:13
+msgid "Expired"
+msgstr "abgelaufen!"
+
+#: ../data/glade/preferences.glade.h:15
+#: ../data/glade/quiz.glade.h:5
+msgid "Known"
+msgstr "bekannt"
+
+#: ../data/glade/preferences.glade.h:16
+msgid "Plain"
+msgstr "Einfach"
+
+#: ../data/glade/preferences.glade.h:17
+msgid "Preferences"
+msgstr "Einstellungen"
+
+#: ../data/glade/preferences.glade.h:18
+msgid "Sche_dules"
+msgstr "_Zeitpläne"
+
+#: ../data/glade/preferences.glade.h:19
+#: ../data/glade/quiz.glade.h:19
+msgid "Unknown"
+msgstr "Unbekannt"
+
+#: ../data/glade/preferences.glade.h:20
+msgid "_Appearance"
+msgstr "_Aussehen"
+
+#: ../data/glade/preferences.glade.h:21
+msgid "_New Cards"
+msgstr "_Neue Karten"
+
+#: ../data/glade/preferences.glade.h:22
+msgid "_Reset to Default Colours"
+msgstr "Die Farben auf Standardwerte zu_rücksetzen"
+
+#: ../data/glade/preferences.glade.h:23
+msgid "_Reset to Default Schedules"
+msgstr "Die Abfragezeiträume auf Standardwerte zu_rücksetzen"
+
+#: ../data/glade/properties.glade.h:1
+msgid "<b>File Properties</b>"
+msgstr "<b>Dateieigenschaften</b>"
+
+#: ../data/glade/properties.glade.h:2
+msgid "Card _Style"
+msgstr "Karten_stil"
+
+#: ../data/glade/properties.glade.h:3
+msgid "Properties"
+msgstr "Eigenschaften"
+
+#: ../data/glade/properties.glade.h:4
+msgid "_Author"
+msgstr "_Autor"
+
+#: ../data/glade/properties.glade.h:5
+msgid "_Description"
+msgstr "_Beschreibung"
+
+#: ../data/glade/properties.glade.h:6
+msgid "_License"
+msgstr "_Lizenz"
+
+#: ../data/glade/properties.glade.h:7
+msgid "_Title"
+msgstr "_Titel"
+
+#: ../data/glade/properties.glade.h:8
+msgid "_URL"
+msgstr "_URL"
+
+#: ../data/glade/quiz.glade.h:6
+msgid "Listen to Back"
+msgstr "Rückseite anhören"
+
+#: ../data/glade/quiz.glade.h:7
+msgid "Listen to Back Automatically"
+msgstr "Rückseite automatisch anhören"
+
+#: ../data/glade/quiz.glade.h:8
+msgid "Listen to Front"
+msgstr "Vorderseite anhören"
+
+#: ../data/glade/quiz.glade.h:9
+msgid "Listen to Front Automatically"
+msgstr "Rückseite automatisch anhören"
+
+#: ../data/glade/quiz.glade.h:10
+msgid "Mark as known"
+msgstr "Als bekannt kennzeichnen"
+
+#: ../data/glade/quiz.glade.h:11
+msgid "Mark as unknown"
+msgstr "Als unbekannt kennzeichnen"
+
+#: ../data/glade/quiz.glade.h:17
+msgid "Record statistics when the Quiz window closes"
+msgstr "Speichere Statistik wenn das Quizfenster schließt"
+
+#: ../data/glade/quiz.glade.h:24
+msgid "_Media"
+msgstr "_Medien"
+
+#: ../data/glade/quiz.glade.h:25
+msgid "_Record"
+msgstr "_Aufnehmen"
+
+#: ../data/ignuit.desktop.in.in.h:1
+msgid "Learn using electronic flashcards"
+msgstr "Lernen mit elektronischen Karten"
+
+#: ../data/ignuit.desktop.in.in.h:2
+#, fuzzy
+msgid "i GNU it Flashacrd Trainer"
+msgstr "i GNU it Lernkartenprogramm"
+
+#: ../data/ignuit.desktop.in.in.h:3
+msgid "i GNU it Flashcard Trainer"
+msgstr "i GNU it Lernkartenprogramm"
+
+#: ../data/ignuit.schemas.in.h:1
+msgid "A comma separated list of column names. Accepted names are: front, back, category, group, tested, expired, expiry, time, tagged."
+msgstr "Eine durch Kommata getrennte Liste von Spaltennamen. Akzeptierte Namen sind: front, back, category, group, tested, expired, expiry, time, tagged."
+
+#: ../data/ignuit.schemas.in.h:2
+msgid "A value of 0 disables automatic playing. A value of 1 plays fronts automatically. A value of 2 plays backs automatically. A value of 3 plays both fronts and backs automatically."
+msgstr "Ein Wert von 0 schaltet automatisches Abspielen ab. Ein Wert von 1 spielt automatisch die Vorderseite ab. Ein Wert von 2 spielt automatisch die Rückseite ab. Ein Wert von 3 spielt sowohl Vorder- als auch Rückseite ab."
+
+#: ../data/ignuit.schemas.in.h:3
+msgid "Card colours"
+msgstr "Kartenfarben"
+
+#: ../data/ignuit.schemas.in.h:4
+msgid "Card expiry times"
+msgstr "Ablaufzeit der Karte"
+
+#: ../data/ignuit.schemas.in.h:5
+msgid "Card pane column visibility"
+msgstr "Sichtbarkeit der Kartenleiste"
+
+#: ../data/ignuit.schemas.in.h:6
+msgid "Category pane width"
+msgstr "Kategorieleistenbreite"
+
+#: ../data/ignuit.schemas.in.h:7
+msgid "Confirm deletion of trash folder contents when closing."
+msgstr "Löschung von Mülleimerinhalten beim Schlieißen bestätigen."
+
+#: ../data/ignuit.schemas.in.h:8
+msgid "Controls the behaviour of audio files in quiz mode"
+msgstr "Kontrolle über das Verhalten von Audiodateien im Quizmoduls."
+
+#: ../data/ignuit.schemas.in.h:9
+msgid "Flip button behaviour in editor window"
+msgstr "Tausche"
+
+#: ../data/ignuit.schemas.in.h:10
+msgid "Font for cards"
+msgstr "Schriftart für Karten"
+
+#: ../data/ignuit.schemas.in.h:11
+msgid "If true, the Find Dialog will search using regular expression matching."
+msgstr "Falls wahr, dann wird der Suchen-Dialog mit regulären Ausdrücken benutzt."
+
+#: ../data/ignuit.schemas.in.h:12
+msgid "Main window height"
+msgstr "Hauptfensterhöhe"
+
+#: ../data/ignuit.schemas.in.h:13
+msgid "Main window width"
+msgstr "Hauptfensterbreite"
+
+#: ../data/ignuit.schemas.in.h:14
+msgid "Most recent working directory"
+msgstr "Zuletzt verwendetes Verzeichnis"
+
+#: ../data/ignuit.schemas.in.h:15
+msgid "Nine comma-separated integers of increasing value, representing days between tests."
+msgstr "Neun kommagetrennte Ganzzahlen von steigendem Wert zeigen die Tage zwischen dem Abfragen an."
+
+#: ../data/ignuit.schemas.in.h:16
+msgid "Quiz and editor window height"
+msgstr "Fensterhöhe von Quiz und Editor"
+
+#: ../data/ignuit.schemas.in.h:17
+msgid "Quiz and editor window width"
+msgstr "Fensterbreite von Quiz und Editor"
+
+#: ../data/ignuit.schemas.in.h:18
+msgid "Use regular expressions when searching"
+msgstr "Verwende reguläre Ausdrücke beim Suchen"
+
+#: ../data/ignuit.schemas.in.h:19
+msgid "Width of category title column"
+msgstr "Breite einer Kategorietitelspalte"
+
+#: ../data/ignuit.schemas.in.h:20
+msgid "Width of the \"Card Back\" column"
+msgstr "Breite der Spalte \"Kartenrückseite\""
+
+#: ../data/ignuit.schemas.in.h:21
+msgid "Width of the \"Card Category\" column"
+msgstr "Breite der Spalte \"Kartenkategorie\""
+
+#: ../data/ignuit.schemas.in.h:22
+msgid "Width of the \"Card Front\" column"
+msgstr "Breite der Spalte \"Kartenvorderseite\""
+
+#: ../src/app-window.c:298
+#, c-format
+msgid "File contains %d cards"
+msgstr "Datei enthält %d Karten"
+
+#: ../src/app-window.c:301
+#, c-format
+msgid "Trash contains %d cards"
+msgstr "Mülleimer enthält %d Karten"
+
+#: ../src/app-window.c:305
+#, c-format
+msgid "Found %d cards"
+msgstr "%d Karten gefunden"
+
+#: ../src/app-window.c:310
+#, c-format
+msgid "Category contains %d of %d cards"
+msgstr "Kategorie enthält %d von %d Karten"
+
+#: ../src/app-window.c:314
+#, c-format
+msgid " (%d expired, %d untested, %d selected)"
+msgstr "(%d abgelaufen, %d ungefragt, %d ausgewählt)"
+
+#: ../src/app-window.c:884
+msgid "Save As"
+msgstr "Speichern unter..."
+
+#: ../src/app-window.c:908
+msgid ""
+"<b>A file with the same name already exists</b>\n"
+"\n"
+"Do you want to replace it?"
+msgstr ""
+"<b>Eine Datei mit dem gleichen Namen existiert bereits.</b>\n"
+"\n"
+"Soll sie überschrieben werden?"
+
+#: ../src/app-window.c:939
+msgid ""
+"<b>The current file has not been saved</b>\n"
+"\n"
+"Changes since last save will be lost."
+msgstr ""
+"<b>Die geöffnete Datei wurde noch nicht gespeichert.</b>\n"
+"\n"
+"Alle Änderungen vor dem letzten Speichern gehen verloren."
+
+#: ../src/app-window.c:942
+msgid "Close _without Saving"
+msgstr "Schließen _ohne zu speichern."
+
+#: ../src/app-window.c:983
+msgid "<b>Unable to save file</b>"
+msgstr "<b>Kann Datei nicht speichern</b>"
+
+#: ../src/app-window.c:1006
+msgid ""
+"<b>Empty the Trash?</b>\n"
+"\n"
+"Recently removed cards will be permanently deleted."
+msgstr ""
+"<b>Mülleimer leeren?</b>\n"
+"\n"
+"Alle zuletzt entfernten Karten werden permanent gelöscht."
+
+#: ../src/app-window.c:1107
+#: ../src/dialog-editor.c:129
+msgid "Open"
+msgstr "Öffnen"
+
+#: ../src/app-window.c:1166
+msgid "<b>Trouble loading file</b>"
+msgstr "<b>Probleme beim Laden der Datei</b>"
+
+#: ../src/app-window.c:1174
+msgid "<b>Unable to load file</b>"
+msgstr "<b>Kann Datei nicht laden</b>"
+
+#: ../src/app-window.c:1255
+msgid "CSV"
+msgstr "CSV"
+
+#: ../src/app-window.c:1256
+msgid "TSV"
+msgstr "TSV"
+
+#. XXX: maybe nicer not to
+#: ../src/app-window.c:1318
+msgid "Import"
+msgstr "Import"
+
+#: ../src/app-window.c:1339
+msgid "Import _Filter:"
+msgstr "Import_filter:"
+
+#: ../src/app-window.c:1417
+msgid "<b>Unable to import file</b>"
+msgstr "<b>Kann Datei nicht importieren</b>"
+
+#: ../src/app-window.c:1452
+msgid "Export"
+msgstr "Export"
+
+#: ../src/app-window.c:1473
+msgid "Export _Filter:"
+msgstr "Export_filter:"
+
+#: ../src/app-window.c:1514
+msgid "<b>Unable to export file</b>"
+msgstr "<b>Kann Datei nicht exportieren</b>"
+
+#: ../src/app-window.c:1903
+msgid ""
+"<b>Delete this non-empty category?</b>\n"
+"\n"
+"The category and its contents will be permanently deleted."
+msgstr ""
+"<b>Lösche diese nicht-leere Kategorie?</b>\n"
+"\n"
+"Die Kategorie und ihre Inhalten werden für immer gelöscht."
+
+#: ../src/app-window.c:2079
+msgid ""
+"<b>Expiry dates will be reset</b>\n"
+"\n"
+"Recorded dates and statistics for the selected cards will be lost. Continue anyway?"
+msgstr ""
+"<b>Ablaufdaten werden zurückgesetzt</b>\n"
+"\n"
+"Aufgezeichnete Daten und Statistiken für die ausgewählten Karten gehen verloren. Trotzdem fortfahren?"
+
+#: ../src/app-window.c:2342
+#: ../src/app-window.c:2366
+msgid "Couldn't display user guide"
+msgstr "Konnte Benutzerhandbuch nicht anzeigen."
+
+#: ../src/app-window.c:3404
+msgid "B"
+msgstr "B"
+
+#. Box
+#: ../src/app-window.c:3405
+msgid "Tested"
+msgstr "Abgefragt"
+
+#: ../src/app-window.c:3407
+msgid "Expiry"
+msgstr "Ablauf"
+
+#: ../src/app-window.c:3408
+msgid "Time"
+msgstr "Zeit"
+
+#: ../src/card.c:527
+msgid "New Category"
+msgstr "Neue Kategorie"
+
+#: ../src/card.c:716
+msgid "<big>Card Details</big>\n"
+msgstr "<big>nähere Angaben über die Karte</big>\n"
+
+#: ../src/card.c:718
+#, c-format
+msgid "<b>Category:</b> %s\n"
+msgstr "<b>Kategorie:</b> %s\n"
+
+#: ../src/card.c:720
+#, c-format
+msgid "<b>Success rate:</b> %.0f%% (%d/%d)\n"
+msgstr "<b>Erfolgsquote:</b> %.0f%% (%d/%d)\n"
+
+#: ../src/card.c:722
+#, c-format
+msgid "<b>Current box:</b> %d\n"
+msgstr "<b>Momentanes Fach:</b> %d\n"
+
+#: ../src/card.c:724
+#, c-format
+msgid "<b>Date created:</b> %s\n"
+msgstr "<b>Erstellungsdatum:</b> %s\n"
+
+#: ../src/card.c:725
+#, c-format
+msgid "<b>Date last tested:</b> %s\n"
+msgstr "<b>Letztes Testdatum:</b> %s\n"
+
+#: ../src/card.c:726
+#, c-format
+msgid "<b>Date of expiry:</b> %s"
+msgstr "<b>Ablaufdatum:</b> %s"
+
+#: ../src/dialog-about.c:44
+msgid "translator-credits"
+msgstr "Matthias Mailänder <https://launchpad.net/~mailaender>"
+
+#: ../src/dialog-about.c:56
+msgid "Educational software for GNOME, following the Leitner flash card system."
+msgstr "Bildungsprogramm für GNOME, das dem Leitner Karteikartensystem folgt."
+
+#: ../src/dialog-editor.c:555
+msgid "No category selected"
+msgstr "Keine Kategorie ausgewählt."
+
+#: ../src/dialog-editor.c:559
+msgid "No cards in Trash"
+msgstr "Keine Karten im Mülleimer"
+
+#: ../src/dialog-editor.c:562
+msgid "No cards"
+msgstr "Keine Karten"
+
+#: ../src/dialog-editor.c:567
+#, c-format
+msgid "Box %d, Success %.0f%%. Category: %s"
+msgstr "Fach %d, Erfolg %.0f%%. Kategorie: %s"
+
+#: ../src/dialog-editor.c:574
+#, c-format
+msgid "Never tested. Category: %s"
+msgstr "Nie abgefragt. Kategorie: %s"
+
+#: ../src/dialog-editor.c:941
+msgid ""
+"<b>All dates and statistics for this card will be lost</b>\n"
+"\n"
+"Continue anyway?"
+msgstr ""
+"<b>Alle Daten und Statistiken für diese Karte gehen verloren.</b>\n"
+"\n"
+"Trotzdem weitermachen?"
+
+#: ../src/dialog-properties.c:167
+msgid "Centered keywords and text"
+msgstr "Zentrierte Stichworte und Text"
+
+#: ../src/dialog-properties.c:169
+msgid "Non-centered keywords and text"
+msgstr "nicht-zentrierte Stichwörter und Text"
+
+#: ../src/dialog-properties.c:171
+msgid "Non-centered text only"
+msgstr "nur nicht-zentrierter Text"
+
+#: ../src/dialog-quiz.c:339
+#, c-format
+msgid "Card %d of %d. Category: %s"
+msgstr "Karte %d aus %d. Kategorie: %s"
+
+#: ../src/dialog-quiz.c:968
+msgid ""
+"No cards\n"
+"\n"
+"There are no new cards to test.\n"
+"See the <i>Quiz</i> menu for options."
+msgstr ""
+"Keine Karten\n"
+"\n"
+"Es gibt keine neuen Karten zum Abfragen.\n"
+"Siehe <i>Quiz</i>-Menü für Optionen."
+
+#: ../src/dialog-quiz.c:972
+msgid ""
+"No cards\n"
+"\n"
+"There are no expired cards to test.\n"
+"See the <i>Quiz</i> menu for options."
+msgstr ""
+"Keine Karten\n"
+"\n"
+"Es gibt keine abgelaufenen Karten zum Abfragen.\n"
+"Siehe <i>Quiz</i>-Menü für Optionen."
+
+#: ../src/dialog-quiz.c:976
+msgid ""
+"No cards\n"
+"\n"
+"There are no new or expired cards to test.\n"
+"See the <i>Quiz</i> menu for options."
+msgstr ""
+"Keine Karten\n"
+"\n"
+"Es gibt keine neuen oder abgelaufenen Karten zum Abfragen.\n"
+"Siehe <i>Quiz</i>-Menü für Optionen."
+
+#: ../src/dialog-quiz.c:980
+msgid ""
+"No cards\n"
+"\n"
+"There are no cards tagged.\n"
+"See the <i>Quiz</i> menu for options."
+msgstr ""
+"Keine Karten\n"
+"\n"
+"Es gibt keine markierten Karten zum Abfragen.\n"
+"Siehe <i>Quiz</i>-Menü für Optionen."
+
+#: ../src/dialog-quiz.c:984
+msgid ""
+"No cards\n"
+"\n"
+"There are no cards selected.\n"
+"See the <i>Quiz</i> menu for options."
+msgstr ""
+"Keine Karten\n"
+"\n"
+"Es gibt keine ausgewählten Karten zum Abfragen.\n"
+"Siehe <i>Quiz</i>-Menü für Optionen."
+
+#: ../src/dialog-quiz.c:994
+msgid ""
+"End of quiz\n"
+"\n"
+"Use the buttons below to review your choices. Only cards marked as <i>Known</i> or <i>Unknown</i> are recorded. Nothing is recorded until the quiz window closes."
+msgstr ""
+"Ende des Abfragens\n"
+"\n"
+"Benutze die Knöpfe unten um deine Auswahl zu begutachten. Nur Karten die mit <i>bekannt</i> or <i>unbekannt</i> markiert sind werden aufgezeichnet. Nichts wird abgespeichert bis das Quizfenster geschlossen wird."
+
+#: ../src/file.c:528
+msgid "Trash"
+msgstr "Mülleimer"
+
+#: ../src/fileio.c:329
+#: ../src/fileio.c:548
+#, c-format
+msgid "The file is not valid UTF-8."
+msgstr "Diese Datei ist kein valides UTF-8."
+
+#: ../src/fileio.c:351
+#, c-format
+msgid "Please check that this is an ignuit flashcard file."
+msgstr "Bitte prüfen ob es sich um ein iGNUit Lernkarte handelt."
+
+#: ../src/fileio.c:355
+#, c-format
+msgid "The file contains unknown elements."
+msgstr "Die Datei enthält unbekannte Elemente."
+
+#. Don't use the GError set by g_markup_parse_context_parse, because
+#. * it likely contains markup that we don't want to feed into an error
+#. * dialog.
+#.
+#: ../src/fileio.c:370
+#, c-format
+msgid "Error while parsing '%s'"
+msgstr "Fehler beim Einlesen von '%s'."
+
+#: ../src/fileio.c:596
+#: ../src/fileio.c:667
+#, c-format
+msgid "No cards were found in the imported file."
+msgstr "Keine Karten in importierter Datei gefunden."
+
+#: ../src/fileio.c:663
+#, c-format
+msgid "Please check that imported file is not compressed, and that the correct filter is selected."
+msgstr "Bitte prüfen ob die importierte Datei nicht komprimiert ist, und das der richtige Filter ausgewählt wurde."
+
+#: ../src/textview.c:817
+msgid "_Listen"
+msgstr "_Zuhören"
+

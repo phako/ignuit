@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<deck version='1' title='Examples using LaTeX' author='' description='' homepage='' license='Public Domain' license-uri='http://creativecommons.org/licenses/publicdomain/' style='1'>
+<category title='Examples using LaTeX'>
+<card grp='0' crt='733503'><front>The radius of a circle
+</front><back>&lt;$&gt;r=\sqrt{(x-h)^2 +(y-k)^2}&lt;/$&gt;</back></card>
+<card grp='0' crt='733503'><front>The area of a parabola</front><back>&lt;$&gt;A = {2bh \over 3}&lt;/$&gt;</back></card>
+<card grp='0' crt='733503'><front>The area of an ellipse
+</front><back>&lt;$&gt;A = \pi ab&lt;/$&gt;</back></card>
+<card grp='0' crt='733503'><front>The area of a circular segment
+</front><back>&lt;$&gt;A = {r^2 (\phi - \sin \phi) \over 2}&lt;/$&gt;</back></card>
+<card grp='0' crt='733503'><front>The volume of a sphere
+</front><back>&lt;$&gt;V = {4 \pi r^3 \over 3} = { \pi d^3 \over 6}&lt;/$&gt;</back></card>
+<card grp='0' crt='733503'><front>The surface srea of a sphere
+</front><back>&lt;$&gt;A = 4 \pi r^2 = \pi d^2&lt;/$&gt;</back></card>
+</category>
+</deck>

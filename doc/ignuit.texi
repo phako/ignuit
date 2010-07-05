@@ -1,0 +1,184 @@
+\input texinfo  @c -*-texinfo-*-
+@c %**start of header
+@setfilename ignuit.info
+@settitle Ignuit Manual
+@c %**end of header
+
+@copying
+This manual documents version 2.20.0 of ignuit.
+
+Copyright @copyright{} 2009, 2012 Timothy Richard Musson
+
+@quotation
+  Permission is granted to copy, distribute and/or modify this document
+  under the terms of the GNU Free Documentation License, Version 1.3
+  or any later version published by the Free Software Foundation;
+  with no Invariant Sections, no Front-Cover Texts, and no Back-Cover
+  Texts.  A copy of the license is included in the section entitled ``GNU
+  Free Documentation License''.
+@end quotation
+@end copying
+
+@dircategory Education
+@direntry
+* Ignuit: (ignuit).       Learning aid.
+@end direntry
+
+@titlepage
+@title Ignuit Manual
+@page
+@vskip 0pt plus 1filll
+@insertcopying
+@end titlepage
+
+@contents
+
+@ifnottex
+@node Top
+@top Ignuit Manual
+
+@insertcopying
+@end ifnottex
+
+@menu
+* Overview::                     A short description of the program.
+* Invoking ignuit::              How to run ignuit.
+* Flashcards::                   Obtaining flashcards.
+* Using ignuit::                 Getting the most from ignuit.
+* Reporting Bugs::               How to report bugs and get help.
+* GNU Free Documentation License::  Copying and sharing this manual.
+@end menu
+
+
+@node Overview
+@chapter Overview
+
+Ignuit is a memorization aid following the Leitner flashcard system. It can be
+used for both long-term and short-term learning.
+
+@majorheading What is a Flashcard?
+
+A traditional flashcard is a small rectangular card with a word, phrase, or
+question written on one side, and the translation or answer written on the
+other side.  Repeatedly picking up flashcards and trying to remember what's
+written on the reverse side is a good way to memorize things.
+
+@majorheading What is the Leitner Flashcard System?
+
+The Leitner flashcard system, invented by Sebastian Leitner (1919 - 1989), is
+an efficient way to manage time spent learning with flashcards.
+
+In this system, you have a series of boxes numbered from one up to, let's say,
+eight. You begin by placing all of your flashcards in box number one.  Test
+yourself with box one's cards daily. If you can't remember what's written on
+the reverse of a card, return it to box number one. If you can remember what's
+written on the reverse, drop the card into box number two.  The cards in box
+two are tested every three days. Any of those that you remember can be moved to
+box number three, which you'll only look at every seven days. And so on, up to
+box eight, with increasing time intervals per box. Whenever you can't remember
+what's written on the back of a card, that card returns to box number one,
+regardless of which box it was last in.
+
+You end up spending less time on the cards you know well, and concentrating
+more on the ones you don't know so well.
+
+Electronic flashcard programs like ignuit automate this system.
+
+
+@node Invoking ignuit
+@chapter Invoking ignuit
+
+To start ignuit from the command-line:
+
+@example
+ignuit [@var{FILENAME}]
+@end example
+
+If the name of a flashcard file is given, ignuit will load that file when it
+starts up. Besides the standard GTK and GNOME options such as @option{--help}
+and @option{--version}, ignuit has no command-line options of its own.
+
+
+@node Flashcards
+@chapter Flashcards
+
+To use ignuit, you'll need to obtain a set of flashcards containing the
+information you want to memorize.
+
+To start your own set of flashcards choose @samp{New} from the @samp{File}
+menu, then @samp{Add Card} from the @samp{Card} menu. See the program's
+@samp{Help} menu for a guide to the card editor.
+
+You can also try importing cards from similar flashcard programs. To do that,
+select @samp{Import} from ignuit's @samp{File} menu. Near the bottom of the
+Import window you'll see an @samp{Import Filter} menu. If your program isn't
+listed by name, see if you can get it to export data in CSV or TSV format.
+There's a good chance ignuit will be able to import those CSV or TSV files.
+
+You can also try visiting ignuit's homepage to see if a ready-made flashcard
+file that suits your needs already exists:
+
+@uref{http://homepages.ihug.co.nz/~trmusson/programs.html}
+
+
+@node Using ignuit
+@chapter Using ignuit
+
+@majorheading User Interface
+
+Please see ignuit's @samp{Help} menu for a complete guide to the program's user
+interface.
+
+@majorheading Long-term Memorization
+
+For the long-term memorization of your cards, aim to quiz yourself once a day
+with the @samp{Quiz} menu's @samp{Expired Cards} or @samp{New and Expired Cards}
+option selected.
+
+When the quiz window opens, check that its @samp{Record} option is enabled.
+That way the program will keep track of which cards you know and which cards
+you have trouble with, and quiz you accordingly over time.
+
+@majorheading Cramming or Drilling
+
+If you'd like to drill yourself, or if you want to memorize information quickly
+(but not long-term), use the @samp{Quiz} menu to select cards for testing.
+You'll probably be more interested in the @samp{All Cards}, @samp{New Cards},
+or @samp{Selected Cards} options than either of the @samp{Expired Cards} options.
+
+When the quiz window opens, make sure its @samp{Record} option is disabled. Now
+quiz yourself repeatedly with those settings.
+
+So long as the @samp{Record} option is disabled, the repeated quizzing won't
+affect the box numbers or expiry dates of the quizzed cards. Only the order of
+the cards in the card pane will be affected, with the difficult ones rising to
+the top.
+
+@majorheading Tips
+
+After adding a group of new cards to a file, it can be helpful to drill
+yourself a few times with the quiz window's @samp{Record} option disabled.
+
+For cards that are really hard to remember, nothing beats repeatedly writing
+things down on scrap paper.
+
+
+@node Reporting Bugs
+@chapter Reporting Bugs
+
+If you have a problem or discover a bug, please send an email to Tim Musson,
+@email{trmusson@@gmail.com}.
+
+The most recent version of ignuit can be found at:
+
+@uref{http://homepages.ihug.co.nz/~trmusson/programs.html}
+
+
+@node GNU Free Documentation License
+@appendix GNU Free Documentation License
+
+@include fdl.texi
+
+
+@bye
+

@@ -1,0 +1,404 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<deck version='1' title='Numbers, Days, Months, Seasons' author='Tim Musson &lt;trmusson@gmail.com&gt;' description='Some basic Russian/English vocabulary. (Version: 2008-02-03)' homepage='http://homepages.ihug.co.nz/~trmusson/programs.html#ignuit' license='Public Domain' license-uri='http://creativecommons.org/licenses/publicdomain/' style='1'>
+<category title='Ordinal Numbers'>
+<card grp='0' crt='733075'><front>zeroth</front><back>нулево́й
+-о́е, -а́я, -ы́е</back></card>
+<card grp='0' crt='733075'><front>first</front><back>пе́рвый
+-ое, -ая, -ые</back></card>
+<card grp='0' crt='733075'><front>second</front><back>второ́й
+-о́е, -а́я, -ы́е</back></card>
+<card grp='0' crt='733075'><front>third</front><back>тре́тий
+тре́тье, тре́тья, тре́тьи</back></card>
+<card grp='0' crt='733075'><front>fourth</front><back>четвёртый
+-ое, -ая, -ые</back></card>
+<card grp='0' crt='733075'><front>fifth</front><back>пя́тый
+-ое, -ая, -ые</back></card>
+<card grp='0' crt='733075'><front>sixth</front><back>шесто́й
+-о́е, -а́я, -ы́е</back></card>
+<card grp='0' crt='733075'><front>seventh</front><back>седьмо́й
+-о́е, -а́я, -ы́е</back></card>
+<card grp='0' crt='733075'><front>eighth</front><back>восьмо́й
+-о́е, -а́я, -ы́е</back></card>
+<card grp='0' crt='733075'><front>ninth</front><back>девя́тый
+-ое, -ая, -ые</back></card>
+<card grp='0' crt='733075'><front>tenth</front><back>деся́тый
+-ое, -ая, -ые</back></card>
+<card grp='0' crt='733075'><front>eleventh</front><back>оди́ннадцатый</back></card>
+<card grp='0' crt='733075'><front>twelfth</front><back>двена́дцатый</back></card>
+<card grp='0' crt='733075'><front>thirteenth</front><back>трина́дцатый</back></card>
+<card grp='0' crt='733075'><front>fourteenth</front><back>четы́рнадцатый</back></card>
+<card grp='0' crt='733075'><front>fifteenth</front><back>пятна́дцатый</back></card>
+<card grp='0' crt='733075'><front>sixteenth</front><back>шестна́дцатый</back></card>
+<card grp='0' crt='733075'><front>seventeenth</front><back>семна́дцатый</back></card>
+<card grp='0' crt='733075'><front>eighteenth</front><back>восемна́дцатый</back></card>
+<card grp='0' crt='733075'><front>nineteenth</front><back>девятна́дцатый</back></card>
+<card grp='0' crt='733075'><front>twentieth</front><back>двадца́тый</back></card>
+<card grp='0' crt='733075'><front>twenty-first</front><back>два́дцать пе́рвый</back></card>
+<card grp='0' crt='733075'><front>twenty-second</front><back>два́дцать второ́й</back></card>
+<card grp='0' crt='733075'><front>twenty-third</front><back>два́дцать тре́тий</back></card>
+<card grp='0' crt='733075'><front>twenty-fourth</front><back>два́дцать четвёртый</back></card>
+<card grp='0' crt='733075'><front>twenty-fifth</front><back>два́дцать пя́тый</back></card>
+<card grp='0' crt='733075'><front>twenty-sixth</front><back>два́дцать шесто́й</back></card>
+<card grp='0' crt='733075'><front>twenty-seventh</front><back>два́дцать седьмо́й</back></card>
+<card grp='0' crt='733075'><front>twenty-eighth</front><back>два́дцать восьмо́й</back></card>
+<card grp='0' crt='733075'><front>twenty-ninth</front><back>два́дцать девя́тый</back></card>
+<card grp='0' crt='733075'><front>thirtieth</front><back>тридца́тый</back></card>
+<card grp='0' crt='733075'><front>fortieth</front><back>сороково́й</back></card>
+<card grp='0' crt='733075'><front>fiftieth</front><back>пятидеся́тый</back></card>
+<card grp='0' crt='733075'><front>sixtieth</front><back>шестидеся́тый</back></card>
+<card grp='0' crt='733075'><front>seventieth</front><back>семидеся́тый</back></card>
+<card grp='0' crt='733075'><front>eightieth</front><back>восьмидеся́тый</back></card>
+<card grp='0' crt='733075'><front>ninetieth</front><back>девяно́стый</back></card>
+<card grp='0' crt='733075'><front>one-hundredth</front><back>со́тый</back></card>
+<card grp='0' crt='733075'><front>two-hundredth</front><back>двухсо́тый</back></card>
+<card grp='0' crt='733075'><front>three-hundredth</front><back>трёхсо́тый</back></card>
+<card grp='0' crt='733075'><front>four-hundredth</front><back>четырёхсо́тый</back></card>
+<card grp='0' crt='733075'><front>five-hundredth</front><back>пятисо́тый</back></card>
+<card grp='0' crt='733075'><front>six-hundredth</front><back>шестисо́тый</back></card>
+<card grp='0' crt='733075'><front>seven-hundredth</front><back>семисо́тый</back></card>
+<card grp='0' crt='733075'><front>eight-hundredth</front><back>восьмисо́тый</back></card>
+<card grp='0' crt='733075'><front>nine-hundredth</front><back>девятисо́тый</back></card>
+<card grp='0' crt='733075'><front>one-thousandth</front><back>ты́сячный</back></card>
+<card grp='0' crt='733075'><front>two-thousandth</front><back>двухты́сячный</back></card>
+<card grp='0' crt='733075'><front>three-thousandth</front><back>трёхты́сячный</back></card>
+<card grp='0' crt='733075'><front>four-thousandth</front><back>четырёхты́сячный</back></card>
+<card grp='0' crt='733075'><front>five-thousandth</front><back>пятиты́сячный</back></card>
+<card grp='0' crt='733075'><front>six-thousandth</front><back>шеститы́сячный</back></card>
+<card grp='0' crt='733075'><front>seven-thousandth</front><back>семиты́сячный</back></card>
+<card grp='0' crt='733075'><front>eight-thousandth</front><back>восьмиты́сячный</back></card>
+<card grp='0' crt='733075'><front>nine-thousandth</front><back>девятиты́сячный</back></card>
+</category>
+<category title='Cardinal Numbers'>
+<card grp='0' crt='733075'><front>zero</front><back>ноль или нуль &lt;sup&gt;m.&lt;/sup&gt;</back></card>
+<card grp='0' crt='733075'><front>one
+
+one brother, one sister, one letter
+
+one year</front><back>оди́н, одна́, одно́
+
+оди́н брат, одна́ сестра́, одно́ письмо́
+
+оди́н год</back></card>
+<card grp='0' crt='733075'><front>two
+
+two brothers, two sisters, two letters
+
+two years</front><back>два, две
+
+два бра́та, две сестры́, два письма́
+
+два го́да</back></card>
+<card grp='0' crt='733075'><front>three
+
+three brothers, three sisters, three letters
+
+three years</front><back>три
+
+три бра́та, три сестры́, три письма́
+
+три го́да</back></card>
+<card grp='0' crt='733075'><front>four
+
+four brothers, four sisters, four letters
+
+four years</front><back>четы́ре
+
+четы́ре бра́та, четы́ре сестры́, четы́ре письма́
+
+четы́ре го́да</back></card>
+<card grp='0' crt='733075'><front>five
+
+five brothers, five sisters, five letters
+
+five years</front><back>пять
+
+пять бра́тьев, пять сестёр, пять пи́сем
+
+пять лет</back></card>
+<card grp='0' crt='733075'><front>six
+
+six brothers, six sisters, six letters
+
+six years</front><back>шесть
+
+шесть бра́тьев, шесть сестёр, шесть пи́сем
+
+шесть лет</back></card>
+<card grp='0' crt='733075'><front>seven
+
+seven brothers, seven sisters, seven letters
+
+seven years</front><back>семь
+
+семь бра́тьев, семь сестёр, семь пи́сем
+
+семь лет</back></card>
+<card grp='0' crt='733075'><front>eight
+
+eight brothers, eight sisters, eight letters
+
+eight years</front><back>во́семь
+
+во́семь бра́тьев, во́семь сестёр, во́семь пи́сем
+
+во́семь лет</back></card>
+<card grp='0' crt='733075'><front>nine
+
+nine brothers, nine sisters, nine letters
+
+nine years</front><back>де́вять
+
+де́вять бра́тьев, де́вять сестёр, де́вять пи́сем
+
+де́вять лет</back></card>
+<card grp='0' crt='733075'><front>ten
+
+ten brothers, ten sisters, ten letters
+
+ten years</front><back>де́сять
+
+де́сять бра́тьев, де́сять сестёр, де́сять пи́сем</back></card>
+<card grp='0' crt='733075'><front>eleven</front><back>оди́ннадцать</back></card>
+<card grp='0' crt='733075'><front>twelve</front><back>двена́дцать</back></card>
+<card grp='0' crt='733075'><front>thirteen</front><back>трина́дцать</back></card>
+<card grp='0' crt='733075'><front>fourteen</front><back>четы́рнадцать</back></card>
+<card grp='0' crt='733075'><front>fifteen</front><back>пятна́дцать</back></card>
+<card grp='0' crt='733075'><front>sixteen</front><back>шестна́дцать</back></card>
+<card grp='0' crt='733075'><front>seventeen</front><back>семна́дцать</back></card>
+<card grp='0' crt='733075'><front>eighteen</front><back>восемна́дцать</back></card>
+<card grp='0' crt='733075'><front>nineteen</front><back>девятна́дцать</back></card>
+<card grp='0' crt='733075'><front>twenty
+
+twenty years</front><back>два́дцать
+
+два́дцать лет</back></card>
+<card grp='0' crt='733075'><front>twenty-one
+
+twenty-one years</front><back>два́дцать оди́н
+
+два́дцать оди́н год</back></card>
+<card grp='0' crt='733075'><front>twenty-two
+
+twenty-two years</front><back>два́дцать два
+
+два́дцать два го́да</back></card>
+<card grp='0' crt='733075'><front>twenty-three
+
+twenty-three years</front><back>два́дцать три
+
+два́дцать три го́да</back></card>
+<card grp='0' crt='733075'><front>twenty-four
+
+twenty-four years</front><back>два́дцать четы́ре
+
+два́дцать четы́ре го́да</back></card>
+<card grp='0' crt='733075'><front>twenty-five
+
+twenty-five years</front><back>два́дцать пять
+
+два́дцать пять лет</back></card>
+<card grp='0' crt='733075'><front>twenty-six
+
+twenty-six years</front><back>два́дцать шесть
+
+два́дцать шесть лет</back></card>
+<card grp='0' crt='733075'><front>twenty-seven
+
+twenty-seven years</front><back>два́дцать семь
+
+два́дцать семь лет</back></card>
+<card grp='0' crt='733075'><front>twenty-eight
+
+twenty-eight years</front><back>два́дцать во́семь
+
+два́дцать во́семь лет</back></card>
+<card grp='0' crt='733075'><front>twenty-nine
+
+twenty-nine years</front><back>два́дцать де́вять
+
+два́дцать де́вять лет</back></card>
+<card grp='0' crt='733075'><front>thirty</front><back>три́дцать</back></card>
+<card grp='0' crt='733075'><front>forty</front><back>со́рок</back></card>
+<card grp='0' crt='733075'><front>fifty</front><back>пятьдеся́т</back></card>
+<card grp='0' crt='733075'><front>sixty</front><back>шестьдеся́т</back></card>
+<card grp='0' crt='733075'><front>seventy</front><back>се́мьдесят</back></card>
+<card grp='0' crt='733075'><front>eighty</front><back>во́семьдесят</back></card>
+<card grp='0' crt='733075'><front>ninety</front><back>девяно́сто</back></card>
+<card grp='0' crt='733075'><front>one-hundred</front><back>сто</back></card>
+<card grp='0' crt='733075'><front>two-hundred</front><back>две́сти</back></card>
+<card grp='0' crt='733075'><front>three-hundred</front><back>три́ста</back></card>
+<card grp='0' crt='733075'><front>four-hundred</front><back>четы́реста</back></card>
+<card grp='0' crt='733075'><front>five-hundred</front><back>пятьсо́т</back></card>
+<card grp='0' crt='733075'><front>six-hundred</front><back>шестьсо́т</back></card>
+<card grp='0' crt='733075'><front>seven-hundred</front><back>семьсо́т</back></card>
+<card grp='0' crt='733075'><front>eight-hundred</front><back>восемьсо́т</back></card>
+<card grp='0' crt='733075'><front>nine-hundred</front><back>девятьсо́т</back></card>
+<card grp='0' crt='733075'><front>one-thousand</front><back>ты́сяча</back></card>
+<card grp='0' crt='733075'><front>two-thousand</front><back>две ты́сячи</back></card>
+<card grp='0' crt='733075'><front>three-thousand</front><back>три ты́сячи</back></card>
+<card grp='0' crt='733075'><front>four-thousand</front><back>четы́ре ты́сячи</back></card>
+<card grp='0' crt='733075'><front>five-thousand</front><back>пять ты́сяч</back></card>
+<card grp='0' crt='733075'><front>six-thousand</front><back>шесть ты́сяч</back></card>
+<card grp='0' crt='733075'><front>seven-thousand</front><back>семь ты́сяч</back></card>
+<card grp='0' crt='733075'><front>eight-thousand</front><back>во́семь ты́сяч</back></card>
+<card grp='0' crt='733075'><front>nine-thousand</front><back>де́вять ты́сяч</back></card>
+</category>
+<category title='Days of the Week'>
+<card grp='0' crt='733075'><front>Saturday
+
+on Saturday</front><back>суббо́та
+
+в суббо́ту</back></card>
+<card grp='0' crt='733075'><front>Sunday
+
+on Sunday</front><back>воскресе́нье
+
+в воскресе́нье</back></card>
+<card grp='0' crt='733075'><front>Monday
+
+on Monday</front><back>понеде́льник
+
+в понеде́льник</back></card>
+<card grp='0' crt='733075'><front>Tuesday
+
+on Tuesday</front><back>вто́рник
+
+во вто́рник</back></card>
+<card grp='0' crt='733075'><front>Wednesday
+
+on Wednesday</front><back>среда́
+
+в сре́ду</back></card>
+<card grp='0' crt='733075'><front>Thursday
+
+on Thursday</front><back>четве́рг
+
+в четве́рг</back></card>
+<card grp='0' crt='733075'><front>Friday
+
+on Friday</front><back>пя́тница
+
+в пя́тницу</back></card>
+</category>
+<category title='Months of the Year'>
+<card grp='0' crt='733075'><front>January
+
+in January</front><back>янва́рь
+
+&lt;i&gt;gen.&lt;/i&gt; января́
+
+в январе́</back></card>
+<card grp='0' crt='733075'><front>February
+
+in February</front><back>февра́ль
+
+&lt;i&gt;gen.&lt;/i&gt; февраля́
+
+в феврале́</back></card>
+<card grp='0' crt='733075'><front>March
+
+in March</front><back>март
+
+&lt;i&gt;gen.&lt;/i&gt; ма́рта
+
+в ма́рте</back></card>
+<card grp='0' crt='733075'><front>April
+
+in April</front><back>апре́ль
+
+&lt;i&gt;gen.&lt;/i&gt; апре́ля
+
+в апре́ле</back></card>
+<card grp='0' crt='733075'><front>May
+
+in May</front><back>май
+
+&lt;i&gt;gen.&lt;/i&gt; ма́я
+
+в ма́е</back></card>
+<card grp='0' crt='733075'><front>June
+
+in June</front><back>ию́нь
+
+&lt;i&gt;gen.&lt;/i&gt; ию́ня
+
+в ию́не</back></card>
+<card grp='0' crt='733075'><front>July
+
+in July</front><back>ию́ль
+
+&lt;i&gt;gen.&lt;/i&gt; ию́ля
+
+в ию́ле</back></card>
+<card grp='0' crt='733075'><front>August
+
+in August</front><back>а́вгуст
+
+&lt;i&gt;gen.&lt;/i&gt; а́вгуста
+
+в а́вгусте</back></card>
+<card grp='0' crt='733075'><front>September
+
+in September</front><back>сентя́брь
+
+&lt;i&gt;gen.&lt;/i&gt; сентября́
+
+в сентябре́</back></card>
+<card grp='0' crt='733075'><front>October
+
+in October</front><back>октя́бь
+
+&lt;i&gt;gen.&lt;/i&gt; октября́
+
+в октябре́</back></card>
+<card grp='0' crt='733075'><front>November
+
+in November</front><back>ноя́брь
+
+&lt;i&gt;gen.&lt;/i&gt; ноября́
+
+в ноябре́</back></card>
+<card grp='0' crt='733075'><front>December
+
+in December</front><back>дека́брь
+
+&lt;i&gt;gen.&lt;/i&gt; декабря́
+
+в декабре́</back></card>
+</category>
+<category title='The Seasons'>
+<card grp='0' crt='733075'><front>spring
+</front><back>весна́
+
+&lt;i&gt;instr.&lt;/i&gt; весно́й (in the …)
+&lt;i&gt;adj.&lt;/i&gt; весе́нний</back></card>
+<card grp='0' crt='733075'><front>summer
+</front><back>ле́то
+
+&lt;i&gt;instr.&lt;/i&gt; ле́том (in the …)
+&lt;i&gt;adj.&lt;/i&gt; ле́тний</back></card>
+<card grp='0' crt='733075'><front>autumn
+</front><back>о́сень &lt;sup&gt;f.&lt;/sup&gt;
+
+&lt;i&gt;instr.&lt;/i&gt; о́сенью (in the …)
+&lt;i&gt;adj.&lt;/i&gt; осе́нний</back></card>
+<card grp='0' crt='733075'><front>winter
+</front><back>зима́
+
+&lt;i&gt;instr.&lt;/i&gt; зимо́й (in the …)
+&lt;i&gt;adj.&lt;/i&gt; зи́мний</back></card>
+</category>
+<category title='Colours'>
+<card grp='0' crt='733346'><front>&lt;span fg=&quot;#7E4534&quot;&gt;brown&lt;/span&gt;</front><back>&lt;span fg=&quot;#7E4534&quot;&gt;кори́чневый&lt;/span&gt;</back></card>
+<card grp='0' crt='733346'><front>&lt;span fg=&quot;pink&quot;&gt;pink&lt;/span&gt;</front><back>&lt;span fg=&quot;pink&quot;&gt;ро́зовый&lt;/span&gt;</back></card>
+<card grp='0' crt='733346'><front>&lt;span fg=&quot;violet&quot;&gt;violet&lt;/span&gt;</front><back>&lt;span fg=&quot;violet&quot;&gt;фиоле́товый&lt;/span&gt;</back></card>
+<card grp='0' crt='733346'><front>&lt;span fg=&quot;grey&quot;&gt;grey&lt;/span&gt;</front><back>&lt;span fg=&quot;grey&quot;&gt;се́рый&lt;/span&gt;</back></card>
+<card grp='0' crt='733346'><front>white</front><back>бе́лый</back></card>
+<card grp='0' crt='733346'><front>&lt;span fg=&quot;white&quot; bg=&quot;black&quot;&gt; black &lt;/span&gt;</front><back>&lt;span fg=&quot;white&quot; bg=&quot;black&quot;&gt; чёрный &lt;/span&gt;</back></card>
+<card grp='0' crt='733346'><front>&lt;span fg=&quot;lightblue&quot;&gt;light blue&lt;/span&gt;</front><back>&lt;span fg=&quot;lightblue&quot;&gt;голубо́й&lt;/span&gt;</back></card>
+<card grp='0' crt='733346'><front>&lt;span fg=&quot;navyblue&quot;&gt;dark blue&lt;/span&gt;</front><back>&lt;span fg=&quot;navyblue&quot;&gt;си́ний&lt;/span&gt;</back></card>
+<card grp='0' crt='733346'><front>&lt;span fg=&quot;#DDCA32&quot;&gt;yellow&lt;/span&gt;</front><back>&lt;span fg=&quot;#DDCA32&quot;&gt;жёлтый&lt;/span&gt;</back></card>
+<card grp='0' crt='733346'><front>&lt;span fg=&quot;green&quot;&gt;green&lt;/span&gt;</front><back>&lt;span fg=&quot;green&quot;&gt;зелёный&lt;/span&gt;</back></card>
+<card grp='0' crt='733346'><front>&lt;span fg=&quot;red&quot;&gt;red&lt;/span&gt;</front><back>&lt;span fg=&quot;red&quot;&gt;кра́сный&lt;/span&gt;</back></card>
+</category>
+</deck>

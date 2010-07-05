@@ -1,0 +1,44 @@
+"Here's a card without a specified category
+
+But where will it end up?","Well!
+
+Since it's the first card, and it doesn't specify a category, it <b>should</b> trigger the creation of a New Category."
+"Here's a second card without a specified category
+
+So where will it end up?","Well...
+
+This one <u>should</u> end up in the same category as the previously loaded card: ""New Category"""
+"one","оди́н
+
+одна́, одно́, одни́","Cardinal numbers"
+"two","два
+
+две","Cardinal numbers"
+"three","три","Cardinal numbers"
+"four","четы́ре","Cardinal numbers"
+"five","пять","Cardinal numbers"
+"six","шесть","Cardinal numbers"
+"seven","семь","Cardinal numbers"
+"eight","во́семь","Cardinal numbers"
+"nine","де́вять","Cardinal numbers"
+"ten","де́сять","Cardinal numbers"
+"first","пе́рвый","Ordinal numbers"
+"second","второ́й","Ordinal numbers"
+"third","тре́тий
+
+тре́тья, тре́тье","Ordinal numbers"
+"fourth","четвёртый","Ordinal numbers"
+"fifth","пя́тый","Ordinal numbers"
+"sixth","шесто́й","Ordinal numbers"
+"seventh","седьмо́й","Ordinal numbers"
+"eighth","восьмо́й","Ordinal numbers"
+"ninth","девя́тый","Ordinal numbers"
+"tenth","деся́тый","Ordinal numbers"
+"Some text with ""quotes""
+
+<span fg='red' bg='yellow'>And a bit of colour for luck.</span>","""Ура!""","Other stuff"
+"Here's <b>another</b> card without a specified category
+
+Where will it end up?","It <i>should</i> end up...
+
+...in the same category as the peviously loaded card: ""Other stuff"""

@@ -1,0 +1,395 @@
+
+2012-02-27  Tim Musson  <trmusson@gmail.com>
+
+    * configure.in:
+      - Version to 2.20.0
+      - Require intltool >= 0.41.1
+      - Updated gnome and libxslt library requirements.
+
+    * depcomp, install-sh, missing, mkinstalldirs: Latest from gnulib.
+    * gnome-doc-utils.make: Updated from gnome-doc-utils 0.20.0
+    * aclocal.m4: Regenerated (aclocal -I /usr/share/aclocal).
+    * configure: Regenerated using autoconf 2.68.
+
+    * po/ru.po, po/LINGUAS:
+      Russian language translation thanks to Kirill Kirillov.
+
+    * data/import/*.xsl, data/export/*.xsl:
+      Added Public Domain dedications to these files.
+
+    * doc/*: ignuit finally has man and info pages.
+
+    * src/fileio.c, src/cvsio.c, src/app-window.c:
+      Use string literals in printf-like statements to avoid gcc warnings.
+      Eg. g_error("%s", error->message) rather than g_error(error->message)
+
+    * src/app-window.c (cb_m_new), (cb_m_open):
+      Refresh the file properties dialog if it's open when a new file loads.
+
+
+2009-11-16  Tim Musson  <trmusson@gmail.com>
+
+    * configure.in: Version to 0.0.16
+
+    * help/C/ignuit.xml, help/C/figures/*.png: Updated user guide.
+
+    * src/dialog-quiz.c (show_current_card): Bugfix: Update the quiz window
+      title to correctly show the card's "flagged" state.
+
+    * src/app-window.c (cb_card_pane_clicked): Bugfix: Don't lose editor
+      changes if the card's flag is toggled via the card pane.
+
+    * src/dialog-properties.c:
+      - Added a drop-down list of common licenses.
+      - Added a text entry box for license URI.
+      - Added a "Revert" button to undo accidental changes.
+
+    * src/dialog-quiz.c, src/prefs.c, src/prefs.h:
+      Added an optional answer entry box to the quiz dialog.
+
+    * src/fileio.c, src/prefs.c, src/dialog-preferences.c,
+      data/glade/preferences.glade:
+      Added an option to make a backup before saving.
+
+    * src/prefs.c, src/latex.c, data/glade/preferences.glade:
+      DPI of LaTeX output can now be set via the preferences dialog.
+
+    * src/dialog-tagger.c, src/dialog-tagger.h: New files.
+    * src/dialog-find.c, src/card.c, src/card.h, src/fileio.c,
+      data/glade/find.glade:
+      Initial support for tagging with strings, and for searching those tags.
+
+    * src/csvio.c, src/csvio.h: New files to improve CSV/TSV import/export.
+    * src/fileio.c: Switched to csvio for CSV/TSV import/export.
+    * examples/csv_import_test.csv: New file.
+
+    * src/app-window.c (cb_m_new), (cb_m_open), (cb_m_import):
+      These no longer close the editor window.
+
+    * src/app-window.c (app_window_update_title):
+      Update Save button sensitivity, too.
+
+    * src/dialog-properties.c, src/dialog-editor.c:
+      If the editor window is open, update its textviews immediately if the
+      card style is changed via the Properties dialog.
+
+    * src/app-window.c: Tidied some of the horrific card pane code a bit.
+
+
+2009-09-23  Tim Musson  <trmusson@gmail.com>
+
+    * configure.in: Version to 0.0.15
+    
+    * src/main.c: Applied a patch from Matthias Langer to save changes on
+      computer shut down.
+
+    * po/de.po: Added a German language translation by Matthias Mailänder.
+    * po/en_US.po: Added a US English translation.
+    * src/main.c (main): Added missing locale magic to make gettext
+      translations work.
+
+    * dialog-find.c (utf8_strcasestr), (cb_find): Case-insensitive searching
+      should now work correctly, and for non-latin alphabets.
+
+    * src/app-window.c (cb_m_copy_card): Prevent the pasting of copied cards
+      into the search result view.
+
+    * src/dialog-editor.c, src/dialog-quiz.c: Use the window title to
+      indicate tagged cards.
+
+    * data/ignuit.desktop.in.in: Fixed a typo in _GenericName
+      (thanks, Matthias Mailänder)
+
+    * configure.in: Require intltool >= 0.40.0
+    * data/Makefile.am: Remove intltools-*.in from EXTRA_DIST.
+    * aclocal.m4: Regenerated this file.
+
+    * COPYING.extras: New file to give license details for included artwork.
+    
+
+2009-04-18  Tim Musson  <trmusson@gmail.com>
+
+    * configure.in: Version to 0.0.14
+      Lots of thanks to Karl Berry for advice on improving the packaging for
+      this release.
+
+    * textview.c:
+      (parse_tag), (display_close_tag): Correctly treat unknown markup as
+      plain text. (Fixes a bug reported by Douglas Macdonald.)
+      (parser_get_token): Implemented <verbatim>...</verbatim>.
+    * textview.c, latex.c: Implemented <latex>...</latex>.
+
+    * latex.c:
+      (latex_render):
+      - Use dvipng's -bg Transparent option.
+      - Use user-supplied pre and postamble files if present.
+      (re_math_inline_eval): Fixed a memory leak.
+
+    * dialog-editor.c (cb_m_insert_media): Automatically add alt attributes
+      when embedding files via the Edit menu.
+
+    * po/POTFILES.in, po/POTFILES.skip: Fixed a make check warning.
+      (Reported by Kenneth Prugh - thanks.)
+
+    * help/C/ignuit.xml: Fixed a typo in the XML. (Thanks to Karl Berry.)
+
+    * INSTALL, depcomp, install-sh, missing, mkinstalldirs:
+        Updated these files from gnulib.
+
+    * src/*.h, README, ChangeLog, configure.in, Makefile.am, src/Makefile.am,
+      help/Makefile.am, data/Makefile.am, data/*/Makefile.am, AUTHORS
+        Added copyright notices to these files.
+
+
+2009-04-06  Tim Musson  <trmusson@gmail.com>
+
+    * configure.in: Version to 0.0.13
+
+    * help/C/ignuit.xml: updated.
+
+    * latex.c, latex.h, textview.c: Initial attempt at LaTeX support.
+    
+    * dialog-find.c:
+      - Added option to include markup when searching.
+      - Added option for case sensitivity.
+
+    * dialog-quiz.c: Added option to quiz tagged cards.
+    
+    * dialog-properties.c, file.h, file.c, fileio.c: Allow a homepage address
+      to be stored as a file property.
+    
+    * dialog-quiz.c: CTRL-1 and CTRL-2 now trigger audio files if available.
+    * dialog-quiz.c, prefs.c, prefs.h: Preference options now allow automatic
+      audio play.
+    
+    * dialog-quiz.c (cb_m_tag): Update the card's row in the main window if the
+      card's tag is toggled.
+    * app-window.c (cb_card_pane_clicked): Clicking in the Tag column now
+      toggles the relevant row's tag.
+    
+    * app-window.c (populate_import_export_combo_box): Display underscores as
+      spaces in filter names.
+
+    * app-window.c (cb_m_open), fileio.c (fileio_load): Better error reporting.
+
+    * main.c, data/icons: Main icon and buttons are now themeable.
+    
+    * main.glade: Marked each toolbar button as "important" in order to show
+      text beside icons.
+    * main.glade, editor.glade, quiz.glade: All buttons now have tooltips.
+    
+    * import/jMemorize.xsl: Preserve category names when importing.
+    * export/Mnemosyne.xsl: Support export to Mnemosyne.
+    * import/Mnemosyne.xsl: Support import from Mnemosyne.
+
+
+2009-02-25  Tim Musson  <trmusson@ihug.co.nz>
+
+    * configure.in: Version to 0.0.12
+
+    * Various UI elements can now be optionally hidden or shown.
+
+    * Cards can now be tagged, and there's a new search option for tagged cards.
+
+    * app-window.c (cell_func_card_expired): Replaced asterisk with a star.
+
+    * app-window.c (cb_m_reset_stats), dialog-editor.c (cb_m_reset_stats):
+      Bugfix: Update the main window's status bar after resetting statistics.
+
+
+2008-11-09  Tim Musson  <trmusson@ihug.co.nz>
+
+    * configure.in:
+      - Version to 0.0.11
+      - Require gstreamer.
+
+    * dialog-editor.c, data/glade/editor.glade: Implemented "Insert Image" and
+      "Insert Sound".
+
+    * textview.c:
+      - Implemented <tt>, <span>, <br/>, and <embed/> tags, along
+        with attributes fg, bg, src, type, and alt.
+      - textview.c (display_close_tag): Bugfix: Fixed memory leak.
+
+    * app-window.c (truncated_card_text): Strip whitespace from the start, too.
+
+    * src/media.c, src/media.h: New files.
+
+    * data/glade/main.glade: Removed unused progress bar from the main window.
+
+
+2008-10-26  Tim Musson  <trmusson@ihug.co.nz>
+
+    * configure.in: Version to 0.0.10
+    * app-window.c: Poll cards for expiry at the turn of each hour, and
+      update the display accordingly.
+    * app-window.c: Use colour to indicate categories containing expired cards.
+    * app-window.c, prefs.c, dialog-preferences.c: New preference option to
+      set the flag colour for expired cards.
+    * app-window.c (cb_m_add_category): Insert each new category directly below
+      the currently selected one, rather than at the bottom of the pane.
+    * app-window.c (cb_treev_category_title_edited): Bugfix: Redraw the card
+      pane if the category column is visible.
+    * dialog-editor.c (dialog_blank): Bugfix: Untoggle the flip and info
+      buttons when not displaying a card.
+    * dialog-editor.c (cb_m_paste, dialog_blank): Bugfix: Don't allow paste
+      when not displaying a card.
+    * dialog-quiz.c, dialog-editor.c: Bugfix: Fixed keyboard focus problems
+      when switching between notebook pages in the quiz and editor windows.
+    * help/C/ignuit.xml: Updated.
+
+
+2008-10-12  Tim Musson  <trmusson@ihug.co.nz>
+
+    * configure.in: Version to 0.0.9
+    * main.c, card.c, fileio.c, file.c: Set card expiry times according to the
+      hour of testing.
+    * dialog-quiz.c, dialog-editor.c: Use separate textview widgets for the
+      front, back, and details of the card.
+    * app-window.c (save_changes), prefs.c, prefs.h: Added a preference option
+      to confirm deletion of trash. (No GUI for this yet though.)
+    * app-window.c (cb_treev_categories_drag_data_received): Bugfix: Don't
+      crash if no row exists at the drop location.
+    * dialog-editor.c (cb_m_reset_stats): Bugfix: Call textview_check_changed.
+    * data/ignuit.schemas.in: Fixed a typo in the colour preference key.
+
+
+2008-10-05  Tim Musson  <trmusson@ihug.co.nz>
+
+    * configure.in: Version to 0.0.8
+    * dialog-editor.c: Implemented Undo and Redo.
+    * dialog-editor.c: Implemented Cut, Copy, Paste and Delete.
+    * main.h, dialog-quiz.c, app-window.c: New option to quiz using random card
+      faces.
+    * dialog-quiz.c, dialog-editor.c: Implemented options to display card
+      details in the quiz and editor windows.
+    * main.c, file.c: Make clipboard independent of the currently open file.
+    * app-window.c, prefs.c, prefs.h: Allow card pane columns to be shown or
+      hidden by right-clicking the card list header.
+    * dialog-editor.c, dialog-preferences.c: Update editor font and colours
+      immediately if preferences change.
+    * app-window.c (cb_treev_category_title_edited): Don't set file->changed
+      unless the category title really has changed.
+    * app-window.c, data/glade/main.glade: Implemented "Rename" in the Category
+      pane's right-click menu.
+    * app-window.c (app_window_update_appbar, cb_treev_cards_selection): Display
+      more information about the current card list.
+    * textview.c: Add <left> and <right> tags for text alignment.
+    * textview.h, textview.c: New files.
+
+
+2008-09-19  Tim Musson  <trmusson@ihug.co.nz>
+
+    * configure.in: Version to 0.0.7
+    * dialog-quiz.c: Implement simple HTML-like markup.
+    * dialog-properties.c, file.h, file.c: Allow a license to be specified for
+      card files.
+    * app-window.c (cb_m_save), (cb_m_save_as):
+      call dialog_editor_check_changed
+    * help/C/ignuit.xml, help/C/figures/*.png: Updated.
+
+
+2008-09-12  Tim Musson  <trmusson@ihug.co.nz>
+
+    * configure.in: Version to 0.0.6
+    * ignuit.desktop.in.in: Applied a patch from Kenneth Prugh (thanks!) to
+      make the file match freedesktop.org specifications.
+    * dialog-find.c (cb_find), prefs.c, prefs.h: Allow regular expression
+      searches.
+    * dialog-quiz.c (display_text): Allow hidden comments or search keywords
+      in card text, introduced by double hash signs - e.g.: ## Checkme
+    * app-window.c: Implement right-click menus in the Category and Card panes.
+    * app-window.c, card.c, file.c: Implement Cut/Copy/Paste for cards.
+    * app-window.c (app_window_update_title): Indicate unsaved files by
+      adding an asterisk to the main window title.
+    * app-window.c (cb_m_open), (app_window): Scroll the category pane to the
+      top row after opening a new file.
+    * app-window.c (get_save_as_filename): Ask what to do if the given
+      filename already exists.
+    * data/import/KVocTrain.xsl: New filter to import KVocTrain files.
+    * dialog-editor.c (update_statusbar): Bugfix: Don't crash if all categories
+      are deleted while the editor window is open.
+    * help/C/ignuit.xml, help/C/figures/*.png: Updated.
+
+
+2008-02-13  Tim Musson  <trmusson@ihug.co.nz>
+
+    * configure.in: Version to 0.0.5
+    * help/C/ignuit.xml: Bugfix: Missing "role" attribute was causing an
+      error for some people while building ignuit-C.omf
+    * app-window.c (cb_m_import): Preserve imported category titles.
+    * dialog-find.c (cb_find): Make empty queries search for blank cards.
+    * main.glade, app-window.c: Remove File Properties button from toolbar.
+    * pixmaps/: New images: known.png, unknown.png
+
+
+2008-02-10  Tim Musson  <trmusson@ihug.co.nz>
+
+    * configure.in: Version to 0.0.4
+    * help/: Improved user guide.
+    * examples/: New stuff to test it with.
+    * Misc. code cleanup.
+    * Added full text search for cards.
+    * Added "Trash" feature ("Edit" -> "Recently Removed Items").
+    * Added card count column to category pane.
+    * app-window.c: Make "Reset Statistics" work on selected cards rather
+      than the entire file.
+    * dialog-properties.c: Prevent the opening of multiple properties dialogs.
+    * app-window.c: Show file name in window title.
+    * app-window.c: Make category list reorderable.
+    * dialog-editor.c, app-window.c, card.c: Added "Switch Sides" functions.
+    * app-window.c: Gettextize the statusbar message.
+    * dialog-editor.c, app-window.c: Update the main window's statusbar after
+      adding or removing a card via the editor dialog.
+    * app-window.c (cb_treev_categories_drag_data_received): Drag cards
+      without closing the editor dialog.
+    * app-window.c (cb_m_remove_cards): Remove cards without closing the
+      editor dialog.
+    * app-window.c: Select and scroll to new categories when they're added.
+    * app-window.c: After deleting a category, switch to the next available.
+    * app-window.c: switch the category pane from a tree to a list store.
+    * ignuit.schemas.in: Added a default value for the last schedule.
+    * dialog-editor.c (cb_m_add): Flip to front view when adding a new card,
+      regardless of sticky_flips.
+    * app-window.c (cb_treev_category_title_edited): Bugfix:
+      Set file->changed when a category title is edited.
+    * dialog-editor.c (textview_check_changed): Fixed memory leak.
+    * dialog-editor.c (cb_m_remove): Fixed memory leak.
+    * dialog-quiz.c (dialog_quiz): Deactivate the "Store Results" toggle when
+      the quiz mode is QUIZ_NEW_CARDS.
+
+
+2008-02-01  Tim Musson  <trmusson@ihug.co.nz>
+
+    * configure.in: Version to 0.0.3
+    * help/: Added initial user documentation.
+    * Auto-generate data/ignuit.desktop and data/ignuit.schemas
+    * app-window.c, prefs.h: Minor cosmetic tweaks.
+    * dialog-preferences.c, prefs.h: Added an extra schedule box.
+    * dialog-editor.c:
+      - Fixed incorrect score displayed in statusbar.
+      - Pop up a verification dialog if "Card->Reset Statistics" is selected.
+    * dialog-quiz.c: Call gtk_widget_show on the Known/Unkown button images.
+    * pixmaps/: New icons.
+
+
+2008-01-28  Tim Musson  <trmusson@ihug.co.nz>
+
+    * configure.in: Version to 0.0.2
+    * dialog-quiz.c: Fixed a bug that was triggered when toggling a card's
+      state between Known and Unknown while reviewing tested cards.
+
+
+2008-01-27  Tim Musson  <trmusson@ihug.co.nz>
+
+    * First release (0.0.1)
+
+
+-----
+
+    Copyright (C) 2008, 2009, 2012 Timothy Richard Musson
+
+    Copying and distribution of this file, with or without modification,
+    are permitted provided the copyright notice and this notice are
+    preserved.
+

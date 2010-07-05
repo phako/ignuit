@@ -1,0 +1,43 @@
+
+Ignuit maintainer:
+
+    Timothy Musson <trmusson@gmail.com>
+
+
+Significant patches:
+
+    Matthias Langer <mlangc AT gmx DOT at>
+        (Save changes on shutdown.)
+
+    Also, in audio.c, cb_bus and play_audio are taken pretty much directly
+    from examples in the GStreamer Application Development Manual (0.10.20.1).
+
+
+Translators:
+
+    German
+        Matthias Mailänder <matthias AT mailaender DOT name>
+
+    Russian
+        Kirill Kirillov <kirill.kirillov AT gmail DOT com>
+
+
+Helpful suggestions and advice:
+
+  Antono Vasiljev
+  Douglas Macdonald
+  Jim Young
+  Karl Berry
+  Kenneth Prugh
+  Kirill Kirillov
+  Michael White
+
+
+-----
+
+    Copyright (C) 2009, 2012 Timothy Richard Musson
+
+    Copying and distribution of this file, with or without modification,
+    are permitted provided the copyright notice and this notice are
+    preserved.
+
