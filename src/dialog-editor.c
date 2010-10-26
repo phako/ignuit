@@ -247,9 +247,9 @@ action_add (gint a_type, gint start, gint length, Dialog *d)
 
     continuation = a_prev != NULL &&
         start == a_prev->start + a_prev->length &&
-        d->keyval != GDK_space &&
-        d->keyval != GDK_Tab &&
-        d->keyval != GDK_Return;
+        d->keyval != GDK_KEY_space &&
+        d->keyval != GDK_KEY_Tab &&
+        d->keyval != GDK_KEY_Return;
 
     if (a_prev == NULL || a_prev->type != a_type ||
         length > 1 || !continuation) {
@@ -319,7 +319,7 @@ cb_textbuf_delete_range (GtkTextBuffer *textbuf,
     end = gtk_text_iter_get_offset (i_end);
     length = end - start;
 
-    if (d->keyval == GDK_BackSpace)
+    if (d->keyval == GDK_KEY_BackSpace)
         action = ACTION_BACKSPACE;
     else
         action = ACTION_DELETE;
@@ -358,11 +358,11 @@ static gboolean
 cb_textview_key_press_event (GtkWidget *textview, GdkEventKey *event, Dialog *d)
 {
     switch (event->keyval) {
-    case GDK_space:
-    case GDK_Return:
-    case GDK_Tab:
-    case GDK_BackSpace:
-    case GDK_Delete:
+    case GDK_KEY_space:
+    case GDK_KEY_Return:
+    case GDK_KEY_Tab:
+    case GDK_KEY_BackSpace:
+    case GDK_KEY_Delete:
         d->keyval = event->keyval;
         break;
     default:
@@ -1506,7 +1506,7 @@ dialog_editor_card_style_changed (void)
 gboolean
 cb_key_press (GtkWidget *w, GdkEventKey *event, gpointer data)
 {
-    if (event->keyval == GDK_Escape) {
+    if (event->keyval == GDK_KEY_Escape) {
         g_print ("beep\n");
     }
     return FALSE;
