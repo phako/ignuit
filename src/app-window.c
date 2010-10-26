@@ -25,7 +25,6 @@
 #include <config.h>
 #include <gnome.h>
 #include <glib/gi18n.h>
-#include <glade/glade.h>
 
 #include "main.h"
 #include "prefs.h"
@@ -355,7 +354,8 @@ app_window_update_appbar (Ignuit *ig)
         g_free (s2);
     }
 
-    gnome_appbar_set_status (ig->appbar, gstr->str);
+
+    gtk_statusbar_push (ig->appbar, ig->context, gstr->str);
 
     g_string_free (gstr, TRUE);
 }
@@ -2873,7 +2873,7 @@ app_window (Ignuit *ig)
     GtkTreeModel *model;
     GtkListStore *list_store;
     gchar *glade_file;
-    GladeXML  *glade_xml;
+    GtkBuilder *builder;
     GdkColor *color;
 
 
@@ -2887,14 +2887,15 @@ app_window (Ignuit *ig)
 
     d = g_new0 (AppWin, 1);
 
-    glade_xml = glade_xml_new (glade_file, NULL, NULL);
+    builder = gtk_builder_new ();
+    gtk_builder_add_from_file (builder, glade_file, NULL);
     g_free (glade_file);
 
     d->ig = ig;
 
     d->drag_list = NULL;
 
-    ig->app = glade_xml_get_widget (glade_xml, "app");
+    ig->app = GTK_WIDGET (gtk_builder_get_object (builder, "app"));
 
     d->window = ig->app;
 
@@ -2902,88 +2903,87 @@ app_window (Ignuit *ig)
         prefs_get_app_width (d->ig->prefs),
         prefs_get_app_height (d->ig->prefs));
 
-    toolbar = glade_xml_get_widget (glade_xml, "toolbar_bonobodockitem");
-    category_pane = glade_xml_get_widget (glade_xml, "vbox_category");
-    category_buttonbox = glade_xml_get_widget (glade_xml, "category_buttonbox");
-    card_buttonbox = glade_xml_get_widget (glade_xml, "card_buttonbox");
+    toolbar = GTK_WIDGET (gtk_builder_get_object (builder, "toolbar_dock"));
+    category_pane = GTK_WIDGET (gtk_builder_get_object (builder, "vbox_category"));
+    category_buttonbox = GTK_WIDGET (gtk_builder_get_object (builder, "category_buttonbox"));
+    card_buttonbox = GTK_WIDGET (gtk_builder_get_object (builder, "card_buttonbox"));
 
-    m_new = glade_xml_get_widget (glade_xml, "m_new");
-    m_open = glade_xml_get_widget (glade_xml, "m_open");
-    d->ig->m_save = glade_xml_get_widget (glade_xml, "m_save");
-    m_save_as = glade_xml_get_widget (glade_xml, "m_save_as");
-    m_import = glade_xml_get_widget (glade_xml, "m_import");
-    m_export = glade_xml_get_widget (glade_xml, "m_export");
-    d->m_reset_stats = glade_xml_get_widget (glade_xml, "m_reset_stats");
-    m_properties = glade_xml_get_widget (glade_xml, "m_properties");
-    m_quit = glade_xml_get_widget (glade_xml, "m_quit");
+    m_new = GTK_WIDGET (gtk_builder_get_object (builder, "m_new"));
+    m_open = GTK_WIDGET (gtk_builder_get_object (builder, "m_open"));
+    d->ig->m_save = GTK_WIDGET (gtk_builder_get_object (builder, "m_save"));
+    m_save_as = GTK_WIDGET (gtk_builder_get_object (builder, "m_save_as"));
+    m_import = GTK_WIDGET (gtk_builder_get_object (builder, "m_import"));
+    m_export = GTK_WIDGET (gtk_builder_get_object (builder, "m_export"));
+    d->m_reset_stats = GTK_WIDGET (gtk_builder_get_object (builder, "m_reset_stats"));
+    m_properties = GTK_WIDGET (gtk_builder_get_object (builder, "m_properties"));
+    m_quit = GTK_WIDGET (gtk_builder_get_object (builder, "m_quit"));
 
-    d->m_add_card = glade_xml_get_widget (glade_xml, "m_add_card");
-    d->m_remove_card = glade_xml_get_widget (glade_xml, "m_remove_card");
-    d->m_edit_card = glade_xml_get_widget (glade_xml, "m_edit_card");
-    d->m_cut_card = glade_xml_get_widget (glade_xml, "m_cut_card");
-    d->m_copy_card = glade_xml_get_widget (glade_xml, "m_copy_card");
-    d->m_paste_card = glade_xml_get_widget (glade_xml, "m_paste_card");
-    d->m_select_all = glade_xml_get_widget (glade_xml, "m_select_all");
-    d->m_find = glade_xml_get_widget (glade_xml, "m_find");
-    d->m_find_flagged = glade_xml_get_widget (glade_xml, "m_show_flagged");
-    d->m_find_all = glade_xml_get_widget (glade_xml, "m_show_all");
-    d->m_view_trash = glade_xml_get_widget (glade_xml, "m_view_trash");
-    m_add_category = glade_xml_get_widget (glade_xml, "m_add_category");
-    d->m_remove_category = glade_xml_get_widget (glade_xml, "m_remove_category");
-    d->m_edit_tags = glade_xml_get_widget (glade_xml, "m_edit_tags");
-    d->m_flag = glade_xml_get_widget (glade_xml, "m_flag");
-    d->m_switch_sides = glade_xml_get_widget (glade_xml, "m_switch_sides");
-    m_preferences = glade_xml_get_widget (glade_xml, "m_preferences");
+    d->m_add_card = GTK_WIDGET (gtk_builder_get_object (builder, "m_add_card"));
+    d->m_remove_card = GTK_WIDGET (gtk_builder_get_object (builder, "m_remove_card"));
+    d->m_edit_card = GTK_WIDGET (gtk_builder_get_object (builder, "m_edit_card"));
+    d->m_cut_card = GTK_WIDGET (gtk_builder_get_object (builder, "m_cut_card"));
+    d->m_copy_card = GTK_WIDGET (gtk_builder_get_object (builder, "m_copy_card"));
+    d->m_paste_card = GTK_WIDGET (gtk_builder_get_object (builder, "m_paste_card"));
+    d->m_select_all = GTK_WIDGET (gtk_builder_get_object (builder, "m_select_all"));
+    d->m_find = GTK_WIDGET (gtk_builder_get_object (builder, "m_find"));
+    d->m_find_flagged = GTK_WIDGET (gtk_builder_get_object (builder, "m_show_flagged"));
+    d->m_find_all = GTK_WIDGET (gtk_builder_get_object (builder, "m_show_all"));
+    d->m_view_trash = GTK_WIDGET (gtk_builder_get_object (builder, "m_view_trash"));
+    m_add_category = GTK_WIDGET (gtk_builder_get_object (builder, "m_add_category"));
+    d->m_remove_category = GTK_WIDGET (gtk_builder_get_object (builder, "m_remove_category"));
+    d->m_edit_tags = GTK_WIDGET (gtk_builder_get_object (builder, "m_edit_tags"));
+    d->m_flag = GTK_WIDGET (gtk_builder_get_object (builder, "m_flag"));
+    d->m_switch_sides = GTK_WIDGET (gtk_builder_get_object (builder, "m_switch_sides"));
+    m_preferences = GTK_WIDGET (gtk_builder_get_object (builder, "m_preferences"));
 
-    d->m_start_quiz = glade_xml_get_widget (glade_xml, "m_start_quiz");
+    d->m_start_quiz = GTK_WIDGET (gtk_builder_get_object (builder, "m_start_quiz"));
 
-    d->r_quiz_category_selection = glade_xml_get_widget (glade_xml,
-        "r_all_categories");
+    d->r_quiz_category_selection = GTK_WIDGET (gtk_builder_get_object (builder, "r_all_categories"));
     d->quiz_category_group = gtk_radio_menu_item_get_group
         (GTK_RADIO_MENU_ITEM(d->r_quiz_category_selection));
 
-    d->r_quiz_card_selection = glade_xml_get_widget
-        (glade_xml, "r_all_cards");
+    d->r_quiz_card_selection = GTK_WIDGET (gtk_builder_get_object
+        (builder, "r_all_cards"));
     d->quiz_card_group = gtk_radio_menu_item_get_group
         (GTK_RADIO_MENU_ITEM(d->r_quiz_card_selection));
 
-    d->r_quiz_face_selection = glade_xml_get_widget
-        (glade_xml, "r_quiz_face_front");
+    d->r_quiz_face_selection = GTK_WIDGET (gtk_builder_get_object
+        (builder, "r_quiz_face_front"));
     d->quiz_face_group = gtk_radio_menu_item_get_group
         (GTK_RADIO_MENU_ITEM(d->r_quiz_face_selection));
 
-    m_help = glade_xml_get_widget (glade_xml, "m_help");
-    m_about = glade_xml_get_widget (glade_xml, "m_about");
+    m_help = GTK_WIDGET (gtk_builder_get_object (builder, "m_help"));
+    m_about = GTK_WIDGET (gtk_builder_get_object (builder, "m_about"));
 
-    t_new = glade_xml_get_widget (glade_xml, "t_new");
-    t_open = glade_xml_get_widget (glade_xml, "t_open");
-    d->ig->t_save = glade_xml_get_widget (glade_xml, "t_save");
-    d->t_find = glade_xml_get_widget (glade_xml, "t_find");
-    d->t_start_quiz = glade_xml_get_widget (glade_xml, "t_start_quiz");
+    t_new = GTK_WIDGET (gtk_builder_get_object (builder, "t_new"));
+    t_open = GTK_WIDGET (gtk_builder_get_object (builder, "t_open"));
+    d->ig->t_save = GTK_WIDGET (gtk_builder_get_object (builder, "t_save"));
+    d->t_find = GTK_WIDGET (gtk_builder_get_object (builder, "t_find"));
+    d->t_start_quiz = GTK_WIDGET (gtk_builder_get_object (builder, "t_start_quiz"));
 #if 0
-    t_help = glade_xml_get_widget (glade_xml, "t_help");
+    t_help = GTK_WIDGET (gtk_builder_get_object (builder, "t_help"));
 #endif
 
-    b_add_category = glade_xml_get_widget (glade_xml, "b_add_category");
-    d->b_remove_category = glade_xml_get_widget
-        (glade_xml, "b_remove_category");
+    b_add_category = GTK_WIDGET (gtk_builder_get_object (builder, "b_add_category"));
+    d->b_remove_category = GTK_WIDGET (gtk_builder_get_object
+        (builder, "b_remove_category"));
 
-    d->b_edit_card = glade_xml_get_widget (glade_xml, "b_edit_card");
-    d->b_add_card = glade_xml_get_widget (glade_xml, "b_add_card");
-    d->b_remove_card = glade_xml_get_widget (glade_xml, "b_remove_card");
+    d->b_edit_card = GTK_WIDGET (gtk_builder_get_object (builder, "b_edit_card"));
+    d->b_add_card = GTK_WIDGET (gtk_builder_get_object (builder, "b_add_card"));
+    d->b_remove_card = GTK_WIDGET (gtk_builder_get_object (builder, "b_remove_card"));
 
-    d->hpaned = glade_xml_get_widget (glade_xml, "hpaned");
+    d->hpaned = GTK_WIDGET (gtk_builder_get_object (builder, "hpaned"));
 
-    appbar = glade_xml_get_widget (glade_xml, "appbar");
-    ig->appbar = (GnomeAppBar*)appbar;
-
+    appbar = GTK_WIDGET (gtk_builder_get_object (builder, "appbar"));
+    ig->appbar = GTK_STATUSBAR (appbar);
+    ig->context = gtk_statusbar_get_context_id (ig->appbar, "main");
 
 
     /* Category list. */
 
-    d->scrollw_categories = glade_xml_get_widget (glade_xml,
-        "scrollw_categories");
-    ig->treev_cat = GTK_TREE_VIEW(glade_xml_get_widget (glade_xml,
+    d->scrollw_categories = GTK_WIDGET (gtk_builder_get_object (builder,
+        "scrollw_categories"));
+    ig->treev_cat = GTK_TREE_VIEW(gtk_builder_get_object (builder,
         "treeview_categories"));
 
     list_store = gtk_list_store_new (CATEGORIES_N_COLUMNS,
@@ -3010,20 +3010,20 @@ app_window (Ignuit *ig)
 
     /* Category pane right-click menu. */
 
-    d->popup_menu_category = glade_xml_get_widget (glade_xml,
-        "popup_menu_category");
+    d->popup_menu_category = g_object_ref (GTK_WIDGET (gtk_builder_get_object (builder,
+        "popup_menu_category")));
 
-    w = glade_xml_get_widget (glade_xml, "m_category_popup_rename");
+    w = GTK_WIDGET (gtk_builder_get_object (builder, "m_category_popup_rename"));
     d->m_category_popup_rename = w;
     g_signal_connect (G_OBJECT(w), "activate",
         G_CALLBACK(cb_m_rename_category), d);
 
-    w = glade_xml_get_widget (glade_xml, "m_category_popup_add");
+    w = GTK_WIDGET (gtk_builder_get_object (builder, "m_category_popup_add"));
     m_category_popup_add = w;
     g_signal_connect (G_OBJECT(w), "activate",
         G_CALLBACK(cb_m_add_category), d);
 
-    w = glade_xml_get_widget (glade_xml, "m_category_popup_remove");
+    w = GTK_WIDGET (gtk_builder_get_object (builder, "m_category_popup_remove"));
     d->m_category_popup_remove = w;
     g_signal_connect (G_OBJECT(w), "activate",
         G_CALLBACK(cb_m_remove_category), d);
@@ -3031,50 +3031,50 @@ app_window (Ignuit *ig)
 
     /* Card pane column headers. */
 
-    d->popup_menu_card_header = glade_xml_get_widget (glade_xml,
-        "popup_menu_card_header");
+    d->popup_menu_card_header = g_object_ref (GTK_WIDGET (gtk_builder_get_object (builder,
+        "popup_menu_card_header")));
 
-    w = glade_xml_get_widget (glade_xml, "m_card_header_toggle_front");
+    w = GTK_WIDGET (gtk_builder_get_object (builder, "m_card_header_toggle_front"));
     d->m_card_header_toggle[COLUMN_CARD_FRONT] = w;
     g_signal_connect (G_OBJECT(w), "activate",
         G_CALLBACK(cb_m_card_header_toggle), d);
 
-    w = glade_xml_get_widget (glade_xml, "m_card_header_toggle_back");
+    w = GTK_WIDGET (gtk_builder_get_object (builder, "m_card_header_toggle_back"));
     d->m_card_header_toggle[COLUMN_CARD_BACK] = w;
     g_signal_connect (G_OBJECT(w), "activate",
         G_CALLBACK(cb_m_card_header_toggle), d);
 
-    w = glade_xml_get_widget (glade_xml, "m_card_header_toggle_category");
+    w = GTK_WIDGET (gtk_builder_get_object (builder, "m_card_header_toggle_category"));
     d->m_card_header_toggle[COLUMN_CARD_CATEGORY] = w;
     g_signal_connect (G_OBJECT(w), "activate",
         G_CALLBACK(cb_m_card_header_toggle), d);
 
-    w = glade_xml_get_widget (glade_xml, "m_card_header_toggle_group");
+    w = GTK_WIDGET (gtk_builder_get_object (builder, "m_card_header_toggle_group"));
     d->m_card_header_toggle[COLUMN_CARD_GROUP] = w;
     g_signal_connect (G_OBJECT(w), "activate",
         G_CALLBACK(cb_m_card_header_toggle), d);
 
-    w = glade_xml_get_widget (glade_xml, "m_card_header_toggle_tested");
+    w = GTK_WIDGET (gtk_builder_get_object (builder, "m_card_header_toggle_tested"));
     d->m_card_header_toggle[COLUMN_CARD_TESTED] = w;
     g_signal_connect (G_OBJECT(w), "activate",
         G_CALLBACK(cb_m_card_header_toggle), d);
 
-    w = glade_xml_get_widget (glade_xml, "m_card_header_toggle_expired");
+    w = GTK_WIDGET (gtk_builder_get_object (builder, "m_card_header_toggle_expired"));
     d->m_card_header_toggle[COLUMN_CARD_EXPIRED] = w;
     g_signal_connect (G_OBJECT(w), "activate",
         G_CALLBACK(cb_m_card_header_toggle), d);
 
-    w = glade_xml_get_widget (glade_xml, "m_card_header_toggle_expiry_date");
+    w = GTK_WIDGET (gtk_builder_get_object (builder, "m_card_header_toggle_expiry_date"));
     d->m_card_header_toggle[COLUMN_CARD_EXPIRY_DATE] = w;
     g_signal_connect (G_OBJECT(w), "activate",
         G_CALLBACK(cb_m_card_header_toggle), d);
 
-    w = glade_xml_get_widget (glade_xml, "m_card_header_toggle_expiry_time");
+    w = GTK_WIDGET (gtk_builder_get_object (builder, "m_card_header_toggle_expiry_time"));
     d->m_card_header_toggle[COLUMN_CARD_EXPIRY_TIME] = w;
     g_signal_connect (G_OBJECT(w), "activate",
         G_CALLBACK(cb_m_card_header_toggle), d);
 
-    w = glade_xml_get_widget (glade_xml, "m_card_header_toggle_flag");
+    w = GTK_WIDGET (gtk_builder_get_object (builder, "m_card_header_toggle_flag"));
     d->m_card_header_toggle[COLUMN_CARD_FLAGGED] = w;
     g_signal_connect (G_OBJECT(w), "activate",
         G_CALLBACK(cb_m_card_header_toggle), d);
@@ -3082,60 +3082,61 @@ app_window (Ignuit *ig)
 
     /* Card pane right-click menu. */
 
-    d->popup_menu_card = glade_xml_get_widget (glade_xml,
-        "popup_menu_card");
+    d->popup_menu_card = g_object_ref (GTK_WIDGET (gtk_builder_get_object (builder,
+        "popup_menu_card")));
 
-    w = glade_xml_get_widget (glade_xml, "m_card_popup_add");
+    w = GTK_WIDGET (gtk_builder_get_object (builder, "m_card_popup_add"));
     d->m_card_popup_add = w;
     g_signal_connect (G_OBJECT(w), "activate",
         G_CALLBACK(cb_m_add_card), d);
 
-    w = glade_xml_get_widget (glade_xml, "m_card_popup_remove");
+    w = GTK_WIDGET (gtk_builder_get_object (builder, "m_card_popup_remove"));
     d->m_card_popup_remove = w;
     g_signal_connect (G_OBJECT(w), "activate",
         G_CALLBACK(cb_m_remove_card), d);
 
-    w = glade_xml_get_widget (glade_xml, "m_card_popup_edit");
+    w = GTK_WIDGET (gtk_builder_get_object (builder, "m_card_popup_edit"));
+    g_debug ("popup widget: %p", w);
     d->m_card_popup_edit = w;
     g_signal_connect (G_OBJECT(w), "activate",
         G_CALLBACK(cb_m_edit_card), d);
 
-    w = glade_xml_get_widget (glade_xml, "m_card_popup_cut");
+    w = GTK_WIDGET (gtk_builder_get_object (builder, "m_card_popup_cut"));
     d->m_card_popup_cut = w;
     g_signal_connect (G_OBJECT(w), "activate",
         G_CALLBACK(cb_m_cut_card), d);
  
-    w = glade_xml_get_widget (glade_xml, "m_card_popup_copy");
+    w = GTK_WIDGET (gtk_builder_get_object (builder, "m_card_popup_copy"));
     d->m_card_popup_copy = w;
     g_signal_connect (G_OBJECT(w), "activate",
         G_CALLBACK(cb_m_copy_card), d);
  
-    w = glade_xml_get_widget (glade_xml, "m_card_popup_paste");
+    w = GTK_WIDGET (gtk_builder_get_object (builder, "m_card_popup_paste"));
     d->m_card_popup_paste = w;
     g_signal_connect (G_OBJECT(w), "activate",
         G_CALLBACK(cb_m_paste_card), d);
 
-    w = glade_xml_get_widget (glade_xml, "m_card_popup_select_all");
+    w = GTK_WIDGET (gtk_builder_get_object (builder, "m_card_popup_select_all"));
     d->m_card_popup_select_all = w;
     g_signal_connect (G_OBJECT(w), "activate",
         G_CALLBACK(cb_m_select_all), d);
 
-    w = glade_xml_get_widget (glade_xml, "m_card_popup_edit_tags");
+    w = GTK_WIDGET (gtk_builder_get_object (builder, "m_card_popup_edit_tags"));
     d->m_card_popup_edit_tags = w;
     g_signal_connect (G_OBJECT(w), "activate",
         G_CALLBACK(cb_m_edit_tags), d);
 
-    w = glade_xml_get_widget (glade_xml, "m_card_popup_flag");
+    w = GTK_WIDGET (gtk_builder_get_object (builder, "m_card_popup_flag"));
     d->m_card_popup_flag = w;
     g_signal_connect (G_OBJECT(w), "activate",
         G_CALLBACK(cb_m_flag), d);
 
-    w = glade_xml_get_widget (glade_xml, "m_card_popup_switch_sides");
+    w = GTK_WIDGET (gtk_builder_get_object (builder, "m_card_popup_switch_sides"));
     d->m_card_popup_switch_sides = w;
     g_signal_connect (G_OBJECT(w), "activate",
         G_CALLBACK(cb_m_switch_sides), d);
 
-    w = glade_xml_get_widget (glade_xml, "m_card_popup_reset_stats");
+    w = GTK_WIDGET (gtk_builder_get_object (builder, "m_card_popup_reset_stats"));
     d->m_card_popup_reset_stats = w;
     g_signal_connect (G_OBJECT(w), "activate",
         G_CALLBACK(cb_m_reset_stats), d);
@@ -3143,10 +3144,10 @@ app_window (Ignuit *ig)
 
     /* Card list. */
 
-    d->scrollw_cards = glade_xml_get_widget (glade_xml, "scrollw_cards");
+    d->scrollw_cards = GTK_WIDGET (gtk_builder_get_object (builder, "scrollw_cards"));
     gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW(d->scrollw_cards),
         GTK_POLICY_AUTOMATIC, GTK_POLICY_ALWAYS);
-    ig->treev_card = GTK_TREE_VIEW(glade_xml_get_widget (glade_xml,
+    ig->treev_card = GTK_TREE_VIEW(gtk_builder_get_object (builder,
         "treeview_cards"));
 
     list_store = gtk_list_store_new (CARDS_N_COLUMNS,
@@ -3185,25 +3186,25 @@ app_window (Ignuit *ig)
 
     /* View menu. */
 
-    w = glade_xml_get_widget (glade_xml, "m_view_main_toolbar");
+    w = GTK_WIDGET (gtk_builder_get_object (builder, "m_view_main_toolbar"));
     g_signal_connect (G_OBJECT(w), "toggled",
         G_CALLBACK(cb_m_view_main_toolbar), d);
     gtk_check_menu_item_set_active (GTK_CHECK_MENU_ITEM(w),
         prefs_get_main_toolbar_visible (d->ig->prefs));
 
-    w = glade_xml_get_widget (glade_xml, "m_view_category_pane");
+    w = GTK_WIDGET (gtk_builder_get_object (builder, "m_view_category_pane"));
     g_signal_connect (G_OBJECT(w), "toggled",
         G_CALLBACK(cb_m_view_category_pane), d);
     gtk_check_menu_item_set_active (GTK_CHECK_MENU_ITEM(w),
         prefs_get_category_pane_visible (d->ig->prefs));
 
-    w = glade_xml_get_widget (glade_xml, "m_view_bottom_toolbar");
+    w = GTK_WIDGET (gtk_builder_get_object (builder, "m_view_bottom_toolbar"));
     g_signal_connect (G_OBJECT(w), "toggled",
         G_CALLBACK(cb_m_view_bottom_toolbar), d);
     gtk_check_menu_item_set_active (GTK_CHECK_MENU_ITEM(w),
         prefs_get_bottom_toolbar_visible (d->ig->prefs));
 
-    w = glade_xml_get_widget (glade_xml, "m_view_statusbar");
+    w = GTK_WIDGET (gtk_builder_get_object (builder, "m_view_statusbar"));
     g_signal_connect (G_OBJECT(w), "toggled",
         G_CALLBACK(cb_m_view_statusbar), d);
     gtk_check_menu_item_set_active (GTK_CHECK_MENU_ITEM(w),
@@ -3412,7 +3413,7 @@ app_window (Ignuit *ig)
 
     gtk_widget_show (d->window);
 
-    g_object_unref (G_OBJECT(glade_xml));
+    g_object_unref (G_OBJECT(builder));
 
 
     if (!prefs_get_main_toolbar_visible (d->ig->prefs))

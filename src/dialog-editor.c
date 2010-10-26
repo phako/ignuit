@@ -25,7 +25,6 @@
 #include <config.h>
 #include <gnome.h>
 #include <glib/gi18n.h>
-#include <glade/glade.h>
 
 #include "main.h"
 #include "prefs.h"
@@ -1521,7 +1520,7 @@ dialog_editor (Ignuit *ig)
     GtkWidget  *m_close, *b_close_tag_bar;
     GtkWidget  *m_sticky_flips;
     gchar      *glade_file;
-    GladeXML   *glade_xml;
+    GtkBuilder *builder;
 
 
     if (dialog != NULL) {
@@ -1539,13 +1538,14 @@ dialog_editor (Ignuit *ig)
     }
 
     dialog = d = g_new0 (Dialog, 1);
-    glade_xml = glade_xml_new (glade_file, NULL, NULL);
+    builder = gtk_builder_new ();
+    gtk_builder_add_from_file (builder, glade_file, NULL);
     g_free (glade_file);
 
     d->ig = ig;
 
 
-    d->window = glade_xml_get_widget (glade_xml, "dialog");
+    d->window = GTK_WIDGET (gtk_builder_get_object (builder, "dialog"));
 
     g_signal_connect (G_OBJECT(d->window), "key-press-event",
         G_CALLBACK(cb_window_key_press_event), d);
@@ -1560,18 +1560,16 @@ dialog_editor (Ignuit *ig)
     g_signal_connect (G_OBJECT(d->window), "delete-event",
         G_CALLBACK(cb_window_delete), d);
 
-    d->statusbar = (GtkStatusbar*)glade_xml_get_widget
-        (glade_xml, "statusbar");
+    d->statusbar = GTK_STATUSBAR(gtk_builder_get_object (builder, "statusbar"));
     d->sbcid = gtk_statusbar_get_context_id (d->statusbar, "editor");
 
 
-    d->notebook = GTK_NOTEBOOK(glade_xml_get_widget (glade_xml, "notebook"));
+    d->notebook = GTK_NOTEBOOK(GTK_WIDGET (gtk_builder_get_object (builder, "notebook")));
 
 
     /* Front textview */
 
-    d->textview[FRONT] = GTK_TEXT_VIEW(glade_xml_get_widget
-        (glade_xml, "tv_front"));
+    d->textview[FRONT] = GTK_TEXT_VIEW(gtk_builder_get_object (builder, "tv_front"));
     d->textbuf[FRONT] = gtk_text_view_get_buffer (d->textview[FRONT]);
     textview_set_properties (d->textview[FRONT], d->ig->prefs,
         file_get_card_style (d->ig->file), TV_EDITOR);
@@ -1590,8 +1588,8 @@ dialog_editor (Ignuit *ig)
 
     /* Back textview */
 
-    d->textview[BACK] = GTK_TEXT_VIEW(glade_xml_get_widget
-        (glade_xml, "tv_back"));
+    d->textview[BACK] = GTK_TEXT_VIEW(gtk_builder_get_object
+        (builder, "tv_back"));
     d->textbuf[BACK] = gtk_text_view_get_buffer (d->textview[BACK]);
     textview_set_properties (d->textview[BACK], d->ig->prefs,
         file_get_card_style (d->ig->file), TV_EDITOR);
@@ -1610,8 +1608,8 @@ dialog_editor (Ignuit *ig)
 
     /* Details textview */
 
-    d->textview[INFO] = GTK_TEXT_VIEW(glade_xml_get_widget
-        (glade_xml, "tv_info"));
+    d->textview[INFO] = GTK_TEXT_VIEW(gtk_builder_get_object
+        (builder, "tv_info"));
     d->textbuf[INFO] = gtk_text_view_get_buffer (d->textview[INFO]);
     textbuf_create_tags (d->textbuf[INFO]);
     textview_set_properties (d->textview[INFO], d->ig->prefs,
@@ -1621,37 +1619,37 @@ dialog_editor (Ignuit *ig)
 
     /* Card menu */
 
-    d->m_add = glade_xml_get_widget (glade_xml, "m_add");
+    d->m_add = GTK_WIDGET (gtk_builder_get_object (builder, "m_add"));
     g_signal_connect (G_OBJECT(d->m_add), "activate",
         G_CALLBACK(cb_m_add), d);
 
-    d->m_remove = glade_xml_get_widget (glade_xml, "m_remove");
+    d->m_remove = GTK_WIDGET (gtk_builder_get_object (builder, "m_remove"));
     g_signal_connect (G_OBJECT(d->m_remove), "activate",
         G_CALLBACK(cb_m_remove), d);
 
-    d->m_prev = glade_xml_get_widget (glade_xml, "m_prev");
+    d->m_prev = GTK_WIDGET (gtk_builder_get_object (builder, "m_prev"));
     g_signal_connect (G_OBJECT(d->m_prev), "activate",
         G_CALLBACK(cb_m_prev), d);
 
-    d->m_next = glade_xml_get_widget (glade_xml, "m_next");
+    d->m_next = GTK_WIDGET (gtk_builder_get_object (builder, "m_next"));
     g_signal_connect (G_OBJECT(d->m_next), "activate",
         G_CALLBACK(cb_m_next), d);
 
-    d->m_flip = (GtkCheckMenuItem*)glade_xml_get_widget (glade_xml, "m_flip");
+    d->m_flip = (GtkCheckMenuItem*)GTK_WIDGET (gtk_builder_get_object (builder, "m_flip"));
     g_signal_connect (G_OBJECT(d->m_flip), "toggled",
         G_CALLBACK(cb_m_flip), d);
 
-    d->m_info = (GtkCheckMenuItem*)glade_xml_get_widget (glade_xml, "m_info");
+    d->m_info = (GtkCheckMenuItem*)GTK_WIDGET (gtk_builder_get_object (builder, "m_info"));
     g_signal_connect (G_OBJECT(d->m_info), "toggled",
         G_CALLBACK(cb_m_info), d);
 
-    m_sticky_flips = glade_xml_get_widget (glade_xml, "m_sticky_flips");
+    m_sticky_flips = GTK_WIDGET (gtk_builder_get_object (builder, "m_sticky_flips"));
     g_signal_connect (G_OBJECT(m_sticky_flips), "toggled",
         G_CALLBACK(cb_m_sticky_flips), d);
     gtk_check_menu_item_set_active (GTK_CHECK_MENU_ITEM(m_sticky_flips),
         prefs_get_sticky_flips (d->ig->prefs));
 
-    d->m_tag_bar = (GtkCheckMenuItem*)glade_xml_get_widget (glade_xml,
+    d->m_tag_bar = (GtkCheckMenuItem*)gtk_builder_get_object (builder,
         "m_tag_bar");
     gtk_check_menu_item_set_active (GTK_CHECK_MENU_ITEM(d->m_tag_bar),
         prefs_get_editor_tag_bar_visible (d->ig->prefs));
@@ -1659,64 +1657,64 @@ dialog_editor (Ignuit *ig)
     g_signal_connect (G_OBJECT(d->m_tag_bar), "toggled",
         G_CALLBACK(cb_m_tag_bar), d);
 
-    m_close = glade_xml_get_widget (glade_xml, "m_close");
+    m_close = GTK_WIDGET (gtk_builder_get_object (builder, "m_close"));
     g_signal_connect (G_OBJECT(m_close), "activate",
         G_CALLBACK(cb_m_close), d);
 
 
     /* Edit menu */
 
-    d->m_undo = glade_xml_get_widget (glade_xml, "m_undo");
+    d->m_undo = GTK_WIDGET (gtk_builder_get_object (builder, "m_undo"));
     g_signal_connect (G_OBJECT(d->m_undo), "activate",
         G_CALLBACK(cb_m_undo), d);
 
-    d->m_redo = glade_xml_get_widget (glade_xml, "m_redo");
+    d->m_redo = GTK_WIDGET (gtk_builder_get_object (builder, "m_redo"));
     g_signal_connect (G_OBJECT(d->m_redo), "activate",
         G_CALLBACK(cb_m_redo), d);
 
-    d->m_cut = glade_xml_get_widget (glade_xml, "m_cut");
+    d->m_cut = GTK_WIDGET (gtk_builder_get_object (builder, "m_cut"));
     g_signal_connect (G_OBJECT(d->m_cut), "activate",
         G_CALLBACK(cb_m_cut), d);
 
-    d->m_copy = glade_xml_get_widget (glade_xml, "m_copy");
+    d->m_copy = GTK_WIDGET (gtk_builder_get_object (builder, "m_copy"));
     g_signal_connect (G_OBJECT(d->m_copy), "activate",
         G_CALLBACK(cb_m_copy), d);
 
-    d->m_delete = glade_xml_get_widget (glade_xml, "m_delete");
+    d->m_delete = GTK_WIDGET (gtk_builder_get_object (builder, "m_delete"));
     g_signal_connect (G_OBJECT(d->m_delete), "activate",
         G_CALLBACK(cb_m_delete), d);
 
-    d->m_paste = glade_xml_get_widget (glade_xml, "m_paste");
+    d->m_paste = GTK_WIDGET (gtk_builder_get_object (builder, "m_paste"));
     g_signal_connect (G_OBJECT(d->m_paste), "activate",
         G_CALLBACK(cb_m_paste), d);
 
-    d->m_insert_image = glade_xml_get_widget (glade_xml, "m_insert_image");
+    d->m_insert_image = GTK_WIDGET (gtk_builder_get_object (builder, "m_insert_image"));
     g_signal_connect (G_OBJECT(d->m_insert_image), "activate",
         G_CALLBACK(cb_m_insert_media), d);
 
-    d->m_insert_sound = glade_xml_get_widget (glade_xml, "m_insert_sound");
+    d->m_insert_sound = GTK_WIDGET (gtk_builder_get_object (builder, "m_insert_sound"));
     g_signal_connect (G_OBJECT(d->m_insert_sound), "activate",
         G_CALLBACK(cb_m_insert_media), d);
 
-    d->m_flag = (GtkCheckMenuItem*)glade_xml_get_widget (glade_xml, "m_flag");
+    d->m_flag = (GtkCheckMenuItem*)GTK_WIDGET (gtk_builder_get_object (builder, "m_flag"));
     g_signal_connect (G_OBJECT(d->m_flag), "toggled",
         G_CALLBACK(cb_m_flag), d);
 
-    d->m_switch_sides = glade_xml_get_widget (glade_xml, "m_switch_sides");
+    d->m_switch_sides = GTK_WIDGET (gtk_builder_get_object (builder, "m_switch_sides"));
     g_signal_connect (G_OBJECT(d->m_switch_sides), "activate",
         G_CALLBACK(cb_m_switch_sides), d);
 
-    d->m_reset_stats = glade_xml_get_widget (glade_xml, "m_reset_stats");
+    d->m_reset_stats = GTK_WIDGET (gtk_builder_get_object (builder, "m_reset_stats"));
     g_signal_connect (G_OBJECT(d->m_reset_stats), "activate",
         G_CALLBACK(cb_m_reset_stats), d);
 
 
     /* Tag bar */
 
-    d->hbox_tag_bar = glade_xml_get_widget (glade_xml, "hbox_tag_bar");
-    d->entry_tag_bar = glade_xml_get_widget (glade_xml, "entry_tag_bar");
-    d->b_clear_tag_bar = glade_xml_get_widget (glade_xml, "b_clear_tag_bar");
-    b_close_tag_bar = glade_xml_get_widget (glade_xml, "b_close_tag_bar");
+    d->hbox_tag_bar = GTK_WIDGET (gtk_builder_get_object (builder, "hbox_tag_bar"));
+    d->entry_tag_bar = GTK_WIDGET (gtk_builder_get_object (builder, "entry_tag_bar"));
+    d->b_clear_tag_bar = GTK_WIDGET (gtk_builder_get_object (builder, "b_clear_tag_bar"));
+    b_close_tag_bar = GTK_WIDGET (gtk_builder_get_object (builder, "b_close_tag_bar"));
 
     g_signal_connect (G_OBJECT(b_close_tag_bar), "clicked",
         G_CALLBACK(cb_b_close_tag_bar), d);
@@ -1731,27 +1729,27 @@ dialog_editor (Ignuit *ig)
 
     /* Navigation and scoring buttons */
 
-    d->b_info = (GtkToggleButton*)glade_xml_get_widget (glade_xml, "b_info");
+    d->b_info = (GtkToggleButton*)GTK_WIDGET (gtk_builder_get_object (builder, "b_info"));
     g_signal_connect (G_OBJECT(d->b_info), "toggled",
         G_CALLBACK(cb_b_info), d);
 
-    d->b_add = glade_xml_get_widget (glade_xml, "b_add");
+    d->b_add = GTK_WIDGET (gtk_builder_get_object (builder, "b_add"));
     g_signal_connect (G_OBJECT(d->b_add), "clicked",
         G_CALLBACK(cb_m_add), d);
 
-    d->b_remove = glade_xml_get_widget (glade_xml, "b_remove");
+    d->b_remove = GTK_WIDGET (gtk_builder_get_object (builder, "b_remove"));
     g_signal_connect (G_OBJECT(d->b_remove), "clicked",
         G_CALLBACK(cb_m_remove), d);
 
-    d->b_prev = glade_xml_get_widget (glade_xml, "b_prev");
+    d->b_prev = GTK_WIDGET (gtk_builder_get_object (builder, "b_prev"));
     g_signal_connect (G_OBJECT(d->b_prev), "clicked",
         G_CALLBACK(cb_m_prev), d);
 
-    d->b_next = glade_xml_get_widget (glade_xml, "b_next");
+    d->b_next = GTK_WIDGET (gtk_builder_get_object (builder, "b_next"));
     g_signal_connect (G_OBJECT(d->b_next), "clicked",
         G_CALLBACK(cb_m_next), d);
 
-    d->b_flip = (GtkToggleButton*)glade_xml_get_widget (glade_xml, "b_flip");
+    d->b_flip = (GtkToggleButton*)GTK_WIDGET (gtk_builder_get_object (builder, "b_flip"));
     g_signal_connect (G_OBJECT(d->b_flip), "toggled",
         G_CALLBACK(cb_b_flip), d);
 
@@ -1759,6 +1757,6 @@ dialog_editor (Ignuit *ig)
 
     gtk_widget_show (d->window);
 
-    g_object_unref (G_OBJECT(glade_xml));
+    g_object_unref (G_OBJECT(builder));
 }
 

@@ -25,7 +25,6 @@
 #include <config.h>
 #include <gnome.h>
 #include <glib/gi18n.h>
-#include <glade/glade.h>
 
 #include "main.h"
 #include "file.h"
@@ -285,7 +284,7 @@ dialog_preferences (Ignuit *ig)
     GtkWidget   *btn_close, *btn_card_font;
     GtkWidget   *btn_restore_colors, *btn_restore_schedules;
     GtkWidget   *toggle_backup;
-    GladeXML    *glade_xml;
+    GtkBuilder  *builder;
     gchar       *glade_file;
     const gchar *font;
 
@@ -304,43 +303,44 @@ dialog_preferences (Ignuit *ig)
     }
 
     dialog = d = g_new0 (Dialog, 1);
-    glade_xml = glade_xml_new (glade_file, NULL, NULL);
+    builder = gtk_builder_new ();
+    gtk_builder_add_from_file (builder, glade_file, NULL);
     g_free (glade_file);
 
     d->ig = ig;
 
-    d->window = glade_xml_get_widget (glade_xml, "dialog");
+    d->window = GTK_WIDGET (gtk_builder_get_object (builder, "dialog"));
 
-    btn_card_font = glade_xml_get_widget (glade_xml, "btn_font_small");
-    d->btn_color_fg = glade_xml_get_widget (glade_xml, "btn_color_fg");
-    d->btn_color_bg = glade_xml_get_widget (glade_xml, "btn_color_bg");
-    d->btn_color_bg_known = glade_xml_get_widget (glade_xml, "btn_color_bg_known");
-    d->btn_color_bg_unknown = glade_xml_get_widget (glade_xml, "btn_color_bg_unknown");
-    d->btn_color_bg_end = glade_xml_get_widget (glade_xml, "btn_color_bg_end");
-    d->btn_color_expired = glade_xml_get_widget (glade_xml, "btn_color_expired");
-    btn_restore_colors = glade_xml_get_widget (glade_xml, "btn_restore_colors");
+    btn_card_font = GTK_WIDGET (gtk_builder_get_object (builder, "btn_font_small"));
+    d->btn_color_fg = GTK_WIDGET (gtk_builder_get_object (builder, "btn_color_fg"));
+    d->btn_color_bg = GTK_WIDGET (gtk_builder_get_object (builder, "btn_color_bg"));
+    d->btn_color_bg_known = GTK_WIDGET (gtk_builder_get_object (builder, "btn_color_bg_known"));
+    d->btn_color_bg_unknown = GTK_WIDGET (gtk_builder_get_object (builder, "btn_color_bg_unknown"));
+    d->btn_color_bg_end = GTK_WIDGET (gtk_builder_get_object (builder, "btn_color_bg_end"));
+    d->btn_color_expired = GTK_WIDGET (gtk_builder_get_object (builder, "btn_color_expired"));
+    btn_restore_colors = GTK_WIDGET (gtk_builder_get_object (builder, "btn_restore_colors"));
 
-    d->spin_0 = glade_xml_get_widget (glade_xml, "spin_0");
-    d->spin_1 = glade_xml_get_widget (glade_xml, "spin_1");
-    d->spin_2 = glade_xml_get_widget (glade_xml, "spin_2");
-    d->spin_3 = glade_xml_get_widget (glade_xml, "spin_3");
-    d->spin_4 = glade_xml_get_widget (glade_xml, "spin_4");
-    d->spin_5 = glade_xml_get_widget (glade_xml, "spin_5");
-    d->spin_6 = glade_xml_get_widget (glade_xml, "spin_6");
-    d->spin_7 = glade_xml_get_widget (glade_xml, "spin_7");
-    d->spin_8 = glade_xml_get_widget (glade_xml, "spin_8");
-    btn_restore_schedules = glade_xml_get_widget (glade_xml,
-        "btn_restore_schedules");
+    d->spin_0 = GTK_WIDGET (gtk_builder_get_object (builder, "spin_0"));
+    d->spin_1 = GTK_WIDGET (gtk_builder_get_object (builder, "spin_1"));
+    d->spin_2 = GTK_WIDGET (gtk_builder_get_object (builder, "spin_2"));
+    d->spin_3 = GTK_WIDGET (gtk_builder_get_object (builder, "spin_3"));
+    d->spin_4 = GTK_WIDGET (gtk_builder_get_object (builder, "spin_4"));
+    d->spin_5 = GTK_WIDGET (gtk_builder_get_object (builder, "spin_5"));
+    d->spin_6 = GTK_WIDGET (gtk_builder_get_object (builder, "spin_6"));
+    d->spin_7 = GTK_WIDGET (gtk_builder_get_object (builder, "spin_7"));
+    d->spin_8 = GTK_WIDGET (gtk_builder_get_object (builder, "spin_8"));
+    btn_restore_schedules = GTK_WIDGET (gtk_builder_get_object (builder,
+        "btn_restore_schedules"));
 
-    d->spin_latex_dpi = glade_xml_get_widget (glade_xml, "spin_latex_dpi");
+    d->spin_latex_dpi = GTK_WIDGET (gtk_builder_get_object (builder, "spin_latex_dpi"));
     gtk_spin_button_set_value (GTK_SPIN_BUTTON(d->spin_latex_dpi),
         prefs_get_latex_dpi (d->ig->prefs));
 
-    toggle_backup = glade_xml_get_widget (glade_xml, "toggle_backup");
+    toggle_backup = GTK_WIDGET (gtk_builder_get_object (builder, "toggle_backup"));
     gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON(toggle_backup),
         prefs_get_backup (d->ig->prefs));
 
-    btn_close = glade_xml_get_widget (glade_xml, "btn_close");
+    btn_close = GTK_WIDGET (gtk_builder_get_object (builder, "btn_close"));
 
     set_color_buttons (d);
     set_spin_buttons (d);
@@ -406,6 +406,6 @@ dialog_preferences (Ignuit *ig)
 
     gtk_widget_show_all (d->window);
 
-    g_object_unref (G_OBJECT(glade_xml));
+    g_object_unref (G_OBJECT(builder));
 }
 

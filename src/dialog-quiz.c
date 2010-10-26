@@ -25,7 +25,6 @@
 #include <config.h>
 #include <gnome.h>
 #include <glib/gi18n.h>
-#include <glade/glade.h>
 
 #include "main.h"
 #include "file.h"
@@ -969,11 +968,11 @@ update_title (void)
 void
 dialog_quiz (Ignuit *ig)
 {
-    Dialog    *d;
-    GtkWidget *label, *m_close, *b_close_answer_bar;
-    GladeXML  *glade_xml;
-    gchar     *glade_file;
-    Card      *c;
+    Dialog     *d;
+    GtkWidget  *label, *m_close, *b_close_answer_bar;
+    GtkBuilder *builder;
+    gchar      *glade_file;
+    Card       *c;
 
 
     glade_file = gnome_program_locate_file (ig->program,
@@ -985,8 +984,8 @@ dialog_quiz (Ignuit *ig)
     }
 
     dialog = d = g_new0 (Dialog, 1);
-
-    glade_xml = glade_xml_new (glade_file, NULL, NULL);
+    builder = gtk_builder_new ();
+    gtk_builder_add_from_file (builder, glade_file, NULL);
     g_free (glade_file);
 
     d->ig = ig;
@@ -1057,18 +1056,18 @@ dialog_quiz (Ignuit *ig)
     }
 
 
-    d->window = glade_xml_get_widget (glade_xml, "dialog");
+    d->window = GTK_WIDGET (gtk_builder_get_object (builder, "dialog"));
 
     gtk_window_set_default_size (GTK_WINDOW(d->window),
         prefs_get_quiz_width (d->ig->prefs),
         prefs_get_quiz_height (d->ig->prefs));
 
-    d->notebook = GTK_NOTEBOOK(glade_xml_get_widget (glade_xml, "notebook"));
+    d->notebook = GTK_NOTEBOOK(GTK_WIDGET (gtk_builder_get_object (builder, "notebook")));
 
 
     /* Front textview */
 
-    d->textview[FRONT] = GTK_TEXT_VIEW(glade_xml_get_widget (glade_xml,
+    d->textview[FRONT] = GTK_TEXT_VIEW (gtk_builder_get_object (builder,
         "tv_front"));
     d->textbuf[FRONT] = gtk_text_view_get_buffer (d->textview[FRONT]);
     textbuf_create_tags (d->textbuf[FRONT]);
@@ -1077,7 +1076,7 @@ dialog_quiz (Ignuit *ig)
 
     /* Back textview */
 
-    d->textview[BACK] = GTK_TEXT_VIEW(glade_xml_get_widget (glade_xml,
+    d->textview[BACK] = GTK_TEXT_VIEW (gtk_builder_get_object (builder,
         "tv_back"));
     d->textbuf[BACK] = gtk_text_view_get_buffer (d->textview[BACK]);
     textbuf_create_tags (d->textbuf[BACK]);
@@ -1086,7 +1085,7 @@ dialog_quiz (Ignuit *ig)
 
     /* Details textview */
 
-    d->textview[INFO] = GTK_TEXT_VIEW(glade_xml_get_widget (glade_xml,
+    d->textview[INFO] = GTK_TEXT_VIEW (gtk_builder_get_object (builder,
         "tv_info"));
     d->textbuf[INFO] = gtk_text_view_get_buffer (d->textview[INFO]);
     textbuf_create_tags (d->textbuf[INFO]);
@@ -1094,52 +1093,52 @@ dialog_quiz (Ignuit *ig)
         file_get_card_style (d->ig->file), TV_INFO);
 
 
-    d->m_prev = glade_xml_get_widget (glade_xml, "m_prev");
-    d->m_next = glade_xml_get_widget (glade_xml, "m_next");
-    d->m_unknown = (GtkCheckMenuItem*)glade_xml_get_widget
-        (glade_xml, "m_unknown");
-    d->m_known = (GtkCheckMenuItem*)glade_xml_get_widget
-        (glade_xml, "m_known");
-    d->m_flip = (GtkCheckMenuItem*)glade_xml_get_widget
-        (glade_xml, "m_flip");
-    d->m_info = (GtkCheckMenuItem*)glade_xml_get_widget
-        (glade_xml, "m_info");
-    d->m_answer_bar = (GtkCheckMenuItem*)glade_xml_get_widget
-        (glade_xml, "m_answer_bar");
-    d->m_listen_front = (GtkWidget*)glade_xml_get_widget
-        (glade_xml, "m_listen_front");
-    d->m_listen_back = (GtkWidget*)glade_xml_get_widget
-        (glade_xml, "m_listen_back");
-    d->m_auto_listen_front = (GtkCheckMenuItem*)glade_xml_get_widget
-        (glade_xml, "m_auto_listen_front");
-    d->m_auto_listen_back = (GtkCheckMenuItem*)glade_xml_get_widget
-        (glade_xml, "m_auto_listen_back");
-    d->m_flag = (GtkCheckMenuItem*)glade_xml_get_widget
-        (glade_xml, "m_flag");
-    m_close = glade_xml_get_widget (glade_xml, "m_close");
+    d->m_prev = GTK_WIDGET (gtk_builder_get_object (builder, "m_prev"));
+    d->m_next = GTK_WIDGET (gtk_builder_get_object (builder, "m_next"));
+    d->m_unknown = (GtkCheckMenuItem*)gtk_builder_get_object
+        (builder, "m_unknown");
+    d->m_known = (GtkCheckMenuItem*)gtk_builder_get_object
+        (builder, "m_known");
+    d->m_flip = (GtkCheckMenuItem*)gtk_builder_get_object
+        (builder, "m_flip");
+    d->m_info = (GtkCheckMenuItem*)gtk_builder_get_object
+        (builder, "m_info");
+    d->m_answer_bar = (GtkCheckMenuItem*)gtk_builder_get_object
+        (builder, "m_answer_bar");
+    d->m_listen_front = (GtkWidget*)gtk_builder_get_object
+        (builder, "m_listen_front");
+    d->m_listen_back = (GtkWidget*)gtk_builder_get_object
+        (builder, "m_listen_back");
+    d->m_auto_listen_front = (GtkCheckMenuItem*)gtk_builder_get_object
+        (builder, "m_auto_listen_front");
+    d->m_auto_listen_back = (GtkCheckMenuItem*)gtk_builder_get_object
+        (builder, "m_auto_listen_back");
+    d->m_flag = (GtkCheckMenuItem*)gtk_builder_get_object
+        (builder, "m_flag");
+    m_close = GTK_WIDGET (gtk_builder_get_object (builder, "m_close"));
 
 
-    d->hbox_answer_bar = glade_xml_get_widget (glade_xml, "hbox_answer_bar");
-    d->entry_answer_bar = glade_xml_get_widget (glade_xml, "entry_answer_bar");
-    d->b_clear_answer_bar = glade_xml_get_widget (glade_xml, "b_clear_answer_bar");
-    b_close_answer_bar = glade_xml_get_widget (glade_xml, "b_close_answer_bar");
+    d->hbox_answer_bar = GTK_WIDGET (gtk_builder_get_object (builder, "hbox_answer_bar"));
+    d->entry_answer_bar = GTK_WIDGET (gtk_builder_get_object (builder, "entry_answer_bar"));
+    d->b_clear_answer_bar = GTK_WIDGET (gtk_builder_get_object (builder, "b_clear_answer_bar"));
+    b_close_answer_bar = GTK_WIDGET (gtk_builder_get_object (builder, "b_close_answer_bar"));
 
-    d->b_info = (GtkToggleButton*)glade_xml_get_widget (glade_xml, "b_info");
-    d->b_prev = glade_xml_get_widget (glade_xml, "b_prev");
-    d->b_next = glade_xml_get_widget (glade_xml, "b_next");
-    d->chk_store = glade_xml_get_widget (glade_xml, "chk_store");
-    d->b_unknown = (GtkToggleButton*)glade_xml_get_widget
-        (glade_xml, "b_unknown");
-    d->b_known = (GtkToggleButton*)glade_xml_get_widget
-        (glade_xml, "b_known");
-    d->b_flip = (GtkToggleButton*)glade_xml_get_widget
-        (glade_xml, "b_flip");
+    d->b_info = (GtkToggleButton*)GTK_WIDGET (gtk_builder_get_object (builder, "b_info"));
+    d->b_prev = GTK_WIDGET (gtk_builder_get_object (builder, "b_prev"));
+    d->b_next = GTK_WIDGET (gtk_builder_get_object (builder, "b_next"));
+    d->chk_store = GTK_WIDGET (gtk_builder_get_object (builder, "chk_store"));
+    d->b_unknown = (GtkToggleButton*)gtk_builder_get_object
+        (builder, "b_unknown");
+    d->b_known = (GtkToggleButton*)gtk_builder_get_object
+        (builder, "b_known");
+    d->b_flip = (GtkToggleButton*)gtk_builder_get_object
+        (builder, "b_flip");
 
-    label = glade_xml_get_widget (glade_xml, "label_answer_bar");
+    label = GTK_WIDGET (gtk_builder_get_object (builder, "label_answer_bar"));
     gtk_label_set_mnemonic_widget (GTK_LABEL(label), d->entry_answer_bar);
 
-    d->statusbar = (GtkStatusbar*)glade_xml_get_widget
-        (glade_xml, "statusbar");
+    d->statusbar = (GtkStatusbar*)gtk_builder_get_object
+        (builder, "statusbar");
     d->sbcid = gtk_statusbar_get_context_id (d->statusbar, "quiz");
 
     gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON(d->chk_store), TRUE);
@@ -1229,7 +1228,7 @@ dialog_quiz (Ignuit *ig)
 
     gtk_widget_show (d->window);
 
-    g_object_unref (G_OBJECT(glade_xml));
+    g_object_unref (G_OBJECT(builder));
 
     show_current_card (d, FALSE);
     set_interface_sensitivity (d);

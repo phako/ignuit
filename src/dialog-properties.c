@@ -25,7 +25,6 @@
 #include <config.h>
 #include <gnome.h>
 #include <glib/gi18n.h>
-#include <glade/glade.h>
 
 #include "main.h"
 #include "file.h"
@@ -232,7 +231,7 @@ dialog_properties (Ignuit *ig)
     Dialog    *d;
     GtkWidget *label, *hbox;
     GtkWidget *b_close, *b_revert;
-    GladeXML  *glade_xml;
+    GtkBuilder *builder;
     gchar     *glade_file;
     gint i;
 
@@ -251,36 +250,36 @@ dialog_properties (Ignuit *ig)
     }
 
     dialog = d = g_new0 (Dialog, 1);
-
-    glade_xml = glade_xml_new (glade_file, NULL, NULL);
+    builder = gtk_builder_new ();
+    gtk_builder_add_from_file (builder, glade_file, NULL);
     g_free (glade_file);
 
     d->ig = ig;
 
-    d->window = glade_xml_get_widget (glade_xml, "dialog");
-    d->entry_title = glade_xml_get_widget (glade_xml, "entry_title");
-    d->entry_author = glade_xml_get_widget (glade_xml, "entry_author");
-    d->entry_description = glade_xml_get_widget (glade_xml, "entry_description");
-    d->entry_homepage = glade_xml_get_widget (glade_xml, "entry_homepage");
-    d->entry_license_uri = glade_xml_get_widget (glade_xml, "entry_license_uri");
-    d->combo_style = glade_xml_get_widget (glade_xml, "combo_style");
-    b_revert = glade_xml_get_widget (glade_xml, "b_revert");
-    b_close = glade_xml_get_widget (glade_xml, "b_close");
+    d->window = GTK_WIDGET (gtk_builder_get_object (builder, "dialog"));
+    d->entry_title = GTK_WIDGET (gtk_builder_get_object (builder, "entry_title"));
+    d->entry_author = GTK_WIDGET (gtk_builder_get_object (builder, "entry_author"));
+    d->entry_description = GTK_WIDGET (gtk_builder_get_object (builder, "entry_description"));
+    d->entry_homepage = GTK_WIDGET (gtk_builder_get_object (builder, "entry_homepage"));
+    d->entry_license_uri = GTK_WIDGET (gtk_builder_get_object (builder, "entry_license_uri"));
+    d->combo_style = GTK_WIDGET (gtk_builder_get_object (builder, "combo_style"));
+    b_revert = GTK_WIDGET (gtk_builder_get_object (builder, "b_revert"));
+    b_close = GTK_WIDGET (gtk_builder_get_object (builder, "b_close"));
 
-    label = glade_xml_get_widget (glade_xml, "label_title");
+    label = GTK_WIDGET (gtk_builder_get_object (builder, "label_title"));
     gtk_label_set_mnemonic_widget (GTK_LABEL(label), d->entry_title);
-    label = glade_xml_get_widget (glade_xml, "label_author");
+    label = GTK_WIDGET (gtk_builder_get_object (builder, "label_author"));
     gtk_label_set_mnemonic_widget (GTK_LABEL(label), d->entry_author);
-    label = glade_xml_get_widget (glade_xml, "label_description");
+    label = GTK_WIDGET (gtk_builder_get_object (builder, "label_description"));
     gtk_label_set_mnemonic_widget (GTK_LABEL(label), d->entry_description);
-    label = glade_xml_get_widget (glade_xml, "label_homepage");
+    label = GTK_WIDGET (gtk_builder_get_object (builder, "label_homepage"));
     gtk_label_set_mnemonic_widget (GTK_LABEL(label), d->entry_homepage);
-    label = glade_xml_get_widget (glade_xml, "label_license_uri");
+    label = GTK_WIDGET (gtk_builder_get_object (builder, "label_license_uri"));
     gtk_label_set_mnemonic_widget (GTK_LABEL(label), d->entry_license_uri);
-    label = glade_xml_get_widget (glade_xml, "label_style");
+    label = GTK_WIDGET (gtk_builder_get_object (builder, "label_style"));
     gtk_label_set_mnemonic_widget (GTK_LABEL(label), d->combo_style);
 
-    hbox = glade_xml_get_widget (glade_xml, "hbox_license");
+    hbox = GTK_WIDGET (gtk_builder_get_object (builder, "hbox_license"));
 
     d->combo_license = gtk_combo_box_entry_new_text ();
     gtk_box_pack_start (GTK_BOX(hbox), d->combo_license, TRUE, TRUE, 0);
@@ -290,7 +289,7 @@ dialog_properties (Ignuit *ig)
         gtk_combo_box_append_text (GTK_COMBO_BOX(d->combo_license),
             license[i].title);
 
-    label = glade_xml_get_widget (glade_xml, "label_license");
+    label = GTK_WIDGET (gtk_builder_get_object (builder, "label_license"));
     gtk_label_set_mnemonic_widget (GTK_LABEL(label), d->combo_license);
 
     gtk_combo_box_append_text (GTK_COMBO_BOX(d->combo_style),
@@ -323,6 +322,6 @@ dialog_properties (Ignuit *ig)
 
     gtk_widget_show_all (d->window);
 
-    g_object_unref (G_OBJECT(glade_xml));
+    g_object_unref (G_OBJECT(builder));
 }
 

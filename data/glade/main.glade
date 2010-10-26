@@ -1,777 +1,972 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!DOCTYPE glade-interface SYSTEM "glade-2.0.dtd">
-<!--*- mode: xml -*-->
-<glade-interface>
-  <requires lib="bonobo"/>
-  <requires lib="gnome"/>
-  <widget class="GnomeApp" id="app">
-    <property name="title" translatable="yes">i GNU it</property>
-    <property name="enable_layout_config">True</property>
-    <child internal-child="dock">
-      <widget class="BonoboDock" id="bonobodock">
+<?xml version="1.0"?>
+<interface>
+  <requires lib="gtk+" version="2.16"/>
+  <!-- interface-naming-policy toplevel-contextual -->
+  <object class="GtkMenu" id="popup_menu_category">
+    <property name="visible">True</property>
+    <child>
+      <object class="GtkImageMenuItem" id="m_category_popup_rename">
+        <property name="label">Rename</property>
         <property name="visible">True</property>
-        <property name="allow_floating">True</property>
+        <property name="use_underline">True</property>
+        <property name="use_stock">True</property>
+        <property name="accel_group">accelgroup1</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkSeparatorMenuItem" id="separatormenuitem5">
+        <property name="visible">True</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkImageMenuItem" id="m_category_popup_add">
+        <property name="label">Add Category</property>
+        <property name="visible">True</property>
+        <property name="use_underline">True</property>
+        <property name="use_stock">True</property>
+        <property name="accel_group">accelgroup1</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkImageMenuItem" id="m_category_popup_remove">
+        <property name="label">Remove Category</property>
+        <property name="visible">True</property>
+        <property name="use_underline">True</property>
+        <property name="use_stock">True</property>
+        <property name="accel_group">accelgroup1</property>
+      </object>
+    </child>
+  </object>
+  <object class="GtkMenu" id="popup_menu_card">
+    <property name="visible">True</property>
+    <child>
+      <object class="GtkImageMenuItem" id="m_card_popup_add">
+        <property name="label">Add Card</property>
+        <property name="visible">True</property>
+        <property name="use_underline">True</property>
+        <property name="use_stock">True</property>
+        <property name="accel_group">accelgroup1</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkImageMenuItem" id="m_card_popup_remove">
+        <property name="label">Remove Card</property>
+        <property name="visible">True</property>
+        <property name="use_underline">True</property>
+        <property name="use_stock">True</property>
+        <property name="accel_group">accelgroup1</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkImageMenuItem" id="m_card_popup_edit">
+        <property name="label">Edit Card...</property>
+        <property name="visible">True</property>
+        <property name="use_underline">True</property>
+        <property name="use_stock">True</property>
+        <property name="accel_group">accelgroup1</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkSeparatorMenuItem" id="separatormenuitem1">
+        <property name="visible">True</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkImageMenuItem" id="m_card_popup_cut">
+        <property name="label">Cut</property>
+        <property name="visible">True</property>
+        <property name="use_underline">True</property>
+        <property name="use_stock">True</property>
+        <property name="accel_group">accelgroup1</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkImageMenuItem" id="m_card_popup_copy">
+        <property name="label">Copy</property>
+        <property name="visible">True</property>
+        <property name="use_underline">True</property>
+        <property name="use_stock">True</property>
+        <property name="accel_group">accelgroup1</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkImageMenuItem" id="m_card_popup_paste">
+        <property name="label">Paste</property>
+        <property name="visible">True</property>
+        <property name="use_underline">True</property>
+        <property name="use_stock">True</property>
+        <property name="accel_group">accelgroup1</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkSeparatorMenuItem" id="separatormenuitem3">
+        <property name="visible">True</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkImageMenuItem" id="m_card_popup_select_all">
+        <property name="label">Select All</property>
+        <property name="visible">True</property>
+        <property name="use_underline">True</property>
+        <property name="use_stock">True</property>
+        <property name="accel_group">accelgroup1</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkSeparatorMenuItem" id="separatormenuitem2">
+        <property name="visible">True</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkImageMenuItem" id="m_card_popup_edit_tags">
+        <property name="label">Edit Tags...</property>
+        <property name="visible">True</property>
+        <property name="use_underline">True</property>
+        <property name="use_stock">True</property>
+        <property name="accel_group">accelgroup1</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkMenuItem" id="m_card_popup_flag">
+        <property name="visible">True</property>
+        <property name="label" translatable="yes">Toggle Flags</property>
+        <property name="use_underline">True</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkImageMenuItem" id="m_card_popup_switch_sides">
+        <property name="label">Switch Sides</property>
+        <property name="visible">True</property>
+        <property name="use_underline">True</property>
+        <property name="use_stock">True</property>
+        <property name="accel_group">accelgroup1</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkImageMenuItem" id="m_card_popup_reset_stats">
+        <property name="label">Reset Statistics</property>
+        <property name="visible">True</property>
+        <property name="use_underline">True</property>
+        <property name="use_stock">True</property>
+        <property name="accel_group">accelgroup1</property>
+      </object>
+    </child>
+  </object>
+  <object class="GtkMenu" id="popup_menu_card_header">
+    <property name="visible">True</property>
+    <child>
+      <object class="GtkCheckMenuItem" id="m_card_header_toggle_front">
+        <property name="visible">True</property>
+        <property name="label" translatable="yes">Front Text</property>
+        <property name="use_underline">True</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkCheckMenuItem" id="m_card_header_toggle_back">
+        <property name="visible">True</property>
+        <property name="label" translatable="yes">Back Text</property>
+        <property name="use_underline">True</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkCheckMenuItem" id="m_card_header_toggle_category">
+        <property name="visible">True</property>
+        <property name="label" translatable="yes">Category</property>
+        <property name="use_underline">True</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkCheckMenuItem" id="m_card_header_toggle_group">
+        <property name="visible">True</property>
+        <property name="label" translatable="yes">Box Number</property>
+        <property name="use_underline">True</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkCheckMenuItem" id="m_card_header_toggle_tested">
+        <property name="visible">True</property>
+        <property name="label" translatable="yes">Last Test Date</property>
+        <property name="use_underline">True</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkCheckMenuItem" id="m_card_header_toggle_expired">
+        <property name="visible">True</property>
+        <property name="label" translatable="yes">Expiry Flag</property>
+        <property name="use_underline">True</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkCheckMenuItem" id="m_card_header_toggle_expiry_date">
+        <property name="visible">True</property>
+        <property name="label" translatable="yes">Expiry Date</property>
+        <property name="use_underline">True</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkCheckMenuItem" id="m_card_header_toggle_expiry_time">
+        <property name="visible">True</property>
+        <property name="label" translatable="yes">Expiry Time</property>
+        <property name="use_underline">True</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkCheckMenuItem" id="m_card_header_toggle_flag">
+        <property name="visible">True</property>
+        <property name="label" translatable="yes">Flag</property>
+        <property name="use_underline">True</property>
+      </object>
+    </child>
+  </object>
+  <object class="GtkWindow" id="app">
+    <accel-groups>
+      <group name="accelgroup1"/>
+    </accel-groups>
+    <child>
+      <object class="GtkVBox" id="vbox1">
+        <property name="visible">True</property>
         <child>
-          <widget class="BonoboDockItem" id="toolbar_bonobodockitem">
+          <object class="GtkMenuBar" id="menubar">
             <property name="visible">True</property>
             <child>
-              <widget class="GtkToolbar" id="toolbar">
+              <object class="GtkMenuItem" id="file">
+                <property name="visible">True</property>
+                <property name="label" translatable="yes">_File</property>
+                <property name="use_underline">True</property>
+                <child type="submenu">
+                  <object class="GtkMenu" id="file_menu">
+                    <child>
+                      <object class="GtkImageMenuItem" id="m_new">
+                        <property name="label">gtk-new</property>
+                        <property name="visible">True</property>
+                        <property name="use_underline">True</property>
+                        <property name="use_stock">True</property>
+                        <property name="accel_group">accelgroup1</property>
+                        <signal name="activate" handler="on_new1_activate"/>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkImageMenuItem" id="m_open">
+                        <property name="label">gtk-open</property>
+                        <property name="visible">True</property>
+                        <property name="use_underline">True</property>
+                        <property name="use_stock">True</property>
+                        <property name="accel_group">accelgroup1</property>
+                        <signal name="activate" handler="on_open1_activate"/>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkImageMenuItem" id="m_save">
+                        <property name="label">gtk-save</property>
+                        <property name="visible">True</property>
+                        <property name="use_underline">True</property>
+                        <property name="use_stock">True</property>
+                        <property name="accel_group">accelgroup1</property>
+                        <signal name="activate" handler="on_save1_activate"/>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkImageMenuItem" id="m_save_as">
+                        <property name="label">gtk-save-as</property>
+                        <property name="visible">True</property>
+                        <property name="use_underline">True</property>
+                        <property name="use_stock">True</property>
+                        <property name="accel_group">accelgroup1</property>
+                        <signal name="activate" handler="on_save_as1_activate"/>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkSeparatorMenuItem" id="separator1">
+                        <property name="visible">True</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkMenuItem" id="m_import">
+                        <property name="visible">True</property>
+                        <property name="label" translatable="yes">Import...</property>
+                        <property name="use_underline">True</property>
+                        <signal name="activate" handler="on_m_import_activate"/>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkMenuItem" id="m_export">
+                        <property name="visible">True</property>
+                        <property name="label" translatable="yes">Export...</property>
+                        <property name="use_underline">True</property>
+                        <signal name="activate" handler="on_m_export_activate"/>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkSeparatorMenuItem" id="separator6">
+                        <property name="visible">True</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkImageMenuItem" id="m_properties">
+                        <property name="label">gtk-properties</property>
+                        <property name="visible">True</property>
+                        <property name="use_underline">True</property>
+                        <property name="use_stock">True</property>
+                        <property name="accel_group">accelgroup1</property>
+                        <signal name="activate" handler="on_m_properties_activate"/>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkSeparatorMenuItem" id="separator5">
+                        <property name="visible">True</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkImageMenuItem" id="m_quit">
+                        <property name="label">gtk-quit</property>
+                        <property name="visible">True</property>
+                        <property name="use_underline">True</property>
+                        <property name="use_stock">True</property>
+                        <property name="accel_group">accelgroup1</property>
+                        <signal name="activate" handler="on_quit1_activate"/>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="GtkMenuItem" id="edit">
+                <property name="visible">True</property>
+                <property name="label" translatable="yes">_Edit</property>
+                <property name="use_underline">True</property>
+                <child type="submenu">
+                  <object class="GtkMenu" id="edit_menu">
+                    <child>
+                      <object class="GtkImageMenuItem" id="m_find">
+                        <property name="label">gtk-find</property>
+                        <property name="visible">True</property>
+                        <property name="use_underline">True</property>
+                        <property name="use_stock">True</property>
+                        <property name="accel_group">accelgroup1</property>
+                        <signal name="activate" handler="on_find1_activate"/>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkMenuItem" id="m_show_flagged">
+                        <property name="visible">True</property>
+                        <property name="label" translatable="yes">Find Flagged Cards</property>
+                        <property name="use_underline">True</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkMenuItem" id="m_show_all">
+                        <property name="visible">True</property>
+                        <property name="label" translatable="yes">Find All Cards</property>
+                        <property name="use_underline">True</property>
+                        <signal name="activate" handler="on_m_show_all_activate"/>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkSeparatorMenuItem" id="separatormenuitem4">
+                        <property name="visible">True</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkImageMenuItem" id="m_view_trash">
+                        <property name="label">Recently Removed Cards</property>
+                        <property name="visible">True</property>
+                        <property name="use_underline">True</property>
+                        <property name="use_stock">True</property>
+                        <property name="accel_group">accelgroup1</property>
+                        <signal name="activate" handler="on_recently_deleted_cards1_activate"/>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkSeparatorMenuItem" id="separator12">
+                        <property name="visible">True</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkImageMenuItem" id="m_preferences">
+                        <property name="label">gtk-preferences</property>
+                        <property name="visible">True</property>
+                        <property name="use_underline">True</property>
+                        <property name="use_stock">True</property>
+                        <property name="accel_group">accelgroup1</property>
+                        <signal name="activate" handler="on_preferences1_activate"/>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="GtkMenuItem" id="view">
+                <property name="visible">True</property>
+                <property name="label" translatable="yes">_View</property>
+                <property name="use_underline">True</property>
+                <child type="submenu">
+                  <object class="GtkMenu" id="view_menu">
+                    <property name="visible">True</property>
+                    <child>
+                      <object class="GtkCheckMenuItem" id="m_view_main_toolbar">
+                        <property name="visible">True</property>
+                        <property name="label" translatable="yes">_Main Toolbar</property>
+                        <property name="use_underline">True</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkCheckMenuItem" id="m_view_category_pane">
+                        <property name="visible">True</property>
+                        <property name="label" translatable="yes">_Category Pane</property>
+                        <property name="use_underline">True</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkCheckMenuItem" id="m_view_bottom_toolbar">
+                        <property name="visible">True</property>
+                        <property name="label" translatable="yes">_Bottom Toolbar</property>
+                        <property name="use_underline">True</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkCheckMenuItem" id="m_view_statusbar">
+                        <property name="visible">True</property>
+                        <property name="label" translatable="yes">_Statusbar</property>
+                        <property name="use_underline">True</property>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="GtkMenuItem" id="category">
+                <property name="visible">True</property>
+                <property name="label" translatable="yes">_Category</property>
+                <property name="use_underline">True</property>
+                <child type="submenu">
+                  <object class="GtkMenu" id="menu2">
+                    <property name="visible">True</property>
+                    <child>
+                      <object class="GtkImageMenuItem" id="m_add_category">
+                        <property name="label">Add Category</property>
+                        <property name="visible">True</property>
+                        <property name="use_underline">True</property>
+                        <property name="use_stock">True</property>
+                        <property name="accel_group">accelgroup1</property>
+                        <accelerator key="B" signal="activate" modifiers="GDK_CONTROL_MASK"/>
+                        <signal name="activate" handler="on_m_add_category_activate"/>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkImageMenuItem" id="m_remove_category">
+                        <property name="label">Remove Category</property>
+                        <property name="visible">True</property>
+                        <property name="use_underline">True</property>
+                        <property name="use_stock">True</property>
+                        <property name="accel_group">accelgroup1</property>
+                        <accelerator key="M" signal="activate" modifiers="GDK_CONTROL_MASK"/>
+                        <signal name="activate" handler="on_m_delete_category_activate"/>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="GtkMenuItem" id="card">
+                <property name="visible">True</property>
+                <property name="label" translatable="yes">C_ard</property>
+                <property name="use_underline">True</property>
+                <child type="submenu">
+                  <object class="GtkMenu" id="menu1">
+                    <property name="visible">True</property>
+                    <child>
+                      <object class="GtkImageMenuItem" id="m_add_card">
+                        <property name="label">Add Card</property>
+                        <property name="visible">True</property>
+                        <property name="use_underline">True</property>
+                        <property name="use_stock">True</property>
+                        <property name="accel_group">accelgroup1</property>
+                        <accelerator key="A" signal="activate" modifiers="GDK_CONTROL_MASK"/>
+                        <signal name="activate" handler="on_m_add_card_activate"/>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkImageMenuItem" id="m_remove_card">
+                        <property name="label">Remove Card</property>
+                        <property name="visible">True</property>
+                        <property name="use_underline">True</property>
+                        <property name="use_stock">True</property>
+                        <property name="accel_group">accelgroup1</property>
+                        <accelerator key="R" signal="activate" modifiers="GDK_CONTROL_MASK"/>
+                        <signal name="activate" handler="on_m_remove_card_activate"/>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkImageMenuItem" id="m_edit_card">
+                        <property name="label">Edit Card...</property>
+                        <property name="visible">True</property>
+                        <property name="use_underline">True</property>
+                        <property name="use_stock">True</property>
+                        <property name="accel_group">accelgroup1</property>
+                        <accelerator key="E" signal="activate" modifiers="GDK_CONTROL_MASK"/>
+                        <signal name="activate" handler="on_m_edit_card_activate"/>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkSeparatorMenuItem" id="separatormenuitem6">
+                        <property name="visible">True</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkImageMenuItem" id="m_cut_card">
+                        <property name="label">gtk-cut</property>
+                        <property name="visible">True</property>
+                        <property name="use_underline">True</property>
+                        <property name="use_stock">True</property>
+                        <property name="accel_group">accelgroup1</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkImageMenuItem" id="m_copy_card">
+                        <property name="label">gtk-copy</property>
+                        <property name="visible">True</property>
+                        <property name="use_underline">True</property>
+                        <property name="use_stock">True</property>
+                        <property name="accel_group">accelgroup1</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkImageMenuItem" id="m_paste_card">
+                        <property name="label">gtk-paste</property>
+                        <property name="visible">True</property>
+                        <property name="use_underline">True</property>
+                        <property name="use_stock">True</property>
+                        <property name="accel_group">accelgroup1</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkSeparatorMenuItem" id="separator13">
+                        <property name="visible">True</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkImageMenuItem" id="m_select_all">
+                        <property name="label">gtk-select-all</property>
+                        <property name="visible">True</property>
+                        <property name="use_underline">True</property>
+                        <property name="use_stock">True</property>
+                        <property name="accel_group">accelgroup1</property>
+                        <accelerator key="A" signal="activate" modifiers="GDK_SHIFT_MASK"/>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkSeparatorMenuItem" id="separator3">
+                        <property name="visible">True</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkImageMenuItem" id="m_edit_tags">
+                        <property name="label">Edit Tags...</property>
+                        <property name="visible">True</property>
+                        <property name="use_underline">True</property>
+                        <property name="use_stock">True</property>
+                        <property name="accel_group">accelgroup1</property>
+                        <accelerator key="G" signal="activate" modifiers="GDK_CONTROL_MASK"/>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkMenuItem" id="m_flag">
+                        <property name="visible">True</property>
+                        <property name="label" translatable="yes">Toggle Flags</property>
+                        <property name="use_underline">True</property>
+                        <accelerator key="8" signal="activate" modifiers="GDK_CONTROL_MASK"/>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkImageMenuItem" id="m_switch_sides">
+                        <property name="label">Switch Sides</property>
+                        <property name="visible">True</property>
+                        <property name="use_underline">True</property>
+                        <property name="use_stock">True</property>
+                        <property name="accel_group">accelgroup1</property>
+                        <signal name="activate" handler="on_m_switch_sides_activate"/>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkImageMenuItem" id="m_reset_stats">
+                        <property name="label">Reset Statistics</property>
+                        <property name="visible">True</property>
+                        <property name="use_underline">True</property>
+                        <property name="use_stock">True</property>
+                        <property name="accel_group">accelgroup1</property>
+                        <signal name="activate" handler="on_m_reset_stats_activate"/>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="GtkMenuItem" id="quiz">
+                <property name="visible">True</property>
+                <property name="label" translatable="yes">_Quiz</property>
+                <property name="use_underline">True</property>
+                <signal name="activate" handler="on_lesson_activate"/>
+                <child type="submenu">
+                  <object class="GtkMenu" id="quiz_menu">
+                    <child>
+                      <object class="GtkImageMenuItem" id="m_start_quiz">
+                        <property name="label">Begin Quiz</property>
+                        <property name="visible">True</property>
+                        <property name="use_underline">True</property>
+                        <property name="use_stock">True</property>
+                        <property name="accel_group">accelgroup1</property>
+                        <accelerator key="T" signal="activate" modifiers="GDK_CONTROL_MASK"/>
+                        <signal name="activate" handler="on_m_start_quiz_activate"/>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkSeparatorMenuItem" id="separator11">
+                        <property name="visible">True</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkRadioMenuItem" id="r_all_categories">
+                        <property name="visible">True</property>
+                        <property name="label" translatable="yes">All Categories</property>
+                        <property name="use_underline">True</property>
+                        <property name="draw_as_radio">True</property>
+                        <signal name="activate" handler="on_m_test_activate"/>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkRadioMenuItem" id="r_selected_categories">
+                        <property name="visible">True</property>
+                        <property name="label" translatable="yes">Selected Category</property>
+                        <property name="use_underline">True</property>
+                        <property name="active">True</property>
+                        <property name="draw_as_radio">True</property>
+                        <property name="group">r_all_categories</property>
+                        <signal name="activate" handler="on_m_quiz_2_activate"/>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkSeparatorMenuItem" id="separator9">
+                        <property name="visible">True</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkRadioMenuItem" id="r_all_cards">
+                        <property name="visible">True</property>
+                        <property name="label" translatable="yes">All Cards</property>
+                        <property name="use_underline">True</property>
+                        <property name="draw_as_radio">True</property>
+                        <signal name="activate" handler="on_r_all_cards_activate"/>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkRadioMenuItem" id="r_new_cards">
+                        <property name="visible">True</property>
+                        <property name="label" translatable="yes">New Cards</property>
+                        <property name="use_underline">True</property>
+                        <property name="draw_as_radio">True</property>
+                        <property name="group">r_all_cards</property>
+                        <signal name="activate" handler="on_r_new_cards_activate"/>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkRadioMenuItem" id="r_expired_cards">
+                        <property name="visible">True</property>
+                        <property name="label" translatable="yes">Expired Cards</property>
+                        <property name="use_underline">True</property>
+                        <property name="draw_as_radio">True</property>
+                        <property name="group">r_all_cards</property>
+                        <signal name="activate" handler="on_r_expired_cards_activate"/>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkRadioMenuItem" id="r_new_and_expired_cards">
+                        <property name="visible">True</property>
+                        <property name="label" translatable="yes">New and Expired Cards</property>
+                        <property name="use_underline">True</property>
+                        <property name="active">True</property>
+                        <property name="draw_as_radio">True</property>
+                        <property name="group">r_all_cards</property>
+                        <signal name="activate" handler="on_r_new_and_expired_cards_activate"/>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkRadioMenuItem" id="r_flagged_cards">
+                        <property name="visible">True</property>
+                        <property name="label" translatable="yes">Flagged Cards</property>
+                        <property name="use_underline">True</property>
+                        <property name="draw_as_radio">True</property>
+                        <property name="group">r_all_cards</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkRadioMenuItem" id="r_selected_cards">
+                        <property name="visible">True</property>
+                        <property name="label" translatable="yes">Selected Cards</property>
+                        <property name="use_underline">True</property>
+                        <property name="draw_as_radio">True</property>
+                        <property name="group">r_all_cards</property>
+                        <signal name="activate" handler="on_r_selected_cards_activate"/>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkSeparatorMenuItem" id="separator10">
+                        <property name="visible">True</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkRadioMenuItem" id="r_quiz_face_front">
+                        <property name="visible">True</property>
+                        <property name="label" translatable="yes">Fronts Only</property>
+                        <property name="use_underline">True</property>
+                        <property name="active">True</property>
+                        <property name="draw_as_radio">True</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkRadioMenuItem" id="r_quiz_face_back">
+                        <property name="visible">True</property>
+                        <property name="label" translatable="yes">Backs Only</property>
+                        <property name="use_underline">True</property>
+                        <property name="draw_as_radio">True</property>
+                        <property name="group">r_quiz_face_front</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkRadioMenuItem" id="r_quiz_face_random">
+                        <property name="visible">True</property>
+                        <property name="label" translatable="yes">Fronts and Backs at Random</property>
+                        <property name="use_underline">True</property>
+                        <property name="draw_as_radio">True</property>
+                        <property name="group">r_quiz_face_front</property>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="GtkMenuItem" id="help">
+                <property name="visible">True</property>
+                <property name="label" translatable="yes">_Help</property>
+                <property name="use_underline">True</property>
+                <child type="submenu">
+                  <object class="GtkMenu" id="help_menu">
+                    <child>
+                      <object class="GtkImageMenuItem" id="m_help">
+                        <property name="label">Help</property>
+                        <property name="visible">True</property>
+                        <property name="use_underline">True</property>
+                        <property name="use_stock">True</property>
+                        <property name="accel_group">accelgroup1</property>
+                        <accelerator key="F1" signal="activate"/>
+                        <signal name="activate" handler="on_m_help_activate"/>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkImageMenuItem" id="m_about">
+                        <property name="label">gtk-about</property>
+                        <property name="visible">True</property>
+                        <property name="use_underline">True</property>
+                        <property name="use_stock">True</property>
+                        <property name="accel_group">accelgroup1</property>
+                        <signal name="activate" handler="on_about1_activate"/>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkHandleBox" id="toolbar_dock">
+            <property name="visible">True</property>
+            <child>
+              <object class="GtkToolbar" id="toolbar">
                 <property name="visible">True</property>
                 <property name="show_arrow">False</property>
                 <child>
-                  <widget class="GtkToolButton" id="t_new">
-                    <property name="visible">True</property>
-                    <property name="tooltip" translatable="yes">New File</property>
-                    <property name="is_important">True</property>
-                    <property name="stock_id">gtk-new</property>
-                  </widget>
-                  <packing>
-                    <property name="expand">False</property>
-                  </packing>
-                </child>
-                <child>
-                  <widget class="GtkToolButton" id="t_open">
-                    <property name="visible">True</property>
-                    <property name="tooltip" translatable="yes">Open File</property>
-                    <property name="is_important">True</property>
-                    <property name="stock_id">gtk-open</property>
-                  </widget>
-                  <packing>
-                    <property name="expand">False</property>
-                  </packing>
-                </child>
-                <child>
-                  <widget class="GtkToolButton" id="t_save">
+                  <object class="GtkToolButton" id="t_new">
                     <property name="visible">True</property>
                     <property name="has_tooltip">True</property>
-                    <property name="tooltip" translatable="yes">Save File</property>
+                    <property name="tooltip_markup">New File</property>
+                    <property name="tooltip_text" translatable="yes">New File</property>
+                    <property name="is_important">True</property>
+                    <property name="stock_id">gtk-new</property>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="homogeneous">True</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkToolButton" id="t_open">
+                    <property name="visible">True</property>
+                    <property name="has_tooltip">True</property>
+                    <property name="tooltip_markup">Open File</property>
+                    <property name="tooltip_text" translatable="yes">Open File</property>
+                    <property name="is_important">True</property>
+                    <property name="stock_id">gtk-open</property>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="homogeneous">True</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkToolButton" id="t_save">
+                    <property name="visible">True</property>
+                    <property name="has_tooltip">True</property>
+                    <property name="tooltip_markup">Save File</property>
+                    <property name="tooltip_text" translatable="yes">Save File</property>
                     <property name="is_important">True</property>
                     <property name="stock_id">gtk-save</property>
-                  </widget>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="homogeneous">True</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkSeparatorToolItem" id="separatortoolitem1">
+                    <property name="visible">True</property>
+                  </object>
                   <packing>
                     <property name="expand">False</property>
                   </packing>
                 </child>
                 <child>
-                  <widget class="GtkSeparatorToolItem" id="separatortoolitem1">
+                  <object class="GtkToolButton" id="t_find">
                     <property name="visible">True</property>
-                  </widget>
-                  <packing>
-                    <property name="expand">False</property>
-                    <property name="homogeneous">False</property>
-                  </packing>
-                </child>
-                <child>
-                  <widget class="GtkToolButton" id="t_find">
-                    <property name="visible">True</property>
-                    <property name="tooltip" translatable="yes">Find Card</property>
+                    <property name="has_tooltip">True</property>
+                    <property name="tooltip_markup">Find Card</property>
+                    <property name="tooltip_text" translatable="yes">Find Card</property>
                     <property name="is_important">True</property>
                     <property name="stock_id">gtk-find</property>
-                  </widget>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="homogeneous">True</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkSeparatorToolItem" id="separatortoolitem2">
+                    <property name="visible">True</property>
+                  </object>
                   <packing>
                     <property name="expand">False</property>
                   </packing>
                 </child>
                 <child>
-                  <widget class="GtkSeparatorToolItem" id="separatortoolitem2">
+                  <object class="GtkToolButton" id="t_start_quiz">
                     <property name="visible">True</property>
-                  </widget>
-                  <packing>
-                    <property name="expand">False</property>
-                    <property name="homogeneous">False</property>
-                  </packing>
-                </child>
-                <child>
-                  <widget class="GtkToolButton" id="t_start_quiz">
-                    <property name="visible">True</property>
-                    <property name="tooltip" translatable="yes">Begin Quiz</property>
+                    <property name="has_tooltip">True</property>
+                    <property name="tooltip_markup">Begin Quiz</property>
+                    <property name="tooltip_text" translatable="yes">Begin Quiz</property>
                     <property name="is_important">True</property>
                     <property name="label" translatable="yes">Quiz</property>
                     <property name="use_underline">True</property>
                     <property name="icon_name">quiz-begin</property>
-                  </widget>
+                  </object>
                   <packing>
                     <property name="expand">False</property>
+                    <property name="homogeneous">True</property>
                   </packing>
                 </child>
-              </widget>
+              </object>
             </child>
-          </widget>
+          </object>
           <packing>
-            <property name="band">1</property>
-            <property name="behavior">BONOBO_DOCK_ITEM_BEH_EXCLUSIVE</property>
+            <property name="expand">False</property>
+            <property name="position">1</property>
           </packing>
         </child>
         <child>
-          <widget class="BonoboDockItem" id="bonobodockitem1">
-            <property name="visible">True</property>
-            <child>
-              <widget class="GtkMenuBar" id="menubar">
-                <property name="visible">True</property>
-                <child>
-                  <widget class="GtkMenuItem" id="file">
-                    <property name="visible">True</property>
-                    <property name="label" translatable="yes">_File</property>
-                    <property name="use_underline">True</property>
-                    <child>
-                      <widget class="GtkMenu" id="file_menu">
-                        <child>
-                          <widget class="GtkImageMenuItem" id="m_new">
-                            <property name="visible">True</property>
-                            <property name="label" translatable="yes">gtk-new</property>
-                            <property name="use_underline">True</property>
-                            <property name="use_stock">True</property>
-                            <signal name="activate" handler="on_new1_activate"/>
-                          </widget>
-                        </child>
-                        <child>
-                          <widget class="GtkImageMenuItem" id="m_open">
-                            <property name="visible">True</property>
-                            <property name="label" translatable="yes">gtk-open</property>
-                            <property name="use_underline">True</property>
-                            <property name="use_stock">True</property>
-                            <signal name="activate" handler="on_open1_activate"/>
-                          </widget>
-                        </child>
-                        <child>
-                          <widget class="GtkImageMenuItem" id="m_save">
-                            <property name="visible">True</property>
-                            <property name="label" translatable="yes">gtk-save</property>
-                            <property name="use_underline">True</property>
-                            <property name="use_stock">True</property>
-                            <signal name="activate" handler="on_save1_activate"/>
-                          </widget>
-                        </child>
-                        <child>
-                          <widget class="GtkImageMenuItem" id="m_save_as">
-                            <property name="visible">True</property>
-                            <property name="label" translatable="yes">gtk-save-as</property>
-                            <property name="use_underline">True</property>
-                            <property name="use_stock">True</property>
-                            <signal name="activate" handler="on_save_as1_activate"/>
-                          </widget>
-                        </child>
-                        <child>
-                          <widget class="GtkSeparatorMenuItem" id="separator1">
-                            <property name="visible">True</property>
-                          </widget>
-                        </child>
-                        <child>
-                          <widget class="GtkMenuItem" id="m_import">
-                            <property name="visible">True</property>
-                            <property name="label" translatable="yes">Import...</property>
-                            <property name="use_underline">True</property>
-                            <signal name="activate" handler="on_m_import_activate"/>
-                          </widget>
-                        </child>
-                        <child>
-                          <widget class="GtkMenuItem" id="m_export">
-                            <property name="visible">True</property>
-                            <property name="label" translatable="yes">Export...</property>
-                            <property name="use_underline">True</property>
-                            <signal name="activate" handler="on_m_export_activate"/>
-                          </widget>
-                        </child>
-                        <child>
-                          <widget class="GtkSeparatorMenuItem" id="separator6">
-                            <property name="visible">True</property>
-                          </widget>
-                        </child>
-                        <child>
-                          <widget class="GtkImageMenuItem" id="m_properties">
-                            <property name="visible">True</property>
-                            <property name="label" translatable="yes">gtk-properties</property>
-                            <property name="use_underline">True</property>
-                            <property name="use_stock">True</property>
-                            <signal name="activate" handler="on_m_properties_activate"/>
-                          </widget>
-                        </child>
-                        <child>
-                          <widget class="GtkSeparatorMenuItem" id="separator5">
-                            <property name="visible">True</property>
-                          </widget>
-                        </child>
-                        <child>
-                          <widget class="GtkImageMenuItem" id="m_quit">
-                            <property name="visible">True</property>
-                            <property name="label" translatable="yes">gtk-quit</property>
-                            <property name="use_underline">True</property>
-                            <property name="use_stock">True</property>
-                            <signal name="activate" handler="on_quit1_activate"/>
-                          </widget>
-                        </child>
-                      </widget>
-                    </child>
-                  </widget>
-                </child>
-                <child>
-                  <widget class="GtkMenuItem" id="edit">
-                    <property name="visible">True</property>
-                    <property name="label" translatable="yes">_Edit</property>
-                    <property name="use_underline">True</property>
-                    <child>
-                      <widget class="GtkMenu" id="edit_menu">
-                        <child>
-                          <widget class="GtkImageMenuItem" id="m_find">
-                            <property name="visible">True</property>
-                            <property name="label" translatable="yes">gtk-find</property>
-                            <property name="use_underline">True</property>
-                            <property name="use_stock">True</property>
-                            <signal name="activate" handler="on_find1_activate"/>
-                          </widget>
-                        </child>
-                        <child>
-                          <widget class="GtkMenuItem" id="m_show_flagged">
-                            <property name="visible">True</property>
-                            <property name="label" translatable="yes">Find Flagged Cards</property>
-                            <property name="use_underline">True</property>
-                          </widget>
-                        </child>
-                        <child>
-                          <widget class="GtkMenuItem" id="m_show_all">
-                            <property name="visible">True</property>
-                            <property name="label" translatable="yes">Find All Cards</property>
-                            <property name="use_underline">True</property>
-                            <signal name="activate" handler="on_m_show_all_activate"/>
-                          </widget>
-                        </child>
-                        <child>
-                          <widget class="GtkSeparatorMenuItem" id="separatormenuitem4">
-                            <property name="visible">True</property>
-                          </widget>
-                        </child>
-                        <child>
-                          <widget class="GtkImageMenuItem" id="m_view_trash">
-                            <property name="visible">True</property>
-                            <property name="label" translatable="yes">Recently Removed Cards</property>
-                            <property name="use_underline">True</property>
-                            <signal name="activate" handler="on_recently_deleted_cards1_activate"/>
-                            <child internal-child="image">
-                              <widget class="GtkImage" id="image612">
-                                <property name="visible">True</property>
-                                <property name="stock">gtk-undelete</property>
-                                <property name="icon_size">1</property>
-                              </widget>
-                            </child>
-                          </widget>
-                        </child>
-                        <child>
-                          <widget class="GtkSeparatorMenuItem" id="separator12">
-                            <property name="visible">True</property>
-                          </widget>
-                        </child>
-                        <child>
-                          <widget class="GtkImageMenuItem" id="m_preferences">
-                            <property name="visible">True</property>
-                            <property name="label" translatable="yes">gtk-preferences</property>
-                            <property name="use_underline">True</property>
-                            <property name="use_stock">True</property>
-                            <signal name="activate" handler="on_preferences1_activate"/>
-                          </widget>
-                        </child>
-                      </widget>
-                    </child>
-                  </widget>
-                </child>
-                <child>
-                  <widget class="GtkMenuItem" id="view">
-                    <property name="visible">True</property>
-                    <property name="label" translatable="yes">_View</property>
-                    <property name="use_underline">True</property>
-                    <child>
-                      <widget class="GtkMenu" id="view_menu">
-                        <property name="visible">True</property>
-                        <child>
-                          <widget class="GtkCheckMenuItem" id="m_view_main_toolbar">
-                            <property name="visible">True</property>
-                            <property name="label" translatable="yes">_Main Toolbar</property>
-                            <property name="use_underline">True</property>
-                          </widget>
-                        </child>
-                        <child>
-                          <widget class="GtkCheckMenuItem" id="m_view_category_pane">
-                            <property name="visible">True</property>
-                            <property name="label" translatable="yes">_Category Pane</property>
-                            <property name="use_underline">True</property>
-                          </widget>
-                        </child>
-                        <child>
-                          <widget class="GtkCheckMenuItem" id="m_view_bottom_toolbar">
-                            <property name="visible">True</property>
-                            <property name="label" translatable="yes">_Bottom Toolbar</property>
-                            <property name="use_underline">True</property>
-                          </widget>
-                        </child>
-                        <child>
-                          <widget class="GtkCheckMenuItem" id="m_view_statusbar">
-                            <property name="visible">True</property>
-                            <property name="label" translatable="yes">_Statusbar</property>
-                            <property name="use_underline">True</property>
-                          </widget>
-                        </child>
-                      </widget>
-                    </child>
-                  </widget>
-                </child>
-                <child>
-                  <widget class="GtkMenuItem" id="category">
-                    <property name="visible">True</property>
-                    <property name="label" translatable="yes">_Category</property>
-                    <property name="use_underline">True</property>
-                    <child>
-                      <widget class="GtkMenu" id="menu2">
-                        <property name="visible">True</property>
-                        <child>
-                          <widget class="GtkImageMenuItem" id="m_add_category">
-                            <property name="visible">True</property>
-                            <property name="label" translatable="yes">Add Category</property>
-                            <property name="use_underline">True</property>
-                            <signal name="activate" handler="on_m_add_category_activate"/>
-                            <accelerator key="B" modifiers="GDK_CONTROL_MASK" signal="activate"/>
-                            <child internal-child="image">
-                              <widget class="GtkImage" id="image607">
-                                <property name="visible">True</property>
-                                <property name="stock">gtk-add</property>
-                                <property name="icon_size">1</property>
-                              </widget>
-                            </child>
-                          </widget>
-                        </child>
-                        <child>
-                          <widget class="GtkImageMenuItem" id="m_remove_category">
-                            <property name="visible">True</property>
-                            <property name="label" translatable="yes">Remove Category</property>
-                            <property name="use_underline">True</property>
-                            <signal name="activate" handler="on_m_delete_category_activate"/>
-                            <accelerator key="M" modifiers="GDK_CONTROL_MASK" signal="activate"/>
-                            <child internal-child="image">
-                              <widget class="GtkImage" id="image608">
-                                <property name="visible">True</property>
-                                <property name="stock">gtk-remove</property>
-                                <property name="icon_size">1</property>
-                              </widget>
-                            </child>
-                          </widget>
-                        </child>
-                      </widget>
-                    </child>
-                  </widget>
-                </child>
-                <child>
-                  <widget class="GtkMenuItem" id="card">
-                    <property name="visible">True</property>
-                    <property name="label" translatable="yes">C_ard</property>
-                    <property name="use_underline">True</property>
-                    <child>
-                      <widget class="GtkMenu" id="menu1">
-                        <property name="visible">True</property>
-                        <child>
-                          <widget class="GtkImageMenuItem" id="m_add_card">
-                            <property name="visible">True</property>
-                            <property name="label" translatable="yes">Add Card</property>
-                            <property name="use_underline">True</property>
-                            <signal name="activate" handler="on_m_add_card_activate"/>
-                            <accelerator key="A" modifiers="GDK_CONTROL_MASK" signal="activate"/>
-                            <child internal-child="image">
-                              <widget class="GtkImage" id="image609">
-                                <property name="visible">True</property>
-                                <property name="stock">gtk-add</property>
-                                <property name="icon_size">1</property>
-                              </widget>
-                            </child>
-                          </widget>
-                        </child>
-                        <child>
-                          <widget class="GtkImageMenuItem" id="m_remove_card">
-                            <property name="visible">True</property>
-                            <property name="label" translatable="yes">Remove Card</property>
-                            <property name="use_underline">True</property>
-                            <signal name="activate" handler="on_m_remove_card_activate"/>
-                            <accelerator key="R" modifiers="GDK_CONTROL_MASK" signal="activate"/>
-                            <child internal-child="image">
-                              <widget class="GtkImage" id="image610">
-                                <property name="visible">True</property>
-                                <property name="stock">gtk-remove</property>
-                                <property name="icon_size">1</property>
-                              </widget>
-                            </child>
-                          </widget>
-                        </child>
-                        <child>
-                          <widget class="GtkImageMenuItem" id="m_edit_card">
-                            <property name="visible">True</property>
-                            <property name="label" translatable="yes">Edit Card...</property>
-                            <property name="use_underline">True</property>
-                            <signal name="activate" handler="on_m_edit_card_activate"/>
-                            <accelerator key="E" modifiers="GDK_CONTROL_MASK" signal="activate"/>
-                            <child internal-child="image">
-                              <widget class="GtkImage" id="image611">
-                                <property name="visible">True</property>
-                                <property name="stock">gtk-edit</property>
-                                <property name="icon_size">1</property>
-                              </widget>
-                            </child>
-                          </widget>
-                        </child>
-                        <child>
-                          <widget class="GtkSeparatorMenuItem" id="separatormenuitem6">
-                            <property name="visible">True</property>
-                          </widget>
-                        </child>
-                        <child>
-                          <widget class="GtkImageMenuItem" id="m_cut_card">
-                            <property name="visible">True</property>
-                            <property name="label" translatable="yes">gtk-cut</property>
-                            <property name="use_underline">True</property>
-                            <property name="use_stock">True</property>
-                          </widget>
-                        </child>
-                        <child>
-                          <widget class="GtkImageMenuItem" id="m_copy_card">
-                            <property name="visible">True</property>
-                            <property name="label" translatable="yes">gtk-copy</property>
-                            <property name="use_underline">True</property>
-                            <property name="use_stock">True</property>
-                          </widget>
-                        </child>
-                        <child>
-                          <widget class="GtkImageMenuItem" id="m_paste_card">
-                            <property name="visible">True</property>
-                            <property name="label" translatable="yes">gtk-paste</property>
-                            <property name="use_underline">True</property>
-                            <property name="use_stock">True</property>
-                          </widget>
-                        </child>
-                        <child>
-                          <widget class="GtkSeparatorMenuItem" id="separator13">
-                            <property name="visible">True</property>
-                          </widget>
-                        </child>
-                        <child>
-                          <widget class="GtkImageMenuItem" id="m_select_all">
-                            <property name="visible">True</property>
-                            <property name="label" translatable="yes">gtk-select-all</property>
-                            <property name="use_underline">True</property>
-                            <property name="use_stock">True</property>
-                            <accelerator key="A" modifiers="GDK_SHIFT_MASK" signal="activate"/>
-                          </widget>
-                        </child>
-                        <child>
-                          <widget class="GtkSeparatorMenuItem" id="separator3">
-                            <property name="visible">True</property>
-                          </widget>
-                        </child>
-                        <child>
-                          <widget class="GtkImageMenuItem" id="m_edit_tags">
-                            <property name="visible">True</property>
-                            <property name="label" translatable="yes">Edit Tags...</property>
-                            <property name="use_underline">True</property>
-                            <accelerator key="G" modifiers="GDK_CONTROL_MASK" signal="activate"/>
-                            <child internal-child="image">
-                              <widget class="GtkImage" id="menu-item-image24">
-                                <property name="visible">True</property>
-                                <property name="stock">gtk-edit</property>
-                              </widget>
-                            </child>
-                          </widget>
-                        </child>
-                        <child>
-                          <widget class="GtkMenuItem" id="m_flag">
-                            <property name="visible">True</property>
-                            <property name="label" translatable="yes">Toggle Flags</property>
-                            <property name="use_underline">True</property>
-                            <accelerator key="8" modifiers="GDK_CONTROL_MASK" signal="activate"/>
-                          </widget>
-                        </child>
-                        <child>
-                          <widget class="GtkImageMenuItem" id="m_switch_sides">
-                            <property name="visible">True</property>
-                            <property name="label" translatable="yes">Switch Sides</property>
-                            <property name="use_underline">True</property>
-                            <signal name="activate" handler="on_m_switch_sides_activate"/>
-                            <child internal-child="image">
-                              <widget class="GtkImage" id="image613">
-                                <property name="visible">True</property>
-                                <property name="stock">gtk-refresh</property>
-                                <property name="icon_size">1</property>
-                              </widget>
-                            </child>
-                          </widget>
-                        </child>
-                        <child>
-                          <widget class="GtkImageMenuItem" id="m_reset_stats">
-                            <property name="visible">True</property>
-                            <property name="label" translatable="yes">Reset Statistics</property>
-                            <property name="use_underline">True</property>
-                            <signal name="activate" handler="on_m_reset_stats_activate"/>
-                            <child internal-child="image">
-                              <widget class="GtkImage" id="image614">
-                                <property name="visible">True</property>
-                                <property name="stock">gtk-clear</property>
-                                <property name="icon_size">1</property>
-                              </widget>
-                            </child>
-                          </widget>
-                        </child>
-                      </widget>
-                    </child>
-                  </widget>
-                </child>
-                <child>
-                  <widget class="GtkMenuItem" id="quiz">
-                    <property name="visible">True</property>
-                    <property name="label" translatable="yes">_Quiz</property>
-                    <property name="use_underline">True</property>
-                    <signal name="activate" handler="on_lesson_activate"/>
-                    <child>
-                      <widget class="GtkMenu" id="quiz_menu">
-                        <child>
-                          <widget class="GtkImageMenuItem" id="m_start_quiz">
-                            <property name="visible">True</property>
-                            <property name="label" translatable="yes">Begin Quiz</property>
-                            <property name="use_underline">True</property>
-                            <signal name="activate" handler="on_m_start_quiz_activate"/>
-                            <accelerator key="T" modifiers="GDK_CONTROL_MASK" signal="activate"/>
-                            <child internal-child="image">
-                              <widget class="GtkImage" id="image615">
-                                <property name="visible">True</property>
-                                <property name="stock">gtk-execute</property>
-                                <property name="icon_size">1</property>
-                              </widget>
-                            </child>
-                          </widget>
-                        </child>
-                        <child>
-                          <widget class="GtkSeparatorMenuItem" id="separator11">
-                            <property name="visible">True</property>
-                          </widget>
-                        </child>
-                        <child>
-                          <widget class="GtkRadioMenuItem" id="r_all_categories">
-                            <property name="visible">True</property>
-                            <property name="label" translatable="yes">All Categories</property>
-                            <property name="use_underline">True</property>
-                            <property name="draw_as_radio">True</property>
-                            <signal name="activate" handler="on_m_test_activate"/>
-                          </widget>
-                        </child>
-                        <child>
-                          <widget class="GtkRadioMenuItem" id="r_selected_categories">
-                            <property name="visible">True</property>
-                            <property name="label" translatable="yes">Selected Category</property>
-                            <property name="use_underline">True</property>
-                            <property name="active">True</property>
-                            <property name="draw_as_radio">True</property>
-                            <property name="group">r_all_categories</property>
-                            <signal name="activate" handler="on_m_quiz_2_activate"/>
-                          </widget>
-                        </child>
-                        <child>
-                          <widget class="GtkSeparatorMenuItem" id="separator9">
-                            <property name="visible">True</property>
-                          </widget>
-                        </child>
-                        <child>
-                          <widget class="GtkRadioMenuItem" id="r_all_cards">
-                            <property name="visible">True</property>
-                            <property name="label" translatable="yes">All Cards</property>
-                            <property name="use_underline">True</property>
-                            <property name="draw_as_radio">True</property>
-                            <signal name="activate" handler="on_r_all_cards_activate"/>
-                          </widget>
-                        </child>
-                        <child>
-                          <widget class="GtkRadioMenuItem" id="r_new_cards">
-                            <property name="visible">True</property>
-                            <property name="label" translatable="yes">New Cards</property>
-                            <property name="use_underline">True</property>
-                            <property name="draw_as_radio">True</property>
-                            <property name="group">r_all_cards</property>
-                            <signal name="activate" handler="on_r_new_cards_activate"/>
-                          </widget>
-                        </child>
-                        <child>
-                          <widget class="GtkRadioMenuItem" id="r_expired_cards">
-                            <property name="visible">True</property>
-                            <property name="label" translatable="yes">Expired Cards</property>
-                            <property name="use_underline">True</property>
-                            <property name="draw_as_radio">True</property>
-                            <property name="group">r_all_cards</property>
-                            <signal name="activate" handler="on_r_expired_cards_activate"/>
-                          </widget>
-                        </child>
-                        <child>
-                          <widget class="GtkRadioMenuItem" id="r_new_and_expired_cards">
-                            <property name="visible">True</property>
-                            <property name="label" translatable="yes">New and Expired Cards</property>
-                            <property name="use_underline">True</property>
-                            <property name="active">True</property>
-                            <property name="draw_as_radio">True</property>
-                            <property name="group">r_all_cards</property>
-                            <signal name="activate" handler="on_r_new_and_expired_cards_activate"/>
-                          </widget>
-                        </child>
-                        <child>
-                          <widget class="GtkRadioMenuItem" id="r_flagged_cards">
-                            <property name="visible">True</property>
-                            <property name="label" translatable="yes">Flagged Cards</property>
-                            <property name="use_underline">True</property>
-                            <property name="draw_as_radio">True</property>
-                            <property name="group">r_all_cards</property>
-                          </widget>
-                        </child>
-                        <child>
-                          <widget class="GtkRadioMenuItem" id="r_selected_cards">
-                            <property name="visible">True</property>
-                            <property name="label" translatable="yes">Selected Cards</property>
-                            <property name="use_underline">True</property>
-                            <property name="draw_as_radio">True</property>
-                            <property name="group">r_all_cards</property>
-                            <signal name="activate" handler="on_r_selected_cards_activate"/>
-                          </widget>
-                        </child>
-                        <child>
-                          <widget class="GtkSeparatorMenuItem" id="separator10">
-                            <property name="visible">True</property>
-                          </widget>
-                        </child>
-                        <child>
-                          <widget class="GtkRadioMenuItem" id="r_quiz_face_front">
-                            <property name="visible">True</property>
-                            <property name="label" translatable="yes">Fronts Only</property>
-                            <property name="use_underline">True</property>
-                            <property name="active">True</property>
-                            <property name="draw_as_radio">True</property>
-                          </widget>
-                        </child>
-                        <child>
-                          <widget class="GtkRadioMenuItem" id="r_quiz_face_back">
-                            <property name="visible">True</property>
-                            <property name="label" translatable="yes">Backs Only</property>
-                            <property name="use_underline">True</property>
-                            <property name="draw_as_radio">True</property>
-                            <property name="group">r_quiz_face_front</property>
-                          </widget>
-                        </child>
-                        <child>
-                          <widget class="GtkRadioMenuItem" id="r_quiz_face_random">
-                            <property name="visible">True</property>
-                            <property name="label" translatable="yes">Fronts and Backs at Random</property>
-                            <property name="use_underline">True</property>
-                            <property name="draw_as_radio">True</property>
-                            <property name="group">r_quiz_face_front</property>
-                          </widget>
-                        </child>
-                      </widget>
-                    </child>
-                  </widget>
-                </child>
-                <child>
-                  <widget class="GtkMenuItem" id="help">
-                    <property name="visible">True</property>
-                    <property name="label" translatable="yes">_Help</property>
-                    <property name="use_underline">True</property>
-                    <child>
-                      <widget class="GtkMenu" id="help_menu">
-                        <child>
-                          <widget class="GtkImageMenuItem" id="m_help">
-                            <property name="visible">True</property>
-                            <property name="label" translatable="yes">Help</property>
-                            <property name="use_underline">True</property>
-                            <signal name="activate" handler="on_m_help_activate"/>
-                            <accelerator key="F1" modifiers="" signal="activate"/>
-                            <child internal-child="image">
-                              <widget class="GtkImage" id="image616">
-                                <property name="visible">True</property>
-                                <property name="stock">gtk-help</property>
-                                <property name="icon_size">1</property>
-                              </widget>
-                            </child>
-                          </widget>
-                        </child>
-                        <child>
-                          <widget class="GtkImageMenuItem" id="m_about">
-                            <property name="visible">True</property>
-                            <property name="label" translatable="yes">gtk-about</property>
-                            <property name="use_underline">True</property>
-                            <property name="use_stock">True</property>
-                            <signal name="activate" handler="on_about1_activate"/>
-                          </widget>
-                        </child>
-                      </widget>
-                    </child>
-                  </widget>
-                </child>
-              </widget>
-            </child>
-          </widget>
-          <packing>
-            <property name="behavior">BONOBO_DOCK_ITEM_BEH_EXCLUSIVE | BONOBO_DOCK_ITEM_BEH_NEVER_VERTICAL | BONOBO_DOCK_ITEM_BEH_LOCKED</property>
-          </packing>
-        </child>
-        <child>
-          <widget class="GtkHPaned" id="hpaned">
+          <object class="GtkHPaned" id="hpaned">
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <child>
-              <widget class="GtkVBox" id="vbox_category">
+              <object class="GtkVBox" id="vbox_category">
                 <property name="width_request">225</property>
                 <property name="visible">True</property>
                 <child>
-                  <widget class="GtkScrolledWindow" id="scrollw_categories">
+                  <object class="GtkScrolledWindow" id="scrollw_categories">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
-                    <property name="hscrollbar_policy">GTK_POLICY_AUTOMATIC</property>
-                    <property name="vscrollbar_policy">GTK_POLICY_AUTOMATIC</property>
-                    <property name="shadow_type">GTK_SHADOW_IN</property>
+                    <property name="hscrollbar_policy">automatic</property>
+                    <property name="vscrollbar_policy">automatic</property>
+                    <property name="shadow_type">in</property>
                     <child>
-                      <widget class="GtkTreeView" id="treeview_categories">
+                      <object class="GtkTreeView" id="treeview_categories">
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
-                      </widget>
+                      </object>
                     </child>
-                  </widget>
+                  </object>
+                  <packing>
+                    <property name="position">0</property>
+                  </packing>
                 </child>
                 <child>
-                  <widget class="GtkHButtonBox" id="category_buttonbox">
+                  <object class="GtkHButtonBox" id="category_buttonbox">
                     <property name="visible">True</property>
-                    <property name="layout_style">GTK_BUTTONBOX_START</property>
+                    <property name="layout_style">start</property>
                     <child>
-                      <widget class="GtkButton" id="b_add_category">
+                      <object class="GtkButton" id="b_add_category">
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="can_default">True</property>
-                        <property name="tooltip" translatable="yes">Add Category</property>
-                        <property name="relief">GTK_RELIEF_NONE</property>
-                        <property name="response_id">0</property>
+                        <property name="receives_default">True</property>
+                        <property name="has_tooltip">True</property>
+                        <property name="tooltip_markup">Add Category</property>
+                        <property name="tooltip_text" translatable="yes">Add Category</property>
+                        <property name="relief">none</property>
                         <child>
-                          <widget class="GtkImage" id="image206">
+                          <object class="GtkImage" id="image206">
                             <property name="visible">True</property>
                             <property name="stock">gtk-add</property>
-                          </widget>
+                          </object>
                         </child>
-                      </widget>
+                      </object>
+                      <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">False</property>
+                        <property name="position">0</property>
+                      </packing>
                     </child>
                     <child>
-                      <widget class="GtkButton" id="b_remove_category">
+                      <object class="GtkButton" id="b_remove_category">
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="can_default">True</property>
-                        <property name="tooltip" translatable="yes">Remove Category</property>
-                        <property name="relief">GTK_RELIEF_NONE</property>
-                        <property name="response_id">0</property>
+                        <property name="receives_default">True</property>
+                        <property name="has_tooltip">True</property>
+                        <property name="tooltip_markup">Remove Category</property>
+                        <property name="tooltip_text" translatable="yes">Remove Category</property>
+                        <property name="relief">none</property>
                         <child>
-                          <widget class="GtkImage" id="image205">
+                          <object class="GtkImage" id="image205">
                             <property name="visible">True</property>
                             <property name="stock">gtk-remove</property>
-                          </widget>
+                          </object>
                         </child>
-                      </widget>
+                      </object>
                       <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">False</property>
                         <property name="position">1</property>
                       </packing>
                     </child>
-                  </widget>
+                  </object>
                   <packing>
                     <property name="expand">False</property>
                     <property name="fill">False</property>
@@ -779,390 +974,150 @@
                     <property name="position">1</property>
                   </packing>
                 </child>
-              </widget>
+              </object>
               <packing>
                 <property name="resize">True</property>
                 <property name="shrink">True</property>
               </packing>
             </child>
             <child>
-              <widget class="GtkVBox" id="vbox_card">
+              <object class="GtkVBox" id="vbox_card">
                 <property name="visible">True</property>
                 <child>
-                  <widget class="GtkScrolledWindow" id="scrollw_cards">
+                  <object class="GtkScrolledWindow" id="scrollw_cards">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
-                    <property name="hscrollbar_policy">GTK_POLICY_AUTOMATIC</property>
-                    <property name="vscrollbar_policy">GTK_POLICY_AUTOMATIC</property>
-                    <property name="shadow_type">GTK_SHADOW_IN</property>
+                    <property name="hscrollbar_policy">automatic</property>
+                    <property name="vscrollbar_policy">automatic</property>
+                    <property name="shadow_type">in</property>
                     <child>
-                      <widget class="GtkTreeView" id="treeview_cards">
+                      <object class="GtkTreeView" id="treeview_cards">
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="rules_hint">True</property>
                         <property name="show_expanders">False</property>
-                      </widget>
+                      </object>
                     </child>
-                  </widget>
+                  </object>
+                  <packing>
+                    <property name="position">0</property>
+                  </packing>
                 </child>
                 <child>
-                  <widget class="GtkHButtonBox" id="card_buttonbox">
+                  <object class="GtkHButtonBox" id="card_buttonbox">
                     <property name="visible">True</property>
-                    <property name="layout_style">GTK_BUTTONBOX_END</property>
+                    <property name="layout_style">end</property>
                     <child>
-                      <widget class="GtkButton" id="b_edit_card">
+                      <object class="GtkButton" id="b_edit_card">
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="can_default">True</property>
-                        <property name="tooltip" translatable="yes">Edit Card</property>
-                        <property name="relief">GTK_RELIEF_NONE</property>
-                        <property name="response_id">0</property>
+                        <property name="receives_default">True</property>
+                        <property name="has_tooltip">True</property>
+                        <property name="tooltip_markup">Edit Card</property>
+                        <property name="tooltip_text" translatable="yes">Edit Card</property>
+                        <property name="relief">none</property>
                         <child>
-                          <widget class="GtkImage" id="image194">
+                          <object class="GtkImage" id="image194">
                             <property name="visible">True</property>
                             <property name="stock">gtk-edit</property>
-                          </widget>
+                          </object>
                         </child>
-                      </widget>
+                      </object>
+                      <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">False</property>
+                        <property name="position">0</property>
+                      </packing>
                     </child>
                     <child>
-                      <widget class="GtkButton" id="b_add_card">
+                      <object class="GtkButton" id="b_add_card">
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="can_default">True</property>
-                        <property name="tooltip" translatable="yes">Add Card</property>
-                        <property name="relief">GTK_RELIEF_NONE</property>
-                        <property name="response_id">0</property>
+                        <property name="receives_default">True</property>
+                        <property name="has_tooltip">True</property>
+                        <property name="tooltip_markup">Add Card</property>
+                        <property name="tooltip_text" translatable="yes">Add Card</property>
+                        <property name="relief">none</property>
                         <child>
-                          <widget class="GtkImage" id="image195">
+                          <object class="GtkImage" id="image195">
                             <property name="visible">True</property>
                             <property name="stock">gtk-add</property>
-                          </widget>
+                          </object>
                         </child>
-                      </widget>
+                      </object>
                       <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">False</property>
                         <property name="position">1</property>
                       </packing>
                     </child>
                     <child>
-                      <widget class="GtkButton" id="b_remove_card">
+                      <object class="GtkButton" id="b_remove_card">
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="can_default">True</property>
-                        <property name="tooltip" translatable="yes">Remove Card</property>
-                        <property name="relief">GTK_RELIEF_NONE</property>
-                        <property name="response_id">0</property>
+                        <property name="receives_default">True</property>
+                        <property name="has_tooltip">True</property>
+                        <property name="tooltip_markup">Remove Card</property>
+                        <property name="tooltip_text" translatable="yes">Remove Card</property>
+                        <property name="relief">none</property>
                         <child>
-                          <widget class="GtkImage" id="image196">
+                          <object class="GtkImage" id="image196">
                             <property name="visible">True</property>
                             <property name="stock">gtk-remove</property>
-                          </widget>
+                          </object>
                         </child>
-                      </widget>
+                      </object>
                       <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">False</property>
                         <property name="position">2</property>
                       </packing>
                     </child>
-                  </widget>
+                  </object>
                   <packing>
                     <property name="expand">False</property>
                     <property name="fill">False</property>
                     <property name="padding">6</property>
-                    <property name="pack_type">GTK_PACK_END</property>
+                    <property name="pack_type">end</property>
                     <property name="position">1</property>
                   </packing>
                 </child>
-              </widget>
+              </object>
               <packing>
                 <property name="resize">True</property>
                 <property name="shrink">True</property>
               </packing>
             </child>
-          </widget>
+          </object>
+          <packing>
+            <property name="position">2</property>
+          </packing>
         </child>
-      </widget>
-      <packing>
-        <property name="expand">True</property>
-        <property name="fill">True</property>
-      </packing>
-    </child>
-    <child internal-child="appbar">
-      <widget class="GnomeAppBar" id="appbar">
-        <property name="visible">True</property>
-        <property name="spacing">4</property>
-        <property name="has_status">True</property>
-      </widget>
-      <packing>
-        <property name="position">1</property>
-        <property name="expand">True</property>
-        <property name="fill">True</property>
-      </packing>
-    </child>
-  </widget>
-  <widget class="GtkMenu" id="popup_menu_category">
-    <property name="visible">True</property>
-    <child>
-      <widget class="GtkImageMenuItem" id="m_category_popup_rename">
-        <property name="visible">True</property>
-        <property name="label" translatable="yes">Rename</property>
-        <property name="use_underline">True</property>
-        <child internal-child="image">
-          <widget class="GtkImage" id="menu-item-image23">
-            <property name="stock">gtk-edit</property>
-          </widget>
-        </child>
-      </widget>
-    </child>
-    <child>
-      <widget class="GtkSeparatorMenuItem" id="separatormenuitem5">
-        <property name="visible">True</property>
-      </widget>
-    </child>
-    <child>
-      <widget class="GtkImageMenuItem" id="m_category_popup_add">
-        <property name="visible">True</property>
-        <property name="label" translatable="yes">Add Category</property>
-        <property name="use_underline">True</property>
-        <child internal-child="image">
-          <widget class="GtkImage" id="menu-item-image11">
+        <child>
+          <object class="GtkStatusbar" id="appbar">
             <property name="visible">True</property>
-            <property name="stock">gtk-add</property>
-          </widget>
+            <property name="spacing">2</property>
+            <child>
+              <object class="GtkProgressBar" id="progressbar1">
+                <property name="visible">True</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">False</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="position">3</property>
+          </packing>
         </child>
-      </widget>
+      </object>
     </child>
-    <child>
-      <widget class="GtkImageMenuItem" id="m_category_popup_remove">
-        <property name="visible">True</property>
-        <property name="label" translatable="yes">Remove Category</property>
-        <property name="use_underline">True</property>
-        <child internal-child="image">
-          <widget class="GtkImage" id="menu-item-image12">
-            <property name="visible">True</property>
-            <property name="stock">gtk-remove</property>
-          </widget>
-        </child>
-      </widget>
-    </child>
-  </widget>
-  <widget class="GtkMenu" id="popup_menu_card">
-    <property name="visible">True</property>
-    <child>
-      <widget class="GtkImageMenuItem" id="m_card_popup_add">
-        <property name="visible">True</property>
-        <property name="label" translatable="yes">Add Card</property>
-        <property name="use_underline">True</property>
-        <child internal-child="image">
-          <widget class="GtkImage" id="menu-item-image14">
-            <property name="stock">gtk-add</property>
-          </widget>
-        </child>
-      </widget>
-    </child>
-    <child>
-      <widget class="GtkImageMenuItem" id="m_card_popup_remove">
-        <property name="visible">True</property>
-        <property name="label" translatable="yes">Remove Card</property>
-        <property name="use_underline">True</property>
-        <child internal-child="image">
-          <widget class="GtkImage" id="menu-item-image15">
-            <property name="visible">True</property>
-            <property name="stock">gtk-remove</property>
-          </widget>
-        </child>
-      </widget>
-    </child>
-    <child>
-      <widget class="GtkImageMenuItem" id="m_card_popup_edit">
-        <property name="visible">True</property>
-        <property name="label" translatable="yes">Edit Card...</property>
-        <property name="use_underline">True</property>
-        <child internal-child="image">
-          <widget class="GtkImage" id="menu-item-image18">
-            <property name="visible">True</property>
-            <property name="stock">gtk-edit</property>
-          </widget>
-        </child>
-      </widget>
-    </child>
-    <child>
-      <widget class="GtkSeparatorMenuItem" id="separatormenuitem1">
-        <property name="visible">True</property>
-      </widget>
-    </child>
-    <child>
-      <widget class="GtkImageMenuItem" id="m_card_popup_cut">
-        <property name="visible">True</property>
-        <property name="label" translatable="yes">Cut</property>
-        <property name="use_underline">True</property>
-        <child internal-child="image">
-          <widget class="GtkImage" id="menu-item-image20">
-            <property name="visible">True</property>
-            <property name="stock">gtk-cut</property>
-          </widget>
-        </child>
-      </widget>
-    </child>
-    <child>
-      <widget class="GtkImageMenuItem" id="m_card_popup_copy">
-        <property name="visible">True</property>
-        <property name="label" translatable="yes">Copy</property>
-        <property name="use_underline">True</property>
-        <child internal-child="image">
-          <widget class="GtkImage" id="menu-item-image19">
-            <property name="visible">True</property>
-            <property name="stock">gtk-copy</property>
-          </widget>
-        </child>
-      </widget>
-    </child>
-    <child>
-      <widget class="GtkImageMenuItem" id="m_card_popup_paste">
-        <property name="visible">True</property>
-        <property name="label" translatable="yes">Paste</property>
-        <property name="use_underline">True</property>
-        <child internal-child="image">
-          <widget class="GtkImage" id="menu-item-image21">
-            <property name="visible">True</property>
-            <property name="stock">gtk-paste</property>
-          </widget>
-        </child>
-      </widget>
-    </child>
-    <child>
-      <widget class="GtkSeparatorMenuItem" id="separatormenuitem3">
-        <property name="visible">True</property>
-      </widget>
-    </child>
-    <child>
-      <widget class="GtkImageMenuItem" id="m_card_popup_select_all">
-        <property name="visible">True</property>
-        <property name="label" translatable="yes">Select All</property>
-        <property name="use_underline">True</property>
-        <child internal-child="image">
-          <widget class="GtkImage" id="menu-item-image22">
-            <property name="visible">True</property>
-            <property name="stock">gtk-select-all</property>
-          </widget>
-        </child>
-      </widget>
-    </child>
-    <child>
-      <widget class="GtkSeparatorMenuItem" id="separatormenuitem2">
-        <property name="visible">True</property>
-      </widget>
-    </child>
-    <child>
-      <widget class="GtkImageMenuItem" id="m_card_popup_edit_tags">
-        <property name="visible">True</property>
-        <property name="label" translatable="yes">Edit Tags...</property>
-        <property name="use_underline">True</property>
-        <child internal-child="image">
-          <widget class="GtkImage" id="menu-item-image25">
-            <property name="visible">True</property>
-            <property name="stock">gtk-edit</property>
-          </widget>
-        </child>
-      </widget>
-    </child>
-    <child>
-      <widget class="GtkMenuItem" id="m_card_popup_flag">
-        <property name="visible">True</property>
-        <property name="label" translatable="yes">Toggle Flags</property>
-        <property name="use_underline">True</property>
-      </widget>
-    </child>
-    <child>
-      <widget class="GtkImageMenuItem" id="m_card_popup_switch_sides">
-        <property name="visible">True</property>
-        <property name="label" translatable="yes">Switch Sides</property>
-        <property name="use_underline">True</property>
-        <child internal-child="image">
-          <widget class="GtkImage" id="menu-item-image16">
-            <property name="visible">True</property>
-            <property name="stock">gtk-refresh</property>
-          </widget>
-        </child>
-      </widget>
-    </child>
-    <child>
-      <widget class="GtkImageMenuItem" id="m_card_popup_reset_stats">
-        <property name="visible">True</property>
-        <property name="label" translatable="yes">Reset Statistics</property>
-        <property name="use_underline">True</property>
-        <child internal-child="image">
-          <widget class="GtkImage" id="menu-item-image17">
-            <property name="visible">True</property>
-            <property name="stock">gtk-clear</property>
-          </widget>
-        </child>
-      </widget>
-    </child>
-  </widget>
-  <widget class="GtkMenu" id="popup_menu_card_header">
-    <property name="visible">True</property>
-    <child>
-      <widget class="GtkCheckMenuItem" id="m_card_header_toggle_front">
-        <property name="visible">True</property>
-        <property name="label" translatable="yes">Front Text</property>
-        <property name="use_underline">True</property>
-      </widget>
-    </child>
-    <child>
-      <widget class="GtkCheckMenuItem" id="m_card_header_toggle_back">
-        <property name="visible">True</property>
-        <property name="label" translatable="yes">Back Text</property>
-        <property name="use_underline">True</property>
-      </widget>
-    </child>
-    <child>
-      <widget class="GtkCheckMenuItem" id="m_card_header_toggle_category">
-        <property name="visible">True</property>
-        <property name="label" translatable="yes">Category</property>
-        <property name="use_underline">True</property>
-      </widget>
-    </child>
-    <child>
-      <widget class="GtkCheckMenuItem" id="m_card_header_toggle_group">
-        <property name="visible">True</property>
-        <property name="label" translatable="yes">Box Number</property>
-        <property name="use_underline">True</property>
-      </widget>
-    </child>
-    <child>
-      <widget class="GtkCheckMenuItem" id="m_card_header_toggle_tested">
-        <property name="visible">True</property>
-        <property name="label" translatable="yes">Last Test Date</property>
-        <property name="use_underline">True</property>
-      </widget>
-    </child>
-    <child>
-      <widget class="GtkCheckMenuItem" id="m_card_header_toggle_expired">
-        <property name="visible">True</property>
-        <property name="label" translatable="yes">Expiry Flag</property>
-        <property name="use_underline">True</property>
-      </widget>
-    </child>
-    <child>
-      <widget class="GtkCheckMenuItem" id="m_card_header_toggle_expiry_date">
-        <property name="visible">True</property>
-        <property name="label" translatable="yes">Expiry Date</property>
-        <property name="use_underline">True</property>
-      </widget>
-    </child>
-    <child>
-      <widget class="GtkCheckMenuItem" id="m_card_header_toggle_expiry_time">
-        <property name="visible">True</property>
-        <property name="label" translatable="yes">Expiry Time</property>
-        <property name="use_underline">True</property>
-      </widget>
-    </child>
-    <child>
-      <widget class="GtkCheckMenuItem" id="m_card_header_toggle_flag">
-        <property name="visible">True</property>
-        <property name="label" translatable="yes">Flag</property>
-        <property name="use_underline">True</property>
-      </widget>
-    </child>
-  </widget>
-</glade-interface>
+  </object>
+  <object class="GtkAccelGroup" id="accelgroup1"/>
+</interface>

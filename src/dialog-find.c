@@ -25,7 +25,6 @@
 #include <config.h>
 #include <gnome.h>
 #include <glib/gi18n.h>
-#include <glade/glade.h>
 
 #include "main.h"
 #include "file.h"
@@ -405,7 +404,7 @@ dialog_find (Ignuit *ig)
     Dialog    *d;
     GtkWidget *w, *b_close, *b_find, *hbox, *label, *entry, *r_tags;
     gchar     *glade_file;
-    GladeXML  *glade_xml;
+    GtkBuilder *builder;
     GList     *cur;
 
 
@@ -423,19 +422,20 @@ dialog_find (Ignuit *ig)
     }
 
     dialog = d = g_new0 (Dialog, 1);
-    glade_xml = glade_xml_new (glade_file, NULL, NULL);
+    builder = gtk_builder_new ();
+    gtk_builder_add_from_file (builder, glade_file, NULL);
     g_free (glade_file);
 
     d->ig = ig;
 
-    d->window = glade_xml_get_widget (glade_xml, "dialog");
+    d->window = GTK_WIDGET (gtk_builder_get_object (builder, "dialog"));
 
-    label = glade_xml_get_widget (glade_xml, "label_search");
+    label = GTK_WIDGET (gtk_builder_get_object (builder, "label_search"));
 
-    b_close = glade_xml_get_widget (glade_xml, "b_close");
-    b_find = glade_xml_get_widget (glade_xml, "b_find");
+    b_close = GTK_WIDGET (gtk_builder_get_object (builder, "b_close"));
+    b_find = GTK_WIDGET (gtk_builder_get_object (builder, "b_find"));
 
-    hbox = glade_xml_get_widget (glade_xml, "hbox1");
+    hbox = GTK_WIDGET (gtk_builder_get_object (builder, "hbox1"));
     d->combo_entry = gtk_combo_box_entry_new_text ();
     gtk_box_pack_start (GTK_BOX(hbox), d->combo_entry, TRUE, TRUE, 0);
     gtk_widget_show (d->combo_entry);
@@ -448,20 +448,20 @@ dialog_find (Ignuit *ig)
 
     entry = gtk_bin_get_child (GTK_BIN(d->combo_entry));
 
-    w = glade_xml_get_widget (glade_xml, "r_fronts");
+    w = GTK_WIDGET (gtk_builder_get_object (builder, "r_fronts"));
     d->face_group = gtk_radio_button_get_group (GTK_RADIO_BUTTON(w));
 
-    w = glade_xml_get_widget (glade_xml, "r_both");
+    w = GTK_WIDGET (gtk_builder_get_object (builder, "r_both"));
     gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON(w), TRUE);
 
-    r_tags = glade_xml_get_widget (glade_xml, "r_tags");
+    r_tags = GTK_WIDGET (gtk_builder_get_object (builder, "r_tags"));
 
-    d->t_regex = glade_xml_get_widget (glade_xml, "toggle_regex");
+    d->t_regex = GTK_WIDGET (gtk_builder_get_object (builder, "toggle_regex"));
     gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON(d->t_regex),
         prefs_get_find_with_regex (d->ig->prefs));
 
-    d->t_case = glade_xml_get_widget (glade_xml, "toggle_case");
-    d->t_markup = glade_xml_get_widget (glade_xml, "toggle_markup");
+    d->t_case = GTK_WIDGET (gtk_builder_get_object (builder, "toggle_case"));
+    d->t_markup = GTK_WIDGET (gtk_builder_get_object (builder, "toggle_markup"));
 
     g_signal_connect (G_OBJECT(d->window), "destroy",
         G_CALLBACK(cb_destroy), d);
@@ -480,6 +480,6 @@ dialog_find (Ignuit *ig)
 
     gtk_widget_show (d->window);
 
-    g_object_unref (G_OBJECT(glade_xml));
+    g_object_unref (G_OBJECT(builder));
 }
 

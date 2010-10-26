@@ -25,7 +25,6 @@
 #include <config.h>
 #include <gnome.h>
 #include <glib/gi18n.h>
-#include <glade/glade.h>
 
 #include "main.h"
 #include "file.h"
@@ -356,7 +355,7 @@ dialog_tagger (Ignuit *ig)
     GtkWidget *b_close;
     GtkCellRenderer *renderer;
     GtkTreeViewColumn *column;
-    GladeXML  *glade_xml;
+    GtkBuilder *builder;
     gchar     *glade_file;
 
 
@@ -374,25 +373,25 @@ dialog_tagger (Ignuit *ig)
     }
 
     dialog = d = g_new0 (Dialog, 1);
-
-    glade_xml = glade_xml_new (glade_file, NULL, NULL);
+    builder = gtk_builder_new ();
+    gtk_builder_add_from_file (builder, glade_file, NULL);
     g_free (glade_file);
 
     d->ig = ig;
 
-    d->window = glade_xml_get_widget (glade_xml, "dialog");
+    d->window = GTK_WIDGET (gtk_builder_get_object (builder, "dialog"));
 
     gtk_window_set_default_size (GTK_WINDOW(d->window),
         prefs_get_tagger_width (d->ig->prefs),
         prefs_get_tagger_height (d->ig->prefs));
 
-    d->entry_add = glade_xml_get_widget (glade_xml, "entry_add");
-    d->b_add = glade_xml_get_widget (glade_xml, "b_add");
-    d->b_remove = glade_xml_get_widget (glade_xml, "b_remove");
-    b_close = glade_xml_get_widget (glade_xml, "b_close");
+    d->entry_add = GTK_WIDGET (gtk_builder_get_object (builder, "entry_add"));
+    d->b_add = GTK_WIDGET (gtk_builder_get_object (builder, "b_add"));
+    d->b_remove = GTK_WIDGET (gtk_builder_get_object (builder, "b_remove"));
+    b_close = GTK_WIDGET (gtk_builder_get_object (builder, "b_close"));
 
-    scroll = glade_xml_get_widget (glade_xml, "scroll_remove");
-    d->treev = GTK_TREE_VIEW(glade_xml_get_widget (glade_xml, "treev_remove"));
+    scroll = GTK_WIDGET (gtk_builder_get_object (builder, "scroll_remove"));
+    d->treev = GTK_TREE_VIEW(GTK_WIDGET (gtk_builder_get_object (builder, "treev_remove")));
 
     store = gtk_list_store_new (N_COLS,
         G_TYPE_BOOLEAN,
@@ -447,6 +446,6 @@ dialog_tagger (Ignuit *ig)
     gtk_widget_show_all (d->window);
 
 
-    g_object_unref (G_OBJECT(glade_xml));
+    g_object_unref (G_OBJECT(builder));
 }
 
