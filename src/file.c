@@ -23,7 +23,6 @@
 
 
 #include <config.h>
-#include <gnome.h>
 #include <glib.h>
 #include <glib/gi18n.h>
 #include <gtk/gtk.h>
@@ -92,7 +91,7 @@ file_free (File *f, gboolean free_cards)
 
     if (f->categories != NULL) {
         g_list_foreach (f->categories, (GFunc)category_free,
-            (gpointer)free_cards);
+            GINT_TO_POINTER(free_cards));
         g_list_free (f->categories);
     }
 

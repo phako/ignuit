@@ -23,7 +23,6 @@
 
 
 #include <config.h>
-#include <gnome.h>
 #include <glib/gi18n.h>
 
 #include "main.h"
@@ -294,8 +293,7 @@ dialog_preferences (Ignuit *ig)
         return;
     }
 
-    glade_file = gnome_program_locate_file (ig->program,
-        GNOME_FILE_DOMAIN_APP_DATADIR, F_GLADE_PREFERENCES, TRUE, NULL);
+    glade_file = g_build_filename (DATADIR, F_GLADE_PREFERENCES, NULL);
 
     if (glade_file == NULL) {
         g_warning ("Can't find file: %s\n", F_GLADE_PREFERENCES);

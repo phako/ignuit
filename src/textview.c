@@ -25,7 +25,6 @@
 #include <config.h>
 #include <glib.h>
 #include <glib/gi18n.h>
-#include <gnome.h>
 
 #include "main.h"
 #include "card.h"

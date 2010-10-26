@@ -23,8 +23,8 @@
 
 
 #include <config.h>
-#include <gnome.h>
 #include <glib/gi18n.h>
+#include <stdlib.h>
 
 #include "main.h"
 #include "prefs.h"
@@ -1471,8 +1471,7 @@ populate_import_export_combo_box (AppWin *d, GtkComboBox *combo,
 
     whichdir = is_import ? IMPORT_DIR : EXPORT_DIR;
 
-    dname = gnome_program_locate_file (d->ig->program,
-        GNOME_FILE_DOMAIN_APP_DATADIR, whichdir, TRUE, NULL);
+    dname = g_build_filename (g_get_user_data_dir (), whichdir, NULL);
 
     if (dname == NULL) {
         g_warning ("Can't find directory: %s\n", whichdir);
@@ -2163,7 +2162,7 @@ cb_m_help (GtkWidget *widget, AppWin *d)
 {
     GError *err = NULL;
 
-    gnome_help_display ("ignuit.xml", NULL, &err);
+    g_app_info_launch_default_for_uri ("ghelp:ignuit", NULL, &err);
 
     if (err != NULL) {
         error_dialog (GTK_WINDOW(d->window),
@@ -2877,8 +2876,8 @@ app_window (Ignuit *ig)
     GdkColor *color;
 
 
-    glade_file = gnome_program_locate_file (ig->program,
-        GNOME_FILE_DOMAIN_APP_DATADIR, F_GLADE_MAIN, TRUE, NULL);
+    glade_file = g_build_filename (DATADIR, F_GLADE_MAIN, NULL);
+    g_debug ("glade file: %s", glade_file);
 
     if (glade_file == NULL) {
         g_warning ("Can't find file: %s\n", F_GLADE_MAIN);

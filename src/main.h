@@ -28,6 +28,8 @@
 #include "file.h"
 #include "prefs.h"
 
+#include <gtk/gtk.h>
+
 #define GLADE_DIR               PACKAGE G_DIR_SEPARATOR_S "glade"
 #define IMPORT_DIR              PACKAGE G_DIR_SEPARATOR_S "import"
 #define EXPORT_DIR              PACKAGE G_DIR_SEPARATOR_S "export"
@@ -106,9 +108,6 @@ struct _QuizInfo {
 typedef struct _Ignuit Ignuit;
 
 struct _Ignuit {
-
-    GnomeProgram *program;
-
     GDate        *today;
     GRand        *grand;
 

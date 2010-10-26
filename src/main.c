@@ -24,7 +24,6 @@
 
 #include <config.h>
 #include <locale.h>
-#include <gnome.h>
 #include <glib/gi18n.h>
 #include <gconf/gconf-client.h>
 #include <gst/gst.h>
@@ -279,12 +278,6 @@ main (int argc, char *argv[])
 
     ig = g_new0 (Ignuit, 1);
 
-    ig->program = gnome_program_init (PACKAGE, VERSION,
-        LIBGNOMEUI_MODULE, argc, argv,
-        GNOME_PROGRAM_STANDARD_PROPERTIES,
-        GNOME_PARAM_GOPTION_CONTEXT, context,
-        NULL);
-
     gconf_init (argc, argv, NULL);
 
     ig->today = g_date_new ();
@@ -321,6 +314,8 @@ main (int argc, char *argv[])
     latex_init ();
 
     gst_init (&argc, &argv);
+
+    gtk_init (&argc, &argv);
 
     gtk_icon_theme_append_search_path (gtk_icon_theme_get_default (),
         DATADIR G_DIR_SEPARATOR_S PACKAGE G_DIR_SEPARATOR_S "icons");

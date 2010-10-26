@@ -28,7 +28,6 @@
 #include <glib.h>
 #include <glib/gstdio.h>
 #include <glib/gi18n.h>
-#include <gnome.h>
 #include <libxslt/xslt.h>
 #include <libxslt/transform.h>
 #include <libxslt/xsltutils.h>
@@ -720,7 +719,6 @@ fileio_import_xml (Ignuit *ig, const gchar *fname, const gchar *filter,
     xsltStylesheetPtr cur = NULL;
     xmlDocPtr doc, res;
     gchar     *fname_xsl_full;
-    gchar     *fname_xsl;
     gchar     *fname_tmp;
     FILE      *f_strm;
     gint      f_des;
@@ -729,13 +727,7 @@ fileio_import_xml (Ignuit *ig, const gchar *fname, const gchar *filter,
 
     /* Import a non-native XML file using libxslt. */
 
-    fname_xsl = g_build_filename (IMPORT_DIR, filter, NULL);
-
-    fname_xsl_full = gnome_program_locate_file (ig->program,
-        GNOME_FILE_DOMAIN_APP_DATADIR, fname_xsl, TRUE, NULL);
-
-    g_free (fname_xsl);
-
+    fname_xsl_full = g_build_filename (DATADIR, IMPORT_DIR, filter, NULL);
     if (fname_xsl_full == NULL) {
         g_set_error (err, 0, 0, "Can't find import filter '%s'", filter);
         return NULL;
@@ -825,7 +817,6 @@ fileio_export_xml (Ignuit *ig, const gchar *fname, const gchar *filter,
 {
     xsltStylesheetPtr cur = NULL;
     xmlDocPtr doc, res;
-    gchar     *fname_xsl;
     gchar     *fname_xsl_full;
     gchar     *fname_tmp;
     FILE      *f_strm_out, *f_strm_tmp;
@@ -833,14 +824,7 @@ fileio_export_xml (Ignuit *ig, const gchar *fname, const gchar *filter,
 
 
     /* Use libxslt to write a file in a non-native XML format. */
-
-    fname_xsl = g_build_filename (EXPORT_DIR, filter, NULL);
-
-    fname_xsl_full = gnome_program_locate_file (ig->program,
-        GNOME_FILE_DOMAIN_APP_DATADIR, fname_xsl, TRUE, NULL);
-
-    g_free (fname_xsl);
-
+    fname_xsl_full = g_build_filename (DATADIR, IMPORT_DIR, filter, NULL);
     if (fname_xsl_full == NULL) {
         g_set_error (err, 0, 0, "Can't find export filter '%s'", filter);
         return FALSE;

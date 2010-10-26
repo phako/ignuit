@@ -50,7 +50,7 @@ GNOME_DOC_INIT
 
 dnl ************************************
 
-LIBGNOMEUI_REQUIRED=2.24.3
+LIBGTK_REQUIRED=2.16
 LIBXSLT_REQUIRED=1.1.26
 GCONF_REQUIRED=2.28.1
 GSTREAMER_REQUIRED=0.10.28
@@ -58,7 +58,7 @@ GSTREAMER_REQUIRED=0.10.28
 dnl ************************************
 
 PKG_CHECK_MODULES(PACKAGE, \
-    libgnomeui-2.0 >= $LIBGNOMEUI_REQUIRED  \
+    gtk+-2.0 >= $LIBGTK_REQUIRED            \
     libxslt >= $LIBXSLT_REQUIRED            \
     gconf-2.0 >= $GCONF_REQUIRED            \
     gstreamer-0.10 >= $GSTREAMER_REQUIRED)

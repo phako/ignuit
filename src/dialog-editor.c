@@ -23,8 +23,8 @@
 
 
 #include <config.h>
-#include <gnome.h>
 #include <glib/gi18n.h>
+#include <gdk/gdkkeysyms.h>
 
 #include "main.h"
 #include "prefs.h"
@@ -1529,8 +1529,7 @@ dialog_editor (Ignuit *ig)
         return;
     }
 
-    glade_file = gnome_program_locate_file (ig->program,
-        GNOME_FILE_DOMAIN_APP_DATADIR, F_GLADE_EDITOR, TRUE, NULL);
+    glade_file = g_build_filename (DATADIR, F_GLADE_EDITOR, NULL);
 
     if (glade_file == NULL) {
         g_warning ("Can't find file: %s\n", F_GLADE_EDITOR);

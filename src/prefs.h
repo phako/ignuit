@@ -24,6 +24,7 @@
 #ifndef HAVE_PREFS_H
 #define HAVE_PREFS_H
 
+#include <gdk/gdk.h>
 
 #define PREF_APP_WIDTH              "/apps/ignuit/app_width"
 #define PREF_APP_HEIGHT             "/apps/ignuit/app_height"
