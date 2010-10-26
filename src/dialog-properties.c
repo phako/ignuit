@@ -279,22 +279,22 @@ dialog_properties (Ignuit *ig)
 
     hbox = GTK_WIDGET (gtk_builder_get_object (builder, "hbox_license"));
 
-    d->combo_license = gtk_combo_box_entry_new_text ();
+    d->combo_license = gtk_combo_box_text_new_with_entry ();
     gtk_box_pack_start (GTK_BOX(hbox), d->combo_license, TRUE, TRUE, 0);
     gtk_widget_show (d->combo_license);
 
     for (i = 0; license[i].title != NULL; i++)
-        gtk_combo_box_append_text (GTK_COMBO_BOX(d->combo_license),
+        gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT(d->combo_license),
             license[i].title);
 
     label = GTK_WIDGET (gtk_builder_get_object (builder, "label_license"));
     gtk_label_set_mnemonic_widget (GTK_LABEL(label), d->combo_license);
 
-    gtk_combo_box_append_text (GTK_COMBO_BOX(d->combo_style),
+    gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT(d->combo_style),
         _("Centered keywords and text"));
-    gtk_combo_box_append_text (GTK_COMBO_BOX(d->combo_style),
+    gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT(d->combo_style),
         _("Non-centered keywords and text"));
-    gtk_combo_box_append_text (GTK_COMBO_BOX(d->combo_style),
+    gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT(d->combo_style),
         _("Non-centered text only"));
 
     set_widget_values (d);
