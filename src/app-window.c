@@ -1540,7 +1540,7 @@ cb_m_save_as (GtkWidget *widget, AppWin *d)
 
 
 static GList*
-populate_import_export_combo_box (AppWin *d, GtkComboBox *combo,
+populate_import_export_combo_box (AppWin *d, GtkComboBoxText *combo,
     gboolean is_import)
 {
     GList       *list = NULL;
@@ -1557,9 +1557,9 @@ populate_import_export_combo_box (AppWin *d, GtkComboBox *combo,
         return NULL;
     }
 
-    gtk_combo_box_append_text (combo, _("CSV"));
-    gtk_combo_box_append_text (combo, _("TSV"));
-    gtk_combo_box_append_text (combo, "Ignuit");
+    gtk_combo_box_text_append_text (combo, _("CSV"));
+    gtk_combo_box_text_append_text (combo, _("TSV"));
+    gtk_combo_box_text_append_text (combo, "Ignuit");
 
     dir = g_dir_open (dname, 0, NULL);
     if (dir) {
@@ -1584,7 +1584,7 @@ populate_import_export_combo_box (AppWin *d, GtkComboBox *combo,
                     if (*p == '_')
                         *p = ' ';
 
-                gtk_combo_box_append_text (combo, s);
+                gtk_combo_box_text_append_text (combo, s);
                 g_free (s);
                 list = g_list_append (list, g_strdup (entry));
 
@@ -1632,9 +1632,9 @@ cb_m_import (GtkWidget *widget, AppWin *d)
 
     box = gtk_hbox_new (FALSE, 0);
 
-    combo = gtk_combo_box_new_text ();
+    combo = gtk_combo_box_text_new ();
     filters = populate_import_export_combo_box (d,
-        GTK_COMBO_BOX(combo), TRUE);
+        GTK_COMBO_BOX_TEXT(combo), TRUE);
     gtk_combo_box_set_active (GTK_COMBO_BOX(combo), 0);
 
     gtk_box_pack_end (GTK_BOX(box), combo, FALSE, FALSE, 0);
@@ -1773,9 +1773,9 @@ cb_m_export (GtkWidget *widget, AppWin *d)
 
     box = gtk_hbox_new (FALSE, 0);
 
-    combo = gtk_combo_box_new_text ();
+    combo = gtk_combo_box_text_new ();
     filters = populate_import_export_combo_box (d,
-        GTK_COMBO_BOX(combo), FALSE);
+        GTK_COMBO_BOX_TEXT(combo), FALSE);
     gtk_combo_box_set_active (GTK_COMBO_BOX(combo), 0);
 
     gtk_box_pack_end (GTK_BOX(box), combo, FALSE, FALSE, 0);

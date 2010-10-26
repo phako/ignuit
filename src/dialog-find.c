@@ -260,7 +260,7 @@ static void
 cb_find (GtkWidget *widget, Dialog *d)
 {
     GRegex *re = NULL;
-    GtkComboBox *combo;
+    GtkComboBoxText *combo;
     gboolean match_case;
     gchar *text;
     GList *cards;
@@ -268,9 +268,9 @@ cb_find (GtkWidget *widget, Dialog *d)
     gint i;
 
 
-    combo = GTK_COMBO_BOX(d->combo_entry);
+    combo = GTK_COMBO_BOX_TEXT(d->combo_entry);
 
-    if ((text = gtk_combo_box_get_active_text (combo)) == NULL)
+    if ((text = gtk_combo_box_text_get_active_text (combo)) == NULL)
         return;
 
     dialog_editor_check_changed ();
@@ -279,8 +279,8 @@ cb_find (GtkWidget *widget, Dialog *d)
 
         /* Add this query to search history. */
 
-        gtk_combo_box_prepend_text (combo, text);
-        gtk_combo_box_remove_text (combo, HISTORY_LENGTH);
+        gtk_combo_box_text_prepend_text (combo, text);
+        gtk_combo_box_text_remove (combo, HISTORY_LENGTH);
 
         d->ig->recent_search_terms = g_list_prepend
             (d->ig->recent_search_terms, text);
@@ -434,14 +434,14 @@ dialog_find (Ignuit *ig)
     b_find = GTK_WIDGET (gtk_builder_get_object (builder, "b_find"));
 
     hbox = GTK_WIDGET (gtk_builder_get_object (builder, "hbox1"));
-    d->combo_entry = gtk_combo_box_entry_new_text ();
+    d->combo_entry = gtk_combo_box_text_new_with_entry ();
     gtk_box_pack_start (GTK_BOX(hbox), d->combo_entry, TRUE, TRUE, 0);
     gtk_widget_show (d->combo_entry);
 
     gtk_label_set_mnemonic_widget (GTK_LABEL(label), d->combo_entry);
 
     for (cur = ig->recent_search_terms; cur != NULL; cur = cur->next)
-        gtk_combo_box_append_text (GTK_COMBO_BOX(d->combo_entry),
+        gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT(d->combo_entry),
             (gchar*)cur->data);
 
     entry = gtk_bin_get_child (GTK_BIN(d->combo_entry));
