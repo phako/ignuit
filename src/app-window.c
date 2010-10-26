@@ -2909,7 +2909,7 @@ add_card_column (AppWin *d, const gchar *title, gint col,
     }
 
     gtk_tree_view_column_set_clickable (c, TRUE);
-    g_signal_connect (G_OBJECT(c->button), "button-press-event",
+    g_signal_connect (gtk_tree_view_column_get_widget (c), "button-press-event",
         G_CALLBACK(cb_card_header_popup), d);
 
     d->treev_card_col[col] = c;
