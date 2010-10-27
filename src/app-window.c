@@ -2461,16 +2461,12 @@ cb_card_pane_clicked (GtkWidget *widget, GdkEventButton *event, AppWin *d)
 
 
 static gboolean
-cb_card_header_popup (GtkWidget *widget, GdkEventButton *event, AppWin *d)
+cb_card_header_popup (GtkWidget *widget, /*GdkEventButton *event, */ AppWin *d)
 {
-
-    if (event->type != GDK_BUTTON_PRESS || event->button != 3)
-        return FALSE;
-
     gtk_menu_popup (GTK_MENU(d->popup_menu_card_header),
-        NULL, NULL, NULL, NULL, 3, event->time);
+        NULL, NULL, NULL, NULL, 3, gtk_get_current_event_time ());
 
-    return TRUE;
+    return FALSE;
 }
 
 
@@ -2909,7 +2905,7 @@ add_card_column (AppWin *d, const gchar *title, gint col,
     }
 
     gtk_tree_view_column_set_clickable (c, TRUE);
-    g_signal_connect (gtk_tree_view_column_get_widget (c), "button-press-event",
+    g_signal_connect (c, "clicked",
         G_CALLBACK(cb_card_header_popup), d);
 
     d->treev_card_col[col] = c;
