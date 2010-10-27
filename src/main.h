@@ -35,9 +35,7 @@
 #define EXPORT_DIR              PACKAGE G_DIR_SEPARATOR_S "export"
 
 #define F_GLADE_MAIN            GLADE_DIR G_DIR_SEPARATOR_S "main.glade"
-/* #define F_GLADE_EDITOR          GLADE_DIR G_DIR_SEPARATOR_S "editor.glade"
- * */
-#define F_GLADE_EDITOR          GLADE_DIR G_DIR_SEPARATOR_S "editor.ui"
+#define F_GLADE_EDITOR          GLADE_DIR G_DIR_SEPARATOR_S "editor.glade"
 #define F_GLADE_TAGGER          GLADE_DIR G_DIR_SEPARATOR_S "tagger.glade"
 #define F_GLADE_QUIZ            GLADE_DIR G_DIR_SEPARATOR_S "quiz.glade"
 #define F_GLADE_PROPERTIES      GLADE_DIR G_DIR_SEPARATOR_S "properties.glade"
