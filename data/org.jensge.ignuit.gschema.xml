@@ -1,0 +1,114 @@
+<schemalist>
+  <schema id="org.jensge.ignuit" path="/apps/ignuit/">
+    <key name="app-width" type="i">
+      <default>600</default>
+      <summary>Main window width</summary>
+    </key>
+    <key name="app-height" type="i">
+      <default>300</default>
+      <summary>Main window height</summary>
+    </key>
+    <key name="quiz-width" type="i">
+      <default>450</default>
+      <summary>Quiz and editor window width</summary>
+    </key>
+    <key name="quiz-height" type="i">
+      <default>250</default>
+      <summary>Quiz and editor window height</summary>
+    </key>
+    <key name="tagger-width" type="i">
+      <default>350</default>
+      <summary>Tag manager window width</summary>
+    </key>
+    <key name="tagger-height" type="i">
+      <default>300</default>
+      <summary>Tag manager window height</summary>
+    </key>
+    <key name="category-pane-width" type="i">
+      <default>225</default>
+      <summary>Category pane width</summary>
+    </key>
+    <key name="category-column-title-width" type="i">
+      <default>200</default>
+      <summary>Width of category title column</summary>
+    </key>
+    <key name="card-column-front-width" type="i">
+      <default>200</default>
+      <summary>Width of the "Card Front" column</summary>
+    </key>
+    <key name="card-column-back-width" type="i">
+      <default>200</default>
+      <summary>Width of the "Card Back" column</summary>
+    </key>
+    <key name="card-column-category-width" type="i">
+      <default>150</default>
+      <summary>Width of the "Card Category" column</summary>
+    </key>
+    <key name="card-column-visible" type="s">
+      <default>'front,group,tested,expired,expiry,flagged'</default>
+      <summary>Card pane column visibility</summary>
+      <description>A comma separated list of column names. Accepted names are: front, back, category, group, tested, expired, expiry, time, flagged.</description>
+    </key>
+    <key name="sticky-flips" type="b">
+      <default>false</default>
+      <summary>Flip button behaviour in editor window</summary>
+    </key>
+    <key name="auto-listen" type="i">
+      <default>2</default>
+      <summary>Controls the behaviour of audio files in quiz mode</summary>
+      <description>A value of 0 disables automatic playing. A value of 1 plays fronts automatically. A value of 2 plays backs automatically. A value of 3 plays both fronts and backs automatically.</description>
+    </key>
+    <key name="card-font" type="s">
+      <default>'Sans 11'</default>
+      <summary>Font for cards</summary>
+    </key>
+    <key name="card-colors" type="s">
+      <default>'#000000,#FFFFFF,#C5D2C8,#E0B6AF,#DBD0A7,#E36540'</default>
+      <summary>Card colours</summary>
+    </key>
+    <key name="schedules" type="s">
+      <default>'1,3,7,20,55,145,400,1000,1000'</default>
+      <summary>Card expiry times</summary>
+      <description>Nine comma-separated integers of increasing value, representing days between tests.</description>
+    </key>
+    <key name="workdir" type="s">
+      <default>''</default>
+      <summary>Most recent working directory</summary>
+    </key>
+    <key name="find-with-regex" type="b">
+      <default>false</default>
+      <summary>Use regular expressions when searching</summary>
+      <description>If true, the Find Dialog will search using regular expression matching.</description>
+    </key>
+    <key name="confirm-empty-trash" type="b">
+      <default>true</default>
+      <summary>Confirm deletion of trash folder contents when closing.</summary>
+    </key>
+    <key name="main-toolbar-visible" type="b">
+      <default>true</default>
+    </key>
+    <key name="category-pane-visible" type="b">
+      <default>true</default>
+    </key>
+    <key name="bottom-toolbar-visible" type="b">
+      <default>true</default>
+    </key>
+    <key name="statusbar-visible" type="b">
+      <default>true</default>
+    </key>
+    <key name="quiz-answerbar-visible" type="b">
+      <default>true</default>
+    </key>
+    <key name="editor-tagbar-visible" type="b">
+      <default>true</default>
+    </key>
+    <key name="backup" type="b">
+      <default>true</default>
+      <summary>Backup the current file before saving</summary>
+    </key>
+    <key name="latex-dpi" type="i">
+      <default>150</default>
+      <summary>Size of images produced with LaTeX</summary>
+    </key>
+  </schema>
+</schemalist>

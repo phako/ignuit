@@ -24,7 +24,6 @@
 
 #include <config.h>
 #include <glib/gi18n.h>
-#include <gconf/gconf-client.h>
 
 #include "main.h"
 #include "prefs.h"
@@ -33,7 +32,7 @@
 
 struct _Prefs {
 
-    GConfClient *gconf_client;
+    GSettings *settings;
 
     gint        app_width;
     gint        app_height;
@@ -284,8 +283,8 @@ prefs_set_backup (Prefs *p, gboolean backup)
 {
     if (backup != p->backup) {
         p->backup = backup;
-        gconf_client_set_bool (p->gconf_client,
-            PREF_BACKUP, backup, NULL);
+        g_settings_set_boolean (p->settings,
+            PREF_BACKUP, backup);
     }
 }
 
@@ -302,8 +301,8 @@ prefs_set_sticky_flips (Prefs *p, gboolean sticky)
 {
     if (sticky != p->sticky_flips) {
         p->sticky_flips = sticky;
-        gconf_client_set_bool (p->gconf_client,
-            PREF_STICKY_FLIPS, sticky, NULL);
+        g_settings_set_boolean (p->settings,
+            PREF_STICKY_FLIPS, sticky);
     }
 }
 
@@ -320,7 +319,7 @@ prefs_set_auto_listen (Prefs *p, AutoListen listen)
 {
     if (listen != p->listen) {
         p->listen = listen;
-        gconf_client_set_int (p->gconf_client, PREF_AUTO_LISTEN, listen, NULL);
+        g_settings_set_int (p->settings, PREF_AUTO_LISTEN, listen);
     }
 }
 
@@ -340,8 +339,8 @@ prefs_set_category_pane_width (Prefs *p, gint width)
 
     if (width != p->category_pane_width) {
         p->category_pane_width = width;
-        gconf_client_set_int (p->gconf_client,
-            PREF_CATEGORY_PANE_WIDTH, width, NULL);
+        g_settings_set_int (p->settings,
+            PREF_CATEGORY_PANE_WIDTH, width);
     }
 }
 
@@ -358,8 +357,8 @@ prefs_set_main_toolbar_visible (Prefs *p, gboolean visible)
 {
     if (visible != p->main_toolbar_visible) {
         p->main_toolbar_visible = visible;
-        gconf_client_set_bool (p->gconf_client,
-            PREF_MAIN_TOOLBAR_VISIBLE, visible, NULL);
+        g_settings_set_boolean (p->settings,
+            PREF_MAIN_TOOLBAR_VISIBLE, visible);
     }
 }
 
@@ -376,8 +375,8 @@ prefs_set_category_pane_visible (Prefs *p, gboolean visible)
 {
     if (visible != p->category_pane_visible) {
         p->category_pane_visible = visible;
-        gconf_client_set_bool (p->gconf_client,
-            PREF_CATEGORY_PANE_VISIBLE, visible, NULL);
+        g_settings_set_boolean (p->settings,
+            PREF_CATEGORY_PANE_VISIBLE, visible);
     }
 }
 
@@ -394,8 +393,8 @@ prefs_set_bottom_toolbar_visible (Prefs *p, gboolean visible)
 {
     if (visible != p->bottom_toolbar_visible) {
         p->bottom_toolbar_visible = visible;
-        gconf_client_set_bool (p->gconf_client,
-            PREF_BOTTOM_TOOLBAR_VISIBLE, visible, NULL);
+        g_settings_set_boolean (p->settings,
+            PREF_BOTTOM_TOOLBAR_VISIBLE, visible);
     }
 }
 
@@ -412,8 +411,8 @@ prefs_set_statusbar_visible (Prefs *p, gboolean visible)
 {
     if (visible != p->statusbar_visible) {
         p->statusbar_visible = visible;
-        gconf_client_set_bool (p->gconf_client,
-            PREF_STATUSBAR_VISIBLE, visible, NULL);
+        g_settings_set_boolean (p->settings,
+            PREF_STATUSBAR_VISIBLE, visible);
     }
 }
 
@@ -430,8 +429,8 @@ prefs_set_quiz_answer_bar_visible (Prefs *p, gboolean visible)
 {
     if (visible != p->quiz_answer_bar_visible) {
         p->quiz_answer_bar_visible = visible;
-        gconf_client_set_bool (p->gconf_client,
-            PREF_QUIZ_ANSWERBAR_VISIBLE, visible, NULL);
+        g_settings_set_boolean (p->settings,
+            PREF_QUIZ_ANSWERBAR_VISIBLE, visible);
     }
 }
 
@@ -448,8 +447,8 @@ prefs_set_editor_tag_bar_visible (Prefs *p, gboolean visible)
 {
     if (visible != p->editor_tag_bar_visible) {
         p->editor_tag_bar_visible = visible;
-        gconf_client_set_bool (p->gconf_client,
-            PREF_EDITOR_TAGBAR_VISIBLE, visible, NULL);
+        g_settings_set_boolean (p->settings,
+            PREF_EDITOR_TAGBAR_VISIBLE, visible);
     }
 }
 
@@ -478,7 +477,7 @@ prefs_set_color_gdk (Prefs *p, Color which, GdkColor *color)
         gchar *spec;
 
         spec = prefs_colors_to_csvstr (p);
-        gconf_client_set_string (p->gconf_client, PREF_CARD_COLORS, spec, NULL);
+        g_settings_set_string (p->settings, PREF_CARD_COLORS, spec);
         g_free (spec);
     }
 }
@@ -518,7 +517,7 @@ prefs_set_schedule (Prefs *p, Group g, gint days)
         p->schedule[g] = days;
 
         s = prefs_schedules_to_csvstr (p);
-        gconf_client_set_string (p->gconf_client, PREF_SCHEDULES, s, NULL);
+        g_settings_set_string (p->settings, PREF_SCHEDULES, s);
         g_free (s);
     }
 }
@@ -535,14 +534,14 @@ prefs_set_app_size (Prefs *p, gint width, gint height)
 
     if (width != p->app_width) {
         p->app_width = width;
-        gconf_client_set_int (p->gconf_client,
-            PREF_APP_WIDTH, width, NULL);
+        g_settings_set_int (p->settings,
+            PREF_APP_WIDTH, width);
     }
 
     if (height != p->app_height) {
         p->app_height = height;
-        gconf_client_set_int (p->gconf_client,
-            PREF_APP_HEIGHT, height, NULL);
+        g_settings_set_int (p->settings,
+            PREF_APP_HEIGHT, height);
     }
 }
 
@@ -572,14 +571,14 @@ prefs_set_quiz_size (Prefs *p, gint width, gint height)
 
     if (width != p->quiz_width) {
         p->quiz_width = width;
-        gconf_client_set_int (p->gconf_client,
-            PREF_QUIZ_WIDTH, width, NULL);
+        g_settings_set_int (p->settings,
+            PREF_QUIZ_WIDTH, width);
     }
 
     if (height != p->quiz_height) {
         p->quiz_height = height;
-        gconf_client_set_int (p->gconf_client,
-            PREF_QUIZ_HEIGHT, height, NULL);
+        g_settings_set_int (p->settings,
+            PREF_QUIZ_HEIGHT, height);
     }
 }
 
@@ -609,14 +608,14 @@ prefs_set_tagger_size (Prefs *p, gint width, gint height)
 
     if (width != p->tagger_width) {
         p->tagger_width = width;
-        gconf_client_set_int (p->gconf_client,
-            PREF_TAGGER_WIDTH, width, NULL);
+        g_settings_set_int (p->settings,
+            PREF_TAGGER_WIDTH, width);
     }
 
     if (height != p->tagger_height) {
         p->tagger_height = height;
-        gconf_client_set_int (p->gconf_client,
-            PREF_TAGGER_HEIGHT, height, NULL);
+        g_settings_set_int (p->settings,
+            PREF_TAGGER_HEIGHT, height);
     }
 }
 
@@ -643,8 +642,8 @@ prefs_set_category_column_title_width (Prefs *p, gint width)
 
     if (width != p->category_column_title_width) {
         p->category_column_title_width = width;
-        gconf_client_set_int (p->gconf_client,
-            PREF_CATEGORY_COLUMN_TITLE_WIDTH, width, NULL);
+        g_settings_set_int (p->settings,
+            PREF_CATEGORY_COLUMN_TITLE_WIDTH, width);
     }
 }
 
@@ -664,8 +663,8 @@ prefs_set_card_column_front_width (Prefs *p, gint width)
 
     if (width != p->card_column_front_width) {
         p->card_column_front_width = width;
-        gconf_client_set_int (p->gconf_client,
-            PREF_CARD_COLUMN_FRONT_WIDTH, width, NULL);
+        g_settings_set_int (p->settings,
+            PREF_CARD_COLUMN_FRONT_WIDTH, width);
     }
 }
 
@@ -685,8 +684,8 @@ prefs_set_card_column_back_width (Prefs *p, gint width)
 
     if (width != p->card_column_back_width) {
         p->card_column_back_width = width;
-        gconf_client_set_int (p->gconf_client,
-            PREF_CARD_COLUMN_BACK_WIDTH, width, NULL);
+        g_settings_set_int (p->settings,
+            PREF_CARD_COLUMN_BACK_WIDTH, width);
     }
 }
 
@@ -706,8 +705,8 @@ prefs_set_card_column_category_width (Prefs *p, gint width)
 
     if (width != p->card_column_category_width) {
         p->card_column_category_width = width;
-        gconf_client_set_int (p->gconf_client,
-            PREF_CARD_COLUMN_CATEGORY_WIDTH, width, NULL);
+        g_settings_set_int (p->settings,
+            PREF_CARD_COLUMN_CATEGORY_WIDTH, width);
     }
 }
 
@@ -729,8 +728,8 @@ prefs_set_card_column_visible (Prefs *p, gint col, gboolean visible)
         p->card_column_visible[col] = visible;
         s = prefs_card_columns_to_csvstr (p);
 
-        gconf_client_set_string (p->gconf_client,
-            PREF_CARD_COLUMN_VISIBLE, s, NULL);
+        g_settings_set_string (p->settings,
+            PREF_CARD_COLUMN_VISIBLE, s);
 
         g_free (s);
     }
@@ -753,8 +752,8 @@ prefs_set_card_font (Prefs *p, const gchar *fontname)
             g_free (p->card_font);
             p->card_font = g_strdup (fontname);
 
-            gconf_client_set_string (p->gconf_client,
-                PREF_CARD_FONT, fontname, NULL);
+            g_settings_set_string (p->settings,
+                PREF_CARD_FONT, fontname);
     }
 }
 
@@ -774,7 +773,7 @@ prefs_set_workdir (Prefs *p, const gchar *dirname)
         g_free (p->workdir);
         p->workdir = g_strdup (dirname);
 
-        gconf_client_set_string (p->gconf_client, PREF_WORKDIR, dirname, NULL);
+        g_settings_set_string (p->settings, PREF_WORKDIR, dirname);
     }
 }
 
@@ -805,8 +804,8 @@ prefs_set_find_with_regex (Prefs *p, gboolean use_regex)
 {
     if (use_regex != p->find_with_regex) {
         p->find_with_regex = use_regex;
-        gconf_client_set_bool (p->gconf_client,
-            PREF_FIND_WITH_REGEX, use_regex, NULL);
+        g_settings_set_boolean (p->settings,
+            PREF_FIND_WITH_REGEX, use_regex);
     }
 }
 
@@ -823,8 +822,8 @@ prefs_set_confirm_empty_trash (Prefs *p, gboolean confirm)
 {
     if (confirm != p->confirm_empty_trash) {
         p->confirm_empty_trash = confirm;
-        gconf_client_set_bool (p->gconf_client,
-            PREF_CONFIRM_EMPTY_TRASH, confirm, NULL);
+        g_settings_set_boolean (p->settings,
+            PREF_CONFIRM_EMPTY_TRASH, confirm);
     }
 }
 
@@ -844,8 +843,8 @@ prefs_set_latex_dpi (Prefs *p, gint dpi)
 
     if (dpi != p->latex_dpi) {
         p->latex_dpi = dpi;
-        gconf_client_set_int (p->gconf_client,
-            PREF_LATEX_DPI, dpi, NULL);
+        g_settings_set_int (p->settings,
+            PREF_LATEX_DPI, dpi);
     }
 }
 
@@ -867,89 +866,89 @@ prefs_load (void)
 
     p = g_new0(Prefs, 1);
 
-    p->gconf_client = gconf_client_get_default ();
+    p->settings = g_settings_new ("org.jensge.ignuit");
 
-    w = gconf_client_get_int (p->gconf_client, PREF_APP_WIDTH, NULL);
-    h = gconf_client_get_int (p->gconf_client, PREF_APP_HEIGHT, NULL);
+    w = g_settings_get_int (p->settings, PREF_APP_WIDTH);
+    h = g_settings_get_int (p->settings, PREF_APP_HEIGHT);
     prefs_set_app_size (p, w, h);
 
-    w = gconf_client_get_int (p->gconf_client, PREF_CATEGORY_PANE_WIDTH, NULL);
+    w = g_settings_get_int (p->settings, PREF_CATEGORY_PANE_WIDTH);
     prefs_set_category_pane_width (p, w);
 
-    w = gconf_client_get_int (p->gconf_client, PREF_CATEGORY_COLUMN_TITLE_WIDTH, NULL);
+    w = g_settings_get_int (p->settings, PREF_CATEGORY_COLUMN_TITLE_WIDTH);
     prefs_set_category_column_title_width (p, w);
 
-    w = gconf_client_get_int (p->gconf_client, PREF_CARD_COLUMN_FRONT_WIDTH, NULL);
+    w = g_settings_get_int (p->settings, PREF_CARD_COLUMN_FRONT_WIDTH);
     prefs_set_card_column_front_width (p, w);
 
-    w = gconf_client_get_int (p->gconf_client, PREF_CARD_COLUMN_BACK_WIDTH, NULL);
+    w = g_settings_get_int (p->settings, PREF_CARD_COLUMN_BACK_WIDTH);
     prefs_set_card_column_back_width (p, w);
 
-    w = gconf_client_get_int (p->gconf_client, PREF_CARD_COLUMN_CATEGORY_WIDTH, NULL);
+    w = g_settings_get_int (p->settings, PREF_CARD_COLUMN_CATEGORY_WIDTH);
     prefs_set_card_column_category_width (p, w);
 
-    s = gconf_client_get_string (p->gconf_client, PREF_CARD_COLUMN_VISIBLE, NULL);
+    s = g_settings_get_string (p->settings, PREF_CARD_COLUMN_VISIBLE);
     prefs_csvstr_to_card_columns (p, s ? s : DEFAULT_CARD_COLUMN_VISIBLE);
     g_free (s);
 
-    b = gconf_client_get_bool (p->gconf_client, PREF_STICKY_FLIPS, NULL);
+    b = g_settings_get_boolean (p->settings, PREF_STICKY_FLIPS);
     prefs_set_sticky_flips (p, b);
 
-    i = gconf_client_get_int (p->gconf_client, PREF_AUTO_LISTEN, NULL);
+    i = g_settings_get_int (p->settings, PREF_AUTO_LISTEN);
     prefs_set_auto_listen (p, i);
 
-    b = gconf_client_get_bool (p->gconf_client, PREF_MAIN_TOOLBAR_VISIBLE, NULL);
+    b = g_settings_get_boolean (p->settings, PREF_MAIN_TOOLBAR_VISIBLE);
     prefs_set_main_toolbar_visible (p, b);
 
-    b = gconf_client_get_bool (p->gconf_client, PREF_CATEGORY_PANE_VISIBLE, NULL);
+    b = g_settings_get_boolean (p->settings, PREF_CATEGORY_PANE_VISIBLE);
     prefs_set_category_pane_visible (p, b);
 
-    b = gconf_client_get_bool (p->gconf_client, PREF_BOTTOM_TOOLBAR_VISIBLE, NULL);
+    b = g_settings_get_boolean (p->settings, PREF_BOTTOM_TOOLBAR_VISIBLE);
     prefs_set_bottom_toolbar_visible (p, b);
 
-    b = gconf_client_get_bool (p->gconf_client, PREF_STATUSBAR_VISIBLE, NULL);
+    b = g_settings_get_boolean (p->settings, PREF_STATUSBAR_VISIBLE);
     prefs_set_statusbar_visible (p, b);
 
-    b = gconf_client_get_bool (p->gconf_client, PREF_QUIZ_ANSWERBAR_VISIBLE, NULL);
+    b = g_settings_get_boolean (p->settings, PREF_QUIZ_ANSWERBAR_VISIBLE);
     prefs_set_quiz_answer_bar_visible (p, b);
 
-    b = gconf_client_get_bool (p->gconf_client, PREF_EDITOR_TAGBAR_VISIBLE, NULL);
+    b = g_settings_get_boolean (p->settings, PREF_EDITOR_TAGBAR_VISIBLE);
     prefs_set_editor_tag_bar_visible (p, b);
 
-    w = gconf_client_get_int (p->gconf_client, PREF_QUIZ_WIDTH, NULL);
-    h = gconf_client_get_int (p->gconf_client, PREF_QUIZ_HEIGHT, NULL);
+    w = g_settings_get_int (p->settings, PREF_QUIZ_WIDTH);
+    h = g_settings_get_int (p->settings, PREF_QUIZ_HEIGHT);
     prefs_set_quiz_size (p, w, h);
 
-    w = gconf_client_get_int (p->gconf_client, PREF_TAGGER_WIDTH, NULL);
-    h = gconf_client_get_int (p->gconf_client, PREF_TAGGER_HEIGHT, NULL);
+    w = g_settings_get_int (p->settings, PREF_TAGGER_WIDTH);
+    h = g_settings_get_int (p->settings, PREF_TAGGER_HEIGHT);
     prefs_set_tagger_size (p, w, h);
 
-    s = gconf_client_get_string (p->gconf_client, PREF_CARD_FONT, NULL);
+    s = g_settings_get_string (p->settings, PREF_CARD_FONT);
     prefs_set_card_font (p, s ? s : DEFAULT_CARD_FONT);
     g_free (s);
 
-    s = gconf_client_get_string (p->gconf_client, PREF_CARD_COLORS, NULL);
+    s = g_settings_get_string (p->settings, PREF_CARD_COLORS);
     prefs_csvstr_to_colors (p, s ? s : DEFAULT_CARD_COLORS);
     g_free (s);
 
-    s = gconf_client_get_string (p->gconf_client, PREF_SCHEDULES, NULL);
+    s = g_settings_get_string (p->settings, PREF_SCHEDULES);
     prefs_csvstr_to_schedules (p, s ? s : DEFAULT_SCHEDULES);
     g_free (s);
 
-    if ((s = gconf_client_get_string (p->gconf_client, PREF_WORKDIR, NULL)))
+    if ((s = g_settings_get_string (p->settings, PREF_WORKDIR)))
         prefs_set_workdir (p, s);
 
-    b = gconf_client_get_bool (p->gconf_client, PREF_FIND_WITH_REGEX, NULL);
+    b = g_settings_get_boolean (p->settings, PREF_FIND_WITH_REGEX);
     prefs_set_find_with_regex (p, b);
 
-    b = gconf_client_get_bool (p->gconf_client, PREF_BACKUP, NULL);
+    b = g_settings_get_boolean (p->settings, PREF_BACKUP);
     prefs_set_backup (p, b);
 
     p->confirm_empty_trash = TRUE;
-    b = gconf_client_get_bool (p->gconf_client, PREF_CONFIRM_EMPTY_TRASH, NULL);
+    b = g_settings_get_boolean (p->settings, PREF_CONFIRM_EMPTY_TRASH);
     prefs_set_confirm_empty_trash (p, b);
 
-    i = gconf_client_get_int (p->gconf_client, PREF_LATEX_DPI, NULL);
+    i = g_settings_get_int (p->settings, PREF_LATEX_DPI);
     prefs_set_latex_dpi (p, i);
 
     return p;

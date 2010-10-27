@@ -48,11 +48,12 @@ AC_SUBST(PACKAGE_LIBS)
 PKG_PROG_PKG_CONFIG
 GNOME_DOC_INIT
 
+GLIB_GSETTINGS
+
 dnl ************************************
 
 LIBGTK_REQUIRED=2.91
 LIBXSLT_REQUIRED=1.1.26
-GCONF_REQUIRED=2.28.1
 GSTREAMER_REQUIRED=0.10.28
 
 dnl ************************************
@@ -60,11 +61,8 @@ dnl ************************************
 PKG_CHECK_MODULES(PACKAGE, \
     gtk+-3.0 >= $LIBGTK_REQUIRED            \
     libxslt >= $LIBXSLT_REQUIRED            \
-    gconf-2.0 >= $GCONF_REQUIRED            \
     gstreamer-0.10 >= $GSTREAMER_REQUIRED)
 
-AM_GCONF_SOURCE_2
-AC_PATH_PROG(GCONFTOOL, gconftool-2)
 
 AC_OUTPUT([
 Makefile

@@ -25,7 +25,6 @@
 #include <config.h>
 #include <locale.h>
 #include <glib/gi18n.h>
-#include <gconf/gconf-client.h>
 #include <gst/gst.h>
 #include <signal.h>
 
@@ -279,8 +278,6 @@ main (int argc, char *argv[])
     g_option_context_add_group (context, gstreamer_group);
 
     ig = g_new0 (Ignuit, 1);
-
-    gconf_init (argc, argv, NULL);
 
     ig->today = g_date_new ();
     ig->grand = g_rand_new ();

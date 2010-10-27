@@ -16,8 +16,8 @@
 
 SUBDIRS = icons
 
-install-data-local: install-schemas update-icon-cache
-uninstall-local: uninstall-schemas update-icon-cache
+install-data-local: update-icon-cache
+uninstall-local: update-icon-cache
 
 
 #
@@ -40,35 +40,11 @@ desktop_DATA        = $(desktop_in_files:.desktop.in=.desktop)
 
 
 #
-# GConf schema
+# GSettings schema
 #
 
-@INTLTOOL_SCHEMAS_RULE@
-
-schemadir           = $(GCONF_SCHEMA_FILE_DIR)
-schema_in           = ignuit.schemas.in
-schema_DATA         = $(schema_in:.schemas.in=.schemas)
-
-install-schemas: $(schema_DATA)
-if GCONF_SCHEMAS_INSTALL
-	if test -z "$(DESTDIR)"; then \
-		for p in $(schema_DATA); do \
-			GCONF_CONFIG_SOURCE=$(GCONF_SCHEMA_CONFIG_SOURCE) \
-			gconftool-2 --makefile-install-rule $(top_builddir)/data/$$p; \
-		done; \
-	fi
-endif
-
-uninstall-schemas: $(schema_DATA)
-if GCONF_SCHEMAS_INSTALL
-	if test -z "$(DESTDIR)"; then \
-		for p in $(schema_DATA); do \
-			GCONF_CONFIG_SOURCE=$(GCONF_SCHEMA_CONFIG_SOURCE) \
-			gconftool-2 --makefile-uninstall-rule $(top_builddir)/data/$$p; \
-		done; \
-	fi
-endif
-
+gsettings_SCHEMAS   = org.jensge.ignuit.gschema.xml
+@GSETTINGS_RULES@
 
 #
 # GTK icon cache
