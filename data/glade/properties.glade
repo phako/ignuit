@@ -294,8 +294,19 @@
   </object>
   <object class="GtkListStore" id="liststore1">
     <columns>
-      <!-- column-name item text -->
+      <!-- column-name item -->
       <column type="gchararray"/>
     </columns>
+    <data>
+      <row>
+        <col id="0" translatable="yes">Centered keywords and text</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">Non-centered keywords and text</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">Non-centered text only</col>
+      </row>
+    </data>
   </object>
 </interface>

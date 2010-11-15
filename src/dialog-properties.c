@@ -290,13 +290,6 @@ dialog_properties (Ignuit *ig)
     label = GTK_WIDGET (gtk_builder_get_object (builder, "label_license"));
     gtk_label_set_mnemonic_widget (GTK_LABEL(label), d->combo_license);
 
-    gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT(d->combo_style),
-        _("Centered keywords and text"));
-    gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT(d->combo_style),
-        _("Non-centered keywords and text"));
-    gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT(d->combo_style),
-        _("Non-centered text only"));
-
     set_widget_values (d);
 
     g_signal_connect (G_OBJECT(d->window), "destroy",
