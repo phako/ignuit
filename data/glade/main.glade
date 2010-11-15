@@ -317,6 +317,18 @@
                       </object>
                     </child>
                     <child>
+                      <object class="GtkMenuItem" id="m_recent_files">
+                        <property name="visible">True</property>
+                        <property name="label" translatable="yes">Recently used files</property>
+                        <property name="use_underline">True</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkSeparatorMenuItem" id="&lt;separator&gt;">
+                        <property name="visible">True</property>
+                      </object>
+                    </child>
+                    <child>
                       <object class="GtkImageMenuItem" id="m_quit">
                         <property name="label">gtk-quit</property>
                         <property name="visible">True</property>

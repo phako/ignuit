@@ -1319,14 +1319,90 @@ cb_m_new (GtkWidget *widget, AppWin *d)
     dialog_properties_tweak ();
 }
 
+static void
+cb_recent_menu_activated (GtkRecentChooser *chooser, AppWin *d)
+{
+    GFile *gfile;
+    File *file;
+    gchar *uri;
+    GError *err = NULL;
+
+    /* Prompt for a file to open, and try to load it. If successful, close
+     * the current file and display the newly loaded one. */
+
+    dialog_editor_check_changed ();
+
+    if (!save_changes (d))
+        return;
+
+
+    uri = gtk_recent_chooser_get_current_uri (chooser);
+    gfile = g_file_new_for_uri (uri);
+    g_free (uri);
+
+
+    if ((file = fileio_load (g_file_get_path (gfile), &err)) != NULL) {
+        /* Success - replace the current file with the opened one. */
+
+        GtkTreeModel *model;
+
+        file_set_current_category (file, NULL);
+        file_free (d->ig->file, TRUE);
+        d->ig->file = file;
+
+        prefs_set_workdir_from_filename (d->ig->prefs,
+                file_get_filename (d->ig->file));
+
+        model = gtk_tree_view_get_model (d->ig->treev_cat);
+
+        g_signal_handlers_block_by_func (G_OBJECT(model),
+                G_CALLBACK(cb_category_row_inserted), d);
+
+        app_window_refresh_category_pane (d->ig);
+
+        g_signal_handlers_unblock_by_func (G_OBJECT(model),
+                G_CALLBACK(cb_category_row_inserted), d);
+
+        if (file_get_categories (d->ig->file)) {
+            app_window_select_treev_root (d->ig->treev_cat);
+        }
+        else {
+            app_window_update_sensitivity (d);
+            app_window_refresh_card_pane (d->ig,
+                    file_get_current_category_cards (d->ig->file));
+        }
+
+        app_window_update_title (d->ig);
+        dialog_editor_tweak (ED_TWEAK_ALL);
+
+        if (err != NULL) {
+
+            /* The file loaded, but not without problems. */
+
+            error_dialog (GTK_WINDOW(d->window),
+                    _("<b>Trouble loading file</b>"), err);
+            g_error_free (err);
+        }
+
+    }
+    else {
+
+        error_dialog (GTK_WINDOW(d->window),
+                _("<b>Unable to load file</b>"), err);
+
+        if (err != NULL)
+            g_error_free (err);
+
+    }
+}
 
 static void
 cb_m_open (GtkWidget *widget, AppWin *d)
 {
     GtkWidget *dialog;
+    GFile *gfile;
     File *file;
     gint result;
-    gchar *fname;
 
     /* Prompt for a file to open, and try to load it. If successful, close
      * the current file and display the newly loaded one. */
@@ -1349,14 +1425,18 @@ cb_m_open (GtkWidget *widget, AppWin *d)
     }
 
     result = gtk_dialog_run (GTK_DIALOG(dialog));
-    fname = gtk_file_chooser_get_filename (GTK_FILE_CHOOSER(dialog));
+    gfile = gtk_file_chooser_get_file (GTK_FILE_CHOOSER(dialog));
     gtk_widget_destroy (dialog);
 
-    if (result == GTK_RESPONSE_ACCEPT && fname != NULL) {
+    if (result == GTK_RESPONSE_ACCEPT && gfile != NULL) {
 
         GError *err = NULL;
 
-        if ((file = fileio_load (fname, &err)) != NULL) {
+        if ((file = fileio_load (g_file_get_path (gfile), &err)) != NULL) {
+            GtkRecentManager *recent_manager;
+
+            recent_manager = gtk_recent_manager_get_default ();
+            gtk_recent_manager_add_item (recent_manager, g_file_get_uri (gfile));
 
             /* Success - replace the current file with the opened one. */
 
@@ -1412,7 +1492,6 @@ cb_m_open (GtkWidget *widget, AppWin *d)
 
         }
     }
-    g_free (fname);
 }
 
 
@@ -2874,7 +2953,14 @@ app_window (Ignuit *ig)
     gchar *glade_file;
     GtkBuilder *builder;
     GdkColor *color;
+    GtkRecentManager *recent_manager;
+    GtkWidget *recent_menu;
+    GtkWidget *recent_files_menu;
+    GtkRecentFilter *filter;
 
+    filter = gtk_recent_filter_new ();
+
+    gtk_recent_filter_add_application (filter, g_get_application_name ());
 
     glade_file = g_build_filename (DATADIR, F_GLADE_MAIN, NULL);
     g_debug ("glade file: %s", glade_file);
@@ -2893,6 +2979,16 @@ app_window (Ignuit *ig)
     d->ig = ig;
 
     d->drag_list = NULL;
+
+    recent_manager = gtk_recent_manager_get_default ();
+
+    recent_menu = gtk_recent_chooser_menu_new_for_manager (recent_manager);
+    gtk_recent_chooser_set_filter (GTK_RECENT_CHOOSER (recent_menu), filter);
+    g_signal_connect (G_OBJECT (recent_menu), "item-activated",
+                      G_CALLBACK (cb_recent_menu_activated), d);
+
+    recent_files_menu = GTK_WIDGET(gtk_builder_get_object (builder, "m_recent_files"));
+    gtk_menu_item_set_submenu (GTK_MENU_ITEM (recent_files_menu), recent_menu);
 
     ig->app = GTK_WIDGET (gtk_builder_get_object (builder, "app"));
 
