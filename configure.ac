@@ -16,10 +16,10 @@ dnl  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 dnl  02111-1307, USA.
 
 
-AC_INIT(ignuit, 2.20.0)
+AC_INIT([ignuit],[2.20.0])
 AM_INIT_AUTOMAKE
 
-AC_PREREQ(2.52)
+AC_PREREQ([2.69])
 
 AM_MAINTAINER_MODE
 
@@ -30,7 +30,7 @@ GNOME_COMMON_INIT
 GNOME_MAINTAINER_MODE_DEFINES
 GNOME_COMPILE_WARNINGS
 
-AC_ISC_POSIX
+AC_SEARCH_LIBS([strerror],[cposix])
 AC_PROG_CC
 AM_PROG_CC_STDC
 AC_HEADER_STDC
@@ -66,7 +66,7 @@ PKG_CHECK_MODULES(PACKAGE, \
 AM_GCONF_SOURCE_2
 AC_PATH_PROG(GCONFTOOL, gconftool-2)
 
-AC_OUTPUT([
+AC_CONFIG_FILES([
 Makefile
 src/Makefile
 data/Makefile
@@ -89,4 +89,5 @@ doc/Makefile
 po/Makefile.in
 help/Makefile
 ])
+AC_OUTPUT
 
