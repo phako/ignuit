@@ -1,0 +1,76 @@
+### C ###
+# Object files
+*.o
+*.ko
+*.obj
+*.elf
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Libraries
+*.lib
+*.a
+*.la
+*.lo
+
+# Shared objects (inc. Windows DLLs)
+*.dll
+*.so
+*.so.*
+*.dylib
+
+# Executables
+*.exe
+*.out
+*.app
+*.i*86
+*.x86_64
+*.hex
+
+# Debug files
+*.dSYM/
+
+
+### Autotools ###
+# http://www.gnu.org/software/automake
+
+Makefile
+Makefile.in
+
+# http://www.gnu.org/software/autoconf
+
+/autom4te.cache
+/aclocal.m4
+/compile
+/configure
+/depcomp
+/install-sh
+/missing
+/stamp-h1
+/config.log
+/config.status
+/config.h
+/config.h.in
+/INSTALL
+
+data/*.desktop
+data/*.desktop.in
+data/ignuit.schemas
+
+help/*.omf
+
+po/*.gmo
+po/.*
+po/POTFILES
+
+doc/texinfo.tex
+
+stamp-it
+.deps
+
+src/ignuit
+
+*.swp
+*~
