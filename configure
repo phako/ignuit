@@ -693,6 +693,7 @@ USE_NLS
 EGREP
 GREP
 CPP
+WARN_CFLAGS
 am__fastdepCC_FALSE
 am__fastdepCC_TRUE
 CCDEPMODE
@@ -710,6 +711,8 @@ CPPFLAGS
 LDFLAGS
 CFLAGS
 CC
+DISABLE_DEPRECATED
+ACLOCAL_AMFLAGS
 MAINT
 MAINTAINER_MODE_FALSE
 MAINTAINER_MODE_TRUE
@@ -784,7 +787,9 @@ ac_user_opts='
 enable_option_checking
 enable_silent_rules
 enable_maintainer_mode
+enable_compile_warnings
 enable_dependency_tracking
+enable_iso_c
 enable_nls
 with_help_dir
 with_omf_dir
@@ -1438,10 +1443,13 @@ Optional Features:
   --enable-maintainer-mode
                           enable make rules and dependencies not useful (and
                           sometimes confusing) to the casual installer
+  --enable-compile-warnings=[no/minimum/yes/maximum/error]
+                          Turn on compiler warnings
   --enable-dependency-tracking
                           do not reject slow dependency extractors
   --disable-dependency-tracking
                           speeds up one-time build
+  --enable-iso-c          Try to warn if code is not ISO C
   --disable-nls           do not use Native Language Support
   --disable-scrollkeeper  do not make updates to the scrollkeeper database
   --disable-schemas-install
@@ -2897,6 +2905,28 @@ ac_config_headers="$ac_config_headers config.h"
 
 
 
+
+
+      ACLOCAL_AMFLAGS="\${ACLOCAL_FLAGS}"
+  if test -n "$ac_macro_dir"; then
+    ACLOCAL_AMFLAGS="-I $ac_macro_dir $ACLOCAL_AMFLAGS"
+  fi
+
+
+
+
+
+
+	DISABLE_DEPRECATED=""
+	if test $USE_MAINTAINER_MODE = yes; then
+	        DOMAINS="GCONF BONOBO BONOBO_UI GNOME LIBGLADE GNOME_VFS WNCK LIBSOUP"
+	        for DOMAIN in $DOMAINS; do
+	               DISABLE_DEPRECATED="$DISABLE_DEPRECATED -D${DOMAIN}_DISABLE_DEPRECATED -D${DOMAIN}_DISABLE_SINGLE_INCLUDES"
+	        done
+	fi
+
+
+
 DEPDIR="${am__leading_dot}deps"
 
 ac_config_commands="$ac_config_commands depfiles"
@@ -3934,6 +3964,128 @@ else
   am__fastdepCC_TRUE='#'
   am__fastdepCC_FALSE=
 fi
+
+
+
+
+
+    # Check whether --enable-compile-warnings was given.
+if test "${enable_compile_warnings+set}" = set; then :
+  enableval=$enable_compile_warnings;
+else
+  enable_compile_warnings="yes"
+fi
+
+
+    if test "x$GCC" != xyes; then
+	enable_compile_warnings=no
+    fi
+
+    warning_flags=
+    realsave_CFLAGS="$CFLAGS"
+
+            base_warn_flags=" \
+        -Wall \
+        -Wstrict-prototypes \
+        -Wnested-externs \
+    "
+
+                    base_error_flags=" \
+        -Werror=missing-prototypes \
+        -Werror=implicit-function-declaration \
+        -Werror=pointer-arith \
+        -Werror=init-self \
+        -Werror=format-security \
+        -Werror=format=2 \
+        -Werror=missing-include-dirs \
+    "
+
+                additional_flags=""
+
+    case "$enable_compile_warnings" in
+    no)
+        warning_flags="-w"
+        ;;
+    minimum)
+        warning_flags="-Wall"
+        ;;
+    yes|maximum|error)
+        warning_flags="$base_warn_flags $base_error_flags $additional_flags"
+        ;;
+    *)
+        as_fn_error $? "Unknown argument '$enable_compile_warnings' to --enable-compile-warnings" "$LINENO" 5
+        ;;
+    esac
+
+    if test "$enable_compile_warnings" = "error" ; then
+        warning_flags="$warning_flags -Werror"
+    fi
+
+        for option in $warning_flags; do
+	save_CFLAGS="$CFLAGS"
+	CFLAGS="$CFLAGS $option"
+	{ $as_echo "$as_me:${as_lineno-$LINENO}: checking whether gcc understands $option" >&5
+$as_echo_n "checking whether gcc understands $option... " >&6; }
+	cat confdefs.h - <<_ACEOF >conftest.$ac_ext
+/* end confdefs.h.  */
+
+int
+main ()
+{
+
+  ;
+  return 0;
+}
+_ACEOF
+if ac_fn_c_try_compile "$LINENO"; then :
+  has_option=yes
+else
+  has_option=no
+fi
+rm -f core conftest.err conftest.$ac_objext conftest.$ac_ext
+	CFLAGS="$save_CFLAGS"
+	{ $as_echo "$as_me:${as_lineno-$LINENO}: result: $has_option" >&5
+$as_echo "$has_option" >&6; }
+	if test $has_option = yes; then
+	    tested_warning_flags="$tested_warning_flags $option"
+	fi
+	unset has_option
+	unset save_CFLAGS
+    done
+    unset option
+    CFLAGS="$realsave_CFLAGS"
+    { $as_echo "$as_me:${as_lineno-$LINENO}: checking what warning flags to pass to the C compiler" >&5
+$as_echo_n "checking what warning flags to pass to the C compiler... " >&6; }
+    { $as_echo "$as_me:${as_lineno-$LINENO}: result: $tested_warning_flags" >&5
+$as_echo "$tested_warning_flags" >&6; }
+
+    # Check whether --enable-iso-c was given.
+if test "${enable_iso_c+set}" = set; then :
+  enableval=$enable_iso_c;
+else
+  enable_iso_c=no
+fi
+
+
+    { $as_echo "$as_me:${as_lineno-$LINENO}: checking what language compliance flags to pass to the C compiler" >&5
+$as_echo_n "checking what language compliance flags to pass to the C compiler... " >&6; }
+    complCFLAGS=
+    if test "x$enable_iso_c" != "xno"; then
+	if test "x$GCC" = "xyes"; then
+	case " $CFLAGS " in
+	    *\ \	-ansi\ \	*) ;;
+	    *) complCFLAGS="$complCFLAGS -ansi" ;;
+	esac
+	case " $CFLAGS " in
+	    *\ \	-pedantic\ \	*) ;;
+	    *) complCFLAGS="$complCFLAGS -pedantic" ;;
+	esac
+	fi
+    fi
+    { $as_echo "$as_me:${as_lineno-$LINENO}: result: $complCFLAGS" >&5
+$as_echo "$complCFLAGS" >&6; }
+
+    WARN_CFLAGS="$tested_warning_flags $complCFLAGS"
 
 
 
@@ -6577,16 +6729,16 @@ case "$am__api_version" in
     ;;
 esac
 
-INTLTOOL_REQUIRED_VERSION_AS_INT=`echo 0.50.0 | awk -F. '{ print $ 1 * 1000 + $ 2 * 100 + $ 3; }'`
+INTLTOOL_REQUIRED_VERSION_AS_INT=`echo 0.40.1 | awk -F. '{ print $ 1 * 1000 + $ 2 * 100 + $ 3; }'`
 INTLTOOL_APPLIED_VERSION=`intltool-update --version | head -1 | cut -d" " -f3`
 INTLTOOL_APPLIED_VERSION_AS_INT=`echo $INTLTOOL_APPLIED_VERSION | awk -F. '{ print $ 1 * 1000 + $ 2 * 100 + $ 3; }'`
-if test -n "0.50.0"; then
-    { $as_echo "$as_me:${as_lineno-$LINENO}: checking for intltool >= 0.50.0" >&5
-$as_echo_n "checking for intltool >= 0.50.0... " >&6; }
+if test -n "0.40.1"; then
+    { $as_echo "$as_me:${as_lineno-$LINENO}: checking for intltool >= 0.40.1" >&5
+$as_echo_n "checking for intltool >= 0.40.1... " >&6; }
     { $as_echo "$as_me:${as_lineno-$LINENO}: result: $INTLTOOL_APPLIED_VERSION found" >&5
 $as_echo "$INTLTOOL_APPLIED_VERSION found" >&6; }
     test "$INTLTOOL_APPLIED_VERSION_AS_INT" -ge "$INTLTOOL_REQUIRED_VERSION_AS_INT" ||
-	as_fn_error $? "Your intltool is too old.  You need intltool 0.50.0 or later." "$LINENO" 5
+	as_fn_error $? "Your intltool is too old.  You need intltool 0.40.1 or later." "$LINENO" 5
 fi
 
 # Extract the first word of "intltool-update", so it can be a program name with args.
@@ -7333,11 +7485,10 @@ fi
 
 
 
-LIBGNOMEUI_REQUIRED=2.24.5
-LIBGLADE_REQUIRED=2.6.4
-LIBXSLT_REQUIRED=1.1.28
-GCONF_REQUIRED=3.2.6
-GSTREAMER_REQUIRED=1.8.2
+LIBGTK_REQUIRED=2.24
+LIBXSLT_REQUIRED=1.1.26
+GCONF_REQUIRED=2.28.1
+GSTREAMER_REQUIRED=1.8.3
 
 
 
@@ -7350,14 +7501,12 @@ if test -n "$PACKAGE_CFLAGS"; then
  elif test -n "$PKG_CONFIG"; then
     if test -n "$PKG_CONFIG" && \
     { { $as_echo "$as_me:${as_lineno-$LINENO}: \$PKG_CONFIG --exists --print-errors \"\\
-    libgnomeui-2.0 >= \$LIBGNOMEUI_REQUIRED  \\
-    libglade-2.0 >= \$LIBGLADE_REQUIRED      \\
+    gtk+-2.0 >= \$LIBGTK_REQUIRED            \\
     libxslt >= \$LIBXSLT_REQUIRED            \\
     gconf-2.0 >= \$GCONF_REQUIRED            \\
     gstreamer-1.0 >= \$GSTREAMER_REQUIRED\""; } >&5
   ($PKG_CONFIG --exists --print-errors "\
-    libgnomeui-2.0 >= $LIBGNOMEUI_REQUIRED  \
-    libglade-2.0 >= $LIBGLADE_REQUIRED      \
+    gtk+-2.0 >= $LIBGTK_REQUIRED            \
     libxslt >= $LIBXSLT_REQUIRED            \
     gconf-2.0 >= $GCONF_REQUIRED            \
     gstreamer-1.0 >= $GSTREAMER_REQUIRED") 2>&5
@@ -7365,8 +7514,7 @@ if test -n "$PACKAGE_CFLAGS"; then
   $as_echo "$as_me:${as_lineno-$LINENO}: \$? = $ac_status" >&5
   test $ac_status = 0; }; then
   pkg_cv_PACKAGE_CFLAGS=`$PKG_CONFIG --cflags "\
-    libgnomeui-2.0 >= $LIBGNOMEUI_REQUIRED  \
-    libglade-2.0 >= $LIBGLADE_REQUIRED      \
+    gtk+-2.0 >= $LIBGTK_REQUIRED            \
     libxslt >= $LIBXSLT_REQUIRED            \
     gconf-2.0 >= $GCONF_REQUIRED            \
     gstreamer-1.0 >= $GSTREAMER_REQUIRED" 2>/dev/null`
@@ -7382,14 +7530,12 @@ if test -n "$PACKAGE_LIBS"; then
  elif test -n "$PKG_CONFIG"; then
     if test -n "$PKG_CONFIG" && \
     { { $as_echo "$as_me:${as_lineno-$LINENO}: \$PKG_CONFIG --exists --print-errors \"\\
-    libgnomeui-2.0 >= \$LIBGNOMEUI_REQUIRED  \\
-    libglade-2.0 >= \$LIBGLADE_REQUIRED      \\
+    gtk+-2.0 >= \$LIBGTK_REQUIRED            \\
     libxslt >= \$LIBXSLT_REQUIRED            \\
     gconf-2.0 >= \$GCONF_REQUIRED            \\
     gstreamer-1.0 >= \$GSTREAMER_REQUIRED\""; } >&5
   ($PKG_CONFIG --exists --print-errors "\
-    libgnomeui-2.0 >= $LIBGNOMEUI_REQUIRED  \
-    libglade-2.0 >= $LIBGLADE_REQUIRED      \
+    gtk+-2.0 >= $LIBGTK_REQUIRED            \
     libxslt >= $LIBXSLT_REQUIRED            \
     gconf-2.0 >= $GCONF_REQUIRED            \
     gstreamer-1.0 >= $GSTREAMER_REQUIRED") 2>&5
@@ -7397,8 +7543,7 @@ if test -n "$PACKAGE_LIBS"; then
   $as_echo "$as_me:${as_lineno-$LINENO}: \$? = $ac_status" >&5
   test $ac_status = 0; }; then
   pkg_cv_PACKAGE_LIBS=`$PKG_CONFIG --libs "\
-    libgnomeui-2.0 >= $LIBGNOMEUI_REQUIRED  \
-    libglade-2.0 >= $LIBGLADE_REQUIRED      \
+    gtk+-2.0 >= $LIBGTK_REQUIRED            \
     libxslt >= $LIBXSLT_REQUIRED            \
     gconf-2.0 >= $GCONF_REQUIRED            \
     gstreamer-1.0 >= $GSTREAMER_REQUIRED" 2>/dev/null`
@@ -7423,15 +7568,13 @@ else
 fi
         if test $_pkg_short_errors_supported = yes; then
 	        PACKAGE_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "\
-    libgnomeui-2.0 >= $LIBGNOMEUI_REQUIRED  \
-    libglade-2.0 >= $LIBGLADE_REQUIRED      \
+    gtk+-2.0 >= $LIBGTK_REQUIRED            \
     libxslt >= $LIBXSLT_REQUIRED            \
     gconf-2.0 >= $GCONF_REQUIRED            \
     gstreamer-1.0 >= $GSTREAMER_REQUIRED" 2>&1`
         else
 	        PACKAGE_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "\
-    libgnomeui-2.0 >= $LIBGNOMEUI_REQUIRED  \
-    libglade-2.0 >= $LIBGLADE_REQUIRED      \
+    gtk+-2.0 >= $LIBGTK_REQUIRED            \
     libxslt >= $LIBXSLT_REQUIRED            \
     gconf-2.0 >= $GCONF_REQUIRED            \
     gstreamer-1.0 >= $GSTREAMER_REQUIRED" 2>&1`
@@ -7440,8 +7583,7 @@ fi
 	echo "$PACKAGE_PKG_ERRORS" >&5
 
 	as_fn_error $? "Package requirements (\
-    libgnomeui-2.0 >= $LIBGNOMEUI_REQUIRED  \
-    libglade-2.0 >= $LIBGLADE_REQUIRED      \
+    gtk+-2.0 >= $LIBGTK_REQUIRED            \
     libxslt >= $LIBXSLT_REQUIRED            \
     gconf-2.0 >= $GCONF_REQUIRED            \
     gstreamer-1.0 >= $GSTREAMER_REQUIRED) were not met:

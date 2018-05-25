@@ -23,9 +23,7 @@
 
 
 #include <config.h>
-#include <gnome.h>
 #include <glib/gi18n.h>
-#include <glade/glade.h>
 
 #include "main.h"
 #include "file.h"
@@ -177,7 +175,7 @@ dialog_category_properties (Ignuit *ig, GtkWidget *m_checkbox_fixed)
     Dialog    *d;
     GtkWidget *label, *hbox;
     GtkWidget *b_close, *b_revert;
-    GladeXML  *glade_xml;
+    GtkBuilder *builder;
     gchar     *glade_file;
     gint i;
 
@@ -187,9 +185,7 @@ dialog_category_properties (Ignuit *ig, GtkWidget *m_checkbox_fixed)
         return;
     }
 
-    glade_file = gnome_program_locate_file (ig->program,
-        GNOME_FILE_DOMAIN_APP_DATADIR, F_GLADE_CATEGORY_PROPERTIES,
-        TRUE, NULL);
+    glade_file = g_build_filename (DATADIR, F_GLADE_CATEGORY_PROPERTIES, NULL);
 
     if (glade_file == NULL) {
         g_warning ("Can't find file: %s\n", F_GLADE_CATEGORY_PROPERTIES);
@@ -198,24 +194,25 @@ dialog_category_properties (Ignuit *ig, GtkWidget *m_checkbox_fixed)
 
     dialog = d = g_new0 (Dialog, 1);
 
-    glade_xml = glade_xml_new (glade_file, NULL, NULL);
+    builder = gtk_builder_new ();
+    gtk_builder_add_from_file (builder, glade_file, NULL);
     g_free (glade_file);
 
     d->ig = ig;
 
-    d->window = glade_xml_get_widget (glade_xml, "dialog");
-    d->entry_title = glade_xml_get_widget (glade_xml, "entry_title");
-    d->entry_comment = glade_xml_get_widget (glade_xml, "entry_comment");
-    d->checkbox_fixed = glade_xml_get_widget (glade_xml, "checkbutton");
+    d->window = GTK_WIDGET (gtk_builder_get_object (builder, "dialog"));
+    d->entry_title = GTK_WIDGET (gtk_builder_get_object (builder, "entry_title"));
+    d->entry_comment = GTK_WIDGET (gtk_builder_get_object (builder, "entry_comment"));
+    d->checkbox_fixed = GTK_WIDGET (gtk_builder_get_object (builder, "checkbutton"));
 
     d->m_checkbox_fixed = m_checkbox_fixed;
 
-    b_revert = glade_xml_get_widget (glade_xml, "b_revert");
-    b_close = glade_xml_get_widget (glade_xml, "b_close");
+    b_revert = GTK_WIDGET (gtk_builder_get_object (builder, "b_revert"));
+    b_close = GTK_WIDGET (gtk_builder_get_object (builder, "b_close"));
 
-    label = glade_xml_get_widget (glade_xml, "label_title");
+    label = GTK_WIDGET (gtk_builder_get_object (builder, "label_title"));
     gtk_label_set_mnemonic_widget (GTK_LABEL(label), d->entry_title);
-    label = glade_xml_get_widget (glade_xml, "label_comment");
+    label = GTK_WIDGET (gtk_builder_get_object (builder, "label_comment"));
     gtk_label_set_mnemonic_widget (GTK_LABEL(label), d->entry_comment);
 
     set_widget_values (d);
@@ -238,6 +235,6 @@ dialog_category_properties (Ignuit *ig, GtkWidget *m_checkbox_fixed)
 
     gtk_widget_show_all (d->window);
 
-    g_object_unref (G_OBJECT(glade_xml));
+    g_object_unref (G_OBJECT(builder));
 }
 

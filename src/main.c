@@ -28,6 +28,7 @@
 #include <gconf/gconf-client.h>
 #include <gst/gst.h>
 #include <signal.h>
+#include <stdlib.h>
 
 #include "main.h"
 #include "file.h"

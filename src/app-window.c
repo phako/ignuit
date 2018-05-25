@@ -3288,13 +3288,13 @@ app_window (Ignuit *ig)
     d->m_remove_category = GTK_WIDGET (gtk_builder_get_object (builder, "m_remove_category"));
     d->m_edit_tags = GTK_WIDGET (gtk_builder_get_object (builder, "m_edit_tags"));
     d->m_flag = GTK_WIDGET (gtk_builder_get_object (builder, "m_flag"));
-    d->m_category_previous = GTK_WIDGET (gtk_builder_get_object (builder, "m_category_previous");
-    d->m_category_next =  GTK_WIDGET (gtk_builder_get_object (builder, "m_category_next");
+    d->m_category_previous = GTK_WIDGET (gtk_builder_get_object (builder, "m_category_previous"));
+    d->m_category_next =  GTK_WIDGET (gtk_builder_get_object (builder, "m_category_next"));
     d->m_switch_sides = GTK_WIDGET (gtk_builder_get_object (builder, "m_switch_sides"));
     m_preferences = GTK_WIDGET (gtk_builder_get_object (builder, "m_preferences"));
 
     d->m_start_quiz = GTK_WIDGET (gtk_builder_get_object (builder, "m_start_quiz"));
-    d->m_start_drill =  GTK_WIDGET (gtk_builder_get_object (builder, "m_start_drill");
+    d->m_start_drill =  GTK_WIDGET (gtk_builder_get_object (builder, "m_start_drill"));
 
     d->r_quiz_category_selection = GTK_WIDGET (gtk_builder_get_object (builder, "r_all_categories"));
     d->quiz_category_group = gtk_radio_menu_item_get_group
@@ -3310,21 +3310,21 @@ app_window (Ignuit *ig)
     d->quiz_face_group = gtk_radio_menu_item_get_group
         (GTK_RADIO_MENU_ITEM(d->r_quiz_face_selection));
 
-    d->m_quiz_in_order =  GTK_WIDGET (gtk_builder_get_object (builder,  "m_quiz_in_order");
+    d->m_quiz_in_order =  GTK_WIDGET (gtk_builder_get_object (builder,  "m_quiz_in_order"));
     g_signal_connect (G_OBJECT(d->m_quiz_in_order), "toggled",
-    m_help = GTK_WIDGET (gtk_builder_get_object (builder, "m_help"));
-    m_about = GTK_WIDGET (gtk_builder_get_object (builder, "m_about"));
         G_CALLBACK(cb_m_quiz_in_order), d);
     gtk_check_menu_item_set_active (GTK_CHECK_MENU_ITEM(d->m_quiz_in_order),
         FALSE);
 
+    m_help = GTK_WIDGET (gtk_builder_get_object (builder, "m_help"));
+    m_about = GTK_WIDGET (gtk_builder_get_object (builder, "m_about"));
 
     t_new = GTK_WIDGET (gtk_builder_get_object (builder, "t_new"));
     t_open = GTK_WIDGET (gtk_builder_get_object (builder, "t_open"));
     d->ig->t_save = GTK_WIDGET (gtk_builder_get_object (builder, "t_save"));
     d->t_find = GTK_WIDGET (gtk_builder_get_object (builder, "t_find"));
-    d->t_category_previous = GTK_WIDGET (gtk_builder_get_object (builder, "t_category_previous");
-    d->t_category_next = GTK_WIDGET (gtk_builder_get_object (builder, "t_category_next");
+    d->t_category_previous = GTK_WIDGET (gtk_builder_get_object (builder, "t_category_previous"));
+    d->t_category_next = GTK_WIDGET (gtk_builder_get_object (builder, "t_category_next"));
     d->t_start_quiz = GTK_WIDGET (gtk_builder_get_object (builder, "t_start_quiz"));
 
 #if 0
@@ -3395,17 +3395,17 @@ app_window (Ignuit *ig)
     g_signal_connect (G_OBJECT(w), "activate",
         G_CALLBACK(cb_m_remove_category), d);
 
-    w = GTK_WIDGET (gtk_builder_get_object (builder, "m_category_properties");
+    w = GTK_WIDGET (gtk_builder_get_object (builder, "m_category_properties"));
     d->m_category_properties = w;
     g_signal_connect (G_OBJECT(w), "activate",
         G_CALLBACK(cb_m_category_properties), d);
 
-    w = GTK_WIDGET (gtk_builder_get_object (builder, "m_category_popup_properties");
+    w = GTK_WIDGET (gtk_builder_get_object (builder, "m_category_popup_properties"));
     d->m_category_popup_properties = w;
     g_signal_connect (G_OBJECT(w), "activate",
         G_CALLBACK(cb_m_category_properties), d);
 
-    w = GTK_WIDGET (gtk_builder_get_object (builder, "m_category_popup_toggle_fixed_order");
+    w = GTK_WIDGET (gtk_builder_get_object (builder, "m_category_popup_toggle_fixed_order"));
     d->m_category_popup_toggle_fixed_order = w;
     g_signal_connect (G_OBJECT(w), "toggled",
         G_CALLBACK(cb_m_category_toggle_fixed_order), d);

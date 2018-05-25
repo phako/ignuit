@@ -26,6 +26,7 @@
 #include <glib.h>
 #include <glib/gstdio.h>
 #include <string.h>
+#include <stdlib.h>
 
 #include "main.h"
 #include "prefs.h"

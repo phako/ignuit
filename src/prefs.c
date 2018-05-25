@@ -25,6 +25,7 @@
 #include <config.h>
 #include <glib/gi18n.h>
 #include <gconf/gconf-client.h>
+#include <stdlib.h>
 
 #include "main.h"
 #include "prefs.h"
