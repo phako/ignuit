@@ -1,6 +1,6 @@
 /* main.h
  *
- * Copyright (C) 2008, 2009 Timothy Richard Musson
+ * Copyright (C) 2008, 2009, 2016 Timothy Richard Musson
  *
  * Email: <trmusson@gmail.com>
  * WWW:   http://homepages.ihug.co.nz/~trmusson/programs.html#ignuit
@@ -91,6 +91,14 @@ typedef enum {
 } QuizSelectFace;
 
 
+typedef enum {
+
+    QUIZ_MODE_NORMAL = 0,
+    QUIZ_MODE_DRILL
+
+} QuizMode;
+
+
 typedef struct _QuizInfo QuizInfo;
 
 struct _QuizInfo {
@@ -127,6 +135,11 @@ struct _Ignuit {
 
     GtkWidget    *m_remove_category;
     GtkWidget    *b_remove_category;
+    GtkWidget    *m_category_previous;
+    GtkWidget    *m_category_next;
+    GtkWidget    *t_category_previous;
+    GtkWidget    *t_category_next;
+    GtkWidget    *m_category_properties;
     GtkWidget    *m_add_card;
     GtkWidget    *b_add_card;
     GtkWidget    *m_find;
@@ -134,6 +147,7 @@ struct _Ignuit {
     GtkWidget    *m_save;
     GtkWidget    *t_save;
     GtkWidget    *m_start_quiz;
+    GtkWidget    *m_start_drill;
     GtkWidget    *t_start_quiz;
     GtkWidget    *m_find_flagged;
     GtkWidget    *m_find_all;
@@ -151,6 +165,11 @@ struct _Ignuit {
     GtkWidget    *m_card_popup_switch_sides;
     GtkWidget    *m_card_popup_reset_stats;
     GtkWidget    *m_card_popup_paste;
+
+    GtkWidget    *m_category_popup_rename;
+    GtkWidget    *m_category_popup_remove;
+    GtkWidget    *m_category_popup_toggle_fixed_order;
+    GtkWidget    *m_category_popup_properties;
 
     gchar        *color_expiry;
     gchar        *color_plain;

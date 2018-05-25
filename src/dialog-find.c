@@ -1,7 +1,7 @@
 /* ignuit - Educational software for the GNOME, following the Leitner
  * flash-card system.
  *
- * Copyright (C) 2008, 2009 Timothy Richard Musson
+ * Copyright (C) 2008, 2009, 2016 Timothy Richard Musson
  *
  * Email: <trmusson@gmail.com>
  * WWW:   http://homepages.ihug.co.nz/~trmusson/programs.html#ignuit
@@ -31,6 +31,7 @@
 #include "file.h"
 #include "app-window.h"
 #include "dialog-editor.h"
+#include "dialog-category-properties.h"
 #include "dialog-find.h"
 
 
@@ -276,6 +277,7 @@ cb_find (GtkWidget *widget, Dialog *d)
         return;
 
     dialog_editor_check_changed ();
+    dialog_category_properties_close ();
 
     if (text[0] != '\0') {
 
@@ -378,6 +380,7 @@ cb_find (GtkWidget *widget, Dialog *d)
 
     gtk_widget_set_sensitive (d->ig->m_remove_category, FALSE);
     gtk_widget_set_sensitive (d->ig->b_remove_category, FALSE);
+    gtk_widget_set_sensitive (d->ig->m_category_properties, FALSE);
     gtk_widget_set_sensitive (d->ig->m_add_card, FALSE);
     gtk_widget_set_sensitive (d->ig->b_add_card, FALSE);
     gtk_widget_set_sensitive (d->ig->m_edit_tags, cards != NULL);
@@ -385,6 +388,11 @@ cb_find (GtkWidget *widget, Dialog *d)
     gtk_widget_set_sensitive (d->ig->m_switch_sides, cards != NULL);
     gtk_widget_set_sensitive (d->ig->m_reset_stats, cards != NULL);
     gtk_widget_set_sensitive (d->ig->m_paste_card, FALSE);
+
+    gtk_widget_set_sensitive (d->ig->m_category_popup_rename, FALSE);
+    gtk_widget_set_sensitive (d->ig->m_category_popup_remove, FALSE);
+    gtk_widget_set_sensitive (d->ig->m_category_popup_toggle_fixed_order, FALSE);
+    gtk_widget_set_sensitive (d->ig->m_category_popup_properties, FALSE);
 
     gtk_widget_set_sensitive (d->ig->m_card_popup_edit_tags, cards != NULL);
     gtk_widget_set_sensitive (d->ig->m_card_popup_flag, cards != NULL);

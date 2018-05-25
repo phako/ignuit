@@ -25,7 +25,7 @@
 #define HAVE_DIALOG_QUIZ_H
 
 
-void dialog_quiz (Ignuit *ig);
+void dialog_quiz (Ignuit *ig, QuizMode quiz_mode);
 void dialog_quiz_set_sensitive (gboolean sensitive);
 
 

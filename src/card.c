@@ -604,7 +604,7 @@ void
 category_free (Category *cat, gboolean free_cards)
 {
     g_free (cat->title);
-	g_free (cat->comment);
+    g_free (cat->comment);
     card_list_free (cat->cards, free_cards);
     g_free (cat);
 }

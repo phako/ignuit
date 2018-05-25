@@ -108,6 +108,8 @@ typedef struct {
     gint                n_quizitems;
     gint                n;
 
+    QuizMode            quiz_mode;
+
     GDate               date_tested;
     gint                time_tested;
 
@@ -465,7 +467,7 @@ set_interface_sensitivity (Dialog *d)
     gtk_widget_set_sensitive (GTK_WIDGET(d->b_clear_answer_bar), !last);
 
     gtk_widget_set_sensitive (GTK_WIDGET(d->chk_store),
-        d->n_quizitems > 0);
+        d->quiz_mode == QUIZ_MODE_NORMAL && d->n_quizitems > 0);
 }
 
 
@@ -973,7 +975,7 @@ update_title (void)
 
 
 void
-dialog_quiz (Ignuit *ig)
+dialog_quiz (Ignuit *ig, QuizMode quiz_mode)
 {
     Dialog    *d;
     GtkWidget *label, *m_close, *b_close_answer_bar;
@@ -996,6 +998,8 @@ dialog_quiz (Ignuit *ig)
     g_free (glade_file);
 
     d->ig = ig;
+
+    d->quiz_mode = quiz_mode;
 
     d->cardview_selected = NULL;
  
@@ -1148,7 +1152,8 @@ dialog_quiz (Ignuit *ig)
         (glade_xml, "statusbar");
     d->sbcid = gtk_statusbar_get_context_id (d->statusbar, "quiz");
 
-    gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON(d->chk_store), TRUE);
+    gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON(d->chk_store),
+        d->quiz_mode == QUIZ_MODE_NORMAL);
 
     g_signal_connect (G_OBJECT(d->window), "delete-event",
         G_CALLBACK(cb_window_delete), d);

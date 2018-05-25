@@ -1,4 +1,27 @@
 
+2016-04-04  Tim Musson  <trmusson@gmail.com>
+
+    * configure.ac:
+      - Version to 2.24.2
+
+    * po/POTFILES.in: Added data/glade/category_properties.glade to list.
+
+    * help/C/ignuit.xml: Updated user guide.
+
+    * quiz-dialog.c, app-window.c: Implemented a "drill mode" for quizzes.
+    * data/glade/main.glade: Added Previous/Next category items to toolbar and
+      menu, and a Begin Quiz in Drill Mode item to the Quiz menu.
+
+    * app-window.c (cb_m_import): When importing, preserve imported category
+      properties.
+    * app_window.c (cb_m_new, cb_m_open): Close the category properties dialog
+      prior to loading a new file, preventing crash.
+    * app_window.c (cb_m_find_simple), dialog-find.c (cb_find):
+      Keep the category properties dialog closed during search to prevent crash.
+
+    * prefs.h, data/ignuit.schemas.in: Tweaked default colour scheme.
+
+
 2016-03-25  Tim Musson  <trmusson@gmail.com>
 
     * configure.ac:

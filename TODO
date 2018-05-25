@@ -7,6 +7,7 @@ Definite goals and fixes
   the user.
 
 - A convenient way to "insert special characters" in the editor window.
+  Is there some kind of gucharmap widget, similar to a colour picker?
 
 - Read/write gzip'd files.
 
@@ -14,15 +15,10 @@ Definite goals and fixes
   files, let folks add/view/delete a LICENSE or COPYING file via the
   file properties dialog.
 
-- A menu option to temporarily sort whatever's in the card pane by:
-  - creation date
-  - alphabetical order
-  - ...?
-
 - In the tag editor window, grey out the add/remove buttons when there's
   nothing to add/remove.
 
-- Option to use wiki-like markup rather than HTML-like markup.
+- Optional wiki-like markup as well as the current HTML-like markup.
 
 - Resize embedded images (either automatically (how?), or using attributes).
 
@@ -58,10 +54,6 @@ Harder stuff that ought to happen eventually
 
 - Implement Dariusz Laska's scheduling system as a preference option.
 
-- Re-do the category and card treeview code.
-
-- Nested category tree.
-
 - General cleanup.
 
 
@@ -76,11 +68,7 @@ Possibilities
 - On the first run only, pop up a welcome dialog with a short "how to get
   started" sort of note.
 
-- Build the "Find" dialog into the main window, like the Firefox find bar.
-
 - The ability to print/save lists of words, and physical flashcards.
-
-- A command line option to start up with a quiz window only.
 
 - Ability to spell check cards.
 

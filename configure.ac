@@ -1,4 +1,4 @@
-dnl  Copyright (C) 2008, 2009, 2012, 2015 Timothy Richard Musson
+dnl  Copyright (C) 2008, 2009, 2012, 2015, 2016 Timothy Richard Musson
 dnl
 dnl  This program is free software; you can redistribute it and/or modify
 dnl  it under the terms of the GNU General Public License as published by
@@ -16,7 +16,7 @@ dnl  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 dnl  02111-1307, USA.
 
 
-AC_INIT(ignuit, 2.24.1)
+AC_INIT(ignuit, 2.24.2)
 AM_INIT_AUTOMAKE
 
 AC_PREREQ(2.52)
@@ -26,9 +26,9 @@ AM_MAINTAINER_MODE
 AM_CONFIG_HEADER(config.h)
 AC_CONFIG_SRCDIR([src])
 
-GNOME_COMMON_INIT
-GNOME_MAINTAINER_MODE_DEFINES
-GNOME_COMPILE_WARNINGS
+dnl GNOME_COMMON_INIT
+dnl GNOME_MAINTAINER_MODE_DEFINES
+dnl GNOME_COMPILE_WARNINGS
 
 AC_ISC_POSIX
 AC_PROG_CC
@@ -50,11 +50,11 @@ GNOME_DOC_INIT
 
 dnl ************************************
 
-LIBGNOMEUI_REQUIRED=2.24.3
+LIBGNOMEUI_REQUIRED=2.24.5
 LIBGLADE_REQUIRED=2.6.4
-LIBXSLT_REQUIRED=1.1.26
-GCONF_REQUIRED=2.28.1
-GSTREAMER_REQUIRED=0.10.28
+LIBXSLT_REQUIRED=1.1.28
+GCONF_REQUIRED=3.2.6
+GSTREAMER_REQUIRED=0.10.36
 
 dnl ************************************
 

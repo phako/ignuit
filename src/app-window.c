@@ -55,6 +55,8 @@ typedef struct {
     GtkTreeSelection *sel_cards;
 
     GtkWidget        *t_find;
+    GtkWidget        *t_category_previous;
+    GtkWidget        *t_category_next;
     GtkWidget        *t_start_quiz;
 
     GtkWidget        *m_reset_stats;
@@ -71,6 +73,8 @@ typedef struct {
     GtkWidget        *m_view_trash;
 
     GtkWidget        *m_remove_category;
+    GtkWidget        *m_category_previous;
+    GtkWidget        *m_category_next;
     GtkWidget        *m_category_properties;
 
     GtkWidget        *m_edit_tags;
@@ -78,6 +82,7 @@ typedef struct {
     GtkWidget        *m_switch_sides;
 
     GtkWidget        *m_start_quiz;
+    GtkWidget        *m_start_drill;
 
     GtkWidget        *r_quiz_category_selection;
     GSList           *quiz_category_group;
@@ -126,6 +131,8 @@ typedef struct {
 
     guint            poll_timeout_id;
 
+    GList            *last_selected_category;
+
 } AppWin;
 
 
@@ -154,6 +161,11 @@ typedef void (*FrobulationFunc)(AppWin *d, GtkTreeModel *model,
 
 static void cb_category_row_inserted (GtkTreeModel *tree_model,
     GtkTreePath *path, GtkTreeIter *iter, AppWin *d);
+
+#if 0
+static gboolean current_category_is_first (AppWin *d);
+static gboolean current_category_is_last (AppWin *d);
+#endif
 
 
 static gchar*
@@ -411,13 +423,23 @@ app_window_update_sensitivity (AppWin *d)
     gboolean category_has_cards;
     gboolean can_paste;
     gboolean can_add;
+    gboolean is_special_category;
+    gboolean have_previous_category;
+    gboolean have_next_category;
+
+
+    /* XXX: Here we sync file->category_order with the category order displayed
+     * in the category pane. Better if it was always kept in sync by the
+     * functions that manage the category pane. */
+    file_set_category_order (d->ig->file, app_window_get_category_list (d->ig));
 
     cat = file_get_current_category (d->ig->file);
 
-    can_add = !(cat == NULL
-        || file_category_is_search (d->ig->file, cat)
+    is_special_category = file_category_is_search (d->ig->file, cat)
         || file_category_is_trash (d->ig->file, cat)
-        || ig_category_is_clipboard (d->ig, cat));
+        || ig_category_is_clipboard (d->ig, cat);
+
+    can_add = !(cat == NULL || is_special_category);
 
     file_has_cards = (file_get_n_cards (d->ig->file) > 0);
     category_has_cards = (cat && category_get_n_cards (cat) > 0);
@@ -426,6 +448,7 @@ app_window_update_sensitivity (AppWin *d)
     gtk_widget_set_sensitive (d->m_find_flagged, file_has_cards);
     gtk_widget_set_sensitive (d->t_start_quiz, file_has_cards);
     gtk_widget_set_sensitive (d->m_start_quiz, file_has_cards);
+    gtk_widget_set_sensitive (d->m_start_drill, file_has_cards);
     gtk_widget_set_sensitive (d->b_add_card, can_add);
     gtk_widget_set_sensitive (d->m_add_card, can_add);
     gtk_widget_set_sensitive (d->m_card_popup_add, can_add);
@@ -439,6 +462,7 @@ app_window_update_sensitivity (AppWin *d)
     gtk_widget_set_sensitive (d->m_category_popup_properties, can_add);
     gtk_widget_set_sensitive (d->m_edit_tags, category_has_cards);
     gtk_widget_set_sensitive (d->m_category_properties, can_add);
+
     gtk_widget_set_sensitive (d->m_flag, category_has_cards);
     gtk_widget_set_sensitive (d->m_switch_sides, category_has_cards);
     gtk_widget_set_sensitive (d->m_card_popup_edit_tags,
@@ -455,6 +479,18 @@ app_window_update_sensitivity (AppWin *d)
         category_has_cards);
     gtk_widget_set_sensitive (d->m_find, file_has_cards);
     gtk_widget_set_sensitive (d->t_find, file_has_cards);
+
+    have_previous_category = !file_current_category_is_first (d->ig->file);
+    have_next_category = !file_current_category_is_last (d->ig->file);
+
+    gtk_widget_set_sensitive (d->m_category_previous, have_previous_category
+        || (is_special_category && file_has_cards));
+    gtk_widget_set_sensitive (d->m_category_next, have_next_category
+        && !is_special_category);
+    gtk_widget_set_sensitive (d->t_category_previous, have_previous_category
+        || (is_special_category && file_has_cards));
+    gtk_widget_set_sensitive (d->t_category_next, have_next_category
+        && !is_special_category);
 
     can_paste = can_add && (ig_get_clipboard (d->ig) != NULL);
 
@@ -564,10 +600,13 @@ app_window_get_category_list (Ignuit *ig)
     while (valid) {
 
         gtk_tree_model_get (model, &iter, COLUMN_CATEGORY_DATA, &item, -1);
+        g_assert (item != NULL);
+
         list = g_list_append (list, item->data);
         valid = gtk_tree_model_iter_next (model, &iter);
 
     }
+
     return list;
 }
 
@@ -812,6 +851,11 @@ app_window_select_category (Ignuit *ig, GList *item)
         sel = gtk_tree_view_get_selection (ig->treev_cat);
         gtk_tree_selection_unselect_all (sel);
         file_set_current_category (ig->file, NULL);
+
+        gtk_widget_set_sensitive (ig->m_category_previous, TRUE);
+        gtk_widget_set_sensitive (ig->m_category_next, FALSE);
+        gtk_widget_set_sensitive (ig->t_category_previous, TRUE);
+        gtk_widget_set_sensitive (ig->t_category_next, FALSE);
 
         return TRUE;
     }
@@ -1314,6 +1358,7 @@ cb_m_new (GtkWidget *widget, AppWin *d)
     /* Close the current file and create a new one. */
 
     dialog_editor_check_changed ();
+    dialog_category_properties_close ();
 
     if (!save_changes (d))
         return;
@@ -1348,6 +1393,7 @@ cb_m_open (GtkWidget *widget, AppWin *d)
      * the current file and display the newly loaded one. */
 
     dialog_editor_check_changed ();
+    dialog_category_properties_close ();
 
     if (!save_changes (d))
         return;
@@ -1632,6 +1678,8 @@ cb_m_import (GtkWidget *widget, AppWin *d)
                 GList *c;
 
                 cat = category_new (category_get_title (CATEGORY(cur)));
+                category_set_comment (cat, category_get_comment (CATEGORY(cur)));
+                category_set_fixed_order (cat, category_is_fixed_order (CATEGORY(cur)));
 
                 file_add_category (d->ig->file, cat);
                 file_set_current_category (d->ig->file, cat);
@@ -1890,6 +1938,7 @@ cb_m_find_simple (GtkWidget *widget, AppWin *d)
     /* This is used by "Find All", "Find Flagged", and "View Trash". */
 
     dialog_editor_check_changed ();
+    dialog_category_properties_close ();
 
     file_clear_search (d->ig->file, TRUE);
 
@@ -2040,6 +2089,120 @@ cb_m_remove_category (GtkWidget *widget, AppWin *d)
         }
 
         app_window_update_sensitivity (d);
+    }
+}
+
+
+#if 0
+static gboolean
+current_category_is_first (AppWin *d)
+{
+    GtkTreeModel *model;
+    GtkTreeIter iter;
+    GtkTreePath *path;
+    gboolean is_first;
+
+    if (gtk_tree_selection_get_selected (d->sel_categories, &model, &iter)) {
+
+        model = gtk_tree_view_get_model (d->ig->treev_cat);
+        path = gtk_tree_model_get_path (model, &iter);
+
+        is_first = !gtk_tree_path_prev (path);
+
+        gtk_tree_path_free (path);
+
+        return is_first;
+
+    }
+    return TRUE;
+}
+
+
+static gboolean
+current_category_is_last (AppWin *d)
+{
+    GtkTreeModel *model;
+    GtkTreeIter iter;
+    GtkTreePath *path;
+    gboolean is_last;
+
+    return FALSE;
+    if (gtk_tree_selection_get_selected (d->sel_categories, &model, &iter)) {
+
+        model = gtk_tree_view_get_model (d->ig->treev_cat);
+        path = gtk_tree_model_get_path (model, &iter);
+
+        //is_last = !gtk_tree_path_next (path);
+
+        gtk_tree_path_free (path);
+
+        //return is_last;
+
+    }
+    return TRUE;
+}
+#endif
+
+
+static void
+cb_m_category_previous (GtkWidget *widget, AppWin *d)
+{
+    GtkTreeModel *model;
+    GtkTreeIter iter;
+    GtkTreePath *path;
+
+    if (file_current_category_is_special (d->ig->file)) {
+
+        /* If the current category is special (trash, search results),
+         * the Previous Category button takes us back to the last
+         * selected real category.
+         */
+
+        g_assert (d->last_selected_category != NULL);
+
+        app_window_select_category (d->ig, d->last_selected_category);
+        return;
+    }
+
+    if (gtk_tree_selection_get_selected (d->sel_categories, &model, &iter)) {
+
+        dialog_editor_check_changed ();
+        dialog_category_properties_check_changed ();
+
+        model = gtk_tree_view_get_model (d->ig->treev_cat);
+        path = gtk_tree_model_get_path (model, &iter);
+
+        gtk_tree_path_prev (path);
+        gtk_tree_selection_select_path (d->sel_categories, path);
+        gtk_tree_view_scroll_to_cell (d->ig->treev_cat, path, NULL,
+            TRUE, 0.5, 0.0);
+
+        gtk_tree_path_free (path);
+    }
+}
+
+
+static void
+cb_m_category_next (GtkWidget *widget, AppWin *d)
+{
+    GtkTreeModel *model;
+    GtkTreeIter iter;
+    GtkTreePath *path;
+
+    if (gtk_tree_selection_get_selected (d->sel_categories, &model, &iter)) {
+
+        dialog_editor_check_changed ();
+        dialog_category_properties_check_changed ();
+
+        model = gtk_tree_view_get_model (d->ig->treev_cat);
+        path = gtk_tree_model_get_path (model, &iter);
+
+        gtk_tree_path_next (path);
+        gtk_tree_selection_select_path (d->sel_categories, path);
+        gtk_tree_view_scroll_to_cell (d->ig->treev_cat, path, NULL,
+            TRUE, 0.5, 0.0);
+
+        gtk_tree_path_free (path);
     }
 }
 
@@ -2311,7 +2474,7 @@ get_radio_selection (GSList *group, gint n)
 
 
 static void
-cb_m_start_quiz (GtkWidget *widget, AppWin *d)
+get_quiz_settings (AppWin *d)
 {
     dialog_editor_check_changed ();
     dialog_editor_kill ();
@@ -2322,8 +2485,22 @@ cb_m_start_quiz (GtkWidget *widget, AppWin *d)
         (d->quiz_card_group, QUIZ_N_CARD_SELECTIONS);
     d->ig->quizinfo.face_selection = get_radio_selection
         (d->quiz_face_group, QUIZ_N_FACE_SELECTIONS);
+}
 
-    dialog_quiz (d->ig);
+
+static void
+cb_m_start_quiz (GtkWidget *widget, AppWin *d)
+{
+    get_quiz_settings (d);
+    dialog_quiz (d->ig, QUIZ_MODE_NORMAL);
+}
+
+
+static void
+cb_m_start_drill (GtkWidget *widget, AppWin *d)
+{
+    get_quiz_settings (d);
+    dialog_quiz (d->ig, QUIZ_MODE_DRILL);
 }
 
 
@@ -2493,6 +2670,8 @@ cb_treev_category_selection (GtkTreeSelection *sel, AppWin *d)
 
         if (cat == NULL)
             return;
+
+        d->last_selected_category = item;
 
         g_signal_handlers_block_by_func (G_OBJECT(d->m_category_popup_toggle_fixed_order),
             G_CALLBACK(cb_m_category_toggle_fixed_order), d);
@@ -3004,12 +3183,15 @@ app_window (Ignuit *ig)
     d->m_view_trash = glade_xml_get_widget (glade_xml, "m_view_trash");
     m_add_category = glade_xml_get_widget (glade_xml, "m_add_category");
     d->m_remove_category = glade_xml_get_widget (glade_xml, "m_remove_category");
+    d->m_category_previous = glade_xml_get_widget (glade_xml, "m_category_previous");
+    d->m_category_next = glade_xml_get_widget (glade_xml, "m_category_next");
     d->m_edit_tags = glade_xml_get_widget (glade_xml, "m_edit_tags");
     d->m_flag = glade_xml_get_widget (glade_xml, "m_flag");
     d->m_switch_sides = glade_xml_get_widget (glade_xml, "m_switch_sides");
     m_preferences = glade_xml_get_widget (glade_xml, "m_preferences");
 
     d->m_start_quiz = glade_xml_get_widget (glade_xml, "m_start_quiz");
+    d->m_start_drill = glade_xml_get_widget (glade_xml, "m_start_drill");
 
     d->r_quiz_category_selection = glade_xml_get_widget (glade_xml,
         "r_all_categories");
@@ -3039,6 +3221,8 @@ app_window (Ignuit *ig)
     t_open = glade_xml_get_widget (glade_xml, "t_open");
     d->ig->t_save = glade_xml_get_widget (glade_xml, "t_save");
     d->t_find = glade_xml_get_widget (glade_xml, "t_find");
+    d->t_category_previous = glade_xml_get_widget (glade_xml, "t_category_previous");
+    d->t_category_next = glade_xml_get_widget (glade_xml, "t_category_next");
     d->t_start_quiz = glade_xml_get_widget (glade_xml, "t_start_quiz");
 #if 0
     t_help = glade_xml_get_widget (glade_xml, "t_help");
@@ -3355,6 +3539,10 @@ app_window (Ignuit *ig)
         G_CALLBACK(cb_m_add_category), d);
     g_signal_connect (G_OBJECT(d->m_remove_category), "activate",
         G_CALLBACK(cb_m_remove_category), d);
+    g_signal_connect (G_OBJECT(d->m_category_previous), "activate",
+        G_CALLBACK(cb_m_category_previous), d);
+    g_signal_connect (G_OBJECT(d->m_category_next), "activate",
+        G_CALLBACK(cb_m_category_next), d);
     g_signal_connect (G_OBJECT(d->m_select_all), "activate",
         G_CALLBACK(cb_m_select_all), d);
     g_signal_connect (G_OBJECT(d->m_edit_tags), "activate",
@@ -3368,6 +3556,8 @@ app_window (Ignuit *ig)
 
     g_signal_connect (G_OBJECT(d->m_start_quiz), "activate",
         G_CALLBACK(cb_m_start_quiz), d);
+    g_signal_connect (G_OBJECT(d->m_start_drill), "activate",
+        G_CALLBACK(cb_m_start_drill), d);
 
     g_signal_connect (G_OBJECT(m_help), "activate",
         G_CALLBACK(cb_m_help), d);
@@ -3382,6 +3572,10 @@ app_window (Ignuit *ig)
         G_CALLBACK(cb_m_save), d);
     g_signal_connect (G_OBJECT(d->t_find), "clicked",
         G_CALLBACK(cb_m_find), d);
+    g_signal_connect (G_OBJECT(d->t_category_previous), "clicked",
+        G_CALLBACK(cb_m_category_previous), d);
+    g_signal_connect (G_OBJECT(d->t_category_next), "clicked",
+        G_CALLBACK(cb_m_category_next), d);
     g_signal_connect (G_OBJECT(d->t_start_quiz), "clicked",
         G_CALLBACK(cb_m_start_quiz), d);
 #if 0
@@ -3469,9 +3663,11 @@ app_window (Ignuit *ig)
 
     ig->m_remove_category = d->m_remove_category;
     ig->b_remove_category = d->b_remove_category;
+    ig->m_category_properties = d->m_category_properties;
     ig->m_add_card = d->m_add_card;
     ig->b_add_card = d->b_add_card;
     ig->m_start_quiz = d->m_start_quiz;
+    ig->m_start_drill = d->m_start_drill;
     ig->t_start_quiz = d->t_start_quiz;
     ig->m_find = d->m_find;
     ig->t_find = d->t_find;
@@ -3484,6 +3680,18 @@ app_window (Ignuit *ig)
     ig->m_reset_stats = d->m_reset_stats;
     ig->m_paste_card = d->m_paste_card;
     ig->m_select_all = d->m_select_all;
+
+    ig->m_category_popup_rename = d->m_category_popup_rename;
+    ig->m_category_popup_remove = d->m_category_popup_remove;
+    ig->m_category_popup_toggle_fixed_order = d->m_category_popup_toggle_fixed_order;
+
+    ig->m_category_previous = d->m_category_previous;
+    ig->m_category_next = d->m_category_next;
+
+    ig->t_category_previous = d->t_category_previous;
+    ig->t_category_next = d->t_category_next;
+
+    ig->m_category_popup_properties = d->m_category_popup_properties;
 
     ig->m_card_popup_paste = d->m_card_popup_paste;
     ig->m_card_popup_edit_tags = d->m_card_popup_edit_tags;

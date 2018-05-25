@@ -271,8 +271,8 @@ main (int argc, char *argv[])
     textdomain (GETTEXT_PACKAGE);
 
 #if 0
-	/* g_thread_init has been deprecated since version 2.32 and should not
-	   be used in newly-written code. This function is no longer necessary. */
+    /* g_thread_init has been deprecated since version 2.32 and should not
+       be used in newly-written code. This function is no longer necessary. */
     if (!g_thread_supported ())
         g_thread_init (NULL);
 #endif

@@ -1,4 +1,11 @@
 
+2.24.2
+
+A "drill" mode has been added.
+Category navigation is now possible when the category pane is switched off.
+Several bugs related to the new category properties dialog have been fixed.
+
+
 2.24.1
 
 Maintenance, and the addition of a category properties dialog.

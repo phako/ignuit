@@ -55,6 +55,8 @@ set_widget_values (Dialog *d)
     GtkWidget *entry;
     Category *cat;
 
+    g_assert (file_current_category_is_special (d->ig->file) != TRUE);
+
     cat = file_get_current_category (d->ig->file);
     g_assert (cat != NULL);
 
