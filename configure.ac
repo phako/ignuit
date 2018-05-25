@@ -16,7 +16,7 @@ dnl  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 dnl  02111-1307, USA.
 
 
-AC_INIT(ignuit, 2.24.2)
+AC_INIT(ignuit, [2.24.3])
 AM_INIT_AUTOMAKE
 
 AC_PREREQ(2.52)
@@ -54,7 +54,7 @@ LIBGNOMEUI_REQUIRED=2.24.5
 LIBGLADE_REQUIRED=2.6.4
 LIBXSLT_REQUIRED=1.1.28
 GCONF_REQUIRED=3.2.6
-GSTREAMER_REQUIRED=0.10.36
+GSTREAMER_REQUIRED=1.8.2
 
 dnl ************************************
 
@@ -63,7 +63,7 @@ PKG_CHECK_MODULES(PACKAGE, \
     libglade-2.0 >= $LIBGLADE_REQUIRED      \
     libxslt >= $LIBXSLT_REQUIRED            \
     gconf-2.0 >= $GCONF_REQUIRED            \
-    gstreamer-0.10 >= $GSTREAMER_REQUIRED)
+    gstreamer-1.0 >= $GSTREAMER_REQUIRED)
 
 AM_GCONF_SOURCE_2
 AC_PATH_PROG(GCONFTOOL, gconftool-2)

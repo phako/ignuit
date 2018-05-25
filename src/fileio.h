@@ -1,6 +1,6 @@
 /* fileio.h
  *
- * Copyright (C) 2008, 2009 Timothy Richard Musson
+ * Copyright (C) 2008, 2009, 2017 Timothy Richard Musson
  *
  * Email: <trmusson@gmail.com>
  * WWW:   http://homepages.ihug.co.nz/~trmusson/programs.html#ignuit
@@ -36,10 +36,10 @@ File*       fileio_import_xml (Ignuit *ig, const gchar *fname,
                 const gchar *filter, GError **err);
 
 gboolean    fileio_export_csv (File *f, const gchar *fname,
-                gchar delimiter, GError **err);
+                gchar delimiter, gboolean excl_markup, GError **err);
 
 gboolean    fileio_export_xml (Ignuit *ig, const gchar *fname,
-                const gchar *filter, GError **err);
+                const gchar *filter, gboolean excl_markup, GError **err);
 
 
 #endif /* HAVE_FILEIO_H */

@@ -187,7 +187,7 @@
       <applyto>/apps/ignuit/card_colors</applyto>
       <owner>ignuit</owner>
       <type>string</type>
-      <default>#000000,#FFFFFF,#C5D2C8,#E0B6AF,#D0D0D0,#E36540</default>
+      <default>#000000,#FFFDCC,#C5D2C8,#E0B6AF,#D0D0D0,#E36540</default>
       <locale name="C">
         <short>Card colours</short>
         <long></long>

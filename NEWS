@@ -1,4 +1,11 @@
 
+2.24.3
+
+The application icon has been revamped (thanks Tirifto!), and an option to
+exclude native markup when exporting to CSV or TSV has been added. Build files
+were also updated.
+
+
 2.24.2
 
 A "drill" mode has been added.

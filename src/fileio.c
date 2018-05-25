@@ -1,7 +1,7 @@
 /* ignuit - Educational software for the GNOME, following the Leitner
  * flash-card system.
  *
- * Copyright (C) 2008, 2009, 2015, 2016 Timothy Richard Musson
+ * Copyright (C) 2008, 2009, 2015, 2016, 2017 Timothy Richard Musson
  *
  * Email: <trmusson@gmail.com>
  * WWW:   http://homepages.ihug.co.nz/~trmusson/programs.html#ignuit
@@ -808,7 +808,8 @@ fileio_import_xml (Ignuit *ig, const gchar *fname, const gchar *filter,
 
 
 gboolean
-fileio_export_csv (File *f, const gchar *fname, gchar delimiter, GError **err)
+fileio_export_csv (File *f, const gchar *fname, gchar delimiter,
+    gboolean excl_markup, GError **err)
 {
     GList *cur;
     Csv *csv;
@@ -825,8 +826,14 @@ fileio_export_csv (File *f, const gchar *fname, gchar delimiter, GError **err)
         c = CARD(cur);
 
         csv_row_clear (csv);
-        csv_row_add_field (csv, card_get_front (c));
-        csv_row_add_field (csv, card_get_back (c));
+        if (excl_markup) {
+            csv_row_add_field (csv, card_get_front_without_markup (c));
+            csv_row_add_field (csv, card_get_back_without_markup (c));
+        }
+        else {
+            csv_row_add_field (csv, card_get_front (c));
+            csv_row_add_field (csv, card_get_back (c));
+        }
         csv_row_add_field (csv, category_get_title (card_get_category (c)));
 
         csv_write_row (csv);
@@ -841,7 +848,7 @@ fileio_export_csv (File *f, const gchar *fname, gchar delimiter, GError **err)
 
 gboolean
 fileio_export_xml (Ignuit *ig, const gchar *fname, const gchar *filter,
-    GError **err)
+    gboolean excl_markup, GError **err)
 {
     xsltStylesheetPtr cur = NULL;
     xmlDocPtr doc, res;

@@ -1,7 +1,7 @@
 /* ignuit - Educational software for the GNOME, following the Leitner
  * flash-card system.
  *
- * Copyright (C) 2008, 2009, 2012, 2015, 2016 Timothy Richard Musson
+ * Copyright (C) 2008, 2009, 2012, 2015, 2016, 2017 Timothy Richard Musson
  *
  * Email: <trmusson@gmail.com>
  * WWW:   http://homepages.ihug.co.nz/~trmusson/programs.html#ignuit
@@ -1739,9 +1739,11 @@ cb_m_export (GtkWidget *widget, AppWin *d)
     GtkWidget *box;
     GtkWidget *combo;
     GtkWidget *label;
+    GtkWidget *chk;
     GList     *filters;
     gchar     *fname;
     gint      result, combo_selection;
+    gboolean  excl_markup;
 
 
     dialog = gtk_file_chooser_dialog_new (
@@ -1766,8 +1768,12 @@ cb_m_export (GtkWidget *widget, AppWin *d)
 
     gtk_box_pack_end (GTK_BOX(box), combo, FALSE, FALSE, 0);
 
-    label = gtk_label_new_with_mnemonic (_("Export _Filter:"));
+    label = gtk_label_new_with_mnemonic (_("Export _As:"));
     gtk_box_pack_end (GTK_BOX(box), label, FALSE, FALSE, 12);
+
+    chk = gtk_check_button_new_with_mnemonic (_("Exclude _Markup"));
+    gtk_box_pack_end (GTK_BOX(box), chk, FALSE, FALSE, 12);
+    gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON(chk), FALSE);
 
     gtk_file_chooser_set_extra_widget (GTK_FILE_CHOOSER(dialog), box);
     gtk_widget_show_all (box);
@@ -1775,6 +1781,7 @@ cb_m_export (GtkWidget *widget, AppWin *d)
     result = gtk_dialog_run (GTK_DIALOG(dialog));
     fname = gtk_file_chooser_get_filename (GTK_FILE_CHOOSER (dialog));
     combo_selection = gtk_combo_box_get_active (GTK_COMBO_BOX(combo));
+    excl_markup = gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON(chk));
     gtk_widget_destroy (dialog);
 
     if (result == GTK_RESPONSE_ACCEPT && fname != NULL) {
@@ -1786,10 +1793,10 @@ cb_m_export (GtkWidget *widget, AppWin *d)
 
         switch (combo_selection) {
         case FILTER_CSV:
-            ok = fileio_export_csv (d->ig->file, fname, ',', &err);
+            ok = fileio_export_csv (d->ig->file, fname, ',', excl_markup, &err);
             break;
         case FILTER_TSV:
-            ok = fileio_export_csv (d->ig->file, fname, '\t', &err);
+            ok = fileio_export_csv (d->ig->file, fname, '\t', excl_markup, &err);
             break;
         case FILTER_NATIVE:
             changed_tmp = file_get_changed (d->ig->file);
@@ -1800,7 +1807,7 @@ cb_m_export (GtkWidget *widget, AppWin *d)
             /* >= FILTER_XSLT */
             filter = g_list_nth_data (filters,
                 combo_selection - FILTER_XSLT);
-            ok = fileio_export_xml (d->ig, fname, filter, &err);
+            ok = fileio_export_xml (d->ig, fname, filter, excl_markup, &err);
             break;
         }
 
