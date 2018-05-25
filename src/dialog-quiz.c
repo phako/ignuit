@@ -1,7 +1,7 @@
 /* ignuit - Educational software for the GNOME, following the Leitner
  * flash-card system.
  *
- * Copyright (C) 2008, 2009 Timothy Richard Musson
+ * Copyright (C) 2008, 2009, 2015 Timothy Richard Musson
  *
  * Email: <trmusson@gmail.com>
  * WWW:   http://homepages.ihug.co.nz/~trmusson/programs.html#ignuit
@@ -105,6 +105,8 @@ typedef struct {
 
     gint                n_quizitems;
     gint                n;
+
+    QuizMode            quiz_mode;
 
     GDate               date_tested;
     gint                time_tested;
@@ -257,7 +259,9 @@ get_quizitems (Dialog *d, GRand *grand)
     if (!cards) { return NULL; }
 
     quizitems = quizitems_from_cards (cards, &d->ig->quizinfo);
-    quizitems = shuffle_quizitems (grand, quizitems);
+    if (!d->ig->quizinfo.in_order) {
+        quizitems = shuffle_quizitems (grand, quizitems);
+    }
 
     switch (d->ig->quizinfo.face_selection) {
     case QUIZ_FACE_BACK:
@@ -293,8 +297,12 @@ store_quiz_results (Dialog *d, gboolean store_statistics)
                         &d->date_tested, d->time_tested, QUIZITEM(cur)->known);
 
             /* Move cards marked as "unknown" to the top in their categories. */
-            if (!QUIZITEM(cur)->known)
-                card_to_top (QCARD(cur));
+            if (!QUIZITEM(cur)->known) {
+                Card *c = QCARD(cur);
+                if (!category_is_fixed_order (card_get_category(c))) {
+                    card_to_top (c);
+                }
+            }
 
             ig_file_changed (d->ig);
 
@@ -457,7 +465,7 @@ set_interface_sensitivity (Dialog *d)
     gtk_widget_set_sensitive (GTK_WIDGET(d->b_clear_answer_bar), !last);
 
     gtk_widget_set_sensitive (GTK_WIDGET(d->chk_store),
-        d->n_quizitems > 0);
+        d->quiz_mode == QUIZ_MODE_NORMAL && d->n_quizitems > 0);
 }
 
 
@@ -965,7 +973,7 @@ update_title (void)
 
 
 void
-dialog_quiz (Ignuit *ig)
+dialog_quiz (Ignuit *ig, QuizMode quiz_mode)
 {
     Dialog     *d;
     GtkWidget  *label, *m_close, *b_close_answer_bar;
@@ -987,6 +995,8 @@ dialog_quiz (Ignuit *ig)
     g_free (glade_file);
 
     d->ig = ig;
+
+    d->quiz_mode = quiz_mode;
 
     d->cardview_selected = NULL;
  
@@ -1139,7 +1149,8 @@ dialog_quiz (Ignuit *ig)
         (builder, "statusbar");
     d->sbcid = gtk_statusbar_get_context_id (d->statusbar, "quiz");
 
-    gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON(d->chk_store), TRUE);
+    gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON(d->chk_store),
+        d->quiz_mode == QUIZ_MODE_NORMAL);
 
     g_signal_connect (G_OBJECT(d->window), "delete-event",
         G_CALLBACK(cb_window_delete), d);

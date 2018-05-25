@@ -1,6 +1,6 @@
 /* prefs.h
  *
- * Copyright (C) 2008, 2009 Timothy Richard Musson
+ * Copyright (C) 2008, 2009, 2017 Timothy Richard Musson
  *
  * Email: <trmusson@gmail.com>
  * WWW:   http://homepages.ihug.co.nz/~trmusson/programs.html#ignuit
@@ -68,7 +68,7 @@
 #define DEFAULT_CARD_COLUMN_VISIBLE "front,group,tested,expired,expiry,flagged"
 #define DEFAULT_CATEGORY_COLUMN_TITLE_WIDTH   200
 #define DEFAULT_SCHEDULES           "1,3,7,20,55,145,400,1000,1000"
-#define DEFAULT_CARD_COLORS         "#000000,#FFFFFF,#C5D2C8,#E0B6AF,#DBD0A7,#E36540"
+#define DEFAULT_CARD_COLORS         "#000000,#FFFDCC,#C5D2C8,#E0B6AF,#D0D0D0,#E36540"
 #define DEFAULT_CARD_FONT           "Sans 11"
 #define DEFAULT_LATEX_DPI           150
 

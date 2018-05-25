@@ -1,4 +1,101 @@
 
+2017-11-17  Tim Musson  <trmusson@gmail.com>
+
+    * configure.ac:
+      - Version to 2.24.3
+      - Switch from gstreamer 0.10 to 1.0
+
+    * data/icons/scalable/apps/ignuit.svg, data/icons/48x48/apps/ignuit.png:
+      - Neat new application icon by Tirifto (tirifto at openmailbox dot org)
+        Thanks! :^)
+
+    * app-window.c (cb_m_export), fileio.c (fileio_export_csv):
+      Added the option to exclude native markup when exporting CSV/TSV files.
+
+    * data/ignuit.appdata.xml: Updated.
+
+    * compile, depcomp, install-sh: Latest from gnulib.
+
+    * prefs.h, data/ignuit.schemas.in: Tweaked default colour scheme.
+
+
+2016-04-04  Tim Musson  <trmusson@gmail.com>
+
+    * configure.ac:
+      - Version to 2.24.2
+
+    * po/POTFILES.in: Added data/glade/category_properties.glade to list.
+
+    * help/C/ignuit.xml: Updated user guide.
+
+    * quiz-dialog.c, app-window.c: Implemented a "drill mode" for quizzes.
+    * data/glade/main.glade: Added Previous/Next category items to toolbar and
+      menu, and a Begin Quiz in Drill Mode item to the Quiz menu.
+
+    * app-window.c (cb_m_import): When importing, preserve imported category
+      properties.
+    * app_window.c (cb_m_new, cb_m_open): Close the category properties dialog
+      prior to loading a new file, preventing crash.
+    * app_window.c (cb_m_find_simple), dialog-find.c (cb_find):
+      Keep the category properties dialog closed during search to prevent crash.
+
+    * prefs.h, data/ignuit.schemas.in: Tweaked default colour scheme.
+
+
+2016-03-25  Tim Musson  <trmusson@gmail.com>
+
+    * configure.ac:
+      - Version to 2.24.1
+
+    * compile, depcomp, install-sh, mkinstalldirs, INSTALL: Latest from gnulib.
+
+    * dialog-find.c (cb_find): Prevent duplicate entries in search history.
+
+    * app-window.c: Added category properties UI.
+    * card.c, card.h, fileio.c: Added category->comment
+    * dialog-category-properties.h, dialog-category-properties.c,
+      data/glade/category_properties.glade:
+      New files implementing a "category properties" dialog.
+
+    * data/ignuit.appdata.xml: Added, as recommended by freedesktop.org
+    * data/Makefile.am: Install ignuit.appdata.xml
+
+
+2015-05-18  Tim Musson  <trmusson@gmail.com>
+
+    * configure.ac:
+      - Renamed from configure.in
+      - Version to 2.24.0
+      - Require intltool >= 0.50.0
+
+    * src/Makefile.am: Replaced INCLUDES with AM_CPPFLAGS.
+
+    * depcomp, install-sh, mkinstalldirs, INSTALL: Latest from gnulib.
+    * gnome-doc-utils.make: Updated from gnome-doc-utils 0.20.10
+    * configure: Regenerated using autoconf 2.69.
+
+    * main.c (main):
+      Removed deprecated call to g_thread_init.
+
+    * file.c (file_free):
+      Use GINT_TO_POINTER() rather than (gpointer).
+
+    * main.h, app-window.c, dialog-quiz.c, data/glade/main.glade:
+      A new "Quiz in Order" option in the Quiz menu can be used to disable
+      shuffling. The cards are tested in the order listed in the card pane.
+
+    * card.h, card.c, fileio.c, dialog-quiz.c, app-window.c,
+      data/glade/main.glade:
+      A new fixed_order flag lets cards remain in user-arranged order,
+      overriding ignuit's default of moving difficult cards to the top.
+      The toggle is located in the category pane's context menu.
+
+    * app-window.c (app_window_update_title):
+      Use the deck title, if available, rather than the filename.
+
+    * help/C/ignuit.xml: Described new options in manual.
+
+
 2012-02-27  Tim Musson  <trmusson@gmail.com>
 
     * configure.in:
@@ -387,7 +484,7 @@
 
 -----
 
-    Copyright (C) 2008, 2009, 2012 Timothy Richard Musson
+    Copyright (C) 2008, 2009, 2012, 2015, 2016, 2017 Timothy Richard Musson
 
     Copying and distribution of this file, with or without modification,
     are permitted provided the copyright notice and this notice are

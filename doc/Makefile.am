@@ -26,5 +26,5 @@ AM_MAKEINFOFLAGS = --no-split
 EXTRA_DIST       = $(manpage_DATA) \
                    fdl.texi
 
-DISTCLEANFILES   = ignuit.info
+#DISTCLEANFILES   = ignuit.info
 

@@ -1,6 +1,6 @@
 /* file.h
  *
- * Copyright (C) 2008, 2009 Timothy Richard Musson
+ * Copyright (C) 2008, 2009, 2015 Timothy Richard Musson
  *
  * Email: <trmusson@gmail.com>
  * WWW:   http://homepages.ihug.co.nz/~trmusson/programs.html#ignuit
@@ -44,6 +44,10 @@ typedef struct _File File;
 #define file_current_category_is_trash(f) \
         file_category_is_trash (f, file_get_current_category (f))
 
+#define file_current_category_is_special(f) \
+        (file_category_is_trash (f, file_get_current_category (f)) || \
+        file_category_is_search (f, file_get_current_category (f)))
+
 
 File*           file_new (void);
 void            file_free (File *f, gboolean free_cards);
@@ -77,6 +81,12 @@ GList*          file_add_category (File *f, Category *cat);
 GList*          file_remove_category (File *f, Category *cat);
 GList*          file_get_categories (File *f);
 GList*          file_get_current_category_cards (File *f);
+
+#if 1
+gint            file_get_n_categories (File *f);
+gboolean        file_current_category_is_first (File *f);
+gboolean        file_current_category_is_last (File *f);
+#endif
 
 Category*       file_lookup_category (File *f, const gchar *title);
 

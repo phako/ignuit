@@ -1,13 +1,28 @@
 Definite goals and fixes
 ========================
 
-- A menu option to temporarily sort whatever's in the card pane by:
-  - creation date
-  - alphabetical order
-  - ...?
+- Currently, trashed cards are permanently deleted when the program exits
+  (until then, trashed cards can be restored via "Edit -> Recently removed
+  cards"). It'd be safer to have a persistent trash that can be emptied by
+  the user.
+
+- Read/write gzip'd files.
+
+- Once there's proper support for flashcard packages containing multiple
+  files, let folks add/view/delete a LICENSE or COPYING file via the
+  file properties dialog.
+
+- The option to exclude native markup from exported files currently only
+  works when exporting to CSV/TSV.
 
 - In the tag editor window, grey out the add/remove buttons when there's
   nothing to add/remove.
+
+- Optional wiki-like markup as well as the current HTML-like markup.
+
+- Support for <ul>, <ol>, and <li>
+
+- Resize embedded images (either automatically (how?), or using attributes).
 
 - Pause/play feature for the "Listen" button.
 
@@ -26,33 +41,25 @@ Definite goals and fixes
 - Properly deal with Cut/Copy/Paste/Delete sensitivity in the card editor's
   Edit menu.
 
-- Avoid duplicate entries in the search dialog's history menu, and if a
-  previous search is re-used, move it to the top of the list.
+- Option to embed the editor and quiz dialogs in the main window vs separate
+  dialog windows.
 
 - Many of ignuit's default key combinations are not ideal; single key-presses
   would often make sense, especially in the quiz window, and ideally arranged
   for easy access.
 
-- Options to search for possible duplicate cards, and for missing audio and
+- Options to check for possible duplicate cards, and for missing audio and
   image files.
-
-- Implement Dariusz Laska's scheduling system as a preference option.
 
 
 Harder stuff that ought to happen eventually
 ============================================
 
-- Re-do the category and card treeview code.
+- An Android/Replicant version, able to sync with the GNOME desktop version.
 
-- Nested category tree.
-
-- Ability to select multiple categories.
+- Implement Dariusz Laska's scheduling system as a preference option.
 
 - General cleanup.
-
-- Merge the Quiz and Editor windows.
-
-- WYSIWYG editing.
 
 
 Possibilities
@@ -66,20 +73,14 @@ Possibilities
 - On the first run only, pop up a welcome dialog with a short "how to get
   started" sort of note.
 
-- Build the "Find" dialog into the main window, like the Firefox find bar.
-
 - The ability to print/save lists of words, and physical flashcards.
 
-- A command line option to start up with a quiz window only.
-
 - Ability to spell check cards.
-
-- Support for devices with tiny displays.
 
 
 -----
 
-    Copyright (C) 2008, 2009, 2012 Timothy Richard Musson
+    Copyright (C) 2008, 2009, 2012, 2015, 2016 Timothy Richard Musson
 
     Copying and distribution of this file, with or without modification,
     are permitted provided the copyright notice and this notice are

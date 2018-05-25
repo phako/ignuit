@@ -1,7 +1,7 @@
 /* ignuit - Educational software for the GNOME, following the Leitner
  * flash-card system.
  *
- * Copyright (C) 2008, 2009 Timothy Richard Musson
+ * Copyright (C) 2008, 2009, 2015, 2016, 2017 Timothy Richard Musson
  *
  * Email: <trmusson@gmail.com>
  * WWW:   http://homepages.ihug.co.nz/~trmusson/programs.html#ignuit
@@ -184,10 +184,21 @@ start_element_handler (GMarkupParseContext *context,
             Category *cat;
 
             parser->state = STATE_IN_CATEGORY;
+
             s = attr_value ("title", attribute_names, attribute_values);
             cat = category_new (s);
             file_add_category (parser->file, cat);
             file_set_current_category (parser->file, cat);
+
+            s = attr_value ("order", attribute_names, attribute_values);
+            if (s != NULL) {
+                category_set_fixed_order (cat, strcmp (s, "fixed") == 0);
+            }
+
+            s = attr_value ("comment", attribute_names, attribute_values);
+            if (s != NULL) {
+                category_set_comment (cat, s);
+            }
 
         }
         else {
@@ -506,9 +517,18 @@ write_category_xml (FILE *fp, Category *cat)
     gchar *s;
 
 
-    s = g_markup_printf_escaped ("%s", category_get_title (cat));
-    fprintf (fp, "<category title='%s'>\n", s);
+    s = g_markup_escape_text (category_get_title (cat), -1);
+    fprintf (fp, "<category title='%s'", s);
     g_free (s);
+
+    if (category_is_fixed_order (cat))
+        fprintf (fp, " order='fixed'");
+
+    s = g_markup_escape_text (category_get_comment (cat), -1);
+    fprintf (fp, " comment='%s'", s);
+    g_free (s);
+
+    fprintf (fp, ">\n");
 
     for (cur = category_get_cards (cat); cur != NULL; cur = cur->next)
         write_card_xml (fp, CARD(cur));
@@ -780,7 +800,8 @@ fileio_import_xml (Ignuit *ig, const gchar *fname, const gchar *filter,
 
 
 gboolean
-fileio_export_csv (File *f, const gchar *fname, gchar delimiter, GError **err)
+fileio_export_csv (File *f, const gchar *fname, gchar delimiter,
+    gboolean excl_markup, GError **err)
 {
     GList *cur;
     Csv *csv;
@@ -797,8 +818,14 @@ fileio_export_csv (File *f, const gchar *fname, gchar delimiter, GError **err)
         c = CARD(cur);
 
         csv_row_clear (csv);
-        csv_row_add_field (csv, card_get_front (c));
-        csv_row_add_field (csv, card_get_back (c));
+        if (excl_markup) {
+            csv_row_add_field (csv, card_get_front_without_markup (c));
+            csv_row_add_field (csv, card_get_back_without_markup (c));
+        }
+        else {
+            csv_row_add_field (csv, card_get_front (c));
+            csv_row_add_field (csv, card_get_back (c));
+        }
         csv_row_add_field (csv, category_get_title (card_get_category (c)));
 
         csv_write_row (csv);
@@ -813,7 +840,7 @@ fileio_export_csv (File *f, const gchar *fname, gchar delimiter, GError **err)
 
 gboolean
 fileio_export_xml (Ignuit *ig, const gchar *fname, const gchar *filter,
-    GError **err)
+    gboolean excl_markup, GError **err)
 {
     xsltStylesheetPtr cur = NULL;
     xmlDocPtr doc, res;

@@ -36,6 +36,34 @@
         <property name="accel_group">accelgroup1</property>
       </object>
     </child>
+    <child>
+      <object class="GtkSeparatorMenuItem" id="separatormenuitem5_">
+        <property name="visible">True</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkImageMenuItem" id="m_category_popup_toggle_fixed_order">
+        <property name="label" translatable="yes">Preserve Card order</property>
+        <property name="visible">True</property>
+        <property name="use_underline">True</property>
+        <property name="use_stock">True</property>
+        <property name="accel_group">accelgroup1</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkSeparatorMenuItem" id="separatormenuitem6_">
+        <property name="visible">True</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkImageMenuItem" id="m_category_popup_properties">
+        <property name="label" translatable="yes">Properties…</property>
+        <property name="visible">True</property>
+        <property name="use_underline">True</property>
+        <property name="use_stock">True</property>
+        <property name="accel_group">accelgroup1</property>
+      </object>
+    </child>
   </object>
   <object class="GtkMenu" id="popup_menu_card">
     <property name="visible">True</property>
@@ -60,6 +88,29 @@
     <child>
       <object class="GtkImageMenuItem" id="m_card_popup_edit">
         <property name="label">Edit Card...</property>
+        <property name="visible">True</property>
+        <property name="use_underline">True</property>
+        <property name="use_stock">True</property>
+        <property name="accel_group">accelgroup1</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkSeparatorMenuItem" id="separatormenuitem1_">
+        <property name="visible">True</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkImageMenuItem" id="m_category_previous">
+        <property name="label">Cut</property>
+        <property name="visible">True</property>
+        <property name="use_underline">True</property>
+        <property name="use_stock">True</property>
+        <property name="accel_group">accelgroup1</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkImageMenuItem" id="m_category_next">
+        <property name="label"></property>
         <property name="visible">True</property>
         <property name="use_underline">True</property>
         <property name="use_stock">True</property>
@@ -478,7 +529,20 @@
                         <signal name="activate" handler="on_m_delete_category_activate"/>
                       </object>
                     </child>
-                  </object>
+                    <child>
+                      <object class="GtkSeparatorMenuItem" id="separatormenuitem5_">
+                        <property name="visible">True</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkImageMenuItem" id="m_category_properties">
+                        <property name="label" translatable="yes">Properties…</property>
+                        <property name="visible">True</property>
+                        <property name="use_underline">True</property>
+                        <property name="use_stock">True</property>
+                      </object>
+                    </child>
+                </object>
                 </child>
               </object>
             </child>
@@ -757,6 +821,18 @@
                         <property name="group">r_quiz_face_front</property>
                       </object>
                     </child>
+                    <child>
+                      <object class="GtkSeparatorMenuItem" id="_separator10">
+                        <property name="visible">True</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkCheckMenuItem" id="m_quiz_in_order">
+                        <property name="visible">True</property>
+                        <property name="label" translatable="yes">Quiz in Order</property>
+                        <property name="use_underline">True</property>
+                      </object>
+                    </child>
                   </object>
                 </child>
               </object>
@@ -864,6 +940,45 @@
                     <property name="tooltip_text" translatable="yes">Find Card</property>
                     <property name="is_important">True</property>
                     <property name="stock_id">gtk-find</property>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="homogeneous">True</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkSeparatorToolItem" id="separatortoolitem2_">
+                    <property name="visible">True</property>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkToolButton" id="t_category_previous">
+                    <property name="visible">True</property>
+                    <property name="has_tooltip">True</property>
+                    <property name="tooltip_markup">Previous Category</property>
+                    <property name="tooltip_text" translatable="yes">Previous Category</property>
+                    <property name="is_important">True</property>
+                    <property name="label" translatable="yes">Previous Category</property>
+                    <property name="use_underline">True</property>
+                    <property name="icon_name">gtk-go-back</property>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="homogeneous">True</property>
+                  </packing>
+                </child>
+                  <object class="GtkToolButton" id="t_category_next">
+                    <property name="visible">True</property>
+                    <property name="has_tooltip">True</property>
+                    <property name="tooltip_markup">Next Category</property>
+                    <property name="tooltip_text" translatable="yes">Next Category</property>
+                    <property name="is_important">True</property>
+                    <property name="label" translatable="yes">Next Category</property>
+                    <property name="use_underline">True</property>
+                    <property name="icon_name">gtk-go-forward</property>
                   </object>
                   <packing>
                     <property name="expand">False</property>

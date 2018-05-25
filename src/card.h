@@ -1,6 +1,6 @@
 /* card.h
  *
- * Copyright (C) 2008, 2009 Timothy Richard Musson
+ * Copyright (C) 2008, 2009, 2015 Timothy Richard Musson
  *
  * Email: <trmusson@gmail.com>
  * WWW:   http://homepages.ihug.co.nz/~trmusson/programs.html#ignuit
@@ -139,6 +139,8 @@ void             category_free (Category *cat, gboolean free_cards);
 
 void             category_set_title (Category *cat, const gchar *title);
 const gchar*     category_get_title (Category *cat);
+void             category_set_comment (Category *cat, const gchar *comment);
+const gchar*     category_get_comment (Category *cat);
 
 void             category_prepend_card (Category *cat, Card *c);
 void             category_append_card (Category *cat, Card *c);
@@ -153,6 +155,9 @@ guint            category_get_n_untested (Category *cat);
 
 void             category_set_card_style (Category *cat, gint style);
 gint             category_get_card_style (Category *cat);
+
+void             category_set_fixed_order (Category *cat, gboolean fixed);
+gboolean         category_is_fixed_order (Category *cat);
 
 gboolean         card_tested_today (Card *c);
 

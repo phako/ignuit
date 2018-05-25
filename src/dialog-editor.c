@@ -720,6 +720,7 @@ update_main_window_sensitivity (Dialog *d)
     gtk_widget_set_sensitive (d->ig->m_switch_sides, have_current);
     gtk_widget_set_sensitive (d->ig->m_reset_stats, have_current);
     gtk_widget_set_sensitive (d->ig->m_start_quiz, file_not_empty);
+    gtk_widget_set_sensitive (d->ig->m_start_drill, file_not_empty);
     gtk_widget_set_sensitive (d->ig->t_start_quiz, file_not_empty);
 
     gtk_widget_set_sensitive (d->ig->m_card_popup_select_all, have_current);

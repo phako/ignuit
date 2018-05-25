@@ -2,9 +2,9 @@
 <!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
 "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
   <!ENTITY legal SYSTEM "legal.xml">
-  <!ENTITY appversion "0.0.16">
-  <!ENTITY manrevision "1.9">
-  <!ENTITY date "November 5th, 2009">
+  <!ENTITY appversion "2.24.2">
+  <!ENTITY manrevision "1.10">
+  <!ENTITY date "April 3rd, 2016">
   <!ENTITY app "Ignuit">
   <!-- Information about the entities
        The legal.xml file contains legal information.
@@ -28,7 +28,7 @@
     </abstract>
 
     <copyright>
-      <year>2009</year>
+      <year>2016</year>
       <holder>Timothy Musson</holder>
     </copyright>
 
@@ -139,7 +139,7 @@
 
       <title>What is the Leitner Flashcard System?</title>
 
-      <para>The Leitner flashcard system, invented by Sebastian Leitner, is an efficient way to manage time spent learning with flashcards.</para>
+      <para>This software uses a spaced repetition system devised by Sebastian Leitner to make efficient use of study time.</para>
 
       <para>In this system, you have a series of boxes numbered from one up to, let's say, eight. You begin by placing all of your flashcards in box number one. Test yourself with box one's cards daily. If you can't remember what's written on the reverse of a card, return it to box number one. If you can remember what's written on the reverse, drop the card into box number two. The cards in box two are tested every three days. Any of those that you remember can be moved to box number three, which you'll only look at every seven days. And so on, up to box eight, with increasing time intervals per box. Whenever you can't remember what's written on the back of a card, that card returns to box number one, regardless of which box it was last in.</para>
 
@@ -217,6 +217,8 @@
 
       <para>When the quiz window opens, check that its <guilabel>Record</guilabel> option is enabled. That way the program will keep track of which cards you know and which cards you have trouble with, and quiz you accordingly over time.</para>
 
+      <para>When you get to the end of a quiz, use the controls to go back and review your answers before closing the quiz window.</para>
+
     </sect2>
 
     <sect2 id="ignuit-usage-cramming">
@@ -225,9 +227,9 @@
 
       <para>If you'd like to drill yourself, or if you want to memorize information quickly for an upcoming test or exam, use the Quiz menu to select cards for testing. You'll probably be more interested in the <guilabel>All Cards</guilabel>, <guilabel>New Cards</guilabel>, or <guilabel>Selected Cards</guilabel> options than either of the <guilabel>Expired Cards</guilabel> options.</para>
 
-      <para>When the quiz window opens, make sure its <guilabel>Record</guilabel> option is disabled. Now quiz yourself repeatedly with those settings.</para>
+      <para>Now quiz yourself repeatedly using <guilabel>Begin Quiz in Drill Mode</guilabel> from the Quiz menu.</para>
 
-      <para>So long as the <guilabel>Record</guilabel> option is disabled, the repeated quizzing won't affect the box numbers or expiry dates of the quizzed cards. Only the order of the cards in the card pane will be affected, with the difficult ones rising to the top.</para>
+      <para>In Drill Mode, the repeated quizzing won't affect the box numbers or expiry dates of the quizzed cards. Only the order of the cards in the card pane will be affected, with the difficult ones rising to the top.</para>
 
     </sect2>
 
@@ -235,7 +237,9 @@
 
       <title>Tips</title>
 
-      <tip><para>After adding a group of new cards to a file, it can be helpful to drill yourself a few times with the quiz window's <guilabel>Record</guilabel> option disabled.</para></tip>
+      <tip><para>After adding a group of new cards to a file, it can be helpful to quiz yourself a few times in Drill Mode.</para></tip>
+
+      <tip><para>If you're learning a language, it's important to learn phrases, not just individual words. Short phrases help with grammar as well as vocabulary.</para></tip>
 
       <tip><para>For cards that are really hard to remember, nothing beats repeatedly writing things down on scrap paper.</para></tip>
 
@@ -273,8 +277,9 @@
         <term><guilabel>Category Pane</guilabel></term>
         <listitem>
           <para>The category pane displays a list of all categories in the file. Below the category pane are controls for adding and removing categories.</para>
-          <para>You can rename a category by double-clicking its title, or by pressing ENTER on a selected category.</para>
-          <para>You can search the category pane by selecting it and typing in your query.</para>
+          <para>You can rename a category by double-clicking its title, or by pressing ENTER on a selected category, or via the Category Properties dialog.</para>
+          <para>Right-clicking in the category pane brings up a context menu with available options.</para>
+          <para>You can search the category pane by giving it keyboard focus and typing in your query.</para>
         </listitem>
       </varlistentry>
 
@@ -282,6 +287,7 @@
         <term><guilabel>Card Pane</guilabel></term>
         <listitem>
           <para>The card pane displays a list of all cards in the selected category. The card pane is also where search results are listed. Below the card pane are controls for editing, adding and removing cards.</para>
+          <para>You can specify which columns are shown in the card pane by right-clicking on the column titles.</para>
           <para>You can search the card pane's "Front" column by selecting it and then typing in your query. More detailed searches can be made by selecting <guilabel>Find...</guilabel> from the <guilabel>Edit</guilabel> menu.</para>
         </listitem>
       </varlistentry>
@@ -293,7 +299,7 @@
       <title>Main Window Tips</title>
 
       <tip><para>If you accidentally remove a card, you can retrieve it via the <guilabel>Edit</guilabel> menu's <guilabel>Recently Removed Cards</guilabel> option. The removed card can then be dragged to the category of your choice.</para></tip>
-      <tip><para>You can specify which columns are shown in the card pane by right-clicking on the column titles.</para></tip>
+      <tip><para>By default the program manages the order of the cards in the card pane itself, moving difficult cards to the top of the window. To prevent this, right-click on relevant category titles and select <guilabel>Preserve Card Order</guilabel>. </para></tip>
 
     </sect2>
 
@@ -599,6 +605,13 @@
       </varlistentry>
 
       <varlistentry>
+        <term><guilabel>Begin Quiz in Drill Mode</guilabel></term>
+        <listitem>
+          <para>This item opens the quiz window in Drill Mode, letting you test yourself without affecting the scheduling of your cards.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
         <term><guilabel>All Categories</guilabel></term>
         <listitem>
           <para>This option causes cards from all categories to be included in the quiz.</para>
@@ -672,6 +685,13 @@
         <term><guilabel>Fronts and Backs at Random</guilabel></term>
         <listitem>
           <para>This option tests you using either the front or the back of each card.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><guilabel>Quiz in Order</guilabel></term>
+        <listitem>
+          <para>Checking this box prevents the cards from being shuffled. During the quiz they'll be presented in the order listed in the card pane.</para>
         </listitem>
       </varlistentry>
 
@@ -904,9 +924,16 @@
       <para>To import cards from another program, select <guilabel>Import...</guilabel> from the <guilabel>File</guilabel> menu. In the <guilabel>Import</guilabel> dialog, select the appropriate <guilabel>Import Filter</guilabel>. By default, imported cards are added to the currently open file. If this isn't what you want, select <guilabel>New</guilabel> from the <guilabel>File</guilabel> menu before importing the cards.</para>
     </sect2>
 
+    <sect2 id="ignuit-import-merging">
+      <title>Copying cards between files</title>
+      <para>There are two ways to copy cards from one file to another.</para>
+      <para>The first option is to select the cards you're interested in, copy them via the Edit menu, open the destination file, then paste them into whichever category you like.</para>
+      <para>The second option is to import an entire file into the currently open file (taking care to choose the right import filter). All of the cards from the imported file will be added to the current file. Whether or not the imported cards retain their original categories depends on the format of the imported file.</para>
+    </sect2>
+
     <sect2 id="ignuit-import-encoding">
       <title>Encoding for imported files</title>
-      <para>All imported files should be uncompressed and in the UTF-8 (or plain ASCII) encoding. The <application>gunzip</application> and <application>file-roller</application> programs can uncompress files, and the <application>iconv</application> program can convert encodings.</para>
+      <para>All imported files should be uncompressed and in the UTF-8 (or plain ASCII) encoding. The <application>gunzip</application> and <application>file-roller</application> programs can uncompress files, and the <application>iconv</application> program can help you convert encodings.</para>
     </sect2>
 
     <sect2 id="ignuit-import-reverse">
@@ -959,6 +986,7 @@ lines"
     <sect2 id="ignuit-tips-searching">
       <title>Search tips</title>
       <para>In the Find dialog, searching without a query will find cards with blank sides (or with no tags, if the Tags option is selected). Regular expressions can be useful with tags. For example, the query "(apples|oranges)" will find cards tagged with either "apples" OR "oranges". To find cards with embedded images or audio, select the "Include markup in search" option, and use "&lt;embed" as the query text.</para>
+      <para>The toolbar's <guilabel>Previous Category</guilabel> button will return you to the category you were in before searching.</para>
     </sect2>
 
     <sect2 id="ignuit-tips-flags">
@@ -1004,11 +1032,14 @@ lines"
       <itemizedlist>
         <listitem><para>Fit in with the GNOME Goals.</para></listitem>
         <listitem><para>Easy access to recently used files.</para></listitem>
-        <listitem><para>Nested category tree.</para></listitem>
-        <listitem><para>Ability to select multiple categories.</para></listitem>
-        <listitem><para>Merged editor and quiz window.</para></listitem>
-        <listitem><para>WYSIWYG editing.</para></listitem>
+        <listitem><para>Wiki-like editing.</para></listitem>
+        <listitem><para>Improved trash management.</para></listitem>
+        <listitem><para>Better multimedia support.</para></listitem>
+        <listitem><para>Automatically updated live categories.</para></listitem>
+        <listitem><para>Ability to print physical cards.</para></listitem>
+        <listitem><para>Packaged flashcard sets for easy sharing.</para></listitem>
         <listitem><para>Dariusz Laska's alternative scheduling system as a preference option.</para></listitem>
+        <listitem><para>A version for Android, able to sync with the GNOME version.</para></listitem>
       </itemizedlist>
 
     </sect2>

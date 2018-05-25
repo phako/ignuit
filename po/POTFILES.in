@@ -1,6 +1,7 @@
 # List of source files containing translatable strings.
 # Please keep this file sorted alphabetically.
 [encoding: UTF-8]
+data/glade/category_properties.glade
 data/glade/editor.glade
 data/glade/find.glade
 data/glade/main.glade

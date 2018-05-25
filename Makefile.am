@@ -1,4 +1,4 @@
-# Copyright (C) 2009, 2012 Timothy Richard Musson
+# Copyright (C) 2009, 2012, 2016 Timothy Richard Musson
 
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -23,7 +23,8 @@ glade_DATA       = data/glade/main.glade        \
                    data/glade/find.glade        \
                    data/glade/editor.glade      \
                    data/glade/quiz.glade        \
-                   data/glade/tagger.glade
+                   data/glade/tagger.glade      \
+                   data/glade/category_properties.glade
 
 importdir        = $(datadir)/$(PACKAGE)/import
 import_DATA      = data/import/Pauker.xsl        \

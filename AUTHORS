@@ -13,6 +13,11 @@ Significant patches:
     from examples in the GStreamer Application Development Manual (0.10.20.1).
 
 
+iGNUit application icon:
+
+    Tirifto <tirifto AT openmailbox DOT org>
+
+
 Translators:
 
     German
@@ -35,7 +40,7 @@ Helpful suggestions and advice:
 
 -----
 
-    Copyright (C) 2009, 2012 Timothy Richard Musson
+    Copyright (C) 2009, 2012, 2017 Timothy Richard Musson
 
     Copying and distribution of this file, with or without modification,
     are permitted provided the copyright notice and this notice are

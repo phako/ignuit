@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Copyright (C) 2015, 2016 Timothy Richard Musson
+  <trmusson@gmail.com>
+-->
+<component type="desktop">
+
+  <id>ignuit.desktop</id>
+
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-3.0+ and GFDL-1.3</project_license>
+
+  <name>iGNUit Flashcard Trainer</name>
+
+  <summary>Learn using electronic flashcards</summary>
+
+  <description>
+    <p>Ignuit is a memorization aid based on the Leitner flashcard system. It
+    has a GNOME look and feel, a good selection of quiz options, and supports
+    UTF-8. Cards can include embedded audio, images, and mathematical formulae
+    (via LaTeX). It can import and export several file formats, including CSV.
+    Ignuit can be used for both long-term learning and cramming.
+  </p>
+  </description>
+
+  <keywords>
+    <keyword>flashcard</keyword>
+    <keyword>flash card</keyword>
+    <keyword>spaced repetition</keyword>
+    <keyword>Leitner</keyword>
+  </keywords>
+
+  <screenshots>
+    <screenshot type="default">
+      <image>http://homepages.ihug.co.nz/~trmusson/img/ignuit.png</image>
+      <caption>The main window showing the application in action</caption>
+    </screenshot>
+  </screenshots>
+
+  <url type="homepage">http://homepages.ihug.co.nz/~trmusson/programs.html#ignuit</url>
+  <update_contact>trmusson@gmail.com</update_contact>
+
+  <!-- Translation help -->
+  <url type="translate">http://homepages.ihug.co.nz/~trmusson/translation.html</url>
+
+  <!-- Where to report bugs-->
+  <url type="bugtracker">https://savannah.gnu.org/bugs/?group=ignuit</url>
+
+  <!-- Donation page -->
+  <url type="donation">https://www.gnu.org/server/takeaction.html</url>
+
+  <!-- Where on the internet users can find help -->
+  <url type="help">https://savannah.gnu.org/projects/ignuit/</url>
+
+</component>

@@ -1,7 +1,7 @@
 /* ignuit - Educational software for the GNOME, following the Leitner
  * flash-card system.
  *
- * Copyright (C) 2008, 2009 Timothy Richard Musson
+ * Copyright (C) 2008, 2009, 2016 Timothy Richard Musson
  *
  * Email: <trmusson@gmail.com>
  * WWW:   http://homepages.ihug.co.nz/~trmusson/programs.html#ignuit
@@ -29,6 +29,7 @@
 #include "file.h"
 #include "app-window.h"
 #include "dialog-editor.h"
+#include "dialog-category-properties.h"
 #include "dialog-find.h"
 
 
@@ -274,29 +275,47 @@ cb_find (GtkWidget *widget, Dialog *d)
         return;
 
     dialog_editor_check_changed ();
+    dialog_category_properties_close ();
 
     if (text[0] != '\0') {
 
-        /* Add this query to search history. */
+        GList *history = d->ig->recent_search_terms;
+        gboolean is_duplicate = FALSE;
 
-        gtk_combo_box_text_prepend_text (combo, text);
-        gtk_combo_box_text_remove (combo, HISTORY_LENGTH);
+        /* Add this query to search history, if it's not already there. */
 
-        d->ig->recent_search_terms = g_list_prepend
-            (d->ig->recent_search_terms, text);
+        while (history != NULL) {
 
-        if (g_list_length (d->ig->recent_search_terms) > HISTORY_LENGTH) {
+            gchar *past_text = history->data;
 
-            GList *item;
+            if (!strcmp (past_text, text)) {
+                is_duplicate = TRUE;
+                break;
+            }
 
-            item = g_list_last (d->ig->recent_search_terms);
-            d->ig->recent_search_terms = g_list_remove_link
-                (d->ig->recent_search_terms, item);
+            history = history->next;
+        }
 
-            g_free (item->data);
+        if (!is_duplicate) {
+
+            gtk_combo_box_text_prepend_text (combo, text);
+            gtk_combo_box_text_remove (combo, HISTORY_LENGTH);
+
+            d->ig->recent_search_terms = g_list_prepend
+                (d->ig->recent_search_terms, text);
+
+            if (g_list_length (d->ig->recent_search_terms) > HISTORY_LENGTH) {
+
+                GList *item;
+
+                item = g_list_last (d->ig->recent_search_terms);
+                d->ig->recent_search_terms = g_list_remove_link
+                    (d->ig->recent_search_terms, item);
+
+                g_free (item->data);
+            }
         }
     }
-
 
     /* Clear any previous search results. */
     file_clear_search (d->ig->file, TRUE);
@@ -359,6 +378,7 @@ cb_find (GtkWidget *widget, Dialog *d)
 
     gtk_widget_set_sensitive (d->ig->m_remove_category, FALSE);
     gtk_widget_set_sensitive (d->ig->b_remove_category, FALSE);
+    gtk_widget_set_sensitive (d->ig->m_category_properties, FALSE);
     gtk_widget_set_sensitive (d->ig->m_add_card, FALSE);
     gtk_widget_set_sensitive (d->ig->b_add_card, FALSE);
     gtk_widget_set_sensitive (d->ig->m_edit_tags, cards != NULL);
@@ -366,6 +386,11 @@ cb_find (GtkWidget *widget, Dialog *d)
     gtk_widget_set_sensitive (d->ig->m_switch_sides, cards != NULL);
     gtk_widget_set_sensitive (d->ig->m_reset_stats, cards != NULL);
     gtk_widget_set_sensitive (d->ig->m_paste_card, FALSE);
+
+    gtk_widget_set_sensitive (d->ig->m_category_popup_rename, FALSE);
+    gtk_widget_set_sensitive (d->ig->m_category_popup_remove, FALSE);
+    gtk_widget_set_sensitive (d->ig->m_category_popup_toggle_fixed_order, FALSE);
+    gtk_widget_set_sensitive (d->ig->m_category_popup_properties, FALSE);
 
     gtk_widget_set_sensitive (d->ig->m_card_popup_edit_tags, cards != NULL);
     gtk_widget_set_sensitive (d->ig->m_card_popup_flag, cards != NULL);

@@ -1,7 +1,7 @@
 /* ignuit - Educational software for the GNOME, following the Leitner
  * flash-card system.
  *
- * Copyright (C) 2008, 2009 Timothy Richard Musson
+ * Copyright (C) 2008, 2009, 2015 Timothy Richard Musson
  *
  * Email: <trmusson@gmail.com>
  * WWW:   http://homepages.ihug.co.nz/~trmusson/programs.html#ignuit
@@ -305,6 +305,56 @@ file_get_categories (File *f)
 }
 
 
+gint
+file_get_n_categories (File *f)
+{
+    GList *categories;
+
+    categories = file_get_categories (f);
+
+    if (categories == NULL)
+        return 0;
+
+    return g_list_length (categories);
+}
+
+
+gboolean
+file_current_category_is_first (File *f)
+{
+    GList *categories;
+    Category *cur;
+
+    if (file_get_n_categories (f) == 0)
+        return TRUE;
+
+    cur = file_get_current_category (f);
+    categories = file_get_category_order (f);
+
+    g_assert (categories != NULL);
+
+    return categories->data == cur;
+}
+
+
+gboolean
+file_current_category_is_last (File *f)
+{
+    GList *categories;
+    Category *cur;
+
+    if (file_get_n_categories (f) == 0)
+        return TRUE;
+
+    cur = file_get_current_category (f);
+    categories = file_get_category_order (f);
+
+    g_assert (categories != NULL);
+
+    return g_list_last (categories)->data == cur;
+}
+
+
 GList*
 file_get_current_category_cards (File *f)
 {
@@ -331,7 +381,7 @@ file_lookup_category (File *f, const gchar *title)
 void
 file_set_category_order (File *f, GList *category_order)
 {
-    if (f->category_order)
+    if (f->category_order != NULL)
         g_list_free (f->category_order);
 
     f->category_order = category_order;
