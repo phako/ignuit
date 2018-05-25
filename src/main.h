@@ -39,6 +39,7 @@
 #define F_GLADE_PROPERTIES      GLADE_DIR G_DIR_SEPARATOR_S "properties.glade"
 #define F_GLADE_PREFERENCES     GLADE_DIR G_DIR_SEPARATOR_S "preferences.glade"
 #define F_GLADE_FIND            GLADE_DIR G_DIR_SEPARATOR_S "find.glade"
+#define F_GLADE_CATEGORY_PROPERTIES      GLADE_DIR G_DIR_SEPARATOR_S "category_properties.glade"
 
 #define F_ICON                  "ignuit.png"
 #define F_IMG_BTN_KNOWN         PACKAGE G_DIR_SEPARATOR_S "known.png"

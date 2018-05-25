@@ -22,8 +22,7 @@ Definite goals and fixes
 - In the tag editor window, grey out the add/remove buttons when there's
   nothing to add/remove.
 
-- Replace the "Preserve Card Order" option in the Category pane's context
-  menu with a column of checkboxes (padlock images?) in the list view itself.
+- Option to use wiki-like markup rather than HTML-like markup.
 
 - Resize embedded images (either automatically (how?), or using attributes).
 
@@ -44,9 +43,6 @@ Definite goals and fixes
 - Properly deal with Cut/Copy/Paste/Delete sensitivity in the card editor's
   Edit menu.
 
-- Avoid duplicate entries in the search dialog's history menu, and if a
-  previous search is re-used, move it to the top of the list.
-
 - Many of ignuit's default key combinations are not ideal; single key-presses
   would often make sense, especially in the quiz window, and ideally arranged
   for easy access.
@@ -66,13 +62,7 @@ Harder stuff that ought to happen eventually
 
 - Nested category tree.
 
-- Ability to select multiple categories.
-
 - General cleanup.
-
-- Merge the Quiz and Editor windows.
-
-- WYSIWYG or at least wiki-like editing.
 
 
 Possibilities
@@ -97,7 +87,7 @@ Possibilities
 
 -----
 
-    Copyright (C) 2008, 2009, 2012, 2015 Timothy Richard Musson
+    Copyright (C) 2008, 2009, 2012, 2015, 2016 Timothy Richard Musson
 
     Copying and distribution of this file, with or without modification,
     are permitted provided the copyright notice and this notice are

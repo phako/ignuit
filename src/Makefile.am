@@ -37,12 +37,14 @@ ignuit_SOURCES = \
 	dialog-properties.h dialog-properties.c   \
 	dialog-quiz.h dialog-quiz.c               \
 	dialog-tagger.h dialog-tagger.c           \
+	dialog-category-properties.h              \
+	dialog-category-properties.c              \
 	file.h file.c                             \
 	fileio.h fileio.c                         \
-    latex.h latex.c                           \
+	latex.h latex.c                           \
 	main.h main.c                             \
-    prefs.h prefs.c                           \
-    textview.h textview.c
+	prefs.h prefs.c                           \
+	textview.h textview.c
 
 ignuit_LDADD = @PACKAGE_LIBS@ $(INTLLIBS)
 

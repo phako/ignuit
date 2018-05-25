@@ -139,6 +139,8 @@ void             category_free (Category *cat, gboolean free_cards);
 
 void             category_set_title (Category *cat, const gchar *title);
 const gchar*     category_get_title (Category *cat);
+void             category_set_comment (Category *cat, const gchar *comment);
+const gchar*     category_get_comment (Category *cat);
 
 void             category_prepend_card (Category *cat, Card *c);
 void             category_append_card (Category *cat, Card *c);

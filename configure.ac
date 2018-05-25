@@ -16,7 +16,7 @@ dnl  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 dnl  02111-1307, USA.
 
 
-AC_INIT(ignuit, 2.24.0)
+AC_INIT(ignuit, 2.24.1)
 AM_INIT_AUTOMAKE
 
 AC_PREREQ(2.52)

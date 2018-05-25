@@ -1,4 +1,4 @@
-# Copyright (C) 2009 Timothy Richard Musson
+# Copyright (C) 2009, 2015 Timothy Richard Musson
 
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -37,6 +37,14 @@ desktopdir          = $(datadir)/applications
 desktop_in_in_files = ignuit.desktop.in.in
 desktop_in_files    = $(desktop_in_in_files:.desktop.in.in=.desktop.in)
 desktop_DATA        = $(desktop_in_files:.desktop.in=.desktop)
+
+
+#
+# AppData
+#
+
+appdatadir          = $(datadir)/appdata
+appdata_DATA        = ignuit.appdata.xml
 
 
 #
@@ -94,7 +102,8 @@ update-icon-cache:
 # 
 
 EXTRA_DIST          = $(desktop_in_files) \
-                      $(schema_in)
+                      $(schema_in) \
+                      $(appdata_DATA)
 
 
 #

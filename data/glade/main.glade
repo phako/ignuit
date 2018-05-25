@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <glade-interface>
-  <!-- interface-requires gtk+ 2.20 -->
-  <requires lib="gnome"/>
-  <!-- interface-requires gnome 19280.19184 -->
   <requires lib="bonobo"/>
   <!-- interface-requires bonobo 19280.19184 -->
+  <requires lib="gnome"/>
+  <!-- interface-requires gnome 19280.19184 -->
+  <!-- interface-requires gtk+ 2.20 -->
   <!-- interface-naming-policy toplevel-contextual -->
   <widget class="GnomeApp" id="app">
     <property name="can_focus">False</property>
@@ -29,7 +29,6 @@
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="tooltip" translatable="yes">New File</property>
-                    <property name="use_action_appearance">False</property>
                     <property name="is_important">True</property>
                     <property name="stock_id">gtk-new</property>
                   </widget>
@@ -43,7 +42,6 @@
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="tooltip" translatable="yes">Open File</property>
-                    <property name="use_action_appearance">False</property>
                     <property name="is_important">True</property>
                     <property name="stock_id">gtk-open</property>
                   </widget>
@@ -58,7 +56,6 @@
                     <property name="can_focus">False</property>
                     <property name="has_tooltip">True</property>
                     <property name="tooltip" translatable="yes">Save File</property>
-                    <property name="use_action_appearance">False</property>
                     <property name="is_important">True</property>
                     <property name="stock_id">gtk-save</property>
                   </widget>
@@ -81,7 +78,6 @@
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="tooltip" translatable="yes">Find Card</property>
-                    <property name="use_action_appearance">False</property>
                     <property name="is_important">True</property>
                     <property name="stock_id">gtk-find</property>
                   </widget>
@@ -104,7 +100,6 @@
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="tooltip" translatable="yes">Begin Quiz</property>
-                    <property name="use_action_appearance">False</property>
                     <property name="is_important">True</property>
                     <property name="label" translatable="yes">Quiz</property>
                     <property name="use_underline">True</property>
@@ -135,7 +130,6 @@
                   <widget class="GtkMenuItem" id="file">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
-                    <property name="use_action_appearance">False</property>
                     <property name="label" translatable="yes">_File</property>
                     <property name="use_underline">True</property>
                     <child>
@@ -146,10 +140,9 @@
                             <property name="label">gtk-new</property>
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="use_action_appearance">False</property>
                             <property name="use_underline">True</property>
                             <property name="use_stock">True</property>
-                            <signal name="activate" handler="on_new1_activate" />
+                            <signal name="activate" handler="on_new1_activate" swapped="no"/>
                           </widget>
                         </child>
                         <child>
@@ -157,10 +150,9 @@
                             <property name="label">gtk-open</property>
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="use_action_appearance">False</property>
                             <property name="use_underline">True</property>
                             <property name="use_stock">True</property>
-                            <signal name="activate" handler="on_open1_activate" />
+                            <signal name="activate" handler="on_open1_activate" swapped="no"/>
                           </widget>
                         </child>
                         <child>
@@ -168,10 +160,9 @@
                             <property name="label">gtk-save</property>
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="use_action_appearance">False</property>
                             <property name="use_underline">True</property>
                             <property name="use_stock">True</property>
-                            <signal name="activate" handler="on_save1_activate" />
+                            <signal name="activate" handler="on_save1_activate" swapped="no"/>
                           </widget>
                         </child>
                         <child>
@@ -179,10 +170,9 @@
                             <property name="label">gtk-save-as</property>
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="use_action_appearance">False</property>
                             <property name="use_underline">True</property>
                             <property name="use_stock">True</property>
-                            <signal name="activate" handler="on_save_as1_activate" />
+                            <signal name="activate" handler="on_save_as1_activate" swapped="no"/>
                           </widget>
                         </child>
                         <child>
@@ -195,20 +185,18 @@
                           <widget class="GtkMenuItem" id="m_import">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="use_action_appearance">False</property>
                             <property name="label" translatable="yes">Import...</property>
                             <property name="use_underline">True</property>
-                            <signal name="activate" handler="on_m_import_activate" />
+                            <signal name="activate" handler="on_m_import_activate" swapped="no"/>
                           </widget>
                         </child>
                         <child>
                           <widget class="GtkMenuItem" id="m_export">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="use_action_appearance">False</property>
                             <property name="label" translatable="yes">Export...</property>
                             <property name="use_underline">True</property>
-                            <signal name="activate" handler="on_m_export_activate" />
+                            <signal name="activate" handler="on_m_export_activate" swapped="no"/>
                           </widget>
                         </child>
                         <child>
@@ -222,10 +210,9 @@
                             <property name="label">gtk-properties</property>
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="use_action_appearance">False</property>
                             <property name="use_underline">True</property>
                             <property name="use_stock">True</property>
-                            <signal name="activate" handler="on_m_properties_activate" />
+                            <signal name="activate" handler="on_m_properties_activate" swapped="no"/>
                           </widget>
                         </child>
                         <child>
@@ -239,10 +226,9 @@
                             <property name="label">gtk-quit</property>
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="use_action_appearance">False</property>
                             <property name="use_underline">True</property>
                             <property name="use_stock">True</property>
-                            <signal name="activate" handler="on_quit1_activate" />
+                            <signal name="activate" handler="on_quit1_activate" swapped="no"/>
                           </widget>
                         </child>
                       </widget>
@@ -253,7 +239,6 @@
                   <widget class="GtkMenuItem" id="edit">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
-                    <property name="use_action_appearance">False</property>
                     <property name="label" translatable="yes">_Edit</property>
                     <property name="use_underline">True</property>
                     <child>
@@ -264,17 +249,15 @@
                             <property name="label">gtk-find</property>
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="use_action_appearance">False</property>
                             <property name="use_underline">True</property>
                             <property name="use_stock">True</property>
-                            <signal name="activate" handler="on_find1_activate" />
+                            <signal name="activate" handler="on_find1_activate" swapped="no"/>
                           </widget>
                         </child>
                         <child>
                           <widget class="GtkMenuItem" id="m_show_flagged">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="use_action_appearance">False</property>
                             <property name="label" translatable="yes">Find Flagged Cards</property>
                             <property name="use_underline">True</property>
                           </widget>
@@ -283,10 +266,9 @@
                           <widget class="GtkMenuItem" id="m_show_all">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="use_action_appearance">False</property>
                             <property name="label" translatable="yes">Find All Cards</property>
                             <property name="use_underline">True</property>
-                            <signal name="activate" handler="on_m_show_all_activate" />
+                            <signal name="activate" handler="on_m_show_all_activate" swapped="no"/>
                           </widget>
                         </child>
                         <child>
@@ -300,10 +282,9 @@
                             <property name="label" translatable="yes">Recently Removed Cards</property>
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="use_action_appearance">False</property>
                             <property name="use_underline">True</property>
                             <property name="use_stock">False</property>
-                            <signal name="activate" handler="on_recently_deleted_cards1_activate" />
+                            <signal name="activate" handler="on_recently_deleted_cards1_activate" swapped="no"/>
                             <child internal-child="image">
                               <widget class="GtkImage" id="image612">
                                 <property name="visible">True</property>
@@ -325,10 +306,9 @@
                             <property name="label">gtk-preferences</property>
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="use_action_appearance">False</property>
                             <property name="use_underline">True</property>
                             <property name="use_stock">True</property>
-                            <signal name="activate" handler="on_preferences1_activate" />
+                            <signal name="activate" handler="on_preferences1_activate" swapped="no"/>
                           </widget>
                         </child>
                       </widget>
@@ -339,7 +319,6 @@
                   <widget class="GtkMenuItem" id="view">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
-                    <property name="use_action_appearance">False</property>
                     <property name="label" translatable="yes">_View</property>
                     <property name="use_underline">True</property>
                     <child>
@@ -350,7 +329,6 @@
                           <widget class="GtkCheckMenuItem" id="m_view_main_toolbar">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="use_action_appearance">False</property>
                             <property name="label" translatable="yes">_Main Toolbar</property>
                             <property name="use_underline">True</property>
                           </widget>
@@ -359,7 +337,6 @@
                           <widget class="GtkCheckMenuItem" id="m_view_category_pane">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="use_action_appearance">False</property>
                             <property name="label" translatable="yes">_Category Pane</property>
                             <property name="use_underline">True</property>
                           </widget>
@@ -368,7 +345,6 @@
                           <widget class="GtkCheckMenuItem" id="m_view_bottom_toolbar">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="use_action_appearance">False</property>
                             <property name="label" translatable="yes">_Bottom Toolbar</property>
                             <property name="use_underline">True</property>
                           </widget>
@@ -377,7 +353,6 @@
                           <widget class="GtkCheckMenuItem" id="m_view_statusbar">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="use_action_appearance">False</property>
                             <property name="label" translatable="yes">_Statusbar</property>
                             <property name="use_underline">True</property>
                           </widget>
@@ -390,7 +365,6 @@
                   <widget class="GtkMenuItem" id="category">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
-                    <property name="use_action_appearance">False</property>
                     <property name="label" translatable="yes">_Category</property>
                     <property name="use_underline">True</property>
                     <child>
@@ -402,10 +376,9 @@
                             <property name="label" translatable="yes">Add Category</property>
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="use_action_appearance">False</property>
                             <property name="use_underline">True</property>
                             <property name="use_stock">False</property>
-                            <signal name="activate" handler="on_m_add_category_activate" />
+                            <signal name="activate" handler="on_m_add_category_activate" swapped="no"/>
                             <accelerator key="B" signal="activate" modifiers="GDK_CONTROL_MASK"/>
                             <child internal-child="image">
                               <widget class="GtkImage" id="image607">
@@ -422,10 +395,9 @@
                             <property name="label" translatable="yes">Remove Category</property>
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="use_action_appearance">False</property>
                             <property name="use_underline">True</property>
                             <property name="use_stock">False</property>
-                            <signal name="activate" handler="on_m_delete_category_activate" />
+                            <signal name="activate" handler="on_m_delete_category_activate" swapped="no"/>
                             <accelerator key="M" signal="activate" modifiers="GDK_CONTROL_MASK"/>
                             <child internal-child="image">
                               <widget class="GtkImage" id="image608">
@@ -433,6 +405,28 @@
                                 <property name="can_focus">False</property>
                                 <property name="stock">gtk-remove</property>
                                 <property name="icon-size">1</property>
+                              </widget>
+                            </child>
+                          </widget>
+                        </child>
+                        <child>
+                          <widget class="GtkSeparatorMenuItem" id="separatormenuitem1">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                          </widget>
+                        </child>
+                        <child>
+                          <widget class="GtkImageMenuItem" id="m_category_properties">
+                            <property name="label" translatable="yes">Properties...</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="use_underline">True</property>
+                            <property name="use_stock">False</property>
+                            <child internal-child="image">
+                              <widget class="GtkImage" id="image1">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="stock">gtk-properties</property>
                               </widget>
                             </child>
                           </widget>
@@ -445,7 +439,6 @@
                   <widget class="GtkMenuItem" id="card">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
-                    <property name="use_action_appearance">False</property>
                     <property name="label" translatable="yes">C_ard</property>
                     <property name="use_underline">True</property>
                     <child>
@@ -457,10 +450,9 @@
                             <property name="label" translatable="yes">Add Card</property>
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="use_action_appearance">False</property>
                             <property name="use_underline">True</property>
                             <property name="use_stock">False</property>
-                            <signal name="activate" handler="on_m_add_card_activate" />
+                            <signal name="activate" handler="on_m_add_card_activate" swapped="no"/>
                             <accelerator key="A" signal="activate" modifiers="GDK_CONTROL_MASK"/>
                             <child internal-child="image">
                               <widget class="GtkImage" id="image609">
@@ -477,10 +469,9 @@
                             <property name="label" translatable="yes">Remove Card</property>
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="use_action_appearance">False</property>
                             <property name="use_underline">True</property>
                             <property name="use_stock">False</property>
-                            <signal name="activate" handler="on_m_remove_card_activate" />
+                            <signal name="activate" handler="on_m_remove_card_activate" swapped="no"/>
                             <accelerator key="R" signal="activate" modifiers="GDK_CONTROL_MASK"/>
                             <child internal-child="image">
                               <widget class="GtkImage" id="image610">
@@ -497,10 +488,9 @@
                             <property name="label" translatable="yes">Edit Card...</property>
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="use_action_appearance">False</property>
                             <property name="use_underline">True</property>
                             <property name="use_stock">False</property>
-                            <signal name="activate" handler="on_m_edit_card_activate" />
+                            <signal name="activate" handler="on_m_edit_card_activate" swapped="no"/>
                             <accelerator key="E" signal="activate" modifiers="GDK_CONTROL_MASK"/>
                             <child internal-child="image">
                               <widget class="GtkImage" id="image611">
@@ -523,7 +513,6 @@
                             <property name="label">gtk-cut</property>
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="use_action_appearance">False</property>
                             <property name="use_underline">True</property>
                             <property name="use_stock">True</property>
                           </widget>
@@ -533,7 +522,6 @@
                             <property name="label">gtk-copy</property>
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="use_action_appearance">False</property>
                             <property name="use_underline">True</property>
                             <property name="use_stock">True</property>
                           </widget>
@@ -543,7 +531,6 @@
                             <property name="label">gtk-paste</property>
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="use_action_appearance">False</property>
                             <property name="use_underline">True</property>
                             <property name="use_stock">True</property>
                           </widget>
@@ -559,7 +546,6 @@
                             <property name="label">gtk-select-all</property>
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="use_action_appearance">False</property>
                             <property name="use_underline">True</property>
                             <property name="use_stock">True</property>
                             <accelerator key="A" signal="activate" modifiers="GDK_SHIFT_MASK"/>
@@ -576,7 +562,6 @@
                             <property name="label" translatable="yes">Edit Tags...</property>
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="use_action_appearance">False</property>
                             <property name="use_underline">True</property>
                             <property name="use_stock">False</property>
                             <accelerator key="G" signal="activate" modifiers="GDK_CONTROL_MASK"/>
@@ -593,7 +578,6 @@
                           <widget class="GtkMenuItem" id="m_flag">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="use_action_appearance">False</property>
                             <property name="label" translatable="yes">Toggle Flags</property>
                             <property name="use_underline">True</property>
                             <accelerator key="8" signal="activate" modifiers="GDK_CONTROL_MASK"/>
@@ -604,10 +588,9 @@
                             <property name="label" translatable="yes">Switch Sides</property>
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="use_action_appearance">False</property>
                             <property name="use_underline">True</property>
                             <property name="use_stock">False</property>
-                            <signal name="activate" handler="on_m_switch_sides_activate" />
+                            <signal name="activate" handler="on_m_switch_sides_activate" swapped="no"/>
                             <child internal-child="image">
                               <widget class="GtkImage" id="image613">
                                 <property name="visible">True</property>
@@ -623,10 +606,9 @@
                             <property name="label" translatable="yes">Reset Statistics</property>
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="use_action_appearance">False</property>
                             <property name="use_underline">True</property>
                             <property name="use_stock">False</property>
-                            <signal name="activate" handler="on_m_reset_stats_activate" />
+                            <signal name="activate" handler="on_m_reset_stats_activate" swapped="no"/>
                             <child internal-child="image">
                               <widget class="GtkImage" id="image614">
                                 <property name="visible">True</property>
@@ -645,10 +627,9 @@
                   <widget class="GtkMenuItem" id="quiz">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
-                    <property name="use_action_appearance">False</property>
                     <property name="label" translatable="yes">_Quiz</property>
                     <property name="use_underline">True</property>
-                    <signal name="activate" handler="on_lesson_activate" />
+                    <signal name="activate" handler="on_lesson_activate" swapped="no"/>
                     <child>
                       <widget class="GtkMenu" id="quiz_menu">
                         <property name="can_focus">False</property>
@@ -657,10 +638,9 @@
                             <property name="label" translatable="yes">Begin Quiz</property>
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="use_action_appearance">False</property>
                             <property name="use_underline">True</property>
                             <property name="use_stock">False</property>
-                            <signal name="activate" handler="on_m_start_quiz_activate" />
+                            <signal name="activate" handler="on_m_start_quiz_activate" swapped="no"/>
                             <accelerator key="T" signal="activate" modifiers="GDK_CONTROL_MASK"/>
                             <child internal-child="image">
                               <widget class="GtkImage" id="image615">
@@ -682,24 +662,22 @@
                           <widget class="GtkRadioMenuItem" id="r_all_categories">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="use_action_appearance">False</property>
                             <property name="label" translatable="yes">All Categories</property>
                             <property name="use_underline">True</property>
                             <property name="draw_as_radio">True</property>
-                            <signal name="activate" handler="on_m_test_activate" />
+                            <signal name="activate" handler="on_m_test_activate" swapped="no"/>
                           </widget>
                         </child>
                         <child>
                           <widget class="GtkRadioMenuItem" id="r_selected_categories">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="use_action_appearance">False</property>
                             <property name="label" translatable="yes">Selected Category</property>
                             <property name="use_underline">True</property>
                             <property name="active">True</property>
                             <property name="draw_as_radio">True</property>
                             <property name="group">r_all_categories</property>
-                            <signal name="activate" handler="on_m_quiz_2_activate" />
+                            <signal name="activate" handler="on_m_quiz_2_activate" swapped="no"/>
                           </widget>
                         </child>
                         <child>
@@ -712,55 +690,50 @@
                           <widget class="GtkRadioMenuItem" id="r_all_cards">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="use_action_appearance">False</property>
                             <property name="label" translatable="yes">All Cards</property>
                             <property name="use_underline">True</property>
                             <property name="draw_as_radio">True</property>
-                            <signal name="activate" handler="on_r_all_cards_activate" />
+                            <signal name="activate" handler="on_r_all_cards_activate" swapped="no"/>
                           </widget>
                         </child>
                         <child>
                           <widget class="GtkRadioMenuItem" id="r_new_cards">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="use_action_appearance">False</property>
                             <property name="label" translatable="yes">New Cards</property>
                             <property name="use_underline">True</property>
                             <property name="draw_as_radio">True</property>
                             <property name="group">r_all_cards</property>
-                            <signal name="activate" handler="on_r_new_cards_activate" />
+                            <signal name="activate" handler="on_r_new_cards_activate" swapped="no"/>
                           </widget>
                         </child>
                         <child>
                           <widget class="GtkRadioMenuItem" id="r_expired_cards">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="use_action_appearance">False</property>
                             <property name="label" translatable="yes">Expired Cards</property>
                             <property name="use_underline">True</property>
                             <property name="draw_as_radio">True</property>
                             <property name="group">r_all_cards</property>
-                            <signal name="activate" handler="on_r_expired_cards_activate" />
+                            <signal name="activate" handler="on_r_expired_cards_activate" swapped="no"/>
                           </widget>
                         </child>
                         <child>
                           <widget class="GtkRadioMenuItem" id="r_new_and_expired_cards">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="use_action_appearance">False</property>
                             <property name="label" translatable="yes">New and Expired Cards</property>
                             <property name="use_underline">True</property>
                             <property name="active">True</property>
                             <property name="draw_as_radio">True</property>
                             <property name="group">r_all_cards</property>
-                            <signal name="activate" handler="on_r_new_and_expired_cards_activate" />
+                            <signal name="activate" handler="on_r_new_and_expired_cards_activate" swapped="no"/>
                           </widget>
                         </child>
                         <child>
                           <widget class="GtkRadioMenuItem" id="r_flagged_cards">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="use_action_appearance">False</property>
                             <property name="label" translatable="yes">Flagged Cards</property>
                             <property name="use_underline">True</property>
                             <property name="draw_as_radio">True</property>
@@ -771,12 +744,11 @@
                           <widget class="GtkRadioMenuItem" id="r_selected_cards">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="use_action_appearance">False</property>
                             <property name="label" translatable="yes">Selected Cards</property>
                             <property name="use_underline">True</property>
                             <property name="draw_as_radio">True</property>
                             <property name="group">r_all_cards</property>
-                            <signal name="activate" handler="on_r_selected_cards_activate" />
+                            <signal name="activate" handler="on_r_selected_cards_activate" swapped="no"/>
                           </widget>
                         </child>
                         <child>
@@ -789,7 +761,6 @@
                           <widget class="GtkRadioMenuItem" id="r_quiz_face_front">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="use_action_appearance">False</property>
                             <property name="label" translatable="yes">Fronts Only</property>
                             <property name="use_underline">True</property>
                             <property name="active">True</property>
@@ -800,7 +771,6 @@
                           <widget class="GtkRadioMenuItem" id="r_quiz_face_back">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="use_action_appearance">False</property>
                             <property name="label" translatable="yes">Backs Only</property>
                             <property name="use_underline">True</property>
                             <property name="draw_as_radio">True</property>
@@ -811,7 +781,6 @@
                           <widget class="GtkRadioMenuItem" id="r_quiz_face_random">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="use_action_appearance">False</property>
                             <property name="label" translatable="yes">Fronts and Backs at Random</property>
                             <property name="use_underline">True</property>
                             <property name="draw_as_radio">True</property>
@@ -828,7 +797,6 @@
                           <widget class="GtkCheckMenuItem" id="m_quiz_in_order">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="use_action_appearance">False</property>
                             <property name="label" translatable="yes">Quiz in Order</property>
                           </widget>
                         </child>
@@ -840,7 +808,6 @@
                   <widget class="GtkMenuItem" id="help">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
-                    <property name="use_action_appearance">False</property>
                     <property name="label" translatable="yes">_Help</property>
                     <property name="use_underline">True</property>
                     <child>
@@ -851,10 +818,9 @@
                             <property name="label" translatable="yes">Help</property>
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="use_action_appearance">False</property>
                             <property name="use_underline">True</property>
                             <property name="use_stock">False</property>
-                            <signal name="activate" handler="on_m_help_activate" />
+                            <signal name="activate" handler="on_m_help_activate" swapped="no"/>
                             <accelerator key="F1" signal="activate"/>
                             <child internal-child="image">
                               <widget class="GtkImage" id="image616">
@@ -871,10 +837,9 @@
                             <property name="label">gtk-about</property>
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="use_action_appearance">False</property>
                             <property name="use_underline">True</property>
                             <property name="use_stock">True</property>
-                            <signal name="activate" handler="on_about1_activate" />
+                            <signal name="activate" handler="on_about1_activate" swapped="no"/>
                           </widget>
                         </child>
                       </widget>
@@ -929,7 +894,6 @@
                         <property name="can_default">True</property>
                         <property name="receives_default">False</property>
                         <property name="tooltip" translatable="yes">Add Category</property>
-                        <property name="use_action_appearance">False</property>
                         <property name="relief">none</property>
                         <child>
                           <widget class="GtkImage" id="image206">
@@ -952,7 +916,6 @@
                         <property name="can_default">True</property>
                         <property name="receives_default">False</property>
                         <property name="tooltip" translatable="yes">Remove Category</property>
-                        <property name="use_action_appearance">False</property>
                         <property name="relief">none</property>
                         <child>
                           <widget class="GtkImage" id="image205">
@@ -1020,7 +983,6 @@
                         <property name="can_default">True</property>
                         <property name="receives_default">False</property>
                         <property name="tooltip" translatable="yes">Edit Card</property>
-                        <property name="use_action_appearance">False</property>
                         <property name="relief">none</property>
                         <child>
                           <widget class="GtkImage" id="image194">
@@ -1043,7 +1005,6 @@
                         <property name="can_default">True</property>
                         <property name="receives_default">False</property>
                         <property name="tooltip" translatable="yes">Add Card</property>
-                        <property name="use_action_appearance">False</property>
                         <property name="relief">none</property>
                         <child>
                           <widget class="GtkImage" id="image195">
@@ -1066,7 +1027,6 @@
                         <property name="can_default">True</property>
                         <property name="receives_default">False</property>
                         <property name="tooltip" translatable="yes">Remove Card</property>
-                        <property name="use_action_appearance">False</property>
                         <property name="relief">none</property>
                         <child>
                           <widget class="GtkImage" id="image196">
@@ -1128,7 +1088,6 @@
         <property name="label" translatable="yes">Add Card</property>
         <property name="visible">True</property>
         <property name="can_focus">False</property>
-        <property name="use_action_appearance">False</property>
         <property name="use_underline">True</property>
         <property name="use_stock">False</property>
         <child internal-child="image">
@@ -1144,7 +1103,6 @@
         <property name="label" translatable="yes">Remove Card</property>
         <property name="visible">True</property>
         <property name="can_focus">False</property>
-        <property name="use_action_appearance">False</property>
         <property name="use_underline">True</property>
         <property name="use_stock">False</property>
         <child internal-child="image">
@@ -1161,7 +1119,6 @@
         <property name="label" translatable="yes">Edit Card...</property>
         <property name="visible">True</property>
         <property name="can_focus">False</property>
-        <property name="use_action_appearance">False</property>
         <property name="use_underline">True</property>
         <property name="use_stock">False</property>
         <child internal-child="image">
@@ -1184,7 +1141,6 @@
         <property name="label" translatable="yes">Cut</property>
         <property name="visible">True</property>
         <property name="can_focus">False</property>
-        <property name="use_action_appearance">False</property>
         <property name="use_underline">True</property>
         <property name="use_stock">False</property>
         <child internal-child="image">
@@ -1201,7 +1157,6 @@
         <property name="label" translatable="yes">Copy</property>
         <property name="visible">True</property>
         <property name="can_focus">False</property>
-        <property name="use_action_appearance">False</property>
         <property name="use_underline">True</property>
         <property name="use_stock">False</property>
         <child internal-child="image">
@@ -1218,7 +1173,6 @@
         <property name="label" translatable="yes">Paste</property>
         <property name="visible">True</property>
         <property name="can_focus">False</property>
-        <property name="use_action_appearance">False</property>
         <property name="use_underline">True</property>
         <property name="use_stock">False</property>
         <child internal-child="image">
@@ -1241,7 +1195,6 @@
         <property name="label" translatable="yes">Select All</property>
         <property name="visible">True</property>
         <property name="can_focus">False</property>
-        <property name="use_action_appearance">False</property>
         <property name="use_underline">True</property>
         <property name="use_stock">False</property>
         <child internal-child="image">
@@ -1264,7 +1217,6 @@
         <property name="label" translatable="yes">Edit Tags...</property>
         <property name="visible">True</property>
         <property name="can_focus">False</property>
-        <property name="use_action_appearance">False</property>
         <property name="use_underline">True</property>
         <property name="use_stock">False</property>
         <child internal-child="image">
@@ -1280,7 +1232,6 @@
       <widget class="GtkMenuItem" id="m_card_popup_flag">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
-        <property name="use_action_appearance">False</property>
         <property name="label" translatable="yes">Toggle Flags</property>
         <property name="use_underline">True</property>
       </widget>
@@ -1290,7 +1241,6 @@
         <property name="label" translatable="yes">Switch Sides</property>
         <property name="visible">True</property>
         <property name="can_focus">False</property>
-        <property name="use_action_appearance">False</property>
         <property name="use_underline">True</property>
         <property name="use_stock">False</property>
         <child internal-child="image">
@@ -1307,7 +1257,6 @@
         <property name="label" translatable="yes">Reset Statistics</property>
         <property name="visible">True</property>
         <property name="can_focus">False</property>
-        <property name="use_action_appearance">False</property>
         <property name="use_underline">True</property>
         <property name="use_stock">False</property>
         <child internal-child="image">
@@ -1327,7 +1276,6 @@
       <widget class="GtkCheckMenuItem" id="m_card_header_toggle_front">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
-        <property name="use_action_appearance">False</property>
         <property name="label" translatable="yes">Front Text</property>
         <property name="use_underline">True</property>
       </widget>
@@ -1336,7 +1284,6 @@
       <widget class="GtkCheckMenuItem" id="m_card_header_toggle_back">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
-        <property name="use_action_appearance">False</property>
         <property name="label" translatable="yes">Back Text</property>
         <property name="use_underline">True</property>
       </widget>
@@ -1345,7 +1292,6 @@
       <widget class="GtkCheckMenuItem" id="m_card_header_toggle_category">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
-        <property name="use_action_appearance">False</property>
         <property name="label" translatable="yes">Category</property>
         <property name="use_underline">True</property>
       </widget>
@@ -1354,7 +1300,6 @@
       <widget class="GtkCheckMenuItem" id="m_card_header_toggle_group">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
-        <property name="use_action_appearance">False</property>
         <property name="label" translatable="yes">Box Number</property>
         <property name="use_underline">True</property>
       </widget>
@@ -1363,7 +1308,6 @@
       <widget class="GtkCheckMenuItem" id="m_card_header_toggle_tested">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
-        <property name="use_action_appearance">False</property>
         <property name="label" translatable="yes">Last Test Date</property>
         <property name="use_underline">True</property>
       </widget>
@@ -1372,7 +1316,6 @@
       <widget class="GtkCheckMenuItem" id="m_card_header_toggle_expired">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
-        <property name="use_action_appearance">False</property>
         <property name="label" translatable="yes">Expiry Flag</property>
         <property name="use_underline">True</property>
       </widget>
@@ -1381,7 +1324,6 @@
       <widget class="GtkCheckMenuItem" id="m_card_header_toggle_expiry_date">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
-        <property name="use_action_appearance">False</property>
         <property name="label" translatable="yes">Expiry Date</property>
         <property name="use_underline">True</property>
       </widget>
@@ -1390,7 +1332,6 @@
       <widget class="GtkCheckMenuItem" id="m_card_header_toggle_expiry_time">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
-        <property name="use_action_appearance">False</property>
         <property name="label" translatable="yes">Expiry Time</property>
         <property name="use_underline">True</property>
       </widget>
@@ -1399,7 +1340,6 @@
       <widget class="GtkCheckMenuItem" id="m_card_header_toggle_flag">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
-        <property name="use_action_appearance">False</property>
         <property name="label" translatable="yes">Flag</property>
         <property name="use_underline">True</property>
       </widget>
@@ -1413,7 +1353,6 @@
         <property name="label" translatable="yes">Rename</property>
         <property name="visible">True</property>
         <property name="can_focus">False</property>
-        <property name="use_action_appearance">False</property>
         <property name="use_underline">True</property>
         <property name="use_stock">False</property>
         <child internal-child="image">
@@ -1435,7 +1374,6 @@
         <property name="label" translatable="yes">Add Category</property>
         <property name="visible">True</property>
         <property name="can_focus">False</property>
-        <property name="use_action_appearance">False</property>
         <property name="use_underline">True</property>
         <property name="use_stock">False</property>
         <child internal-child="image">
@@ -1452,7 +1390,6 @@
         <property name="label" translatable="yes">Remove Category</property>
         <property name="visible">True</property>
         <property name="can_focus">False</property>
-        <property name="use_action_appearance">False</property>
         <property name="use_underline">True</property>
         <property name="use_stock">False</property>
         <child internal-child="image">
@@ -1468,15 +1405,29 @@
       <widget class="GtkSeparatorMenuItem" id="separatormenuitem1">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
-        <property name="use_action_appearance">False</property>
       </widget>
     </child>
     <child>
       <widget class="GtkCheckMenuItem" id="m_category_popup_toggle_fixed_order">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
-        <property name="use_action_appearance">False</property>
         <property name="label" translatable="yes">Preserve Card Order</property>
+      </widget>
+    </child>
+    <child>
+      <widget class="GtkImageMenuItem" id="m_category_popup_properties">
+        <property name="label" translatable="yes">Properties...</property>
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="use_underline">True</property>
+        <property name="use_stock">False</property>
+        <child internal-child="image">
+          <widget class="GtkImage" id="image1">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="stock">gtk-properties</property>
+          </widget>
+        </child>
       </widget>
     </child>
   </widget>

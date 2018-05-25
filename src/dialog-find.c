@@ -279,26 +279,43 @@ cb_find (GtkWidget *widget, Dialog *d)
 
     if (text[0] != '\0') {
 
-        /* Add this query to search history. */
+        GList *history = d->ig->recent_search_terms;
+        gboolean is_duplicate = FALSE;
 
-        gtk_combo_box_prepend_text (combo, text);
-        gtk_combo_box_remove_text (combo, HISTORY_LENGTH);
+        /* Add this query to search history, if it's not already there. */
 
-        d->ig->recent_search_terms = g_list_prepend
-            (d->ig->recent_search_terms, text);
+        while (history != NULL) {
 
-        if (g_list_length (d->ig->recent_search_terms) > HISTORY_LENGTH) {
+            gchar *past_text = history->data;
 
-            GList *item;
+            if (!strcmp (past_text, text)) {
+                is_duplicate = TRUE;
+                break;
+            }
 
-            item = g_list_last (d->ig->recent_search_terms);
-            d->ig->recent_search_terms = g_list_remove_link
-                (d->ig->recent_search_terms, item);
+            history = history->next;
+        }
 
-            g_free (item->data);
+        if (!is_duplicate) {
+
+            gtk_combo_box_prepend_text (combo, text);
+            gtk_combo_box_remove_text (combo, HISTORY_LENGTH);
+
+            d->ig->recent_search_terms = g_list_prepend
+                (d->ig->recent_search_terms, text);
+
+            if (g_list_length (d->ig->recent_search_terms) > HISTORY_LENGTH) {
+
+                GList *item;
+
+                item = g_list_last (d->ig->recent_search_terms);
+                d->ig->recent_search_terms = g_list_remove_link
+                    (d->ig->recent_search_terms, item);
+
+                g_free (item->data);
+            }
         }
     }
-
 
     /* Clear any previous search results. */
     file_clear_search (d->ig->file, TRUE);

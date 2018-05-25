@@ -54,7 +54,7 @@ dialog_about (GtkWidget *parent)
 #endif
         "authors", authors,
         "comments", _("Educational software for GNOME, following the Leitner flash card system."),
-        "copyright", "Copyright \302\251 2015 Timothy Richard Musson <trmusson@gmail.com>",
+        "copyright", "Copyright \302\251 2016 Timothy Richard Musson <trmusson@gmail.com>",
         "documenters", documenters,
 #if 0
         "license", license_text,

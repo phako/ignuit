@@ -1,7 +1,7 @@
 /* ignuit - Educational software for the GNOME, following the Leitner
  * flash-card system.
  *
- * Copyright (C) 2008, 2009, 2015 Timothy Richard Musson
+ * Copyright (C) 2008, 2009, 2015, 2016 Timothy Richard Musson
  *
  * Email: <trmusson@gmail.com>
  * WWW:   http://homepages.ihug.co.nz/~trmusson/programs.html#ignuit
@@ -64,6 +64,7 @@ struct _Card {
 
 struct _Category {
     gchar       *title;
+    gchar       *comment;
     GList       *cards;      /* List of all cards in this category. */
     CardStyle   card_style;  /* Default card appearance. */
     gboolean    fixed_order; /* Should these cards be kept in order? */
@@ -603,6 +604,7 @@ void
 category_free (Category *cat, gboolean free_cards)
 {
     g_free (cat->title);
+	g_free (cat->comment);
     card_list_free (cat->cards, free_cards);
     g_free (cat);
 }
@@ -620,6 +622,21 @@ const gchar*
 category_get_title (Category *cat)
 {
     return cat->title ? cat->title : s_blank;
+}
+
+
+void
+category_set_comment (Category *cat, const gchar *comment)
+{
+    g_free (cat->comment);
+    cat->comment = g_strdup (comment);
+}
+
+
+const gchar*
+category_get_comment (Category *cat)
+{
+    return cat->comment ? cat->comment : s_blank;
 }
 
 

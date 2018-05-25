@@ -1,7 +1,7 @@
 /* ignuit - Educational software for the GNOME, following the Leitner
  * flash-card system.
  *
- * Copyright (C) 2008, 2009, 2012, 2015 Timothy Richard Musson
+ * Copyright (C) 2008, 2009, 2012, 2015, 2016 Timothy Richard Musson
  *
  * Email: <trmusson@gmail.com>
  * WWW:   http://homepages.ihug.co.nz/~trmusson/programs.html#ignuit
@@ -31,6 +31,7 @@
 #include "prefs.h"
 #include "app-window.h"
 #include "dialog-properties.h"
+#include "dialog-category-properties.h"
 #include "dialog-preferences.h"
 #include "dialog-editor.h"
 #include "dialog-tagger.h"
@@ -70,6 +71,7 @@ typedef struct {
     GtkWidget        *m_view_trash;
 
     GtkWidget        *m_remove_category;
+    GtkWidget        *m_category_properties;
 
     GtkWidget        *m_edit_tags;
     GtkWidget        *m_flag;
@@ -97,6 +99,7 @@ typedef struct {
     GtkWidget        *m_category_popup_rename;
     GtkWidget        *m_category_popup_remove;
     GtkWidget        *m_category_popup_toggle_fixed_order;
+    GtkWidget        *m_category_popup_properties;
 
     GtkWidget        *popup_menu_card;
     GtkWidget        *m_card_popup_add;
@@ -432,7 +435,10 @@ app_window_update_sensitivity (AppWin *d)
     gtk_widget_set_sensitive (d->m_remove_category, can_add);
     gtk_widget_set_sensitive (d->m_category_popup_rename, can_add);
     gtk_widget_set_sensitive (d->m_category_popup_remove, can_add);
+    gtk_widget_set_sensitive (d->m_category_popup_toggle_fixed_order, can_add);
+    gtk_widget_set_sensitive (d->m_category_popup_properties, can_add);
     gtk_widget_set_sensitive (d->m_edit_tags, category_has_cards);
+    gtk_widget_set_sensitive (d->m_category_properties, can_add);
     gtk_widget_set_sensitive (d->m_flag, category_has_cards);
     gtk_widget_set_sensitive (d->m_switch_sides, category_has_cards);
     gtk_widget_set_sensitive (d->m_card_popup_edit_tags,
@@ -1980,7 +1986,9 @@ cb_m_add_category (GtkWidget *widget, AppWin *d)
 
     app_window_refresh_card_pane (d->ig, NULL);
     app_window_update_sensitivity (d);
+
     dialog_editor_tweak (ED_TWEAK_ALL);
+    dialog_category_properties_tweak ();
 }
 
 
@@ -2010,6 +2018,7 @@ cb_m_remove_category (GtkWidget *widget, AppWin *d)
         }
 
         dialog_editor_check_changed ();
+        dialog_category_properties_close ();
 
         file_remove_category (d->ig->file, cat);
         ig_file_changed (d->ig);
@@ -2036,6 +2045,13 @@ cb_m_remove_category (GtkWidget *widget, AppWin *d)
 
 
 static void
+cb_m_category_properties (GtkWidget *widget, AppWin *d)
+{
+    dialog_category_properties (d->ig, d->m_category_popup_toggle_fixed_order);
+}
+
+
+static void
 cb_m_category_toggle_fixed_order (GtkWidget *widget, AppWin *d)
 {
     GtkTreeModel *model;
@@ -2057,6 +2073,9 @@ cb_m_category_toggle_fixed_order (GtkWidget *widget, AppWin *d)
         fixed = gtk_check_menu_item_get_active (GTK_CHECK_MENU_ITEM(widget));
 
         category_set_fixed_order (cat, fixed);
+
+        dialog_category_properties_tweak ();
+
         ig_file_changed (d->ig);
     }
 }
@@ -2467,6 +2486,7 @@ cb_treev_category_selection (GtkTreeSelection *sel, AppWin *d)
         Category *cat;
 
         dialog_editor_check_changed ();
+        dialog_category_properties_check_changed ();
 
         gtk_tree_model_get (model, &iter, COLUMN_CATEGORY_DATA, &item, -1);
         cat = item ? CATEGORY(item) : NULL;
@@ -2493,6 +2513,7 @@ cb_treev_category_selection (GtkTreeSelection *sel, AppWin *d)
             file_get_current_category_cards (d->ig->file));
 
         tweak_editor (d);
+        dialog_category_properties_tweak ();
 
         app_window_update_sensitivity (d);
     }
@@ -2555,6 +2576,8 @@ cb_treev_category_title_edited (GtkCellRendererText *cell,
                     COLUMN_CARD_CATEGORY)) {
                 app_window_redraw_card_list (d->ig);
             }
+
+            dialog_category_properties_tweak ();
 
             ig_file_changed (d->ig);
         }
@@ -3084,6 +3107,16 @@ app_window (Ignuit *ig)
     d->m_category_popup_remove = w;
     g_signal_connect (G_OBJECT(w), "activate",
         G_CALLBACK(cb_m_remove_category), d);
+
+    w = glade_xml_get_widget (glade_xml, "m_category_properties");
+    d->m_category_properties = w;
+    g_signal_connect (G_OBJECT(w), "activate",
+        G_CALLBACK(cb_m_category_properties), d);
+
+    w = glade_xml_get_widget (glade_xml, "m_category_popup_properties");
+    d->m_category_popup_properties = w;
+    g_signal_connect (G_OBJECT(w), "activate",
+        G_CALLBACK(cb_m_category_properties), d);
 
     w = glade_xml_get_widget (glade_xml, "m_category_popup_toggle_fixed_order");
     d->m_category_popup_toggle_fixed_order = w;
