@@ -270,8 +270,12 @@ main (int argc, char *argv[])
     bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
     textdomain (GETTEXT_PACKAGE);
 
+#if 0
+	/* g_thread_init has been deprecated since version 2.32 and should not
+	   be used in newly-written code. This function is no longer necessary. */
     if (!g_thread_supported ())
         g_thread_init (NULL);
+#endif
 
     context = g_option_context_new (PACKAGE);
     gstreamer_group = gst_init_get_option_group ();

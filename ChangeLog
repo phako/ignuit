@@ -1,4 +1,39 @@
 
+2015-05-18  Tim Musson  <trmusson@gmail.com>
+
+    * configure.ac:
+      - Renamed from configure.in
+      - Version to 2.24.0
+      - Require intltool >= 0.50.0
+
+    * src/Makefile.am: Replaced INCLUDES with AM_CPPFLAGS.
+
+    * depcomp, install-sh, mkinstalldirs, INSTALL: Latest from gnulib.
+    * gnome-doc-utils.make: Updated from gnome-doc-utils 0.20.10
+    * configure: Regenerated using autoconf 2.69.
+
+    * main.c (main):
+      Removed deprecated call to g_thread_init.
+
+    * file.c (file_free):
+      Use GINT_TO_POINTER() rather than (gpointer).
+
+    * main.h, app-window.c, dialog-quiz.c, data/glade/main.glade:
+      A new "Quiz in Order" option in the Quiz menu can be used to disable
+      shuffling. The cards are tested in the order listed in the card pane.
+
+    * card.h, card.c, fileio.c, dialog-quiz.c, app-window.c,
+      data/glade/main.glade:
+      A new fixed_order flag lets cards remain in user-arranged order,
+      overriding ignuit's default of moving difficult cards to the top.
+      The toggle is located in the category pane's context menu.
+
+    * app-window.c (app_window_update_title):
+      Use the deck title, if available, rather than the filename.
+
+    * help/C/ignuit.xml: Described new options in manual.
+
+
 2012-02-27  Tim Musson  <trmusson@gmail.com>
 
     * configure.in:
@@ -387,7 +422,7 @@
 
 -----
 
-    Copyright (C) 2008, 2009, 2012 Timothy Richard Musson
+    Copyright (C) 2008, 2009, 2012, 2015 Timothy Richard Musson
 
     Copying and distribution of this file, with or without modification,
     are permitted provided the copyright notice and this notice are

@@ -1,7 +1,7 @@
 /* ignuit - Educational software for the GNOME, following the Leitner
  * flash-card system.
  *
- * Copyright (C) 2008, 2009 Timothy Richard Musson
+ * Copyright (C) 2008, 2009, 2015 Timothy Richard Musson
  *
  * Email: <trmusson@gmail.com>
  * WWW:   http://homepages.ihug.co.nz/~trmusson/programs.html#ignuit
@@ -189,6 +189,11 @@ start_element_handler (GMarkupParseContext *context,
             cat = category_new (s);
             file_add_category (parser->file, cat);
             file_set_current_category (parser->file, cat);
+
+            s = attr_value ("order", attribute_names, attribute_values);
+            if (s != NULL) {
+                category_set_fixed_order (cat, strcmp (s, "fixed") == 0);
+            }
 
         }
         else {
@@ -508,8 +513,12 @@ write_category_xml (FILE *fp, Category *cat)
 
 
     s = g_markup_printf_escaped ("%s", category_get_title (cat));
-    fprintf (fp, "<category title='%s'>\n", s);
+    fprintf (fp, "<category title='%s'", s);
     g_free (s);
+
+    if (category_is_fixed_order (cat))
+        fprintf (fp, " order='fixed'");
+    fprintf (fp, ">\n");
 
     for (cur = category_get_cards (cat); cur != NULL; cur = cur->next)
         write_card_xml (fp, CARD(cur));

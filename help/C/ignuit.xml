@@ -2,9 +2,9 @@
 <!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
 "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
   <!ENTITY legal SYSTEM "legal.xml">
-  <!ENTITY appversion "0.0.16">
-  <!ENTITY manrevision "1.9">
-  <!ENTITY date "November 5th, 2009">
+  <!ENTITY appversion "0.24.0">
+  <!ENTITY manrevision "1.10">
+  <!ENTITY date "May 18th, 2015">
   <!ENTITY app "Ignuit">
   <!-- Information about the entities
        The legal.xml file contains legal information.
@@ -28,7 +28,7 @@
     </abstract>
 
     <copyright>
-      <year>2009</year>
+      <year>2015</year>
       <holder>Timothy Musson</holder>
     </copyright>
 
@@ -294,6 +294,7 @@
 
       <tip><para>If you accidentally remove a card, you can retrieve it via the <guilabel>Edit</guilabel> menu's <guilabel>Recently Removed Cards</guilabel> option. The removed card can then be dragged to the category of your choice.</para></tip>
       <tip><para>You can specify which columns are shown in the card pane by right-clicking on the column titles.</para></tip>
+      <tip><para>By default the program manages the order of the cards in the card pane itself, moving difficult cards to the top of the window. To prevent this, right-click on relevant category titles and select <guilabel>Preserve Card Order</guilabel>. </para></tip>
 
     </sect2>
 
@@ -675,6 +676,13 @@
         </listitem>
       </varlistentry>
 
+      <varlistentry>
+        <term><guilabel>Quiz in Order</guilabel></term>
+        <listitem>
+          <para>Checking this box prevents the cards from being shuffled. During the quiz they'll be presented in the order listed in the card pane.</para>
+        </listitem>
+      </varlistentry>
+
     </variablelist>
 
   </sect1>
@@ -1007,7 +1015,9 @@ lines"
         <listitem><para>Nested category tree.</para></listitem>
         <listitem><para>Ability to select multiple categories.</para></listitem>
         <listitem><para>Merged editor and quiz window.</para></listitem>
-        <listitem><para>WYSIWYG editing.</para></listitem>
+        <listitem><para>WYSIWYG or wiki-like editing.</para></listitem>
+        <listitem><para>Improved trash management.</para></listitem>
+        <listitem><para>Better multimedia support.</para></listitem>
         <listitem><para>Dariusz Laska's alternative scheduling system as a preference option.</para></listitem>
       </itemizedlist>
 

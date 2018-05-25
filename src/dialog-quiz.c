@@ -1,7 +1,7 @@
 /* ignuit - Educational software for the GNOME, following the Leitner
  * flash-card system.
  *
- * Copyright (C) 2008, 2009 Timothy Richard Musson
+ * Copyright (C) 2008, 2009, 2015 Timothy Richard Musson
  *
  * Email: <trmusson@gmail.com>
  * WWW:   http://homepages.ihug.co.nz/~trmusson/programs.html#ignuit
@@ -259,7 +259,9 @@ get_quizitems (Dialog *d, GRand *grand)
     if (!cards) { return NULL; }
 
     quizitems = quizitems_from_cards (cards, &d->ig->quizinfo);
-    quizitems = shuffle_quizitems (grand, quizitems);
+    if (!d->ig->quizinfo.in_order) {
+        quizitems = shuffle_quizitems (grand, quizitems);
+    }
 
     switch (d->ig->quizinfo.face_selection) {
     case QUIZ_FACE_BACK:
@@ -295,8 +297,12 @@ store_quiz_results (Dialog *d, gboolean store_statistics)
                         &d->date_tested, d->time_tested, QUIZITEM(cur)->known);
 
             /* Move cards marked as "unknown" to the top in their categories. */
-            if (!QUIZITEM(cur)->known)
-                card_to_top (QCARD(cur));
+            if (!QUIZITEM(cur)->known) {
+                Card *c = QCARD(cur);
+                if (!category_is_fixed_order (card_get_category(c))) {
+                    card_to_top (c);
+                }
+            }
 
             ig_file_changed (d->ig);
 

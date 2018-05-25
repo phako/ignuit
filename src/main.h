@@ -97,6 +97,7 @@ struct _QuizInfo {
     QuizSelectCategories  category_selection;
     QuizSelectCards       card_selection;
     QuizSelectFace        face_selection;
+    gboolean              in_order;
 
 };
 

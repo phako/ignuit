@@ -1,7 +1,7 @@
 /* ignuit - Educational software for the GNOME, following the Leitner
  * flash-card system.
  *
- * Copyright (C) 2008, 2009, 2012 Timothy Richard Musson
+ * Copyright (C) 2008, 2009, 2012, 2015 Timothy Richard Musson
  *
  * Email: <trmusson@gmail.com>
  * WWW:   http://homepages.ihug.co.nz/~trmusson/programs.html#ignuit
@@ -86,6 +86,8 @@ typedef struct {
     GtkWidget        *r_quiz_face_selection;
     GSList           *quiz_face_group;
 
+    GtkWidget        *m_quiz_in_order;
+
     GtkWidget        *b_remove_category;
     GtkWidget        *b_edit_card;
     GtkWidget        *b_add_card;
@@ -94,6 +96,7 @@ typedef struct {
     GtkWidget        *popup_menu_category;
     GtkWidget        *m_category_popup_rename;
     GtkWidget        *m_category_popup_remove;
+    GtkWidget        *m_category_popup_toggle_fixed_order;
 
     GtkWidget        *popup_menu_card;
     GtkWidget        *m_card_popup_add;
@@ -368,17 +371,24 @@ app_window_update_title (Ignuit *ig)
     const gchar *fname;
     gchar *s, *title;
 
-    if ((fname = file_get_filename (ig->file)) != NULL)
+    if ((fname = file_get_title (ig->file)) != NULL) {
+        s = g_strdup (fname);
+    }
+    else if ((fname = file_get_filename (ig->file)) != NULL) {
         s = g_filename_display_basename (fname);
-    else
+    }
+    else {
         s = g_strdup ("i GNU it");
+    }
 
     changed = file_get_changed (ig->file);
 
-    if (changed)
+    if (changed) {
         title = g_strdup_printf ("*%s", s);
-    else
+    }
+    else {
         title = g_strdup (s);
+    }
 
     gtk_window_set_title (GTK_WINDOW(ig->app), title);
 
@@ -2026,6 +2036,33 @@ cb_m_remove_category (GtkWidget *widget, AppWin *d)
 
 
 static void
+cb_m_category_toggle_fixed_order (GtkWidget *widget, AppWin *d)
+{
+    GtkTreeModel *model;
+    GtkTreeIter iter;
+
+    if (gtk_tree_selection_get_selected (d->sel_categories, &model, &iter)) {
+
+        GList *item, *next;
+        Category *cat;
+        gboolean fixed;
+
+        gtk_tree_model_get (model, &iter, COLUMN_CATEGORY_DATA, &item, -1);
+        if (item == NULL) {
+            return;
+        }
+
+        cat = CATEGORY(item);
+
+        fixed = gtk_check_menu_item_get_active (GTK_CHECK_MENU_ITEM(widget));
+
+        category_set_fixed_order (cat, fixed);
+        ig_file_changed (d->ig);
+    }
+}
+
+
+static void
 cb_m_select_all (GtkWidget *widget, AppWin *d)
 {
     GtkTreeSelection *sel;
@@ -2272,6 +2309,13 @@ cb_m_start_quiz (GtkWidget *widget, AppWin *d)
 
 
 static void
+cb_m_quiz_in_order (GtkCheckMenuItem *widget, AppWin *d)
+{
+    d->ig->quizinfo.in_order = gtk_check_menu_item_get_active (widget);
+}
+
+
+static void
 cb_m_about (GtkWidget *widget, AppWin *d)
 {
     dialog_about (d->window);
@@ -2429,6 +2473,13 @@ cb_treev_category_selection (GtkTreeSelection *sel, AppWin *d)
 
         if (cat == NULL)
             return;
+
+        g_signal_handlers_block_by_func (G_OBJECT(d->m_category_popup_toggle_fixed_order),
+            G_CALLBACK(cb_m_category_toggle_fixed_order), d);
+        gtk_check_menu_item_set_active (GTK_CHECK_MENU_ITEM(d->m_category_popup_toggle_fixed_order),
+            category_is_fixed_order (cat));
+        g_signal_handlers_unblock_by_func (G_OBJECT(d->m_category_popup_toggle_fixed_order),
+            G_CALLBACK(cb_m_category_toggle_fixed_order), d);
 
         file_set_current_category (d->ig->file, cat);
         file_set_current_item (d->ig->file,
@@ -2952,6 +3003,12 @@ app_window (Ignuit *ig)
     d->quiz_face_group = gtk_radio_menu_item_get_group
         (GTK_RADIO_MENU_ITEM(d->r_quiz_face_selection));
 
+    d->m_quiz_in_order = glade_xml_get_widget (glade_xml, "m_quiz_in_order");
+    g_signal_connect (G_OBJECT(d->m_quiz_in_order), "toggled",
+        G_CALLBACK(cb_m_quiz_in_order), d);
+    gtk_check_menu_item_set_active (GTK_CHECK_MENU_ITEM(d->m_quiz_in_order),
+        FALSE);
+
     m_help = glade_xml_get_widget (glade_xml, "m_help");
     m_about = glade_xml_get_widget (glade_xml, "m_about");
 
@@ -3027,6 +3084,11 @@ app_window (Ignuit *ig)
     d->m_category_popup_remove = w;
     g_signal_connect (G_OBJECT(w), "activate",
         G_CALLBACK(cb_m_remove_category), d);
+
+    w = glade_xml_get_widget (glade_xml, "m_category_popup_toggle_fixed_order");
+    d->m_category_popup_toggle_fixed_order = w;
+    g_signal_connect (G_OBJECT(w), "toggled",
+        G_CALLBACK(cb_m_category_toggle_fixed_order), d);
 
 
     /* Card pane column headers. */

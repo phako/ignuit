@@ -1,6 +1,6 @@
 /* file.h
  *
- * Copyright (C) 2008, 2009 Timothy Richard Musson
+ * Copyright (C) 2008, 2009, 2015 Timothy Richard Musson
  *
  * Email: <trmusson@gmail.com>
  * WWW:   http://homepages.ihug.co.nz/~trmusson/programs.html#ignuit

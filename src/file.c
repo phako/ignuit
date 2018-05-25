@@ -1,7 +1,7 @@
 /* ignuit - Educational software for the GNOME, following the Leitner
  * flash-card system.
  *
- * Copyright (C) 2008, 2009 Timothy Richard Musson
+ * Copyright (C) 2008, 2009, 2015 Timothy Richard Musson
  *
  * Email: <trmusson@gmail.com>
  * WWW:   http://homepages.ihug.co.nz/~trmusson/programs.html#ignuit
@@ -92,7 +92,7 @@ file_free (File *f, gboolean free_cards)
 
     if (f->categories != NULL) {
         g_list_foreach (f->categories, (GFunc)category_free,
-            (gpointer)free_cards);
+            GINT_TO_POINTER(free_cards));
         g_list_free (f->categories);
     }
 
